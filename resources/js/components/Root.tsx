@@ -1,19 +1,16 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from "react-redux";
+import {createStore} from "redux";
+import {NavigationCore} from "./navigation/NavigationCore";
+
+const store = createStore(() => {});
+
 
 function Root() {
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">ExamasplSAe Component</div>
-
-                        <div className="card-body">I'm an REACT example component!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Provider store={store}>
+           <NavigationCore backgroundColor={"black"}/>
+        </Provider>
     );
 }
 

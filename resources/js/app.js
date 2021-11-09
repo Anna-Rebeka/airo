@@ -5,3 +5,5 @@
  */
 
 require('./components/Root.tsx');
+require('./components/navigation/NavigationCore.tsx');
+require('./components/navigation/NavigationImpl.tsx');
