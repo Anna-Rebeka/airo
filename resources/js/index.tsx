@@ -1,7 +1,10 @@
 import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import {createStore} from "redux";
-import {NavigationCore} from "./navigation/NavigationCore";
+import {NavigationCore} from "./components/navigation/NavigationCore";
+import {NavigationImpl} from "./components/navigation/NavigationImpl";
+
+import React from 'react';
 
 const store = createStore(() => {});
 
