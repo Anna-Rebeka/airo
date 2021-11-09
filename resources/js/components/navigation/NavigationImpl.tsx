@@ -1,6 +1,8 @@
 import {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import React from 'react';
+import {NavigationLink} from "./NavigationLink";
+import {NavigationLogo} from "./NavigationLogo";
 
 interface Props {
     logo: any;
@@ -34,31 +36,23 @@ let NavigationLinkItemDiv = styled.ul`
 
 `;
 
-let NavigationLinkA = styled.a`
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    text-shadow: 0 10px 16px black;
-    transition: font-size 1.3s, color 0.5s;
-    font-size: 2em;
-
-    :hover {
-        color: white;
-    }
-`
-
 export const NavigationImpl: FunctionComponent<Props> = ({
-                                                                                    children,
-                                                                                }) => {
+                                                             children,
+                                                         }) => {
+    let navigationLinks = ["ONE", "TWO", "THREE", "FOUR"];
+    let middleIndex: number = navigationLinks ? Math.floor(navigationLinks.length / 2) : 0;
     return (
         <NavigationImplDiv>
             <NavigationLinkItemDiv>
-                <NavigationLinkA>
-                    ONE
-                </NavigationLinkA>
-                <NavigationLinkA>
-                    TWO
-                </NavigationLinkA>
+                {navigationLinks.slice(0, middleIndex).map((textField: any, index: number) => (
+                        <NavigationLink key={"navigation-link-" + index} href={"/"} textField={textField}/>
+                    )
+                )}
+                <NavigationLogo logo={{url: require("../../airplane.svg"), href:"airplane"}}/>
+                {navigationLinks.slice(middleIndex, navigationLinks.length).map((textField: any, index: number) => (
+                        <NavigationLink key={"navigation-link-" + index} href={"/"} textField={textField}/>
+                    )
+                )}
             </NavigationLinkItemDiv>
             {children}
         </NavigationImplDiv>

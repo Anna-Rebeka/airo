@@ -1617,9 +1617,9 @@ __webpack_require__(/*! ./index.tsx */ "./resources/js/index.tsx");
 
 /***/ }),
 
-/***/ "./resources/js/components/navigation/NavigationCore.tsx":
+/***/ "./resources/js/components/navigation/NavigationImpl.tsx":
 /*!***************************************************************!*\
-  !*** ./resources/js/components/navigation/NavigationCore.tsx ***!
+  !*** ./resources/js/components/navigation/NavigationImpl.tsx ***!
   \***************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
@@ -1647,24 +1647,156 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.NavigationCore = void 0;
+exports.NavigationImpl = void 0;
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var Navigation = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n    position: fixed;\n    background-color: ", ";\n"], ["\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n    position: fixed;\n    background-color: ", ";\n"])), function (p) {
-  return p.backgroundColor;
-});
+var NavigationLink_1 = __webpack_require__(/*! ./NavigationLink */ "./resources/js/components/navigation/NavigationLink.tsx");
 
-var NavigationCore = function NavigationCore(props) {
-  return react_1["default"].createElement(Navigation, {
-    className: props.className,
-    backgroundColor: props.backgroundColor
-  }, props.children);
+var NavigationLogo_1 = __webpack_require__(/*! ./NavigationLogo */ "./resources/js/components/navigation/NavigationLogo.tsx");
+
+var NavigationImplDiv = styled_1["default"].nav(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: black;\n    top: 0;\n    z-index: 9999;\n    position: sticky;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 80px;\n"], ["\n    background-color: black;\n    top: 0;\n    z-index: 9999;\n    position: sticky;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 80px;\n"])));
+var NavigationLinkItemDiv = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n    }\n\n"], ["\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n    }\n\n"])));
+
+var NavigationImpl = function NavigationImpl(_a) {
+  var children = _a.children;
+  var navigationLinks = ["ONE", "TWO", "THREE", "FOUR"];
+  var middleIndex = navigationLinks ? Math.floor(navigationLinks.length / 2) : 0;
+  return react_1["default"].createElement(NavigationImplDiv, null, react_1["default"].createElement(NavigationLinkItemDiv, null, navigationLinks.slice(0, middleIndex).map(function (textField, index) {
+    return react_1["default"].createElement(NavigationLink_1.NavigationLink, {
+      key: "navigation-link-" + index,
+      href: "/",
+      textField: textField
+    });
+  }), react_1["default"].createElement(NavigationLogo_1.NavigationLogo, {
+    logo: {
+      url: __webpack_require__(/*! ../../airplane.svg */ "./resources/js/airplane.svg"),
+      href: "airplane"
+    }
+  }), navigationLinks.slice(middleIndex, navigationLinks.length).map(function (textField, index) {
+    return react_1["default"].createElement(NavigationLink_1.NavigationLink, {
+      key: "navigation-link-" + index,
+      href: "/",
+      textField: textField
+    });
+  })), children);
 };
 
-exports.NavigationCore = NavigationCore;
+exports.NavigationImpl = NavigationImpl;
+var templateObject_1, templateObject_2;
+
+/***/ }),
+
+/***/ "./resources/js/components/navigation/NavigationLink.tsx":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/navigation/NavigationLink.tsx ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.NavigationLink = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var NavigationLinkLi = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    list-style: none;\n    display: block;\n    padding: 8px 20px;\n"], ["\n    list-style: none;\n    display: block;\n    padding: 8px 20px;\n"])));
+var NavigationLinkA = styled_1["default"].a(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    cursor: pointer;\n    color: white;\n    text-transform: uppercase;\n    text-decoration: none;\n    letter-spacing: 0.07em;\n    display: inline-block;\n    transition: font-size 1.3s, color 0.5s;\n    font-size: 2em;\n\n    :after {\n        background: none repeat scroll 0 0 white;\n        content: \"\";\n        display: block;\n        height: 2px;\n        width: ", ";\n        transition: width 0.3s ease 0s, left 0.3s ease 0s;\n    }\n\n    :hover {\n        color: white;\n    }\n\n    :hover:after {\n        width: 100%;\n        left: 0;\n    }\n"], ["\n    cursor: pointer;\n    color: white;\n    text-transform: uppercase;\n    text-decoration: none;\n    letter-spacing: 0.07em;\n    display: inline-block;\n    transition: font-size 1.3s, color 0.5s;\n    font-size: 2em;\n\n    :after {\n        background: none repeat scroll 0 0 white;\n        content: \"\";\n        display: block;\n        height: 2px;\n        width: ", ";\n        transition: width 0.3s ease 0s, left 0.3s ease 0s;\n    }\n\n    :hover {\n        color: white;\n    }\n\n    :hover:after {\n        width: 100%;\n        left: 0;\n    }\n"])), function (p) {
+  return p.activated ? 100 : 0;
+});
+
+var NavigationLink = function NavigationLink(_a) {
+  var href = _a.href,
+      className = _a.className,
+      textField = _a.textField;
+  return react_1["default"].createElement(NavigationLinkLi, null, react_1["default"].createElement(NavigationLinkA, {
+    activated: textField == "ONE",
+    href: href,
+    className: className
+  }, textField));
+};
+
+exports.NavigationLink = NavigationLink;
+var templateObject_1, templateObject_2;
+
+/***/ }),
+
+/***/ "./resources/js/components/navigation/NavigationLogo.tsx":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/navigation/NavigationLogo.tsx ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.NavigationLogo = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var NavigationLogoImg = styled_1["default"].img(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    letter-spacing: 0.15em;\n    text-transform: uppercase;\n    text-decoration: none;\n    display: block;\n    padding: 8px 20px;\n    width: 3em;\n    text-shadow: 0 10px 16px black;\n    height: auto;\n    cursor: pointer;\n"], ["\n    letter-spacing: 0.15em;\n    text-transform: uppercase;\n    text-decoration: none;\n    display: block;\n    padding: 8px 20px;\n    width: 3em;\n    text-shadow: 0 10px 16px black;\n    height: auto;\n    cursor: pointer;\n"])));
+
+var NavigationLogo = function NavigationLogo(_a) {
+  var logo = _a.logo,
+      className = _a.className;
+  return react_1["default"].createElement(NavigationLogoImg, {
+    onLoad: function onLoad() {},
+    src: logo && logo.url["default"],
+    alt: logo && logo.alt,
+    onClick: function onClick() {},
+    className: className
+  });
+};
+
+exports.NavigationLogo = NavigationLogo;
 var templateObject_1;
 
 /***/ }),
@@ -1694,17 +1826,17 @@ var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react
 
 var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 
-var NavigationCore_1 = __webpack_require__(/*! ./components/navigation/NavigationCore */ "./resources/js/components/navigation/NavigationCore.tsx");
-
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var NavigationImpl_1 = __webpack_require__(/*! ./components/navigation/NavigationImpl */ "./resources/js/components/navigation/NavigationImpl.tsx");
 
 var store = (0, redux_1.createStore)(function () {});
 
 function Root() {
   return react_1["default"].createElement(react_redux_1.Provider, {
     store: store
-  }, react_1["default"].createElement(NavigationCore_1.NavigationCore, {
-    backgroundColor: "black"
+  }, react_1["default"].createElement(NavigationImpl_1.NavigationImpl, {
+    logo: null
   }));
 }
 
@@ -1728,6 +1860,21 @@ if (document.getElementById('root')) {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 __webpack_require__(/*! ./index.tsx */ "./resources/js/index.tsx");
+
+/***/ }),
+
+/***/ "./resources/js/airplane.svg":
+/*!***********************************!*\
+  !*** ./resources/js/airplane.svg ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/airplane.svg?288e203b9b6e13b79d47253e1ae3a8b5");
 
 /***/ }),
 

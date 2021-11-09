@@ -1,10 +1,9 @@
 import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import {createStore} from "redux";
-import {NavigationCore} from "./components/navigation/NavigationCore";
-import {NavigationImpl} from "./components/navigation/NavigationImpl";
 
 import React from 'react';
+import {NavigationImpl} from "./components/navigation/NavigationImpl";
 
 const store = createStore(() => {});
 
@@ -12,7 +11,7 @@ const store = createStore(() => {});
 function Root() {
     return (
         <Provider store={store}>
-           <NavigationCore backgroundColor={"black"}/>
+           <NavigationImpl logo={null}/>
         </Provider>
     );
 }
