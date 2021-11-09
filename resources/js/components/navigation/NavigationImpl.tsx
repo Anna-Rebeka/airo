@@ -1,6 +1,6 @@
 import {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-
+import React from 'react';
 
 interface Props {
     logo: any;
