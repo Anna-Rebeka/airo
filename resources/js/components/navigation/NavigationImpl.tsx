@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import React from 'react';
 import {NavigationLink} from "./NavigationLink";
 import {NavigationLogo} from "./NavigationLogo";
+import {ButtonHref} from "../button/ButtonHref";
 
 interface Props {
     logo: any;
@@ -11,6 +12,7 @@ interface Props {
 
 let NavigationImplDiv = styled.nav`
     background-color: black;
+    box-shadow: 2px 3px 8px 1px black;
     top: 0;
     z-index: 9999;
     position: sticky;
@@ -33,8 +35,19 @@ let NavigationLinkItemDiv = styled.ul`
         flex-direction: row;
         flex-wrap: nowrap;
     }
-
 `;
+
+let NavigationButtonsWrapper = styled.li`
+    position: absolute;
+    right: 5%;
+    list-style: none;
+`
+
+let NavigationButtons = styled.ul`
+    display: flex;
+    padding: 0;
+    margin: 0;
+`
 
 export const NavigationImpl: FunctionComponent<Props> = ({
                                                              children,
@@ -48,11 +61,17 @@ export const NavigationImpl: FunctionComponent<Props> = ({
                         <NavigationLink key={"navigation-link-" + index} href={"/"} textField={textField}/>
                     )
                 )}
-                <NavigationLogo logo={{url: require("../../airplane.svg"), href:"airplane"}}/>
+                <NavigationLogo logo={{url: require("../../airplane.svg"), href: "airplane"}}/>
                 {navigationLinks.slice(middleIndex, navigationLinks.length).map((textField: any, index: number) => (
                         <NavigationLink key={"navigation-link-" + index} href={"/"} textField={textField}/>
                     )
                 )}
+                <NavigationButtonsWrapper>
+                    <NavigationButtons>
+                        <ButtonHref key={"navigation-link-login"} href={"/login"} text={"Log in"}/>
+                        <ButtonHref key={"navigation-link-signup"} href={"/signup"} text={"Sign up"}/>
+                    </NavigationButtons>
+                </NavigationButtonsWrapper>
             </NavigationLinkItemDiv>
             {children}
         </NavigationImplDiv>

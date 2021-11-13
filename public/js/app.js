@@ -1599,6 +1599,32 @@ var weakMemoize = function weakMemoize(func) {
 
 /***/ }),
 
+/***/ "./resources/js/BasicUtils.tsx":
+/*!*************************************!*\
+  !*** ./resources/js/BasicUtils.tsx ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.increaseIndex = void 0;
+
+function increaseIndex(nmb, documents) {
+  if (!documents || nmb + 1 === Object.values(documents).length) {
+    return 0;
+  }
+
+  return nmb + 1;
+}
+
+exports.increaseIndex = increaseIndex;
+
+/***/ }),
+
 /***/ "./resources/js/app.tsx":
 /*!******************************!*\
   !*** ./resources/js/app.tsx ***!
@@ -1614,6 +1640,234 @@ var weakMemoize = function weakMemoize(func) {
  */
 
 __webpack_require__(/*! ./index.tsx */ "./resources/js/index.tsx");
+
+/***/ }),
+
+/***/ "./resources/js/components/button/ButtonHref.tsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/button/ButtonHref.tsx ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.ButtonHref = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var ButtonCoreButton = styled_1["default"].a(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  text-decoration: none;\n  border: 2px solid white;\n  color: black;\n  font-size: 1.05em;\n  cursor: pointer;\n  border-radius: 30px;\n  background-color: white;\n  text-align: center;\n  vertical-align: center;\n  padding: 0.5rem 1rem;\n  font-family: 'Arial', cursive;\n  margin: 0.4em 0.5em;\n  box-shadow: 2px 3px 8px 1px black;\n\n  :hover {\n    background-color: black;\n    color: white;\n  }\n\n  @media (min-width: 772px) {\n    font-size: 1.25em;\n  }\n\n  @media (min-width: 992px) {\n    font-size: 1.30em;\n  }\n\n  @media (min-width: 1280px) {\n    font-size: 1.35em;\n  }\n\n  @media (min-width: 1920px) {\n    font-size: 1.40em;\n  }\n\n\n  transition: background-color 0.2s, color 0.3s;\n"], ["\n  text-decoration: none;\n  border: 2px solid white;\n  color: black;\n  font-size: 1.05em;\n  cursor: pointer;\n  border-radius: 30px;\n  background-color: white;\n  text-align: center;\n  vertical-align: center;\n  padding: 0.5rem 1rem;\n  font-family: 'Arial', cursive;\n  margin: 0.4em 0.5em;\n  box-shadow: 2px 3px 8px 1px black;\n\n  :hover {\n    background-color: black;\n    color: white;\n  }\n\n  @media (min-width: 772px) {\n    font-size: 1.25em;\n  }\n\n  @media (min-width: 992px) {\n    font-size: 1.30em;\n  }\n\n  @media (min-width: 1280px) {\n    font-size: 1.35em;\n  }\n\n  @media (min-width: 1920px) {\n    font-size: 1.40em;\n  }\n\n\n  transition: background-color 0.2s, color 0.3s;\n"])));
+
+var ButtonHref = function ButtonHref(_a) {
+  var text = _a.text,
+      href = _a.href,
+      className = _a.className,
+      children = _a.children;
+  return react_1["default"].createElement(ButtonCoreButton, {
+    href: href && href,
+    className: className
+  }, text && text, children);
+};
+
+exports.ButtonHref = ButtonHref;
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselImg.tsx":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselImg.tsx ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.CarouselImg = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var CarouselImgOpacityImg = styled_1["default"].img(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: absolute;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    opacity: ", ";\n    transition: opacity 1s linear;\n"], ["\n    position: absolute;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    opacity: ", ";\n    transition: opacity 1s linear;\n"])), function (p) {
+  return p.fullOpacity ? 1 : 0;
+});
+
+var CarouselImg = function CarouselImg(_a) {
+  var src = _a.src,
+      alt = _a.alt,
+      fullOpacity = _a.fullOpacity,
+      className = _a.className,
+      children = _a.children;
+  return react_1["default"].createElement(CarouselImgOpacityImg, {
+    fullOpacity: fullOpacity,
+    className: className,
+    src: src,
+    alt: alt
+  }, children);
+};
+
+exports.CarouselImg = CarouselImg;
+var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/js/components/carousel/CarouselImpl.tsx":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/carousel/CarouselImpl.tsx ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.CarouselImpl = void 0;
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
+
+var CarouselImg_1 = __webpack_require__(/*! ./CarouselImg */ "./resources/js/components/carousel/CarouselImg.tsx");
+
+var CarouselCoreDiv = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    position: relative;\n    width: 100%;\n    height: 93vh;\n"], ["\n    display: flex;\n    position: relative;\n    width: 100%;\n    height: 93vh;\n"])));
+var Text = styled_1["default"].p(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    position: absolute;\n    top: 30%;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n    width: 80%;\n    font-size: 4em;\n    color: black;\n    text-align: center;\n"], ["\n    position: absolute;\n    top: 30%;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n    width: 80%;\n    font-size: 4em;\n    color: black;\n    text-align: center;\n"])));
+
+var CarouselImpl = function CarouselImpl(_a) {
+  var className = _a.className,
+      images = _a.images,
+      imageTickInterval = _a.imageTickInterval,
+      children = _a.children;
+
+  var _b = (0, react_1.useState)(0),
+      imageIndex = _b[0],
+      setImageIndex = _b[1];
+
+  (0, react_1.useEffect)(function () {
+    var interval = setInterval(function () {
+      setImageIndex(function (imgIndex) {
+        return (0, BasicUtils_1.increaseIndex)(imgIndex, images);
+      });
+    }, imageTickInterval);
+    return function () {
+      clearInterval(interval);
+    };
+  }, [images]);
+  console.log(images);
+  return react_1["default"].createElement(CarouselCoreDiv, {
+    className: className
+  }, images && images.map(function (image, index) {
+    return react_1["default"].createElement(CarouselImg_1.CarouselImg, {
+      fullOpacity: imageIndex === index,
+      src: image && image.url["default"],
+      alt: "carousel-img-" + index,
+      key: "carousel-img-" + index
+    });
+  }), react_1["default"].createElement(Text, null, "Find a holiday of your dreams."), children);
+};
+
+exports.CarouselImpl = CarouselImpl;
+var templateObject_1, templateObject_2;
 
 /***/ }),
 
@@ -1657,8 +1911,12 @@ var NavigationLink_1 = __webpack_require__(/*! ./NavigationLink */ "./resources/
 
 var NavigationLogo_1 = __webpack_require__(/*! ./NavigationLogo */ "./resources/js/components/navigation/NavigationLogo.tsx");
 
-var NavigationImplDiv = styled_1["default"].nav(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: black;\n    top: 0;\n    z-index: 9999;\n    position: sticky;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 80px;\n"], ["\n    background-color: black;\n    top: 0;\n    z-index: 9999;\n    position: sticky;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 80px;\n"])));
-var NavigationLinkItemDiv = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n    }\n\n"], ["\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n    }\n\n"])));
+var ButtonHref_1 = __webpack_require__(/*! ../button/ButtonHref */ "./resources/js/components/button/ButtonHref.tsx");
+
+var NavigationImplDiv = styled_1["default"].nav(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: black;\n    box-shadow: 2px 3px 8px 1px black;\n    top: 0;\n    z-index: 9999;\n    position: sticky;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 80px;\n"], ["\n    background-color: black;\n    box-shadow: 2px 3px 8px 1px black;\n    top: 0;\n    z-index: 9999;\n    position: sticky;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 80px;\n"])));
+var NavigationLinkItemDiv = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n    }\n"], ["\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n    }\n"])));
+var NavigationButtonsWrapper = styled_1["default"].li(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    position: absolute;\n    right: 5%;\n    list-style: none;\n"], ["\n    position: absolute;\n    right: 5%;\n    list-style: none;\n"])));
+var NavigationButtons = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    padding: 0;\n    margin: 0;\n"], ["\n    display: flex;\n    padding: 0;\n    margin: 0;\n"])));
 
 var NavigationImpl = function NavigationImpl(_a) {
   var children = _a.children;
@@ -1681,11 +1939,19 @@ var NavigationImpl = function NavigationImpl(_a) {
       href: "/",
       textField: textField
     });
-  })), children);
+  }), react_1["default"].createElement(NavigationButtonsWrapper, null, react_1["default"].createElement(NavigationButtons, null, react_1["default"].createElement(ButtonHref_1.ButtonHref, {
+    key: "navigation-link-login",
+    href: "/login",
+    text: "Log in"
+  }), react_1["default"].createElement(ButtonHref_1.ButtonHref, {
+    key: "navigation-link-signup",
+    href: "/signup",
+    text: "Sign up"
+  })))), children);
 };
 
 exports.NavigationImpl = NavigationImpl;
-var templateObject_1, templateObject_2;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
 
 /***/ }),
 
@@ -1830,6 +2096,8 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var NavigationImpl_1 = __webpack_require__(/*! ./components/navigation/NavigationImpl */ "./resources/js/components/navigation/NavigationImpl.tsx");
 
+var CarouselImpl_1 = __webpack_require__(/*! ./components/carousel/CarouselImpl */ "./resources/js/components/carousel/CarouselImpl.tsx");
+
 var store = (0, redux_1.createStore)(function () {});
 
 function Root() {
@@ -1837,6 +2105,15 @@ function Root() {
     store: store
   }, react_1["default"].createElement(NavigationImpl_1.NavigationImpl, {
     logo: null
+  }), react_1["default"].createElement(CarouselImpl_1.CarouselImpl, {
+    imageTickInterval: 3500,
+    images: [{
+      url: __webpack_require__(/*! ../../public/images/carousel0.jpg */ "./public/images/carousel0.jpg")
+    }, {
+      url: __webpack_require__(/*! ../../public/images/carousel1.jpg */ "./public/images/carousel1.jpg")
+    }, {
+      url: __webpack_require__(/*! ../../public/images/carousel2.jpg */ "./public/images/carousel2.jpg")
+    }]
   }));
 }
 
@@ -1860,6 +2137,51 @@ if (document.getElementById('root')) {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 __webpack_require__(/*! ./index.tsx */ "./resources/js/index.tsx");
+
+/***/ }),
+
+/***/ "./public/images/carousel0.jpg":
+/*!*************************************!*\
+  !*** ./public/images/carousel0.jpg ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/carousel0.jpg?b2460e9fc9eef44c30978da93a85b741");
+
+/***/ }),
+
+/***/ "./public/images/carousel1.jpg":
+/*!*************************************!*\
+  !*** ./public/images/carousel1.jpg ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/carousel1.jpg?1f5f0279b1eeee9eeb762c3464169c5d");
+
+/***/ }),
+
+/***/ "./public/images/carousel2.jpg":
+/*!*************************************!*\
+  !*** ./public/images/carousel2.jpg ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/carousel2.jpg?cb717ef887fba8a727734670cee8ea31");
 
 /***/ }),
 
