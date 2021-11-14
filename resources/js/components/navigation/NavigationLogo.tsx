@@ -12,10 +12,17 @@ let NavigationLogoImg = styled.img`
     text-decoration: none;
     display: block;
     padding: 8px 20px;
-    width: 3em;
-    text-shadow: 0 10px 16px black;
+    width: 50px;
     height: auto;
     cursor: pointer;
+
+    @media (min-width: 772px) {
+        width: 60px;
+    }
+
+    @media (min-width: 992px) {
+        width: 70px;
+    }
 `
 
 export const NavigationLogo: FunctionComponent<NavigationLogoProps> = ({

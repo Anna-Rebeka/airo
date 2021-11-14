@@ -2,6 +2,8 @@ import React, {FunctionComponent, useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import {increaseIndex} from "../../BasicUtils";
 import {CarouselImg} from "./CarouselImg";
+import AutoCompleteInput from "../input/auto-complete/AutoCompleteInput";
+import {ButtonHref} from "../button/ButtonHref";
 
 interface Props {
     className?: string;
@@ -17,16 +19,40 @@ let CarouselCoreDiv = styled.div`
 `;
 
 let Text = styled.p`
-    position: absolute;
-    top: 30%;
-    left: 0;
-    right: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
-    font-size: 4em;
+    max-width: 80%;
+    font-size: 3em;
     color: black;
     text-align: center;
+
+    @media (min-width: 772px) {
+        font-size: 4em;
+    }
+`
+
+let WrapperCenterDiv = styled.div`
+    top: 20%;
+    position: absolute;
+    width: 100%;
+`
+
+let WrapperInput = styled.div`
+    display: flex;
+    margin-right: 3em;
+    flex-direction: column;
+`;
+
+let WrapperParagraph = styled.p`
+    color: black;
+`;
+
+let InputGroup = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 `
 
 export const CarouselImpl: FunctionComponent<Props> = ({
@@ -46,7 +72,6 @@ export const CarouselImpl: FunctionComponent<Props> = ({
         }
     }, [images]);
 
-    console.log(images);
     return (
         <CarouselCoreDiv className={className}>
             {
@@ -60,9 +85,30 @@ export const CarouselImpl: FunctionComponent<Props> = ({
                     )
                 )
             }
-            <Text>
-                Find a holiday of your dreams.
-            </Text>
+            <WrapperCenterDiv>
+                <Text>
+                    Find a holiday of your dreams.
+                </Text>
+
+                <InputGroup>
+                    <WrapperInput>
+                        <WrapperParagraph>From</WrapperParagraph>
+                        <AutoCompleteInput suggestions={["abc", "axbc", "acdbc", "aasbc", "xdy"]}/>
+                    </WrapperInput>
+                    <WrapperInput>
+                        <WrapperParagraph>To</WrapperParagraph>
+                        <AutoCompleteInput suggestions={["abc", "axbc", "acdbc", "aasbc", "xdy"]}/>
+                    </WrapperInput>
+                    <WrapperInput>
+                        <WrapperParagraph>No. of days</WrapperParagraph>
+                        <AutoCompleteInput suggestions={["abc", "axbc", "acdbc", "aasbc", "xdy"]}/>
+                    </WrapperInput>
+                    <ButtonHref href={"/search"} text={"Search"}/>
+
+                </InputGroup>
+
+
+            </WrapperCenterDiv>
             {children}
         </CarouselCoreDiv>
     );

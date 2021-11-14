@@ -22,10 +22,10 @@ let NavigationImplDiv = styled.nav`
     min-height: 80px;
 `
 
-let NavigationLinkItemDiv = styled.ul`
-    display: flex;
+let NavigationLinkItemDiv = styled.ul<{ direction: string }>`
+    display: none;
     align-items: center;
-    justify-content: center;
+    justify-content: ${p => p.direction === "END" ? "flex-end" : "flex-start"};
     flex-direction: column;
     margin: 0;
     padding: 0;
@@ -34,12 +34,11 @@ let NavigationLinkItemDiv = styled.ul`
     @media (min-width: 772px) {
         flex-direction: row;
         flex-wrap: nowrap;
+        display: flex;
     }
 `;
 
 let NavigationButtonsWrapper = styled.li`
-    position: absolute;
-    right: 5%;
     list-style: none;
 `
 
@@ -56,12 +55,15 @@ export const NavigationImpl: FunctionComponent<Props> = ({
     let middleIndex: number = navigationLinks ? Math.floor(navigationLinks.length / 2) : 0;
     return (
         <NavigationImplDiv>
-            <NavigationLinkItemDiv>
+            <NavigationLinkItemDiv direction={"END"}>
                 {navigationLinks.slice(0, middleIndex).map((textField: any, index: number) => (
                         <NavigationLink key={"navigation-link-" + index} href={"/"} textField={textField}/>
                     )
                 )}
-                <NavigationLogo logo={{url: require("../../airplane.svg"), href: "airplane"}}/>
+            </NavigationLinkItemDiv>
+            <NavigationLogo logo={{url: require("../../airplane.svg"), href: "airplane"}}/>
+
+            <NavigationLinkItemDiv direction={"START"}>
                 {navigationLinks.slice(middleIndex, navigationLinks.length).map((textField: any, index: number) => (
                         <NavigationLink key={"navigation-link-" + index} href={"/"} textField={textField}/>
                     )

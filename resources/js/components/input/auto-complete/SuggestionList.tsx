@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 
 interface Props {
     filteredSuggestions: any;
+    inputListReference: any;
+    onClick: any
 }
 
 let Wrapper = styled.ul`
@@ -25,14 +27,15 @@ let ElementInList = styled.li`
 
 `
 
-export const SuggestionList: FunctionComponent<Props> = ({filteredSuggestions}) => {
+export const SuggestionList: FunctionComponent<Props> = ({filteredSuggestions, inputListReference, onClick}) => {
     return (
         <>
             {(filteredSuggestions && filteredSuggestions.length > 0) ?
                 <Wrapper>
                     {filteredSuggestions.map((suggestion: string, index: number) => (
-                            <ElementInList key={suggestion + index} onClick={() => {
-                            }}>
+                            <ElementInList ref={(ref) => {
+                                inputListReference.push(ref)
+                            }} tabIndex={0} key={suggestion + index} onClick={onClick}>
                                 {suggestion}
                             </ElementInList>
                         )
