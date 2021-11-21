@@ -5,3 +5,5 @@
  */
 
 require('./components/Example');
+require('./index.tsx');
+require('./test.tsx');
