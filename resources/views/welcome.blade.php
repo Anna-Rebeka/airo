@@ -22,7 +22,7 @@
          </style>
      </head>
      <body>
-         <div id="test">
+         <div id="root">
              
          </div>
          <script src="<?php echo e(mix('js/app.js')); ?>"></script>
