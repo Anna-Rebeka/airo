@@ -71,7 +71,7 @@ export const NavigationImpl: FunctionComponent<Props> = ({
                 <NavigationButtonsWrapper>
                     <NavigationButtons>
                         <ButtonHref key={"navigation-link-login"} href={"/login"} text={"Log in"}/>
-                        <ButtonHref key={"navigation-link-signup"} href={"/signup"} text={"Sign up"}/>
+                        <ButtonHref key={"navigation-link-signup"} href={"/register"} text={"Sign up"}/>
                     </NavigationButtons>
                 </NavigationButtonsWrapper>
             </NavigationLinkItemDiv>

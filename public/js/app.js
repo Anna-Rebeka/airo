@@ -1830,8 +1830,16 @@ var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/B
 
 var CarouselImg_1 = __webpack_require__(/*! ./CarouselImg */ "./resources/js/components/carousel/CarouselImg.tsx");
 
+var AutoCompleteInput_1 = __importDefault(__webpack_require__(/*! ../input/auto-complete/AutoCompleteInput */ "./resources/js/components/input/auto-complete/AutoCompleteInput.tsx"));
+
+var ButtonHref_1 = __webpack_require__(/*! ../button/ButtonHref */ "./resources/js/components/button/ButtonHref.tsx");
+
 var CarouselCoreDiv = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    position: relative;\n    width: 100%;\n    height: 93vh;\n"], ["\n    display: flex;\n    position: relative;\n    width: 100%;\n    height: 93vh;\n"])));
-var Text = styled_1["default"].p(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    position: absolute;\n    top: 30%;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n    width: 80%;\n    font-size: 4em;\n    color: black;\n    text-align: center;\n"], ["\n    position: absolute;\n    top: 30%;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n    width: 80%;\n    font-size: 4em;\n    color: black;\n    text-align: center;\n"])));
+var Text = styled_1["default"].p(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 80%;\n    font-size: 3em;\n    color: black;\n    text-align: center;\n\n    @media (min-width: 772px) {\n        font-size: 4em;\n    }\n"], ["\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 80%;\n    font-size: 3em;\n    color: black;\n    text-align: center;\n\n    @media (min-width: 772px) {\n        font-size: 4em;\n    }\n"])));
+var WrapperCenterDiv = styled_1["default"].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    top: 20%;\n    position: absolute;\n    width: 100%;\n"], ["\n    top: 20%;\n    position: absolute;\n    width: 100%;\n"])));
+var WrapperInput = styled_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    margin-right: 3em;\n    flex-direction: column;\n"], ["\n    display: flex;\n    margin-right: 3em;\n    flex-direction: column;\n"])));
+var WrapperParagraph = styled_1["default"].p(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    color: black;\n"], ["\n    color: black;\n"])));
+var InputGroup = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n"], ["\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n"])));
 
 var CarouselImpl = function CarouselImpl(_a) {
   var className = _a.className,
@@ -1853,7 +1861,6 @@ var CarouselImpl = function CarouselImpl(_a) {
       clearInterval(interval);
     };
   }, [images]);
-  console.log(images);
   return react_1["default"].createElement(CarouselCoreDiv, {
     className: className
   }, images && images.map(function (image, index) {
@@ -1863,10 +1870,413 @@ var CarouselImpl = function CarouselImpl(_a) {
       alt: "carousel-img-" + index,
       key: "carousel-img-" + index
     });
-  }), react_1["default"].createElement(Text, null, "Find a holiday of your dreams."), children);
+  }), react_1["default"].createElement(WrapperCenterDiv, null, react_1["default"].createElement(Text, null, "Find a holiday of your dreams."), react_1["default"].createElement(InputGroup, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
+    suggestions: ["abc", "axbc", "acdbc", "aasbc", "xdy"]
+  })), react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "To"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
+    suggestions: ["abc", "axbc", "acdbc", "aasbc", "xdy"]
+  })), react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "No. of days"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
+    suggestions: ["abc", "axbc", "acdbc", "aasbc", "xdy"]
+  })), react_1["default"].createElement(ButtonHref_1.ButtonHref, {
+    href: "/search",
+    text: "Search"
+  }))), children);
 };
 
 exports.CarouselImpl = CarouselImpl;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
+
+/***/ }),
+
+/***/ "./resources/js/components/footer/FooterImpl.tsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/footer/FooterImpl.tsx ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FooterImpl = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var FooterLinkText_1 = __webpack_require__(/*! ./FooterLinkText */ "./resources/js/components/footer/FooterLinkText.tsx");
+
+var FooterLinkIcon_1 = __webpack_require__(/*! ./FooterLinkIcon */ "./resources/js/components/footer/FooterLinkIcon.tsx");
+
+var FooterMainDiv = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: black;\n"], ["\n    background-color: black;\n"])));
+var FooterNav = styled_1["default"].nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n    justify-content: center;\n"], ["\n    display: flex;\n    align-items: center;\n    justify-content: center;\n"])));
+var FooterWrapperDiv = styled_1["default"].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    margin-right: auto;\n    margin-left: auto;\n    padding: 4.5em 3em 2.5em 3em;\n\n    max-width: 540px;\n\n    @media (min-width: 772px) {\n        max-width: 730px;\n    };\n\n    @media (min-width: 992px) {\n        max-width: 960px;\n    };\n\n    @media (min-width: 1280px) {\n        max-width: 1280px;\n    };\n\n"], ["\n    margin-right: auto;\n    margin-left: auto;\n    padding: 4.5em 3em 2.5em 3em;\n\n    max-width: 540px;\n\n    @media (min-width: 772px) {\n        max-width: 730px;\n    };\n\n    @media (min-width: 992px) {\n        max-width: 960px;\n    };\n\n    @media (min-width: 1280px) {\n        max-width: 1280px;\n    };\n\n"])));
+var FooterLinksFlexBox = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: flex-start;\n    align-items: center;\n    text-align: center;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        width: 65%;\n        justify-content: center;\n    };\n\n    @media (min-width: 992px) {\n        width: 50%;\n        justify-content: center;\n    };\n\n    @media (min-width: 1280px) {\n        width: 35%;\n        justify-content: center;\n    };\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: flex-start;\n    align-items: center;\n    text-align: center;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        width: 65%;\n        justify-content: center;\n    };\n\n    @media (min-width: 992px) {\n        width: 50%;\n        justify-content: center;\n    };\n\n    @media (min-width: 1280px) {\n        width: 35%;\n        justify-content: center;\n    };\n"])));
+var FooterIconsFlexBox = styled_1["default"].ul(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-items: center;\n    text-align: center;\n    margin: 0;\n    padding: 0;\n"], ["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-items: center;\n    text-align: center;\n    margin: 0;\n    padding: 0;\n"])));
+var Credits = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    margin: 2em;\n    text-align: center;\n    font-family: \"Arial\", serif;\n    color: white;\n"], ["\n    margin: 2em;\n    text-align: center;\n    font-family: \"Arial\", serif;\n    color: white;\n"])));
+
+var FooterImpl = function FooterImpl(_a) {
+  var textLinks = _a.textLinks,
+      iconLinks = _a.iconLinks,
+      className = _a.className,
+      children = _a.children;
+  return react_1["default"].createElement(FooterMainDiv, {
+    className: className
+  }, react_1["default"].createElement(FooterWrapperDiv, null, react_1["default"].createElement(FooterNav, null, react_1["default"].createElement(FooterLinksFlexBox, null, textLinks && textLinks.map(function (link, index) {
+    return react_1["default"].createElement(FooterLinkText_1.FooterLinkText, {
+      key: "footer-link-text-" + index,
+      link: link
+    });
+  }))), react_1["default"].createElement(FooterIconsFlexBox, null, iconLinks && iconLinks.map(function (link, index) {
+    return react_1["default"].createElement(FooterLinkIcon_1.FooterLinkIcon, {
+      link: link,
+      key: "footer-link-icon-" + index
+    });
+  })), react_1["default"].createElement(Credits, null, "Airo Plus Team")), children);
+};
+
+exports.FooterImpl = FooterImpl;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
+
+/***/ }),
+
+/***/ "./resources/js/components/footer/FooterLinkIcon.tsx":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/footer/FooterLinkIcon.tsx ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FooterLinkIcon = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var FooterFlipLink = styled_1["default"].a(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    margin: 1em;\n    cursor: pointer;\n    background: transparent;\n    display: inline-block;\n\n    transition: 0.6s linear;\n\n    :hover {\n        transition: 0.8s linear;\n        transform: rotateY(180deg);\n    }\n"], ["\n    margin: 1em;\n    cursor: pointer;\n    background: transparent;\n    display: inline-block;\n\n    transition: 0.6s linear;\n\n    :hover {\n        transition: 0.8s linear;\n        transform: rotateY(180deg);\n    }\n"])));
+var FooterLinkIconContainer = styled_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    transition: 0.6s linear;\n    transform-style: preserve-3d;\n\n    position: relative;\n    width: 100%;\n    height: 100%;\n"], ["\n    transition: 0.6s linear;\n    transform-style: preserve-3d;\n\n    position: relative;\n    width: 100%;\n    height: 100%;\n"])));
+var FooterLinkIconImg = styled_1["default"].img(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    transition: font-size 1s;\n\n    width: 20px;\n    height: 20px;\n\n    @media (min-width: 772px) {\n        width: 23px;\n        height: 23px;\n    };\n\n    @media (min-width: 992px) {\n        width: 26px;\n        height: 26px;;\n    };\n\n    @media (min-width: 1280px) {\n        width: 29px;\n        height: 29px;\n    };\n"], ["\n    transition: font-size 1s;\n\n    width: 20px;\n    height: 20px;\n\n    @media (min-width: 772px) {\n        width: 23px;\n        height: 23px;\n    };\n\n    @media (min-width: 992px) {\n        width: 26px;\n        height: 26px;;\n    };\n\n    @media (min-width: 1280px) {\n        width: 29px;\n        height: 29px;\n    };\n"])));
+
+var FooterLinkIcon = function FooterLinkIcon(_a) {
+  var link = _a.link,
+      className = _a.className,
+      children = _a.children;
+  return react_1["default"].createElement(FooterFlipLink, {
+    href: link && link.href,
+    className: className
+  }, react_1["default"].createElement(FooterLinkIconContainer, null, react_1["default"].createElement(FooterLinkIconImg, {
+    src: link && link.url,
+    alt: link && link.alt
+  })), children);
+};
+
+exports.FooterLinkIcon = FooterLinkIcon;
+var templateObject_1, templateObject_2, templateObject_3;
+
+/***/ }),
+
+/***/ "./resources/js/components/footer/FooterLinkText.tsx":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/footer/FooterLinkText.tsx ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FooterLinkText = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var FooterLinkLi = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    list-style: none;\n    width: 50%;\n\n    @media (min-width: 772px) {\n        width: 33.33333%;\n    };\n\n    @media (min-width: 992px) {\n        width: 25%;\n    };\n"], ["\n    list-style: none;\n    width: 50%;\n\n    @media (min-width: 772px) {\n        width: 33.33333%;\n    };\n\n    @media (min-width: 992px) {\n        width: 25%;\n    };\n"])));
+var FooterLinkTextA = styled_1["default"].a(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    text-transform: uppercase;\n    text-decoration: none;\n    cursor: pointer;\n    font-family: \"Arial\", serif;\n    color: white;\n\n    :hover {\n        color: orange;\n    }\n"], ["\n    text-transform: uppercase;\n    text-decoration: none;\n    cursor: pointer;\n    font-family: \"Arial\", serif;\n    color: white;\n\n    :hover {\n        color: orange;\n    }\n"])));
+
+var FooterLinkText = function FooterLinkText(_a) {
+  var link = _a.link,
+      className = _a.className,
+      children = _a.children;
+  return react_1["default"].createElement(FooterLinkLi, null, react_1["default"].createElement(FooterLinkTextA, {
+    href: link && link.href,
+    className: className
+  }, link && link.text, children));
+};
+
+exports.FooterLinkText = FooterLinkText;
+var templateObject_1, templateObject_2;
+
+/***/ }),
+
+/***/ "./resources/js/components/input/auto-complete/AutoCompleteInput.tsx":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/input/auto-complete/AutoCompleteInput.tsx ***!
+  \***************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.AutoCompleteInput = void 0;
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var SuggestionList_1 = __webpack_require__(/*! ./SuggestionList */ "./resources/js/components/input/auto-complete/SuggestionList.tsx");
+
+var WrapperDiv = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    min-width: 200px;\n    max-width: 500px;\n    width: 20%;\n    height: 30px;\n"], ["\n    min-width: 200px;\n    max-width: 500px;\n    width: 20%;\n    height: 30px;\n"])));
+var Input = styled_1["default"].input(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 100%;\n    height: 100%;\n    box-shadow: 2px 3px 8px 1px black;\n"], ["\n    width: 100%;\n    height: 100%;\n    box-shadow: 2px 3px 8px 1px black;\n"])));
+
+var AutoCompleteInput = function AutoCompleteInput(_a) {
+  var suggestions = _a.suggestions;
+
+  var _b = (0, react_1.useState)([]),
+      filteredSuggestions = _b[0],
+      setFilteredSuggestions = _b[1];
+
+  var _c = (0, react_1.useState)(false),
+      showSuggestions = _c[0],
+      setShowSuggestions = _c[1];
+
+  var _d = (0, react_1.useState)(""),
+      input = _d[0],
+      setInput = _d[1];
+
+  var _e = (0, react_1.useState)([]),
+      inputListReference = _e[0],
+      setInputListReference = _e[1];
+
+  var onClick = function onClick(e) {
+    //console.log(e);
+    setFilteredSuggestions([]);
+    setInput(e.target.innerText);
+    setShowSuggestions(false);
+  };
+
+  var onBlur = function onBlur(e) {
+    if (e.relatedTarget && inputListReference.includes(e.relatedTarget)) {
+      return;
+    }
+
+    setFilteredSuggestions([]);
+    setShowSuggestions(false);
+  };
+
+  var onFocus = function onFocus(e) {
+    var userInput = e.target.value;
+    var filteredSuggestions = suggestions.filter(function (suggestion) {
+      return suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1;
+    });
+    setFilteredSuggestions(filteredSuggestions);
+    setShowSuggestions(true);
+  };
+
+  var onChange = function onChange(e) {
+    var userInput = e.target.value;
+    setInputListReference([]);
+    var filteredSuggestions = suggestions.filter(function (suggestion) {
+      return suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1;
+    });
+    setInput(e.target.value);
+    setFilteredSuggestions(filteredSuggestions);
+    setShowSuggestions(true);
+  };
+
+  return react_1["default"].createElement(WrapperDiv, null, react_1["default"].createElement(Input, {
+    onBlur: onBlur,
+    onFocus: onFocus,
+    type: "text",
+    onChange: onChange,
+    value: input,
+    onKeyDown: function onKeyDown() {}
+  }), showSuggestions && input && react_1["default"].createElement(SuggestionList_1.SuggestionList, {
+    onClick: onClick,
+    inputListReference: inputListReference,
+    filteredSuggestions: filteredSuggestions
+  }));
+};
+
+exports.AutoCompleteInput = AutoCompleteInput;
+exports["default"] = exports.AutoCompleteInput;
+var templateObject_1, templateObject_2;
+
+/***/ }),
+
+/***/ "./resources/js/components/input/auto-complete/SuggestionList.tsx":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/input/auto-complete/SuggestionList.tsx ***!
+  \************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.SuggestionList = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var Wrapper = styled_1["default"].ul(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding: 0;\n    margin: 0;\n    display: flex;\n    flex-direction: column;\n    background-color: white;\n    box-shadow: 2px 3px 8px 1px black;\n"], ["\n    padding: 0;\n    margin: 0;\n    display: flex;\n    flex-direction: column;\n    background-color: white;\n    box-shadow: 2px 3px 8px 1px black;\n"])));
+var ElementInList = styled_1["default"].li(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    list-style: none;\n    cursor: pointer;\n\n    :hover {\n        background-color: #89CFF0;\n        color: black;\n    }\n\n"], ["\n    list-style: none;\n    cursor: pointer;\n\n    :hover {\n        background-color: #89CFF0;\n        color: black;\n    }\n\n"])));
+
+var SuggestionList = function SuggestionList(_a) {
+  var filteredSuggestions = _a.filteredSuggestions,
+      inputListReference = _a.inputListReference,
+      onClick = _a.onClick;
+  return react_1["default"].createElement(react_1["default"].Fragment, null, filteredSuggestions && filteredSuggestions.length > 0 ? react_1["default"].createElement(Wrapper, null, filteredSuggestions.map(function (suggestion, index) {
+    return react_1["default"].createElement(ElementInList, {
+      ref: function ref(_ref) {
+        inputListReference.push(_ref);
+      },
+      tabIndex: 0,
+      key: suggestion + index,
+      onClick: onClick
+    }, suggestion);
+  })) : null);
+};
+
+exports.SuggestionList = SuggestionList;
 var templateObject_1, templateObject_2;
 
 /***/ }),
@@ -1914,26 +2324,32 @@ var NavigationLogo_1 = __webpack_require__(/*! ./NavigationLogo */ "./resources/
 var ButtonHref_1 = __webpack_require__(/*! ../button/ButtonHref */ "./resources/js/components/button/ButtonHref.tsx");
 
 var NavigationImplDiv = styled_1["default"].nav(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: black;\n    box-shadow: 2px 3px 8px 1px black;\n    top: 0;\n    z-index: 9999;\n    position: sticky;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 80px;\n"], ["\n    background-color: black;\n    box-shadow: 2px 3px 8px 1px black;\n    top: 0;\n    z-index: 9999;\n    position: sticky;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 80px;\n"])));
-var NavigationLinkItemDiv = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n    }\n"], ["\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n    }\n"])));
-var NavigationButtonsWrapper = styled_1["default"].li(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    position: absolute;\n    right: 5%;\n    list-style: none;\n"], ["\n    position: absolute;\n    right: 5%;\n    list-style: none;\n"])));
+var NavigationLinkItemDiv = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: none;\n    align-items: center;\n    justify-content: ", ";\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n        display: flex;\n    }\n"], ["\n    display: none;\n    align-items: center;\n    justify-content: ", ";\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n        display: flex;\n    }\n"])), function (p) {
+  return p.direction === "END" ? "flex-end" : "flex-start";
+});
+var NavigationButtonsWrapper = styled_1["default"].li(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    list-style: none;\n"], ["\n    list-style: none;\n"])));
 var NavigationButtons = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    padding: 0;\n    margin: 0;\n"], ["\n    display: flex;\n    padding: 0;\n    margin: 0;\n"])));
 
 var NavigationImpl = function NavigationImpl(_a) {
   var children = _a.children;
   var navigationLinks = ["ONE", "TWO", "THREE", "FOUR"];
   var middleIndex = navigationLinks ? Math.floor(navigationLinks.length / 2) : 0;
-  return react_1["default"].createElement(NavigationImplDiv, null, react_1["default"].createElement(NavigationLinkItemDiv, null, navigationLinks.slice(0, middleIndex).map(function (textField, index) {
+  return react_1["default"].createElement(NavigationImplDiv, null, react_1["default"].createElement(NavigationLinkItemDiv, {
+    direction: "END"
+  }, navigationLinks.slice(0, middleIndex).map(function (textField, index) {
     return react_1["default"].createElement(NavigationLink_1.NavigationLink, {
       key: "navigation-link-" + index,
       href: "/",
       textField: textField
     });
-  }), react_1["default"].createElement(NavigationLogo_1.NavigationLogo, {
+  })), react_1["default"].createElement(NavigationLogo_1.NavigationLogo, {
     logo: {
       url: __webpack_require__(/*! ../../airplane.svg */ "./resources/js/airplane.svg"),
       href: "airplane"
     }
-  }), navigationLinks.slice(middleIndex, navigationLinks.length).map(function (textField, index) {
+  }), react_1["default"].createElement(NavigationLinkItemDiv, {
+    direction: "START"
+  }, navigationLinks.slice(middleIndex, navigationLinks.length).map(function (textField, index) {
     return react_1["default"].createElement(NavigationLink_1.NavigationLink, {
       key: "navigation-link-" + index,
       href: "/",
@@ -1945,7 +2361,7 @@ var NavigationImpl = function NavigationImpl(_a) {
     text: "Log in"
   }), react_1["default"].createElement(ButtonHref_1.ButtonHref, {
     key: "navigation-link-signup",
-    href: "/signup",
+    href: "/register",
     text: "Sign up"
   })))), children);
 };
@@ -2048,7 +2464,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-var NavigationLogoImg = styled_1["default"].img(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    letter-spacing: 0.15em;\n    text-transform: uppercase;\n    text-decoration: none;\n    display: block;\n    padding: 8px 20px;\n    width: 3em;\n    text-shadow: 0 10px 16px black;\n    height: auto;\n    cursor: pointer;\n"], ["\n    letter-spacing: 0.15em;\n    text-transform: uppercase;\n    text-decoration: none;\n    display: block;\n    padding: 8px 20px;\n    width: 3em;\n    text-shadow: 0 10px 16px black;\n    height: auto;\n    cursor: pointer;\n"])));
+var NavigationLogoImg = styled_1["default"].img(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    letter-spacing: 0.15em;\n    text-transform: uppercase;\n    text-decoration: none;\n    display: block;\n    padding: 8px 20px;\n    width: 50px;\n    height: auto;\n    cursor: pointer;\n\n    @media (min-width: 772px) {\n        width: 60px;\n    }\n\n    @media (min-width: 992px) {\n        width: 70px;\n    }\n"], ["\n    letter-spacing: 0.15em;\n    text-transform: uppercase;\n    text-decoration: none;\n    display: block;\n    padding: 8px 20px;\n    width: 50px;\n    height: auto;\n    cursor: pointer;\n\n    @media (min-width: 772px) {\n        width: 60px;\n    }\n\n    @media (min-width: 992px) {\n        width: 70px;\n    }\n"])));
 
 var NavigationLogo = function NavigationLogo(_a) {
   var logo = _a.logo,
@@ -2098,6 +2514,8 @@ var NavigationImpl_1 = __webpack_require__(/*! ./components/navigation/Navigatio
 
 var CarouselImpl_1 = __webpack_require__(/*! ./components/carousel/CarouselImpl */ "./resources/js/components/carousel/CarouselImpl.tsx");
 
+var FooterImpl_1 = __webpack_require__(/*! ./components/footer/FooterImpl */ "./resources/js/components/footer/FooterImpl.tsx");
+
 var store = (0, redux_1.createStore)(function () {});
 
 function Root() {
@@ -2114,6 +2532,21 @@ function Root() {
     }, {
       url: __webpack_require__(/*! ../../public/images/carousel2.jpg */ "./public/images/carousel2.jpg")
     }]
+  }), react_1["default"].createElement(FooterImpl_1.FooterImpl, {
+    textLinks: [{
+      href: "/",
+      text: "Home"
+    }, {
+      href: "/",
+      text: "ONE"
+    }, {
+      href: "/",
+      text: "TWO"
+    }, {
+      href: "/",
+      text: "THREE"
+    }],
+    iconLinks: null
   }));
 }
 
@@ -2121,6 +2554,81 @@ exports["default"] = Root;
 
 if (document.getElementById('root')) {
   react_dom_1["default"].render(react_1["default"].createElement(Root, null), document.getElementById('root'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/test.tsx":
+/*!*******************************!*\
+  !*** ./resources/js/test.tsx ***!
+  \*******************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
+
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var NavigationImpl_1 = __webpack_require__(/*! ./components/navigation/NavigationImpl */ "./resources/js/components/navigation/NavigationImpl.tsx");
+
+var CarouselImpl_1 = __webpack_require__(/*! ./components/carousel/CarouselImpl */ "./resources/js/components/carousel/CarouselImpl.tsx");
+
+var FooterImpl_1 = __webpack_require__(/*! ./components/footer/FooterImpl */ "./resources/js/components/footer/FooterImpl.tsx");
+
+var store = (0, redux_1.createStore)(function () {});
+
+function Test() {
+  return react_1["default"].createElement(react_redux_1.Provider, {
+    store: store
+  }, react_1["default"].createElement(NavigationImpl_1.NavigationImpl, {
+    logo: null
+  }), react_1["default"].createElement(CarouselImpl_1.CarouselImpl, {
+    imageTickInterval: 3500,
+    images: [{
+      url: __webpack_require__(/*! ../../public/images/carousel0.jpg */ "./public/images/carousel0.jpg")
+    }, {
+      url: __webpack_require__(/*! ../../public/images/carousel1.jpg */ "./public/images/carousel1.jpg")
+    }, {
+      url: __webpack_require__(/*! ../../public/images/carousel2.jpg */ "./public/images/carousel2.jpg")
+    }]
+  }), react_1["default"].createElement(FooterImpl_1.FooterImpl, {
+    textLinks: [{
+      href: "/",
+      text: "Test"
+    }, {
+      href: "/",
+      text: "Test"
+    }, {
+      href: "/",
+      text: "Test"
+    }, {
+      href: "/",
+      text: "Test"
+    }],
+    iconLinks: null
+  }));
+}
+
+exports["default"] = Test;
+
+if (document.getElementById('test')) {
+  react_dom_1["default"].render(react_1["default"].createElement(Test, null), document.getElementById('test'));
 }
 
 /***/ }),
@@ -2136,7 +2644,60 @@ if (document.getElementById('root')) {
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+__webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
+
 __webpack_require__(/*! ./index.tsx */ "./resources/js/index.tsx");
+
+__webpack_require__(/*! ./test.tsx */ "./resources/js/test.tsx");
+
+/***/ }),
+
+/***/ "./resources/js/components/Example.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/Example.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function Example() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "container",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "row justify-content-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "col-md-8",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "card",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "card-header",
+            children: "Example Component"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "card-body",
+            children: "I'm an example component!"
+          })]
+        })
+      })
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Example);
+
+if (document.getElementById('example')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Example, {}), document.getElementById('example'));
+}
 
 /***/ }),
 
@@ -31925,6 +32486,1238 @@ function warning(message) {
 
 /***/ }),
 
+/***/ "./node_modules/react/cjs/react-jsx-runtime.development.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/react/cjs/react-jsx-runtime.development.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+/** @license React v17.0.2
+ * react-jsx-runtime.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+if (true) {
+  (function() {
+'use strict';
+
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var _assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+
+// ATTENTION
+// When adding new symbols to this file,
+// Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var REACT_ELEMENT_TYPE = 0xeac7;
+var REACT_PORTAL_TYPE = 0xeaca;
+exports.Fragment = 0xeacb;
+var REACT_STRICT_MODE_TYPE = 0xeacc;
+var REACT_PROFILER_TYPE = 0xead2;
+var REACT_PROVIDER_TYPE = 0xeacd;
+var REACT_CONTEXT_TYPE = 0xeace;
+var REACT_FORWARD_REF_TYPE = 0xead0;
+var REACT_SUSPENSE_TYPE = 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = 0xead8;
+var REACT_MEMO_TYPE = 0xead3;
+var REACT_LAZY_TYPE = 0xead4;
+var REACT_BLOCK_TYPE = 0xead9;
+var REACT_SERVER_BLOCK_TYPE = 0xeada;
+var REACT_FUNDAMENTAL_TYPE = 0xead5;
+var REACT_SCOPE_TYPE = 0xead7;
+var REACT_OPAQUE_ID_TYPE = 0xeae0;
+var REACT_DEBUG_TRACING_MODE_TYPE = 0xeae1;
+var REACT_OFFSCREEN_TYPE = 0xeae2;
+var REACT_LEGACY_HIDDEN_TYPE = 0xeae3;
+
+if (typeof Symbol === 'function' && Symbol.for) {
+  var symbolFor = Symbol.for;
+  REACT_ELEMENT_TYPE = symbolFor('react.element');
+  REACT_PORTAL_TYPE = symbolFor('react.portal');
+  exports.Fragment = symbolFor('react.fragment');
+  REACT_STRICT_MODE_TYPE = symbolFor('react.strict_mode');
+  REACT_PROFILER_TYPE = symbolFor('react.profiler');
+  REACT_PROVIDER_TYPE = symbolFor('react.provider');
+  REACT_CONTEXT_TYPE = symbolFor('react.context');
+  REACT_FORWARD_REF_TYPE = symbolFor('react.forward_ref');
+  REACT_SUSPENSE_TYPE = symbolFor('react.suspense');
+  REACT_SUSPENSE_LIST_TYPE = symbolFor('react.suspense_list');
+  REACT_MEMO_TYPE = symbolFor('react.memo');
+  REACT_LAZY_TYPE = symbolFor('react.lazy');
+  REACT_BLOCK_TYPE = symbolFor('react.block');
+  REACT_SERVER_BLOCK_TYPE = symbolFor('react.server.block');
+  REACT_FUNDAMENTAL_TYPE = symbolFor('react.fundamental');
+  REACT_SCOPE_TYPE = symbolFor('react.scope');
+  REACT_OPAQUE_ID_TYPE = symbolFor('react.opaque.id');
+  REACT_DEBUG_TRACING_MODE_TYPE = symbolFor('react.debug_trace_mode');
+  REACT_OFFSCREEN_TYPE = symbolFor('react.offscreen');
+  REACT_LEGACY_HIDDEN_TYPE = symbolFor('react.legacy_hidden');
+}
+
+var MAYBE_ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+var FAUX_ITERATOR_SYMBOL = '@@iterator';
+function getIteratorFn(maybeIterable) {
+  if (maybeIterable === null || typeof maybeIterable !== 'object') {
+    return null;
+  }
+
+  var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+
+  if (typeof maybeIterator === 'function') {
+    return maybeIterator;
+  }
+
+  return null;
+}
+
+var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+
+function error(format) {
+  {
+    for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      args[_key2 - 1] = arguments[_key2];
+    }
+
+    printWarning('error', format, args);
+  }
+}
+
+function printWarning(level, format, args) {
+  // When changing this logic, you might want to also
+  // update consoleWithStackDev.www.js as well.
+  {
+    var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+    var stack = ReactDebugCurrentFrame.getStackAddendum();
+
+    if (stack !== '') {
+      format += '%s';
+      args = args.concat([stack]);
+    }
+
+    var argsWithFormat = args.map(function (item) {
+      return '' + item;
+    }); // Careful: RN currently depends on this prefix
+
+    argsWithFormat.unshift('Warning: ' + format); // We intentionally don't use spread (or .apply) directly because it
+    // breaks IE9: https://github.com/facebook/react/issues/13610
+    // eslint-disable-next-line react-internal/no-production-logging
+
+    Function.prototype.apply.call(console[level], console, argsWithFormat);
+  }
+}
+
+// Filter certain DOM attributes (e.g. src, href) if their values are empty strings.
+
+var enableScopeAPI = false; // Experimental Create Event Handle API.
+
+function isValidElementType(type) {
+  if (typeof type === 'string' || typeof type === 'function') {
+    return true;
+  } // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
+
+
+  if (type === exports.Fragment || type === REACT_PROFILER_TYPE || type === REACT_DEBUG_TRACING_MODE_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_LEGACY_HIDDEN_TYPE || enableScopeAPI ) {
+    return true;
+  }
+
+  if (typeof type === 'object' && type !== null) {
+    if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_BLOCK_TYPE || type[0] === REACT_SERVER_BLOCK_TYPE) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function getWrappedName(outerType, innerType, wrapperName) {
+  var functionName = innerType.displayName || innerType.name || '';
+  return outerType.displayName || (functionName !== '' ? wrapperName + "(" + functionName + ")" : wrapperName);
+}
+
+function getContextName(type) {
+  return type.displayName || 'Context';
+}
+
+function getComponentName(type) {
+  if (type == null) {
+    // Host root, text node or just invalid type.
+    return null;
+  }
+
+  {
+    if (typeof type.tag === 'number') {
+      error('Received an unexpected object in getComponentName(). ' + 'This is likely a bug in React. Please file an issue.');
+    }
+  }
+
+  if (typeof type === 'function') {
+    return type.displayName || type.name || null;
+  }
+
+  if (typeof type === 'string') {
+    return type;
+  }
+
+  switch (type) {
+    case exports.Fragment:
+      return 'Fragment';
+
+    case REACT_PORTAL_TYPE:
+      return 'Portal';
+
+    case REACT_PROFILER_TYPE:
+      return 'Profiler';
+
+    case REACT_STRICT_MODE_TYPE:
+      return 'StrictMode';
+
+    case REACT_SUSPENSE_TYPE:
+      return 'Suspense';
+
+    case REACT_SUSPENSE_LIST_TYPE:
+      return 'SuspenseList';
+  }
+
+  if (typeof type === 'object') {
+    switch (type.$$typeof) {
+      case REACT_CONTEXT_TYPE:
+        var context = type;
+        return getContextName(context) + '.Consumer';
+
+      case REACT_PROVIDER_TYPE:
+        var provider = type;
+        return getContextName(provider._context) + '.Provider';
+
+      case REACT_FORWARD_REF_TYPE:
+        return getWrappedName(type, type.render, 'ForwardRef');
+
+      case REACT_MEMO_TYPE:
+        return getComponentName(type.type);
+
+      case REACT_BLOCK_TYPE:
+        return getComponentName(type._render);
+
+      case REACT_LAZY_TYPE:
+        {
+          var lazyComponent = type;
+          var payload = lazyComponent._payload;
+          var init = lazyComponent._init;
+
+          try {
+            return getComponentName(init(payload));
+          } catch (x) {
+            return null;
+          }
+        }
+    }
+  }
+
+  return null;
+}
+
+// Helpers to patch console.logs to avoid logging during side-effect free
+// replaying on render function. This currently only patches the object
+// lazily which won't cover if the log function was extracted eagerly.
+// We could also eagerly patch the method.
+var disabledDepth = 0;
+var prevLog;
+var prevInfo;
+var prevWarn;
+var prevError;
+var prevGroup;
+var prevGroupCollapsed;
+var prevGroupEnd;
+
+function disabledLog() {}
+
+disabledLog.__reactDisabledLog = true;
+function disableLogs() {
+  {
+    if (disabledDepth === 0) {
+      /* eslint-disable react-internal/no-production-logging */
+      prevLog = console.log;
+      prevInfo = console.info;
+      prevWarn = console.warn;
+      prevError = console.error;
+      prevGroup = console.group;
+      prevGroupCollapsed = console.groupCollapsed;
+      prevGroupEnd = console.groupEnd; // https://github.com/facebook/react/issues/19099
+
+      var props = {
+        configurable: true,
+        enumerable: true,
+        value: disabledLog,
+        writable: true
+      }; // $FlowFixMe Flow thinks console is immutable.
+
+      Object.defineProperties(console, {
+        info: props,
+        log: props,
+        warn: props,
+        error: props,
+        group: props,
+        groupCollapsed: props,
+        groupEnd: props
+      });
+      /* eslint-enable react-internal/no-production-logging */
+    }
+
+    disabledDepth++;
+  }
+}
+function reenableLogs() {
+  {
+    disabledDepth--;
+
+    if (disabledDepth === 0) {
+      /* eslint-disable react-internal/no-production-logging */
+      var props = {
+        configurable: true,
+        enumerable: true,
+        writable: true
+      }; // $FlowFixMe Flow thinks console is immutable.
+
+      Object.defineProperties(console, {
+        log: _assign({}, props, {
+          value: prevLog
+        }),
+        info: _assign({}, props, {
+          value: prevInfo
+        }),
+        warn: _assign({}, props, {
+          value: prevWarn
+        }),
+        error: _assign({}, props, {
+          value: prevError
+        }),
+        group: _assign({}, props, {
+          value: prevGroup
+        }),
+        groupCollapsed: _assign({}, props, {
+          value: prevGroupCollapsed
+        }),
+        groupEnd: _assign({}, props, {
+          value: prevGroupEnd
+        })
+      });
+      /* eslint-enable react-internal/no-production-logging */
+    }
+
+    if (disabledDepth < 0) {
+      error('disabledDepth fell below zero. ' + 'This is a bug in React. Please file an issue.');
+    }
+  }
+}
+
+var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
+var prefix;
+function describeBuiltInComponentFrame(name, source, ownerFn) {
+  {
+    if (prefix === undefined) {
+      // Extract the VM specific prefix used by each line.
+      try {
+        throw Error();
+      } catch (x) {
+        var match = x.stack.trim().match(/\n( *(at )?)/);
+        prefix = match && match[1] || '';
+      }
+    } // We use the prefix to ensure our stacks line up with native stack frames.
+
+
+    return '\n' + prefix + name;
+  }
+}
+var reentry = false;
+var componentFrameCache;
+
+{
+  var PossiblyWeakMap = typeof WeakMap === 'function' ? WeakMap : Map;
+  componentFrameCache = new PossiblyWeakMap();
+}
+
+function describeNativeComponentFrame(fn, construct) {
+  // If something asked for a stack inside a fake render, it should get ignored.
+  if (!fn || reentry) {
+    return '';
+  }
+
+  {
+    var frame = componentFrameCache.get(fn);
+
+    if (frame !== undefined) {
+      return frame;
+    }
+  }
+
+  var control;
+  reentry = true;
+  var previousPrepareStackTrace = Error.prepareStackTrace; // $FlowFixMe It does accept undefined.
+
+  Error.prepareStackTrace = undefined;
+  var previousDispatcher;
+
+  {
+    previousDispatcher = ReactCurrentDispatcher.current; // Set the dispatcher in DEV because this might be call in the render function
+    // for warnings.
+
+    ReactCurrentDispatcher.current = null;
+    disableLogs();
+  }
+
+  try {
+    // This should throw.
+    if (construct) {
+      // Something should be setting the props in the constructor.
+      var Fake = function () {
+        throw Error();
+      }; // $FlowFixMe
+
+
+      Object.defineProperty(Fake.prototype, 'props', {
+        set: function () {
+          // We use a throwing setter instead of frozen or non-writable props
+          // because that won't throw in a non-strict mode function.
+          throw Error();
+        }
+      });
+
+      if (typeof Reflect === 'object' && Reflect.construct) {
+        // We construct a different control for this case to include any extra
+        // frames added by the construct call.
+        try {
+          Reflect.construct(Fake, []);
+        } catch (x) {
+          control = x;
+        }
+
+        Reflect.construct(fn, [], Fake);
+      } else {
+        try {
+          Fake.call();
+        } catch (x) {
+          control = x;
+        }
+
+        fn.call(Fake.prototype);
+      }
+    } else {
+      try {
+        throw Error();
+      } catch (x) {
+        control = x;
+      }
+
+      fn();
+    }
+  } catch (sample) {
+    // This is inlined manually because closure doesn't do it for us.
+    if (sample && control && typeof sample.stack === 'string') {
+      // This extracts the first frame from the sample that isn't also in the control.
+      // Skipping one frame that we assume is the frame that calls the two.
+      var sampleLines = sample.stack.split('\n');
+      var controlLines = control.stack.split('\n');
+      var s = sampleLines.length - 1;
+      var c = controlLines.length - 1;
+
+      while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
+        // We expect at least one stack frame to be shared.
+        // Typically this will be the root most one. However, stack frames may be
+        // cut off due to maximum stack limits. In this case, one maybe cut off
+        // earlier than the other. We assume that the sample is longer or the same
+        // and there for cut off earlier. So we should find the root most frame in
+        // the sample somewhere in the control.
+        c--;
+      }
+
+      for (; s >= 1 && c >= 0; s--, c--) {
+        // Next we find the first one that isn't the same which should be the
+        // frame that called our sample function and the control.
+        if (sampleLines[s] !== controlLines[c]) {
+          // In V8, the first line is describing the message but other VMs don't.
+          // If we're about to return the first line, and the control is also on the same
+          // line, that's a pretty good indicator that our sample threw at same line as
+          // the control. I.e. before we entered the sample frame. So we ignore this result.
+          // This can happen if you passed a class to function component, or non-function.
+          if (s !== 1 || c !== 1) {
+            do {
+              s--;
+              c--; // We may still have similar intermediate frames from the construct call.
+              // The next one that isn't the same should be our match though.
+
+              if (c < 0 || sampleLines[s] !== controlLines[c]) {
+                // V8 adds a "new" prefix for native classes. Let's remove it to make it prettier.
+                var _frame = '\n' + sampleLines[s].replace(' at new ', ' at ');
+
+                {
+                  if (typeof fn === 'function') {
+                    componentFrameCache.set(fn, _frame);
+                  }
+                } // Return the line we found.
+
+
+                return _frame;
+              }
+            } while (s >= 1 && c >= 0);
+          }
+
+          break;
+        }
+      }
+    }
+  } finally {
+    reentry = false;
+
+    {
+      ReactCurrentDispatcher.current = previousDispatcher;
+      reenableLogs();
+    }
+
+    Error.prepareStackTrace = previousPrepareStackTrace;
+  } // Fallback to just using the name if we couldn't make it throw.
+
+
+  var name = fn ? fn.displayName || fn.name : '';
+  var syntheticFrame = name ? describeBuiltInComponentFrame(name) : '';
+
+  {
+    if (typeof fn === 'function') {
+      componentFrameCache.set(fn, syntheticFrame);
+    }
+  }
+
+  return syntheticFrame;
+}
+function describeFunctionComponentFrame(fn, source, ownerFn) {
+  {
+    return describeNativeComponentFrame(fn, false);
+  }
+}
+
+function shouldConstruct(Component) {
+  var prototype = Component.prototype;
+  return !!(prototype && prototype.isReactComponent);
+}
+
+function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
+
+  if (type == null) {
+    return '';
+  }
+
+  if (typeof type === 'function') {
+    {
+      return describeNativeComponentFrame(type, shouldConstruct(type));
+    }
+  }
+
+  if (typeof type === 'string') {
+    return describeBuiltInComponentFrame(type);
+  }
+
+  switch (type) {
+    case REACT_SUSPENSE_TYPE:
+      return describeBuiltInComponentFrame('Suspense');
+
+    case REACT_SUSPENSE_LIST_TYPE:
+      return describeBuiltInComponentFrame('SuspenseList');
+  }
+
+  if (typeof type === 'object') {
+    switch (type.$$typeof) {
+      case REACT_FORWARD_REF_TYPE:
+        return describeFunctionComponentFrame(type.render);
+
+      case REACT_MEMO_TYPE:
+        // Memo may contain any component type so we recursively resolve it.
+        return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn);
+
+      case REACT_BLOCK_TYPE:
+        return describeFunctionComponentFrame(type._render);
+
+      case REACT_LAZY_TYPE:
+        {
+          var lazyComponent = type;
+          var payload = lazyComponent._payload;
+          var init = lazyComponent._init;
+
+          try {
+            // Lazy may contain any component type so we recursively resolve it.
+            return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
+          } catch (x) {}
+        }
+    }
+  }
+
+  return '';
+}
+
+var loggedTypeFailures = {};
+var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+
+function setCurrentlyValidatingElement(element) {
+  {
+    if (element) {
+      var owner = element._owner;
+      var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+      ReactDebugCurrentFrame.setExtraStackFrame(stack);
+    } else {
+      ReactDebugCurrentFrame.setExtraStackFrame(null);
+    }
+  }
+}
+
+function checkPropTypes(typeSpecs, values, location, componentName, element) {
+  {
+    // $FlowFixMe This is okay but Flow doesn't know it.
+    var has = Function.call.bind(Object.prototype.hasOwnProperty);
+
+    for (var typeSpecName in typeSpecs) {
+      if (has(typeSpecs, typeSpecName)) {
+        var error$1 = void 0; // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          if (typeof typeSpecs[typeSpecName] !== 'function') {
+            var err = Error((componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.' + 'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.');
+            err.name = 'Invariant Violation';
+            throw err;
+          }
+
+          error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
+        } catch (ex) {
+          error$1 = ex;
+        }
+
+        if (error$1 && !(error$1 instanceof Error)) {
+          setCurrentlyValidatingElement(element);
+
+          error('%s: type specification of %s' + ' `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error$1);
+
+          setCurrentlyValidatingElement(null);
+        }
+
+        if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error$1.message] = true;
+          setCurrentlyValidatingElement(element);
+
+          error('Failed %s type: %s', location, error$1.message);
+
+          setCurrentlyValidatingElement(null);
+        }
+      }
+    }
+  }
+}
+
+var ReactCurrentOwner = ReactSharedInternals.ReactCurrentOwner;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var RESERVED_PROPS = {
+  key: true,
+  ref: true,
+  __self: true,
+  __source: true
+};
+var specialPropKeyWarningShown;
+var specialPropRefWarningShown;
+var didWarnAboutStringRefs;
+
+{
+  didWarnAboutStringRefs = {};
+}
+
+function hasValidRef(config) {
+  {
+    if (hasOwnProperty.call(config, 'ref')) {
+      var getter = Object.getOwnPropertyDescriptor(config, 'ref').get;
+
+      if (getter && getter.isReactWarning) {
+        return false;
+      }
+    }
+  }
+
+  return config.ref !== undefined;
+}
+
+function hasValidKey(config) {
+  {
+    if (hasOwnProperty.call(config, 'key')) {
+      var getter = Object.getOwnPropertyDescriptor(config, 'key').get;
+
+      if (getter && getter.isReactWarning) {
+        return false;
+      }
+    }
+  }
+
+  return config.key !== undefined;
+}
+
+function warnIfStringRefCannotBeAutoConverted(config, self) {
+  {
+    if (typeof config.ref === 'string' && ReactCurrentOwner.current && self && ReactCurrentOwner.current.stateNode !== self) {
+      var componentName = getComponentName(ReactCurrentOwner.current.type);
+
+      if (!didWarnAboutStringRefs[componentName]) {
+        error('Component "%s" contains the string ref "%s". ' + 'Support for string refs will be removed in a future major release. ' + 'This case cannot be automatically converted to an arrow function. ' + 'We ask you to manually fix this case by using useRef() or createRef() instead. ' + 'Learn more about using refs safely here: ' + 'https://reactjs.org/link/strict-mode-string-ref', getComponentName(ReactCurrentOwner.current.type), config.ref);
+
+        didWarnAboutStringRefs[componentName] = true;
+      }
+    }
+  }
+}
+
+function defineKeyPropWarningGetter(props, displayName) {
+  {
+    var warnAboutAccessingKey = function () {
+      if (!specialPropKeyWarningShown) {
+        specialPropKeyWarningShown = true;
+
+        error('%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+      }
+    };
+
+    warnAboutAccessingKey.isReactWarning = true;
+    Object.defineProperty(props, 'key', {
+      get: warnAboutAccessingKey,
+      configurable: true
+    });
+  }
+}
+
+function defineRefPropWarningGetter(props, displayName) {
+  {
+    var warnAboutAccessingRef = function () {
+      if (!specialPropRefWarningShown) {
+        specialPropRefWarningShown = true;
+
+        error('%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+      }
+    };
+
+    warnAboutAccessingRef.isReactWarning = true;
+    Object.defineProperty(props, 'ref', {
+      get: warnAboutAccessingRef,
+      configurable: true
+    });
+  }
+}
+/**
+ * Factory method to create a new React element. This no longer adheres to
+ * the class pattern, so do not use new to call it. Also, instanceof check
+ * will not work. Instead test $$typeof field against Symbol.for('react.element') to check
+ * if something is a React Element.
+ *
+ * @param {*} type
+ * @param {*} props
+ * @param {*} key
+ * @param {string|object} ref
+ * @param {*} owner
+ * @param {*} self A *temporary* helper to detect places where `this` is
+ * different from the `owner` when React.createElement is called, so that we
+ * can warn. We want to get rid of owner and replace string `ref`s with arrow
+ * functions, and as long as `this` and owner are the same, there will be no
+ * change in behavior.
+ * @param {*} source An annotation object (added by a transpiler or otherwise)
+ * indicating filename, line number, and/or other information.
+ * @internal
+ */
+
+
+var ReactElement = function (type, key, ref, self, source, owner, props) {
+  var element = {
+    // This tag allows us to uniquely identify this as a React Element
+    $$typeof: REACT_ELEMENT_TYPE,
+    // Built-in properties that belong on the element
+    type: type,
+    key: key,
+    ref: ref,
+    props: props,
+    // Record the component responsible for creating this element.
+    _owner: owner
+  };
+
+  {
+    // The validation flag is currently mutative. We put it on
+    // an external backing store so that we can freeze the whole object.
+    // This can be replaced with a WeakMap once they are implemented in
+    // commonly used development environments.
+    element._store = {}; // To make comparing ReactElements easier for testing purposes, we make
+    // the validation flag non-enumerable (where possible, which should
+    // include every environment we run tests in), so the test framework
+    // ignores it.
+
+    Object.defineProperty(element._store, 'validated', {
+      configurable: false,
+      enumerable: false,
+      writable: true,
+      value: false
+    }); // self and source are DEV only properties.
+
+    Object.defineProperty(element, '_self', {
+      configurable: false,
+      enumerable: false,
+      writable: false,
+      value: self
+    }); // Two elements created in two different places should be considered
+    // equal for testing purposes and therefore we hide it from enumeration.
+
+    Object.defineProperty(element, '_source', {
+      configurable: false,
+      enumerable: false,
+      writable: false,
+      value: source
+    });
+
+    if (Object.freeze) {
+      Object.freeze(element.props);
+      Object.freeze(element);
+    }
+  }
+
+  return element;
+};
+/**
+ * https://github.com/reactjs/rfcs/pull/107
+ * @param {*} type
+ * @param {object} props
+ * @param {string} key
+ */
+
+function jsxDEV(type, config, maybeKey, source, self) {
+  {
+    var propName; // Reserved names are extracted
+
+    var props = {};
+    var key = null;
+    var ref = null; // Currently, key can be spread in as a prop. This causes a potential
+    // issue if key is also explicitly declared (ie. <div {...props} key="Hi" />
+    // or <div key="Hi" {...props} /> ). We want to deprecate key spread,
+    // but as an intermediary step, we will use jsxDEV for everything except
+    // <div {...props} key="Hi" />, because we aren't currently able to tell if
+    // key is explicitly declared to be undefined or not.
+
+    if (maybeKey !== undefined) {
+      key = '' + maybeKey;
+    }
+
+    if (hasValidKey(config)) {
+      key = '' + config.key;
+    }
+
+    if (hasValidRef(config)) {
+      ref = config.ref;
+      warnIfStringRefCannotBeAutoConverted(config, self);
+    } // Remaining properties are added to a new props object
+
+
+    for (propName in config) {
+      if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+        props[propName] = config[propName];
+      }
+    } // Resolve default props
+
+
+    if (type && type.defaultProps) {
+      var defaultProps = type.defaultProps;
+
+      for (propName in defaultProps) {
+        if (props[propName] === undefined) {
+          props[propName] = defaultProps[propName];
+        }
+      }
+    }
+
+    if (key || ref) {
+      var displayName = typeof type === 'function' ? type.displayName || type.name || 'Unknown' : type;
+
+      if (key) {
+        defineKeyPropWarningGetter(props, displayName);
+      }
+
+      if (ref) {
+        defineRefPropWarningGetter(props, displayName);
+      }
+    }
+
+    return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+  }
+}
+
+var ReactCurrentOwner$1 = ReactSharedInternals.ReactCurrentOwner;
+var ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
+
+function setCurrentlyValidatingElement$1(element) {
+  {
+    if (element) {
+      var owner = element._owner;
+      var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+      ReactDebugCurrentFrame$1.setExtraStackFrame(stack);
+    } else {
+      ReactDebugCurrentFrame$1.setExtraStackFrame(null);
+    }
+  }
+}
+
+var propTypesMisspellWarningShown;
+
+{
+  propTypesMisspellWarningShown = false;
+}
+/**
+ * Verifies the object is a ReactElement.
+ * See https://reactjs.org/docs/react-api.html#isvalidelement
+ * @param {?object} object
+ * @return {boolean} True if `object` is a ReactElement.
+ * @final
+ */
+
+function isValidElement(object) {
+  {
+    return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+  }
+}
+
+function getDeclarationErrorAddendum() {
+  {
+    if (ReactCurrentOwner$1.current) {
+      var name = getComponentName(ReactCurrentOwner$1.current.type);
+
+      if (name) {
+        return '\n\nCheck the render method of `' + name + '`.';
+      }
+    }
+
+    return '';
+  }
+}
+
+function getSourceInfoErrorAddendum(source) {
+  {
+    if (source !== undefined) {
+      var fileName = source.fileName.replace(/^.*[\\\/]/, '');
+      var lineNumber = source.lineNumber;
+      return '\n\nCheck your code at ' + fileName + ':' + lineNumber + '.';
+    }
+
+    return '';
+  }
+}
+/**
+ * Warn if there's no key explicitly set on dynamic arrays of children or
+ * object keys are not valid. This allows us to keep track of children between
+ * updates.
+ */
+
+
+var ownerHasKeyUseWarning = {};
+
+function getCurrentComponentErrorInfo(parentType) {
+  {
+    var info = getDeclarationErrorAddendum();
+
+    if (!info) {
+      var parentName = typeof parentType === 'string' ? parentType : parentType.displayName || parentType.name;
+
+      if (parentName) {
+        info = "\n\nCheck the top-level render call using <" + parentName + ">.";
+      }
+    }
+
+    return info;
+  }
+}
+/**
+ * Warn if the element doesn't have an explicit key assigned to it.
+ * This element is in an array. The array could grow and shrink or be
+ * reordered. All children that haven't already been validated are required to
+ * have a "key" property assigned to it. Error statuses are cached so a warning
+ * will only be shown once.
+ *
+ * @internal
+ * @param {ReactElement} element Element that requires a key.
+ * @param {*} parentType element's parent's type.
+ */
+
+
+function validateExplicitKey(element, parentType) {
+  {
+    if (!element._store || element._store.validated || element.key != null) {
+      return;
+    }
+
+    element._store.validated = true;
+    var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
+
+    if (ownerHasKeyUseWarning[currentComponentErrorInfo]) {
+      return;
+    }
+
+    ownerHasKeyUseWarning[currentComponentErrorInfo] = true; // Usually the current owner is the offender, but if it accepts children as a
+    // property, it may be the creator of the child that's responsible for
+    // assigning it a key.
+
+    var childOwner = '';
+
+    if (element && element._owner && element._owner !== ReactCurrentOwner$1.current) {
+      // Give the component that originally created this child.
+      childOwner = " It was passed a child from " + getComponentName(element._owner.type) + ".";
+    }
+
+    setCurrentlyValidatingElement$1(element);
+
+    error('Each child in a list should have a unique "key" prop.' + '%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
+
+    setCurrentlyValidatingElement$1(null);
+  }
+}
+/**
+ * Ensure that every element either is passed in a static location, in an
+ * array with an explicit keys property defined, or in an object literal
+ * with valid key property.
+ *
+ * @internal
+ * @param {ReactNode} node Statically passed child of any type.
+ * @param {*} parentType node's parent's type.
+ */
+
+
+function validateChildKeys(node, parentType) {
+  {
+    if (typeof node !== 'object') {
+      return;
+    }
+
+    if (Array.isArray(node)) {
+      for (var i = 0; i < node.length; i++) {
+        var child = node[i];
+
+        if (isValidElement(child)) {
+          validateExplicitKey(child, parentType);
+        }
+      }
+    } else if (isValidElement(node)) {
+      // This element was passed in a valid location.
+      if (node._store) {
+        node._store.validated = true;
+      }
+    } else if (node) {
+      var iteratorFn = getIteratorFn(node);
+
+      if (typeof iteratorFn === 'function') {
+        // Entry iterators used to provide implicit keys,
+        // but now we print a separate warning for them later.
+        if (iteratorFn !== node.entries) {
+          var iterator = iteratorFn.call(node);
+          var step;
+
+          while (!(step = iterator.next()).done) {
+            if (isValidElement(step.value)) {
+              validateExplicitKey(step.value, parentType);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/**
+ * Given an element, validate that its props follow the propTypes definition,
+ * provided by the type.
+ *
+ * @param {ReactElement} element
+ */
+
+
+function validatePropTypes(element) {
+  {
+    var type = element.type;
+
+    if (type === null || type === undefined || typeof type === 'string') {
+      return;
+    }
+
+    var propTypes;
+
+    if (typeof type === 'function') {
+      propTypes = type.propTypes;
+    } else if (typeof type === 'object' && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Note: Memo only checks outer props here.
+    // Inner props are checked in the reconciler.
+    type.$$typeof === REACT_MEMO_TYPE)) {
+      propTypes = type.propTypes;
+    } else {
+      return;
+    }
+
+    if (propTypes) {
+      // Intentionally inside to avoid triggering lazy initializers:
+      var name = getComponentName(type);
+      checkPropTypes(propTypes, element.props, 'prop', name, element);
+    } else if (type.PropTypes !== undefined && !propTypesMisspellWarningShown) {
+      propTypesMisspellWarningShown = true; // Intentionally inside to avoid triggering lazy initializers:
+
+      var _name = getComponentName(type);
+
+      error('Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?', _name || 'Unknown');
+    }
+
+    if (typeof type.getDefaultProps === 'function' && !type.getDefaultProps.isReactClassApproved) {
+      error('getDefaultProps is only used on classic React.createClass ' + 'definitions. Use a static property named `defaultProps` instead.');
+    }
+  }
+}
+/**
+ * Given a fragment, validate that it can only be provided with fragment props
+ * @param {ReactElement} fragment
+ */
+
+
+function validateFragmentProps(fragment) {
+  {
+    var keys = Object.keys(fragment.props);
+
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+
+      if (key !== 'children' && key !== 'key') {
+        setCurrentlyValidatingElement$1(fragment);
+
+        error('Invalid prop `%s` supplied to `React.Fragment`. ' + 'React.Fragment can only have `key` and `children` props.', key);
+
+        setCurrentlyValidatingElement$1(null);
+        break;
+      }
+    }
+
+    if (fragment.ref !== null) {
+      setCurrentlyValidatingElement$1(fragment);
+
+      error('Invalid attribute `ref` supplied to `React.Fragment`.');
+
+      setCurrentlyValidatingElement$1(null);
+    }
+  }
+}
+
+function jsxWithValidation(type, props, key, isStaticChildren, source, self) {
+  {
+    var validType = isValidElementType(type); // We warn in this case but don't throw. We expect the element creation to
+    // succeed and there will likely be errors in render.
+
+    if (!validType) {
+      var info = '';
+
+      if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
+        info += ' You likely forgot to export your component from the file ' + "it's defined in, or you might have mixed up default and named imports.";
+      }
+
+      var sourceInfo = getSourceInfoErrorAddendum(source);
+
+      if (sourceInfo) {
+        info += sourceInfo;
+      } else {
+        info += getDeclarationErrorAddendum();
+      }
+
+      var typeString;
+
+      if (type === null) {
+        typeString = 'null';
+      } else if (Array.isArray(type)) {
+        typeString = 'array';
+      } else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
+        typeString = "<" + (getComponentName(type.type) || 'Unknown') + " />";
+        info = ' Did you accidentally export a JSX literal instead of a component?';
+      } else {
+        typeString = typeof type;
+      }
+
+      error('React.jsx: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', typeString, info);
+    }
+
+    var element = jsxDEV(type, props, key, source, self); // The result can be nullish if a mock or a custom function is used.
+    // TODO: Drop this when these are no longer allowed as the type argument.
+
+    if (element == null) {
+      return element;
+    } // Skip key warning if the type isn't valid since our key validation logic
+    // doesn't expect a non-string/function type and can throw confusing errors.
+    // We don't want exception behavior to differ between dev and prod.
+    // (Rendering will throw with a helpful message and as soon as the type is
+    // fixed, the key warnings will appear.)
+
+
+    if (validType) {
+      var children = props.children;
+
+      if (children !== undefined) {
+        if (isStaticChildren) {
+          if (Array.isArray(children)) {
+            for (var i = 0; i < children.length; i++) {
+              validateChildKeys(children[i], type);
+            }
+
+            if (Object.freeze) {
+              Object.freeze(children);
+            }
+          } else {
+            error('React.jsx: Static children should always be an array. ' + 'You are likely explicitly calling React.jsxs or React.jsxDEV. ' + 'Use the Babel transform instead.');
+          }
+        } else {
+          validateChildKeys(children, type);
+        }
+      }
+    }
+
+    if (type === exports.Fragment) {
+      validateFragmentProps(element);
+    } else {
+      validatePropTypes(element);
+    }
+
+    return element;
+  }
+} // These two functions exist to still get child warnings in dev
+// even with the prod transform. This means that jsxDEV is purely
+// opt-in behavior for better messages but that we won't stop
+// giving you warnings if you use production apis.
+
+function jsxWithValidationStatic(type, props, key) {
+  {
+    return jsxWithValidation(type, props, key, true);
+  }
+}
+function jsxWithValidationDynamic(type, props, key) {
+  {
+    return jsxWithValidation(type, props, key, false);
+  }
+}
+
+var jsx =  jsxWithValidationDynamic ; // we may want to special case jsxs internally to take advantage of static children.
+// for now we can ship identical prod functions
+
+var jsxs =  jsxWithValidationStatic ;
+
+exports.jsx = jsx;
+exports.jsxs = jsxs;
+  })();
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/react/cjs/react.development.js":
 /*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
@@ -34280,6 +36073,22 @@ exports.version = ReactVersion;
 
 if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react.development.js */ "./node_modules/react/cjs/react.development.js");
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/react/jsx-runtime.js":
+/*!*******************************************!*\
+  !*** ./node_modules/react/jsx-runtime.js ***!
+  \*******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react-jsx-runtime.development.js */ "./node_modules/react/cjs/react-jsx-runtime.development.js");
 }
 
 
