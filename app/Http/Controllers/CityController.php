@@ -10,6 +10,6 @@ class CityController extends Controller
 
     public function findByName($name)
     {
-        return City::where('name','like', '%' . $name) -> get();
+        return City::where('name','like', $name . '%') -> get();
     }
 }
