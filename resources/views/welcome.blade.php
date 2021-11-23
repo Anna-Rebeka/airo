@@ -23,7 +23,6 @@
      </head>
      <body>
          <div id="root" data-user="{{ auth()->user() }}">
-             
          </div>
          <script src="<?php echo e(mix('js/app.js')); ?>"></script>
      </body>
