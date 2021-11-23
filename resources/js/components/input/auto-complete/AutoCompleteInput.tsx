@@ -28,7 +28,7 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({}) => {
 
     useEffect(() => {
         let getSuggestions = () => {
-            axios.get(`getSuggestions`)
+            axios.get('/from/'+ input)
                 .then(res => {
                     const posts = res.data;
                     setFilteredSuggestions(filteredSuggestions);
