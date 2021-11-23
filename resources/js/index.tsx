@@ -16,7 +16,7 @@ function Root() {
         <Provider store={store}>
             <NavigationImpl logo={null}/>
             <CarouselImpl imageTickInterval={3500}
-                          images={[{url: require("../../public/images/carousel0.jpg")}, {url: require("../../public/images/carousel1.jpg")}, {url: require("../../public/images/carousel2.jpg")}]}/>
+                          images={[{url: require("/images/carousel0.jpg")}, {url: require("/images/carousel1.jpg")}, {url: require("/images/carousel2.jpg")}]}/>
             <FooterImpl textLinks={[{href: "/", text: "Home"}, {href: "/", text: "ONE"}, {href: "/", text: "TWO"},
                 {href: "/", text: "THREE"}]}
                         iconLinks={null}/>
@@ -27,6 +27,9 @@ function Root() {
 
 export default Root;
 
-if (document.getElementById('root')) {
-    ReactDOM.render(<Root/>, document.getElementById('root'));
+const element = document.getElementById('root');
+if (element) {
+    ReactDOM.render(<Root/>, element);
+    const props = Object.assign({}, element.dataset)
+    console.log(props);
 }

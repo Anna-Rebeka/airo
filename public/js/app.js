@@ -2526,11 +2526,11 @@ function Root() {
   }), react_1["default"].createElement(CarouselImpl_1.CarouselImpl, {
     imageTickInterval: 3500,
     images: [{
-      url: __webpack_require__(/*! ../../public/images/carousel0.jpg */ "./public/images/carousel0.jpg")
+      url: __webpack_require__(/*! ../../images/carousel0.jpg */ "./public/images/carousel0.jpg")
     }, {
-      url: __webpack_require__(/*! ../../public/images/carousel1.jpg */ "./public/images/carousel1.jpg")
+      url: __webpack_require__(/*! ../../images/carousel1.jpg */ "./public/images/carousel1.jpg")
     }, {
-      url: __webpack_require__(/*! ../../public/images/carousel2.jpg */ "./public/images/carousel2.jpg")
+      url: __webpack_require__(/*! ../../images/carousel2.jpg */ "./public/images/carousel2.jpg")
     }]
   }), react_1["default"].createElement(FooterImpl_1.FooterImpl, {
     textLinks: [{
@@ -2551,84 +2551,12 @@ function Root() {
 }
 
 exports["default"] = Root;
+var element = document.getElementById('root');
 
-if (document.getElementById('root')) {
-  react_dom_1["default"].render(react_1["default"].createElement(Root, null), document.getElementById('root'));
-}
-
-/***/ }),
-
-/***/ "./resources/js/test.tsx":
-/*!*******************************!*\
-  !*** ./resources/js/test.tsx ***!
-  \*******************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
-
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-
-var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var NavigationImpl_1 = __webpack_require__(/*! ./components/navigation/NavigationImpl */ "./resources/js/components/navigation/NavigationImpl.tsx");
-
-var CarouselImpl_1 = __webpack_require__(/*! ./components/carousel/CarouselImpl */ "./resources/js/components/carousel/CarouselImpl.tsx");
-
-var FooterImpl_1 = __webpack_require__(/*! ./components/footer/FooterImpl */ "./resources/js/components/footer/FooterImpl.tsx");
-
-var store = (0, redux_1.createStore)(function () {});
-
-function Test() {
-  return react_1["default"].createElement(react_redux_1.Provider, {
-    store: store
-  }, react_1["default"].createElement(NavigationImpl_1.NavigationImpl, {
-    logo: null
-  }), react_1["default"].createElement(CarouselImpl_1.CarouselImpl, {
-    imageTickInterval: 3500,
-    images: [{
-      url: __webpack_require__(/*! ../../public/images/carousel0.jpg */ "./public/images/carousel0.jpg")
-    }, {
-      url: __webpack_require__(/*! ../../public/images/carousel1.jpg */ "./public/images/carousel1.jpg")
-    }, {
-      url: __webpack_require__(/*! ../../public/images/carousel2.jpg */ "./public/images/carousel2.jpg")
-    }]
-  }), react_1["default"].createElement(FooterImpl_1.FooterImpl, {
-    textLinks: [{
-      href: "/",
-      text: "Test"
-    }, {
-      href: "/",
-      text: "Test"
-    }, {
-      href: "/",
-      text: "Test"
-    }, {
-      href: "/",
-      text: "Test"
-    }],
-    iconLinks: null
-  }));
-}
-
-exports["default"] = Test;
-
-if (document.getElementById('test')) {
-  react_dom_1["default"].render(react_1["default"].createElement(Test, null), document.getElementById('test'));
+if (element) {
+  react_dom_1["default"].render(react_1["default"].createElement(Root, null), element);
+  var props = Object.assign({}, element.dataset);
+  console.log(props);
 }
 
 /***/ }),
@@ -2647,8 +2575,6 @@ if (document.getElementById('test')) {
 __webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
 
 __webpack_require__(/*! ./index.tsx */ "./resources/js/index.tsx");
-
-__webpack_require__(/*! ./test.tsx */ "./resources/js/test.tsx");
 
 /***/ }),
 
