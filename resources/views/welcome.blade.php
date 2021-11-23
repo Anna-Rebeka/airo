@@ -22,7 +22,7 @@
          </style>
      </head>
      <body>
-         <div id="root" data-user="{{ auth()->user() }}">
+         <div id="root" data-user="{{ json_encode(auth()->user()) }}">
          </div>
          <script src="<?php echo e(mix('js/app.js')); ?>"></script>
      </body>
