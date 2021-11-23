@@ -3750,6 +3750,60 @@ var templateObject_1;
 
 /***/ }),
 
+/***/ "./resources/js/components/button/ButtonHrefAnother.tsx":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/button/ButtonHrefAnother.tsx ***!
+  \**************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.ButtonHrefAnother = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var ButtonCoreButton = styled_1["default"].a(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-decoration: none;\n    border: 2px solid white;\n    color: white;\n    font-size: 1.05em;\n    cursor: pointer;\n    text-shadow: 0 5px 8px black;\n    background-color: transparent;\n    text-align: center;\n    vertical-align: center;\n    padding: 0.5rem 1rem;\n    font-family: 'Arial', cursive;\n    font-weight: bold;\n    margin: 0.4em 0.5em;\n\n    :hover {\n        color: black;\n        border: 2px solid black;\n        text-shadow: none;\n    }\n\n    @media (min-width: 772px) {\n        font-size: 1.6em;\n    }\n\n    @media (min-width: 992px) {\n        font-size: 1.8em;\n    }\n\n    @media (min-width: 1280px) {\n        font-size: 2em;\n    }\n\n    @media (min-width: 1920px) {\n        font-size: 2.5em;\n    }\n\n\n    transition: background-color 0.2s, color 0.3s;\n"], ["\n    text-decoration: none;\n    border: 2px solid white;\n    color: white;\n    font-size: 1.05em;\n    cursor: pointer;\n    text-shadow: 0 5px 8px black;\n    background-color: transparent;\n    text-align: center;\n    vertical-align: center;\n    padding: 0.5rem 1rem;\n    font-family: 'Arial', cursive;\n    font-weight: bold;\n    margin: 0.4em 0.5em;\n\n    :hover {\n        color: black;\n        border: 2px solid black;\n        text-shadow: none;\n    }\n\n    @media (min-width: 772px) {\n        font-size: 1.6em;\n    }\n\n    @media (min-width: 992px) {\n        font-size: 1.8em;\n    }\n\n    @media (min-width: 1280px) {\n        font-size: 2em;\n    }\n\n    @media (min-width: 1920px) {\n        font-size: 2.5em;\n    }\n\n\n    transition: background-color 0.2s, color 0.3s;\n"])));
+
+var ButtonHrefAnother = function ButtonHrefAnother(_a) {
+  var text = _a.text,
+      href = _a.href,
+      className = _a.className,
+      children = _a.children;
+  return react_1["default"].createElement(ButtonCoreButton, {
+    href: href && href,
+    className: className
+  }, text && text, children);
+};
+
+exports.ButtonHrefAnother = ButtonHrefAnother;
+var templateObject_1;
+
+/***/ }),
+
 /***/ "./resources/js/components/carousel/CarouselImg.tsx":
 /*!**********************************************************!*\
   !*** ./resources/js/components/carousel/CarouselImg.tsx ***!
@@ -4118,10 +4172,10 @@ var templateObject_1, templateObject_2;
 
 /***/ }),
 
-/***/ "./resources/js/components/image/Image.tsx":
-/*!*************************************************!*\
-  !*** ./resources/js/components/image/Image.tsx ***!
-  \*************************************************/
+/***/ "./resources/js/components/image/CarouselImageHalf.tsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/image/CarouselImageHalf.tsx ***!
+  \*************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -4148,28 +4202,43 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.ImageComponent = void 0;
+exports.CarouselImageHalf = void 0;
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-var CarouselImgOpacityImg = styled_1["default"].img(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: absolute;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 1s linear;\n"], ["\n    position: absolute;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 1s linear;\n"])));
+var ButtonHrefAnother_1 = __webpack_require__(/*! ../button/ButtonHrefAnother */ "./resources/js/components/button/ButtonHrefAnother.tsx");
 
-var ImageComponent = function ImageComponent(_a) {
+var CarouselImgOpacityImg = styled_1["default"].img(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 50%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 1s linear;\n    box-shadow: 2px 3px 8px 1px rgba(22, 23, 24, 1);\n"], ["\n    width: 50%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 1s linear;\n    box-shadow: 2px 3px 8px 1px rgba(22, 23, 24, 1);\n"])));
+var Text = styled_1["default"].p(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    top: 20%;\n    left: 5%;\n    position: absolute;\n    color: white;\n    font-size: 3em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"], ["\n    top: 20%;\n    left: 5%;\n    position: absolute;\n    color: white;\n    font-size: 3em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"])));
+var TextBehind = styled_1["default"].p(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    top: 30%;\n    left: 5%;\n    position: absolute;\n    color: white;\n    font-size: 1.5em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"], ["\n    top: 30%;\n    left: 5%;\n    position: absolute;\n    color: white;\n    font-size: 1.5em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"])));
+var TextRight = styled_1["default"].p(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    bottom: 30%;\n    right: 5%;\n    position: absolute;\n    color: white;\n    font-size: 3em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"], ["\n    bottom: 30%;\n    right: 5%;\n    position: absolute;\n    color: white;\n    font-size: 3em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"])));
+var TextBehindRight = styled_1["default"].p(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    bottom: 25%;\n    right: 5%;\n    text-align: right;\n    position: absolute;\n    color: white;\n    font-size: 1.5em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"], ["\n    bottom: 25%;\n    right: 5%;\n    text-align: right;\n    position: absolute;\n    color: white;\n    font-size: 1.5em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"])));
+var AbsoluteDiv = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    position: absolute;\n    left: 4%;\n    top: 40%;\n"], ["\n    position: absolute;\n    left: 4%;\n    top: 40%;\n"])));
+var AbsoluteDivRight = styled_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    position: absolute;\n    right: 4%;\n    bottom: 20%;\n"], ["\n    position: absolute;\n    right: 4%;\n    bottom: 20%;\n"])));
+
+var CarouselImageHalf = function CarouselImageHalf(_a) {
   var src = _a.src,
       alt = _a.alt,
       className = _a.className,
+      side = _a.side,
       children = _a.children;
-  return react_1["default"].createElement(CarouselImgOpacityImg, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(CarouselImgOpacityImg, {
     className: className,
-    src: src,
+    src: src.url["default"],
     alt: alt
-  }, children);
+  }), side === "LEFT" ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Text, null, "Looking for a flight?"), react_1["default"].createElement(TextBehind, null, "We offer tickets from multiple airline companies.", react_1["default"].createElement("br", null), "You can choose a ticket which is tailored for your needs."), react_1["default"].createElement(AbsoluteDiv, null, react_1["default"].createElement(ButtonHrefAnother_1.ButtonHrefAnother, {
+    href: "/search",
+    text: "Book a ticket"
+  }))) : react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TextRight, null, "Are you interested in a round trip?"), react_1["default"].createElement(TextBehindRight, null, "Choose your starting point, budget and number of places you want to visit.", react_1["default"].createElement("br", null), "Round trips will be based on your input and your preferences."), react_1["default"].createElement(AbsoluteDivRight, null, react_1["default"].createElement(ButtonHrefAnother_1.ButtonHrefAnother, {
+    href: "/roundtrip",
+    text: "Search for a round trip"
+  }))));
 };
 
-exports.ImageComponent = ImageComponent;
-var templateObject_1;
+exports.CarouselImageHalf = CarouselImageHalf;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
 
 /***/ }),
 
@@ -4641,10 +4710,10 @@ var FooterImpl_1 = __webpack_require__(/*! ./components/footer/FooterImpl */ "./
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-var Image_1 = __webpack_require__(/*! ./components/image/Image */ "./resources/js/components/image/Image.tsx");
+var CarouselImageHalf_1 = __webpack_require__(/*! ./components/image/CarouselImageHalf */ "./resources/js/components/image/CarouselImageHalf.tsx");
 
 var store = (0, redux_1.createStore)(function () {});
-var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 50%;\n    height: 93vh;\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 50%;\n    height: 93vh;\n"])));
+var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 93vh;\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 93vh;\n"])));
 
 var Root = function Root(_a) {
   var dataset = _a.dataset;
@@ -4653,12 +4722,14 @@ var Root = function Root(_a) {
   }, react_1["default"].createElement(NavigationImpl_1.NavigationImpl, {
     logo: null,
     user: dataset && JSON.parse(dataset.user)
-  }), react_1["default"].createElement(Carousel, null, react_1["default"].createElement(Image_1.ImageComponent, {
+  }), react_1["default"].createElement(Carousel, null, react_1["default"].createElement(CarouselImageHalf_1.CarouselImageHalf, {
+    side: "LEFT",
     src: {
       url: __webpack_require__(/*! ../../public/images/first.jpg */ "./public/images/first.jpg")
     },
     alt: "first"
-  }), react_1["default"].createElement(Image_1.ImageComponent, {
+  }), react_1["default"].createElement(CarouselImageHalf_1.CarouselImageHalf, {
+    side: "RIGHT",
     src: {
       url: __webpack_require__(/*! ../../public/images/second.jpg */ "./public/images/second.jpg")
     },
@@ -4825,7 +4896,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/first.jpg?fb669c7646832b7f5ed004e91dde6759");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/first.jpg?5f53429c2f7b8b1f4fbe77b95db251f0");
 
 /***/ }),
 
@@ -4840,7 +4911,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/second.jpg?5f53429c2f7b8b1f4fbe77b95db251f0");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/second.jpg?fb669c7646832b7f5ed004e91dde6759");
 
 /***/ }),
 
