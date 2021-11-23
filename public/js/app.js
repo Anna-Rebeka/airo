@@ -4338,9 +4338,8 @@ var AutoCompleteInput = function AutoCompleteInput(_a) {
 
   (0, react_1.useEffect)(function () {
     var getSuggestions = function getSuggestions() {
-      axios_1["default"].get('/from/' + input).then(function (res) {
-        var posts = res.data;
-        setFilteredSuggestions(filteredSuggestions);
+      input && axios_1["default"].get('/from/' + input).then(function (res) {
+        setFilteredSuggestions(res.data && res.data[0]);
       });
     };
 
