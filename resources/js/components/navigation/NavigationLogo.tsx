@@ -12,16 +12,16 @@ let NavigationLogoImg = styled.img`
     text-decoration: none;
     display: block;
     padding: 8px 20px;
-    width: 50px;
+    width: 80px;
     height: auto;
     cursor: pointer;
 
     @media (min-width: 772px) {
-        width: 60px;
+        width: 100px;
     }
 
     @media (min-width: 992px) {
-        width: 70px;
+        width: 120px;
     }
 `
 

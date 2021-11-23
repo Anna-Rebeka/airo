@@ -13,7 +13,6 @@ let ButtonCoreButton = styled.a`
   color: black;
   font-size: 1.05em;
   cursor: pointer;
-  border-radius: 30px;
   background-color: white;
   text-align: center;
   vertical-align: center;
