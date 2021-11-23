@@ -1,12 +1,12 @@
-import {FunctionComponent} from "react";
+import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import React from 'react';
 import {NavigationLink} from "./NavigationLink";
 import {NavigationLogo} from "./NavigationLogo";
 import {ButtonHref} from "../button/ButtonHref";
 
 interface Props {
     logo: any;
+    user: any;
     className?: string;
 }
 
@@ -49,6 +49,7 @@ let NavigationButtons = styled.ul`
 `
 
 export const NavigationImpl: FunctionComponent<Props> = ({
+                                                             user,
                                                              children,
                                                          }) => {
     let navigationLinks = ["ONE", "TWO", "THREE", "FOUR"];
@@ -69,13 +70,22 @@ export const NavigationImpl: FunctionComponent<Props> = ({
                     )
                 )}
                 <NavigationButtonsWrapper>
-                    <NavigationButtons>
-                        <ButtonHref key={"navigation-link-login"} href={"/login"} text={"Log in"}/>
-                        <ButtonHref key={"navigation-link-signup"} href={"/register"} text={"Sign up"}/>
-                    </NavigationButtons>
+                    {user ?
+                        <NavigationButtons>
+                            <ButtonHref key={"navigation-link-logout"} href={"/logout"} text={"Log out"}/>
+                        </NavigationButtons>
+                        :
+                        <NavigationButtons>
+                            <ButtonHref key={"navigation-link-login"} href={"/login"} text={"Log in"}/>
+                            <ButtonHref key={"navigation-link-signup"} href={"/register"} text={"Sign up"}/>
+                        </NavigationButtons>
+                    }
                 </NavigationButtonsWrapper>
             </NavigationLinkItemDiv>
-            {children}
+            {
+                children
+            }
         </NavigationImplDiv>
-    );
+    )
+
 }

@@ -2313,9 +2313,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.NavigationImpl = void 0;
 
-var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
-
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
 var NavigationLink_1 = __webpack_require__(/*! ./NavigationLink */ "./resources/js/components/navigation/NavigationLink.tsx");
 
@@ -2331,7 +2331,8 @@ var NavigationButtonsWrapper = styled_1["default"].li(templateObject_3 || (templ
 var NavigationButtons = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    padding: 0;\n    margin: 0;\n"], ["\n    display: flex;\n    padding: 0;\n    margin: 0;\n"])));
 
 var NavigationImpl = function NavigationImpl(_a) {
-  var children = _a.children;
+  var user = _a.user,
+      children = _a.children;
   var navigationLinks = ["ONE", "TWO", "THREE", "FOUR"];
   var middleIndex = navigationLinks ? Math.floor(navigationLinks.length / 2) : 0;
   return react_1["default"].createElement(NavigationImplDiv, null, react_1["default"].createElement(NavigationLinkItemDiv, {
@@ -2355,7 +2356,11 @@ var NavigationImpl = function NavigationImpl(_a) {
       href: "/",
       textField: textField
     });
-  }), react_1["default"].createElement(NavigationButtonsWrapper, null, react_1["default"].createElement(NavigationButtons, null, react_1["default"].createElement(ButtonHref_1.ButtonHref, {
+  }), react_1["default"].createElement(NavigationButtonsWrapper, null, user ? react_1["default"].createElement(NavigationButtons, null, react_1["default"].createElement(ButtonHref_1.ButtonHref, {
+    key: "navigation-link-logout",
+    href: "/login",
+    text: "Log out"
+  })) : react_1["default"].createElement(NavigationButtons, null, react_1["default"].createElement(ButtonHref_1.ButtonHref, {
     key: "navigation-link-login",
     href: "/login",
     text: "Log in"
@@ -2518,19 +2523,23 @@ var FooterImpl_1 = __webpack_require__(/*! ./components/footer/FooterImpl */ "./
 
 var store = (0, redux_1.createStore)(function () {});
 
-function Root() {
+var Root = function Root(_a) {
+  var dataset = _a.dataset;
+  console.log(dataset);
+  console.log(dataset && dataset.user && JSON.parse(dataset.user));
   return react_1["default"].createElement(react_redux_1.Provider, {
     store: store
   }, react_1["default"].createElement(NavigationImpl_1.NavigationImpl, {
-    logo: null
+    logo: null,
+    user: dataset && dataset.user
   }), react_1["default"].createElement(CarouselImpl_1.CarouselImpl, {
     imageTickInterval: 3500,
     images: [{
-      url: __webpack_require__(/*! ../../images/carousel0.jpg */ "./public/images/carousel0.jpg")
+      url: __webpack_require__(/*! ../../../../../../images/carousel0.jpg */ "./public/images/carousel0.jpg")
     }, {
-      url: __webpack_require__(/*! ../../images/carousel1.jpg */ "./public/images/carousel1.jpg")
+      url: __webpack_require__(/*! ../../../../../../images/carousel1.jpg */ "./public/images/carousel1.jpg")
     }, {
-      url: __webpack_require__(/*! ../../images/carousel2.jpg */ "./public/images/carousel2.jpg")
+      url: __webpack_require__(/*! ../../../../../../images/carousel2.jpg */ "./public/images/carousel2.jpg")
     }]
   }), react_1["default"].createElement(FooterImpl_1.FooterImpl, {
     textLinks: [{
@@ -2548,15 +2557,15 @@ function Root() {
     }],
     iconLinks: null
   }));
-}
+};
 
 exports["default"] = Root;
 var element = document.getElementById('root');
 
 if (element) {
-  react_dom_1["default"].render(react_1["default"].createElement(Root, null), element);
-  var props = Object.assign({}, element.dataset);
-  console.log(props);
+  react_dom_1["default"].render(react_1["default"].createElement(Root, {
+    dataset: Object.assign({}, element.dataset)
+  }), element);
 }
 
 /***/ }),
