@@ -4,7 +4,7 @@ import {SuggestionList} from "./SuggestionList";
 import axios from "axios";
 
 interface Props {
-    suggestions: string[];
+
 }
 
 let WrapperDiv = styled.div`
@@ -20,7 +20,7 @@ let Input = styled.input`
     box-shadow: 2px 3px 8px 1px black;
 `
 
-export const AutoCompleteInput: FunctionComponent<Props> = ({suggestions}) => {
+export const AutoCompleteInput: FunctionComponent<Props> = ({}) => {
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [input, setInput] = useState("");
@@ -53,26 +53,11 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({suggestions}) => {
     };
 
     const onFocus = (e: any) => {
-        const userInput = e.target.value;
-
-        const filteredSuggestions: any = suggestions.filter(
-            (suggestion) =>
-                suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
-        );
-
-        setFilteredSuggestions(filteredSuggestions);
         setShowSuggestions(true);
     }
 
     const onChange = (e: any) => {
-        const userInput = e.target.value;
         setInputListReference([]);
-
-        const filteredSuggestions: any = suggestions.filter(
-            (suggestion) =>
-                suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
-        );
-
         setInput(e.target.value);
         setFilteredSuggestions(filteredSuggestions);
         setShowSuggestions(true);

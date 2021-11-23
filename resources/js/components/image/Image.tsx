@@ -18,7 +18,7 @@ let CarouselImgOpacityImg = styled.img`
 `;
 
 
-export const CarouselImg: FunctionComponent<Props> = ({
+export const ImageComponent: FunctionComponent<Props> = ({
                                                           src,
                                                           alt,
                                                           className,
