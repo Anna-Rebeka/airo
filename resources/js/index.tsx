@@ -15,11 +15,9 @@ interface RootProps{
 }
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
-    console.log(dataset);
-    console.log(dataset && dataset.user && JSON.parse(dataset.user))
     return (
         <Provider store={store}>
-            <NavigationImpl logo={null} user={dataset && dataset.user}/>
+            <NavigationImpl logo={null} user={dataset && JSON.parse(dataset.user)}/>
             <CarouselImpl imageTickInterval={3500}
                           images={[{url: require("/images/carousel0.jpg")}, {url: require("/images/carousel1.jpg")}, {url: require("/images/carousel2.jpg")}]}/>
             <FooterImpl textLinks={[{href: "/", text: "Home"}, {href: "/", text: "ONE"}, {href: "/", text: "TWO"},

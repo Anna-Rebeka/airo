@@ -2525,21 +2525,19 @@ var store = (0, redux_1.createStore)(function () {});
 
 var Root = function Root(_a) {
   var dataset = _a.dataset;
-  console.log(dataset);
-  console.log(dataset && dataset.user && JSON.parse(dataset.user));
   return react_1["default"].createElement(react_redux_1.Provider, {
     store: store
   }, react_1["default"].createElement(NavigationImpl_1.NavigationImpl, {
     logo: null,
-    user: dataset && dataset.user
+    user: dataset && JSON.parse(dataset.user)
   }), react_1["default"].createElement(CarouselImpl_1.CarouselImpl, {
     imageTickInterval: 3500,
     images: [{
-      url: __webpack_require__(/*! ../../images/carousel0.jpg */ "./public/images/carousel0.jpg")
+      url: __webpack_require__(/*! ../../../../../../images/carousel0.jpg */ "./public/images/carousel0.jpg")
     }, {
-      url: __webpack_require__(/*! ../../images/carousel1.jpg */ "./public/images/carousel1.jpg")
+      url: __webpack_require__(/*! ../../../../../../images/carousel1.jpg */ "./public/images/carousel1.jpg")
     }, {
-      url: __webpack_require__(/*! ../../images/carousel2.jpg */ "./public/images/carousel2.jpg")
+      url: __webpack_require__(/*! ../../../../../../images/carousel2.jpg */ "./public/images/carousel2.jpg")
     }]
   }), react_1["default"].createElement(FooterImpl_1.FooterImpl, {
     textLinks: [{
