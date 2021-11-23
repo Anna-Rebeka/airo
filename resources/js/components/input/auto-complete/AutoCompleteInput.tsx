@@ -1,6 +1,7 @@
-import React, {FunctionComponent, useState} from "react";
+import React, {FunctionComponent, useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import {SuggestionList} from "./SuggestionList";
+import axios from "axios";
 
 interface Props {
     suggestions: string[];
@@ -24,6 +25,17 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({suggestions}) => {
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [input, setInput] = useState("");
     const [inputListReference, setInputListReference] = useState<any>([]);
+
+    useEffect(() => {
+        let getSuggestions = () => {
+            axios.get(`getSuggestions`)
+                .then(res => {
+                    const posts = res.data;
+                    setFilteredSuggestions(filteredSuggestions);
+                })
+        }
+        return () => getSuggestions();
+    }, [input]);
 
     const onClick = (e: any) => {
         //console.log(e);

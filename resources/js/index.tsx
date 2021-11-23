@@ -6,13 +6,21 @@ import React, {FunctionComponent} from 'react';
 import {NavigationImpl} from "./components/navigation/NavigationImpl";
 import {CarouselImpl} from "./components/carousel/CarouselImpl";
 import {FooterImpl} from "./components/footer/FooterImpl";
+import styled from "@emotion/styled";
 
 const store = createStore(() => {
 });
 
-interface RootProps{
+interface RootProps {
     dataset: any;
 }
+
+let MainDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 93vh;
+`
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
     return (
