@@ -28,4 +28,4 @@ Route::group(['middleware' => ['auth']], function() {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/from/{letters}', [App\Http\Controllers\CityController::class, 'index']);
+Route::get('/from/{letters}', [App\Http\Controllers\CityController::class, 'findByName']);
