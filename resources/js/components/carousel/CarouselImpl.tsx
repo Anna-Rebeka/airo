@@ -93,15 +93,15 @@ export const CarouselImpl: FunctionComponent<Props> = ({
                 <InputGroup>
                     <WrapperInput>
                         <WrapperParagraph>From</WrapperParagraph>
-                        <AutoCompleteInput suggestions={["abc", "axbc", "acdbc", "aasbc", "xdy"]}/>
+                        <AutoCompleteInput/>
                     </WrapperInput>
                     <WrapperInput>
                         <WrapperParagraph>To</WrapperParagraph>
-                        <AutoCompleteInput suggestions={["abc", "axbc", "acdbc", "aasbc", "xdy"]}/>
+                        <AutoCompleteInput/>
                     </WrapperInput>
                     <WrapperInput>
                         <WrapperParagraph>No. of days</WrapperParagraph>
-                        <AutoCompleteInput suggestions={["abc", "axbc", "acdbc", "aasbc", "xdy"]}/>
+                        <AutoCompleteInput/>
                     </WrapperInput>
                     <ButtonHref href={"/search"} text={"Search"}/>
 

@@ -3923,13 +3923,7 @@ var CarouselImpl = function CarouselImpl(_a) {
       alt: "carousel-img-" + index,
       key: "carousel-img-" + index
     });
-  }), react_1["default"].createElement(WrapperCenterDiv, null, react_1["default"].createElement(Text, null, "Find a holiday of your dreams."), react_1["default"].createElement(InputGroup, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
-    suggestions: ["abc", "axbc", "acdbc", "aasbc", "xdy"]
-  })), react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "To"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
-    suggestions: ["abc", "axbc", "acdbc", "aasbc", "xdy"]
-  })), react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "No. of days"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
-    suggestions: ["abc", "axbc", "acdbc", "aasbc", "xdy"]
-  })), react_1["default"].createElement(ButtonHref_1.ButtonHref, {
+  }), react_1["default"].createElement(WrapperCenterDiv, null, react_1["default"].createElement(Text, null, "Find a holiday of your dreams."), react_1["default"].createElement(InputGroup, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], null)), react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "To"), react_1["default"].createElement(AutoCompleteInput_1["default"], null)), react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "No. of days"), react_1["default"].createElement(AutoCompleteInput_1["default"], null)), react_1["default"].createElement(ButtonHref_1.ButtonHref, {
     href: "/search",
     text: "Search"
   }))), children);
@@ -4202,8 +4196,6 @@ var WrapperDiv = styled_1["default"].div(templateObject_1 || (templateObject_1 =
 var Input = styled_1["default"].input(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 100%;\n    height: 100%;\n    box-shadow: 2px 3px 8px 1px black;\n"], ["\n    width: 100%;\n    height: 100%;\n    box-shadow: 2px 3px 8px 1px black;\n"])));
 
 var AutoCompleteInput = function AutoCompleteInput(_a) {
-  var suggestions = _a.suggestions;
-
   var _b = (0, react_1.useState)([]),
       filteredSuggestions = _b[0],
       setFilteredSuggestions = _b[1];
@@ -4250,20 +4242,11 @@ var AutoCompleteInput = function AutoCompleteInput(_a) {
   };
 
   var onFocus = function onFocus(e) {
-    var userInput = e.target.value;
-    var filteredSuggestions = suggestions.filter(function (suggestion) {
-      return suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1;
-    });
-    setFilteredSuggestions(filteredSuggestions);
     setShowSuggestions(true);
   };
 
   var onChange = function onChange(e) {
-    var userInput = e.target.value;
     setInputListReference([]);
-    var filteredSuggestions = suggestions.filter(function (suggestion) {
-      return suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1;
-    });
     setInput(e.target.value);
     setFilteredSuggestions(filteredSuggestions);
     setShowSuggestions(true);
