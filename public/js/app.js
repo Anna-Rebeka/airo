@@ -4118,6 +4118,61 @@ var templateObject_1, templateObject_2;
 
 /***/ }),
 
+/***/ "./resources/js/components/image/Image.tsx":
+/*!*************************************************!*\
+  !*** ./resources/js/components/image/Image.tsx ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.ImageComponent = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var CarouselImgOpacityImg = styled_1["default"].img(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: absolute;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 1s linear;\n"], ["\n    position: absolute;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 1s linear;\n"])));
+
+var ImageComponent = function ImageComponent(_a) {
+  var src = _a.src,
+      alt = _a.alt,
+      className = _a.className,
+      children = _a.children;
+  return react_1["default"].createElement(CarouselImgOpacityImg, {
+    className: className,
+    src: src,
+    alt: alt
+  }, children);
+};
+
+exports.ImageComponent = ImageComponent;
+var templateObject_1;
+
+/***/ }),
+
 /***/ "./resources/js/components/input/auto-complete/AutoCompleteInput.tsx":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/input/auto-complete/AutoCompleteInput.tsx ***!
@@ -4586,8 +4641,10 @@ var FooterImpl_1 = __webpack_require__(/*! ./components/footer/FooterImpl */ "./
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
+var Image_1 = __webpack_require__(/*! ./components/image/Image */ "./resources/js/components/image/Image.tsx");
+
 var store = (0, redux_1.createStore)(function () {});
-var MainDiv = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 50%;\n    height: 93vh;\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 50%;\n    height: 93vh;\n"])));
+var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 50%;\n    height: 93vh;\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 50%;\n    height: 93vh;\n"])));
 
 var Root = function Root(_a) {
   var dataset = _a.dataset;
@@ -4596,7 +4653,17 @@ var Root = function Root(_a) {
   }, react_1["default"].createElement(NavigationImpl_1.NavigationImpl, {
     logo: null,
     user: dataset && JSON.parse(dataset.user)
-  }), react_1["default"].createElement(CarouselImpl_1.CarouselImpl, {
+  }), react_1["default"].createElement(Carousel, null, react_1["default"].createElement(Image_1.ImageComponent, {
+    src: {
+      url: __webpack_require__(/*! ../../public/images/first.jpg */ "./public/images/first.jpg")
+    },
+    alt: "first"
+  }), react_1["default"].createElement(Image_1.ImageComponent, {
+    src: {
+      url: __webpack_require__(/*! ../../public/images/second.jpg */ "./public/images/second.jpg")
+    },
+    alt: "second"
+  })), react_1["default"].createElement(CarouselImpl_1.CarouselImpl, {
     imageTickInterval: 3500,
     images: [{
       url: __webpack_require__(/*! ../../../../../../images/carousel0.jpg */ "./public/images/carousel0.jpg")
@@ -4744,6 +4811,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/carousel2.jpg?cb717ef887fba8a727734670cee8ea31");
+
+/***/ }),
+
+/***/ "./public/images/first.jpg":
+/*!*********************************!*\
+  !*** ./public/images/first.jpg ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/first.jpg?fb669c7646832b7f5ed004e91dde6759");
+
+/***/ }),
+
+/***/ "./public/images/second.jpg":
+/*!**********************************!*\
+  !*** ./public/images/second.jpg ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/second.jpg?5f53429c2f7b8b1f4fbe77b95db251f0");
 
 /***/ }),
 
