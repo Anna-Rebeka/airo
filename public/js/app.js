@@ -2526,11 +2526,11 @@ function Root() {
   }), react_1["default"].createElement(CarouselImpl_1.CarouselImpl, {
     imageTickInterval: 3500,
     images: [{
-      url: __webpack_require__(/*! ../../public/images/carousel0.jpg */ "./public/images/carousel0.jpg")
+      url: __webpack_require__(/*! ../../images/carousel0.jpg */ "./public/images/carousel0.jpg")
     }, {
-      url: __webpack_require__(/*! ../../public/images/carousel1.jpg */ "./public/images/carousel1.jpg")
+      url: __webpack_require__(/*! ../../images/carousel1.jpg */ "./public/images/carousel1.jpg")
     }, {
-      url: __webpack_require__(/*! ../../public/images/carousel2.jpg */ "./public/images/carousel2.jpg")
+      url: __webpack_require__(/*! ../../images/carousel2.jpg */ "./public/images/carousel2.jpg")
     }]
   }), react_1["default"].createElement(FooterImpl_1.FooterImpl, {
     textLinks: [{
@@ -2551,9 +2551,12 @@ function Root() {
 }
 
 exports["default"] = Root;
+var element = document.getElementById('root');
 
-if (document.getElementById('root')) {
-  react_dom_1["default"].render(react_1["default"].createElement(Root, null), document.getElementById('root'));
+if (element) {
+  react_dom_1["default"].render(react_1["default"].createElement(Root, null), element);
+  var props = Object.assign({}, element.dataset);
+  console.log(props);
 }
 
 /***/ }),
