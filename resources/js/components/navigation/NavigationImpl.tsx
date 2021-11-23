@@ -19,7 +19,7 @@ let NavigationImplDiv = styled.nav`
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 80px;
+    min-height: 120px;
 `
 
 let NavigationLinkItemDiv = styled.ul<{ direction: string }>`
