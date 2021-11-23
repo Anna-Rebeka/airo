@@ -2358,7 +2358,7 @@ var NavigationImpl = function NavigationImpl(_a) {
     });
   }), react_1["default"].createElement(NavigationButtonsWrapper, null, user ? react_1["default"].createElement(NavigationButtons, null, react_1["default"].createElement(ButtonHref_1.ButtonHref, {
     key: "navigation-link-logout",
-    href: "/login",
+    href: "/logout",
     text: "Log out"
   })) : react_1["default"].createElement(NavigationButtons, null, react_1["default"].createElement(ButtonHref_1.ButtonHref, {
     key: "navigation-link-login",
@@ -2535,11 +2535,11 @@ var Root = function Root(_a) {
   }), react_1["default"].createElement(CarouselImpl_1.CarouselImpl, {
     imageTickInterval: 3500,
     images: [{
-      url: __webpack_require__(/*! ../../../../../../images/carousel0.jpg */ "./public/images/carousel0.jpg")
+      url: __webpack_require__(/*! ../../images/carousel0.jpg */ "./public/images/carousel0.jpg")
     }, {
-      url: __webpack_require__(/*! ../../../../../../images/carousel1.jpg */ "./public/images/carousel1.jpg")
+      url: __webpack_require__(/*! ../../images/carousel1.jpg */ "./public/images/carousel1.jpg")
     }, {
-      url: __webpack_require__(/*! ../../../../../../images/carousel2.jpg */ "./public/images/carousel2.jpg")
+      url: __webpack_require__(/*! ../../images/carousel2.jpg */ "./public/images/carousel2.jpg")
     }]
   }), react_1["default"].createElement(FooterImpl_1.FooterImpl, {
     textLinks: [{
