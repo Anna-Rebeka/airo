@@ -18,9 +18,13 @@ class Flight extends Model
         'name',
         'departure',
         'arrival',
-        'created_at',
-        'updated_at',
+        'departure_id',
+        'arrival_id',
 
     ];
+
+    public function tickets(){
+        return $this->hasMany(Ticket::class);
+    }
 
 }

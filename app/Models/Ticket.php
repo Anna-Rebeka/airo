@@ -15,11 +15,9 @@ class Ticket extends Model
      * @var string[]
      */
     protected $fillable = [
-        
+
         'user_id',
         'flight_id',
-        'created_at',
-        'updated_at',
 
     ];
 
