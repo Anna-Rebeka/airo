@@ -17,7 +17,8 @@ class Ticket extends Model
     protected $fillable = [
 
         'user_id',
-        'flight_id'
+        'flight_id',
+        'price'
 
     ];
 
