@@ -10,7 +10,7 @@ class Preference extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'name'
 
     ];
 

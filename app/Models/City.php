@@ -20,17 +20,18 @@ class City extends Model
         'lat',
         'lng',
         'country',
+        'capital',
         'population',
         'info',
-        'image',
+        'image'
     ];
 
-    public function departures(){
-        return $this->hasMany(City::class);
+    public function flight_departures(){
+        return $this->hasMany(Flight::class);
     }
 
-    public function arrivals(){
-        return $this->hasMany(City::class);
+    public function flight_arrivals(){
+        return $this->hasMany(Flight::class);
     }
 
 

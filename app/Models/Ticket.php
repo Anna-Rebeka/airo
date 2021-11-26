@@ -17,7 +17,7 @@ class Ticket extends Model
     protected $fillable = [
 
         'user_id',
-        'flight_id',
+        'flight_id'
 
     ];
 
@@ -26,7 +26,7 @@ class Ticket extends Model
     }
 
     public function flights(){
-        return $this->hasMany(Flight::class);
+        return $this->belongsTo(Flight::class);
     }
 
 }
