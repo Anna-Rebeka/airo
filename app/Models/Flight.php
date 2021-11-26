@@ -19,7 +19,7 @@ class Flight extends Model
         'departure',
         'arrival',
         'departure_id',
-        'arrival_id',
+        'arrival_id'
 
     ];
 
