@@ -11,7 +11,7 @@ interface Props {
 }
 
 let CarouselImgOpacityImg = styled.img`
-    width: 50%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     transition: opacity 1s linear;
@@ -81,8 +81,7 @@ export const CarouselImageHalf: FunctionComponent<Props> = ({
                                                             }) => {
     return (
         <>
-            <CarouselImgOpacityImg className={className} src={src.url.default} alt={alt}>
-            </CarouselImgOpacityImg>
+            <CarouselImgOpacityImg className={className} src={src.url.default} alt={alt}/>
             {
                 side === "LEFT" ?
                     <>

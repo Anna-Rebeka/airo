@@ -4210,7 +4210,7 @@ var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./nod
 
 var ButtonHrefAnother_1 = __webpack_require__(/*! ../button/ButtonHrefAnother */ "./resources/js/components/button/ButtonHrefAnother.tsx");
 
-var CarouselImgOpacityImg = styled_1["default"].img(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 50%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 1s linear;\n    box-shadow: 2px 3px 8px 1px rgba(22, 23, 24, 1);\n"], ["\n    width: 50%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 1s linear;\n    box-shadow: 2px 3px 8px 1px rgba(22, 23, 24, 1);\n"])));
+var CarouselImgOpacityImg = styled_1["default"].img(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 1s linear;\n    box-shadow: 2px 3px 8px 1px rgba(22, 23, 24, 1);\n"], ["\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 1s linear;\n    box-shadow: 2px 3px 8px 1px rgba(22, 23, 24, 1);\n"])));
 var Text = styled_1["default"].p(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    top: 20%;\n    left: 5%;\n    position: absolute;\n    color: white;\n    font-size: 3em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"], ["\n    top: 20%;\n    left: 5%;\n    position: absolute;\n    color: white;\n    font-size: 3em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"])));
 var TextBehind = styled_1["default"].p(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    top: 30%;\n    left: 5%;\n    position: absolute;\n    color: white;\n    font-size: 1.5em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"], ["\n    top: 30%;\n    left: 5%;\n    position: absolute;\n    color: white;\n    font-size: 1.5em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"])));
 var TextRight = styled_1["default"].p(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    bottom: 30%;\n    right: 5%;\n    position: absolute;\n    color: white;\n    font-size: 3em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"], ["\n    bottom: 30%;\n    right: 5%;\n    position: absolute;\n    color: white;\n    font-size: 3em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"])));
@@ -4337,22 +4337,20 @@ var AutoCompleteInput = function AutoCompleteInput(_a) {
       setInputListReference = _e[1];
 
   (0, react_1.useEffect)(function () {
-    var getSuggestions = function getSuggestions() {
-      input && axios_1["default"].get('/from/' + input).then(function (res) {
-        setFilteredSuggestions(res.data);
-      });
-    };
-
-    return function () {
-      return getSuggestions();
-    };
+    getAndSetSuggestions();
+    return function () {};
   }, [input]);
 
   var onClick = function onClick(e) {
-    //console.log(e);
     setFilteredSuggestions([]);
     setInput(e.target.innerText);
     setShowSuggestions(false);
+  };
+
+  var getAndSetSuggestions = function getAndSetSuggestions() {
+    input && input.trim().length !== 0 && axios_1["default"].get('/from/' + input).then(function (res) {
+      setFilteredSuggestions(res.data);
+    });
   };
 
   var onBlur = function onBlur(e) {
@@ -4360,7 +4358,6 @@ var AutoCompleteInput = function AutoCompleteInput(_a) {
       return;
     }
 
-    setFilteredSuggestions([]);
     setShowSuggestions(false);
   };
 
@@ -4438,7 +4435,6 @@ var SuggestionList = function SuggestionList(_a) {
   var filteredSuggestions = _a.filteredSuggestions,
       inputListReference = _a.inputListReference,
       onClick = _a.onClick;
-  console.log(filteredSuggestions);
   return react_1["default"].createElement(react_1["default"].Fragment, null, filteredSuggestions && filteredSuggestions.length > 0 ? react_1["default"].createElement(Wrapper, null, filteredSuggestions.map(function (suggestion, index) {
     return react_1["default"].createElement(ElementInList, {
       ref: function ref(_ref) {
@@ -4714,6 +4710,8 @@ var CarouselImageHalf_1 = __webpack_require__(/*! ./components/image/CarouselIma
 
 var store = (0, redux_1.createStore)(function () {});
 var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 93vh;\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 93vh;\n"])));
+var InputWrapper = styled_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    background-color: rgba(0,0,0,0.4);\n    flex-direction: column;\n    align-items: center;\n    position: absolute;\n    top: 15%;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n    width: 20%;\n    padding-bottom: 3em;\n    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 1);\n"], ["\n    display: flex;\n    background-color: rgba(0,0,0,0.4);\n    flex-direction: column;\n    align-items: center;\n    position: absolute;\n    top: 15%;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n    width: 20%;\n    padding-bottom: 3em;\n    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 1);\n"])));
+var TitleInput = styled_1["default"].p(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    color: white;\n    font-size: 2em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"], ["\n    color: white;\n    font-size: 2em;\n    font-weight: bold;\n    text-shadow: 0 5px 8px black;\n"])));
 
 var Root = function Root(_a) {
   var dataset = _a.dataset;
@@ -4728,12 +4726,6 @@ var Root = function Root(_a) {
       url: __webpack_require__(/*! ../../public/images/first.jpg */ "./public/images/first.jpg")
     },
     alt: "first"
-  }), react_1["default"].createElement(CarouselImageHalf_1.CarouselImageHalf, {
-    side: "RIGHT",
-    src: {
-      url: __webpack_require__(/*! ../../public/images/second.jpg */ "./public/images/second.jpg")
-    },
-    alt: "second"
   })), react_1["default"].createElement(CarouselImpl_1.CarouselImpl, {
     imageTickInterval: 3500,
     images: [{
@@ -4770,7 +4762,7 @@ if (element) {
   }), element);
 }
 
-var templateObject_1;
+var templateObject_1, templateObject_2, templateObject_3;
 
 /***/ }),
 
@@ -4897,21 +4889,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/first.jpg?5f53429c2f7b8b1f4fbe77b95db251f0");
-
-/***/ }),
-
-/***/ "./public/images/second.jpg":
-/*!**********************************!*\
-  !*** ./public/images/second.jpg ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/second.jpg?fb669c7646832b7f5ed004e91dde6759");
 
 /***/ }),
 

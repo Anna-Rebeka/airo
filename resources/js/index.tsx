@@ -8,6 +8,7 @@ import {CarouselImpl} from "./components/carousel/CarouselImpl";
 import {FooterImpl} from "./components/footer/FooterImpl";
 import styled from "@emotion/styled";
 import {CarouselImageHalf} from "./components/image/CarouselImageHalf";
+import AutoCompleteInput from "./components/input/auto-complete/AutoCompleteInput";
 
 const store = createStore(() => {
 });
@@ -23,14 +24,51 @@ let Carousel = styled.div`
     height: 93vh;
 `
 
+let InputWrapper = styled.div`
+    display: flex;
+    background-color: rgba(0,0,0,0.4);
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    padding-bottom: 3em;
+    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 1);
+`;
+
+let TitleInput = styled.p`
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 5px 8px black;
+`
+
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
     return (
         <Provider store={store}>
             <NavigationImpl logo={null} user={dataset && JSON.parse(dataset.user)}/>
             <Carousel>
                 <CarouselImageHalf side={"LEFT"} src={{url: require("../../public/images/first.jpg")}} alt={"first"}/>
-                <CarouselImageHalf side={"RIGHT"} src={{url: require("../../public/images/second.jpg")}}
-                                   alt={"second"}/>
+                {/*<CarouselImageHalf side={"RIGHT"} src={{url: require("../../public/images/second.jpg")}}
+                                   alt={"second"}/>*/}
+                {/*<InputWrapper>
+                    <TitleInput>
+                        From
+                    </TitleInput>
+                    <AutoCompleteInput/>
+                    <TitleInput>
+                        To
+                    </TitleInput>
+                    <AutoCompleteInput/>
+                    <TitleInput>
+                        Date
+                    </TitleInput>
+                    <AutoCompleteInput/>
+                </InputWrapper>*/}
             </Carousel>
             <CarouselImpl imageTickInterval={3500}
                           images={[{url: require("/images/carousel0.jpg")}, {url: require("/images/carousel1.jpg")}, {url: require("/images/carousel2.jpg")}]}/>

@@ -27,27 +27,28 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({}) => {
     const [inputListReference, setInputListReference] = useState<any>([]);
 
     useEffect(() => {
-        let getSuggestions = () => {
-           input && axios.get('/from/'+ input)
-                .then(res => {
-                    setFilteredSuggestions(res.data);
-                })
-        }
-        return () => getSuggestions();
+        getAndSetSuggestions();
+        return () => {
+        };
     }, [input]);
 
     const onClick = (e: any) => {
-        //console.log(e);
         setFilteredSuggestions([]);
         setInput(e.target.innerText);
         setShowSuggestions(false);
     };
 
+    let getAndSetSuggestions = () => {
+        input && input.trim().length !== 0 && axios.get('/from/' + input)
+            .then(res => {
+                setFilteredSuggestions(res.data);
+            })
+    }
+
     const onBlur = (e: any) => {
         if (e.relatedTarget && inputListReference.includes(e.relatedTarget)) {
             return;
         }
-        setFilteredSuggestions([]);
         setShowSuggestions(false);
     };
 
