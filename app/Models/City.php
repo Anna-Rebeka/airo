@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     use HasFactory;
-    
+
+
+       /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
     protected $fillable = [
         'name',
         'lat',
@@ -19,5 +25,14 @@ class City extends Model
         'info',
         'image'
     ];
-    
+
+    public function flight_departures(){
+        return $this->hasMany(Flight::class);
+    }
+
+    public function flight_arrivals(){
+        return $this->hasMany(Flight::class);
+    }
+
+
 }

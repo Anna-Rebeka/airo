@@ -8,4 +8,31 @@ use Illuminate\Database\Eloquent\Model;
 class Flight extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'name',
+        'departure',
+        'arrival',
+        'departure_id',
+        'arrival_id',
+        'price'
+    ];
+
+    public function tickets(){
+        return $this->hasMany(Ticket::class);
+    }
+
+    public function departure(){
+        return $this->belongsTo(City::class);
+    }
+
+    public function arrival(){
+        return $this->belongsTo(City::class);
+    }
+
 }
