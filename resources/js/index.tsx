@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useState} from 'react';
 import {NavigationImpl} from "./components/navigation/NavigationImpl";
 import {CarouselImpl} from "./components/carousel/CarouselImpl";
 import {FooterImpl} from "./components/footer/FooterImpl";
@@ -21,7 +21,7 @@ let Carousel = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 93vh;
+    height: 100vh;
 `
 
 let InputWrapper = styled.div`
@@ -48,11 +48,15 @@ let TitleInput = styled.p`
 `
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
+    let [leftDisplayed, setLeftDisplayed] = useState(true);
+
     return (
         <Provider store={store}>
             <NavigationImpl logo={null} user={dataset && JSON.parse(dataset.user)}/>
             <Carousel>
-                <CarouselImageHalf side={"LEFT"} src={{url: require("../../public/images/first.jpg")}} alt={"first"}/>
+                <CarouselImageHalf setLeftDisplayed={setLeftDisplayed} leftDisplayed={leftDisplayed} side={"RIGHT"} src={{url: require("../../public/images/second.jpg")}} alt={"first"}/>
+                <CarouselImageHalf  setLeftDisplayed={setLeftDisplayed} leftDisplayed={leftDisplayed} side={"LEFT"} src={{url: require("../../public/images/first.jpg")}} alt={"first"}/>
+
                 {/*<CarouselImageHalf side={"RIGHT"} src={{url: require("../../public/images/second.jpg")}}
                                    alt={"second"}/>*/}
                 {/*<InputWrapper>

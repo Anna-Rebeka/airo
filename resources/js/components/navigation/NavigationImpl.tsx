@@ -13,13 +13,18 @@ interface Props {
 let NavigationImplDiv = styled.nav`
     background-color: black;
     box-shadow: 2px 3px 8px 1px black;
-    top: 0;
     z-index: 9999;
-    position: sticky;
+    position: fixed;
+    top: 2%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 120px;
+    min-height: 20px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 `
 
 let NavigationLinkItemDiv = styled.ul<{ direction: string }>`
@@ -70,7 +75,7 @@ export const NavigationImpl: FunctionComponent<Props> = ({
                     )
                 )}
                 <NavigationButtonsWrapper>
-                    {user ?
+                    {/*user ?
                         <NavigationButtons>
                             <ButtonHref key={"navigation-link-logout"} href={"/logout"} text={"Log out"}/>
                         </NavigationButtons>
@@ -79,7 +84,7 @@ export const NavigationImpl: FunctionComponent<Props> = ({
                             <ButtonHref key={"navigation-link-login"} href={"/login"} text={"Log in"}/>
                             <ButtonHref key={"navigation-link-signup"} href={"/register"} text={"Sign up"}/>
                         </NavigationButtons>
-                    }
+                    */}
                 </NavigationButtonsWrapper>
             </NavigationLinkItemDiv>
             {
