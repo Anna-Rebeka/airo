@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Flight;
+use App\Models\Company;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FlightFactory extends Factory
@@ -20,13 +22,16 @@ class FlightFactory extends Factory
      * @return array
      */
     public function definition()
-    {
+    { 
         return [
             'name' => Str::random(10),
-            'departure_id' => $this->faker->unique()->safeEmail(),
+            'departure_id' => City::all()->random()->id,
             'arrival_id' => City::all()->random()->id,
-            'departure' => $faker->dateTimeBetween('+0 days', '+2 years'),
-            'arrival' => Str::random(10),
+            'company_id' => Company::all()->random()->id,
+            $when = $faker->dateTimeBetween('+0 days', '+2 years'),
+            'departure' => $when,
+            'arrival' => $when ,
+            'price' => 1000
         ];
     }
 }

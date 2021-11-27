@@ -70,8 +70,6 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                     <AutoCompleteInput/>
                 </InputWrapper>*/}
             </Carousel>
-            <CarouselImpl imageTickInterval={3500}
-                          images={[{url: require("/images/carousel0.jpg")}, {url: require("/images/carousel1.jpg")}, {url: require("/images/carousel2.jpg")}]}/>
             <FooterImpl textLinks={[{href: "/", text: "Home"}, {href: "/", text: "ONE"}, {href: "/", text: "TWO"},
                 {href: "/", text: "THREE"}]}
                         iconLinks={null}/>
