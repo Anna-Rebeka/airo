@@ -116,7 +116,7 @@ let Wrapper = styled.div<{ side: string, leftDisplayed: boolean, hoverOpacity: b
         opacity: 1;
     }
 
-    transition: width 2s linear, opacity 2s linear, z-index 2s linear, left 2s linear;
+    transition: width 2s linear, opacity 2s linear, z-index 2s linear, left 1.25s linear;
 `
 
 export const CarouselImageHalf: FunctionComponent<Props> = ({
@@ -158,7 +158,7 @@ export const CarouselImageHalf: FunctionComponent<Props> = ({
                                 <TextSideParagraph>Looking</TextSideParagraph>
                                 <TextSideParagraph>for</TextSideParagraph>
                                 <TextSideParagraph>a flight ticket?</TextSideParagraph>
-                                <ImgIcon alt={"arrow left"}
+                                <ImgIcon leftDisplayed={leftDisplayed} alt={"arrow left"}
                                          src={require("../../../../public/images/arrowRight.svg").default}/>
                             </HiddenText>
                         }
@@ -183,7 +183,7 @@ export const CarouselImageHalf: FunctionComponent<Props> = ({
                             <TextSideParagraph>Interested</TextSideParagraph>
                             <TextSideParagraph>in</TextSideParagraph>
                             <TextSideParagraph>a roundtrip?</TextSideParagraph>
-                            <ImgIcon alt={"arrow left"}
+                            <ImgIcon leftDisplayed={leftDisplayed} alt={"arrow left"}
                                      src={require("../../../../public/images/arrowLeft.svg").default}/>
                         </HiddenText>
             }
