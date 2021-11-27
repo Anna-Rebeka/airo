@@ -12,26 +12,18 @@ import {CarouselImageHalf} from "./components/image/CarouselImageHalf";
 const store = createStore(() => {
 });
 
-interface RootProps {
+interface SearchFlightsProps {
     dataset: any;
 }
 
-let Carousel = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 93vh;
-`
 
-const Root: FunctionComponent<RootProps> = ({dataset}) => {
+const SearchFlights: FunctionComponent<SearchFlightsProps> = ({dataset}) => {
     return (
         <Provider store={store}>
             <NavigationImpl logo={null} user={dataset && JSON.parse(dataset.user)}/>
-            <Carousel>
-                <CarouselImageHalf side={"LEFT"} src={{url: require("../../public/images/first.jpg")}} alt={"first"}/>
-                <CarouselImageHalf side={"RIGHT"} src={{url: require("../../public/images/second.jpg")}}
-                                   alt={"second"}/>
-            </Carousel>
+            <CarouselImpl imageTickInterval={3500}
+                          images={[{url: require("/images/carousel0.jpg")}, {url: require("/images/carousel1.jpg")}, {url: require("/images/carousel2.jpg")}]}/>
+            
             <FooterImpl textLinks={[{href: "/", text: "Home"}, {href: "/", text: "ONE"}, {href: "/", text: "TWO"},
                 {href: "/", text: "THREE"}]}
                         iconLinks={null}/>
@@ -40,9 +32,9 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     );
 }
 
-export default Root;
+export default SearchFlights;
 
-const element = document.getElementById('root');
+const element = document.getElementById('search_flights');
 if (element) {
-    ReactDOM.render(<Root dataset={Object.assign({}, element.dataset)}/>, element);
+    ReactDOM.render(<SearchFlights dataset={Object.assign({}, element.dataset)}/>, element);
 }

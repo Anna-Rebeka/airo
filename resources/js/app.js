@@ -6,3 +6,4 @@
 
 require('./components/Example');
 require('./index.tsx');
+require('./search_flights.tsx');

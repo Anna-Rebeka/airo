@@ -18,6 +18,7 @@ class CreateFlightsTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('departure_id');
             $table->unsignedBigInteger('arrival_id');
+            $table->unsignedBigInteger('company_id');
             $table->decimal('price');
             $table->dateTime('departure');
             $table->dateTime('arrival');
@@ -31,6 +32,11 @@ class CreateFlightsTable extends Migration
         $table->foreign('arrival_id')
             ->references('id')
             ->on('cities')
+            ->onDelete('cascade');
+
+        $table->foreign('company_id')
+            ->references('id')
+            ->on('companies')
             ->onDelete('cascade');
         });
     }
