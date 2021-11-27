@@ -4339,7 +4339,7 @@ var AutoCompleteInput = function AutoCompleteInput(_a) {
   (0, react_1.useEffect)(function () {
     var getSuggestions = function getSuggestions() {
       input && axios_1["default"].get('/from/' + input).then(function (res) {
-        setFilteredSuggestions(res.data && res.data[0]);
+        setFilteredSuggestions(res.data);
       });
     };
 
@@ -4438,15 +4438,16 @@ var SuggestionList = function SuggestionList(_a) {
   var filteredSuggestions = _a.filteredSuggestions,
       inputListReference = _a.inputListReference,
       onClick = _a.onClick;
+  console.log(filteredSuggestions);
   return react_1["default"].createElement(react_1["default"].Fragment, null, filteredSuggestions && filteredSuggestions.length > 0 ? react_1["default"].createElement(Wrapper, null, filteredSuggestions.map(function (suggestion, index) {
     return react_1["default"].createElement(ElementInList, {
       ref: function ref(_ref) {
         inputListReference.push(_ref);
       },
       tabIndex: 0,
-      key: suggestion + index,
+      key: index,
       onClick: onClick
-    }, suggestion);
+    }, suggestion && suggestion.name);
   })) : null);
 };
 

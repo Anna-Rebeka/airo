@@ -30,7 +30,7 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({}) => {
         let getSuggestions = () => {
            input && axios.get('/from/'+ input)
                 .then(res => {
-                    setFilteredSuggestions(res.data && res.data[0]);
+                    setFilteredSuggestions(res.data);
                 })
         }
         return () => getSuggestions();

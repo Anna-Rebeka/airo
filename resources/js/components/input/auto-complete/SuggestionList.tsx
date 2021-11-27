@@ -32,11 +32,11 @@ export const SuggestionList: FunctionComponent<Props> = ({filteredSuggestions, i
         <>
             {(filteredSuggestions && filteredSuggestions.length > 0) ?
                 <Wrapper>
-                    {filteredSuggestions.map((suggestion: string, index: number) => (
+                    {filteredSuggestions.map((suggestion: any, index: number) => (
                             <ElementInList ref={(ref) => {
                                 inputListReference.push(ref)
-                            }} tabIndex={0} key={suggestion + index} onClick={onClick}>
-                                {suggestion}
+                            }} tabIndex={0} key={index} onClick={onClick}>
+                                {suggestion && suggestion.name}
                             </ElementInList>
                         )
                     )}
