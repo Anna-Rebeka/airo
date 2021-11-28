@@ -50,12 +50,12 @@ class FlightFactory extends Factory
         $company = Company::all()->random(1)->first();
 
         $price =  $distance * (0.05 + 0.001 * $company->class +  0.0001 * rand(1,10));
-
+        //$price =  $distance;
         $leaves = $this->faker->dateTimeBetween('+0 days', '+2 years');
         
         $minutes = round(($distance / 830) * 60);
 
-        $time = new DateTime($leaves->format('Y-m-d'));
+        $time = new DateTime($leaves->format('Y-m-d H:i'));
 
         $arrives = $time->add(new DateInterval('PT' . $minutes . 'M'));
 
@@ -66,7 +66,7 @@ class FlightFactory extends Factory
             'company_id' => $company->id,
             'departure' => $leaves,
             'arrival' => $arrives ,
-            'price' => $distance
+            'price' => $price
         ];
     }
 }
