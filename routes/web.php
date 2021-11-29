@@ -30,4 +30,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/from/{letters}', [App\Http\Controllers\CityController::class, 'findByName']);
 Route::get('/search', [App\Http\Controllers\FlightController::class, 'index']);
-Route::get('/flights/{from}/{to}/{when}/{till}/{price}', [App\Http\Controllers\FlightController::class, 'searchFlights']);
+Route::get('/flights/{from}/{to}/{when}/{price}', [App\Http\Controllers\FlightController::class, 'searchFlights']);
