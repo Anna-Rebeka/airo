@@ -31,3 +31,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/from/{letters}', [App\Http\Controllers\CityController::class, 'findByName']);
 Route::get('/search', [App\Http\Controllers\FlightController::class, 'index']);
 Route::get('/flights/{from}/{to}/{when}/{price}', [App\Http\Controllers\FlightController::class, 'searchFlights']);
+
+Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store']);
