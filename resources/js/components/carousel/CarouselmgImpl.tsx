@@ -81,13 +81,14 @@ let CarouselImgOpacityImg = styled.img`
 `;
 
 let TextWrapper = styled.div<{ side: string }>`
-    top: ${p => p.side === "LEFT" ? "20%" : "auto"};
-    bottom: ${p => p.side === "RIGHT" ? "20%" : "auto"};
-    left: ${p => p.side === "LEFT" ? "5%" : "auto"};
-    right: ${p => p.side === "RIGHT" ? "5%" : "auto"};
+    top: ${p => p.side === "LEFT" ? "20%" : "20%"};
+    //bottom: ${p => p.side === "RIGHT" ? "20%" : "auto"};
+    left: ${p => p.side === "LEFT" ? "5%" : "5%"};
+    right: 0;
+    //right: ${p => p.side === "RIGHT" ? "5%" : "auto"};
     position: absolute;
     display: flex;
-    align-items: ${p => p.side === "RIGHT" ? "flex-end" : "flex-start"};
+    align-items: ${p => p.side === "RIGHT" ? "flex-start" : "flex-start"}; //flex-end
     flex-direction: column;
 `;
 

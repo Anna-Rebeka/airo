@@ -21,7 +21,7 @@ let ElementInList = styled.li`
     cursor: pointer;
 
     :hover {
-        background-color: #89CFF0;
+        background-color: #FF7F2A;
         color: black;
     }
 

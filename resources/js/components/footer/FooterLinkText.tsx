@@ -8,6 +8,7 @@ interface Props {
 
 let FooterLinkLi = styled.li`
     list-style: none;
+    font-size: 1.2em;
     width: 50%;
 
     @media (min-width: 772px) {
