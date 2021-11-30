@@ -18,7 +18,6 @@ let StyledCarouselButton = styled.a`
     vertical-align: center;
     padding: 0.5rem 1rem;
     font-weight: bold;
-    margin: 0.5em 0;
     text-shadow: 0 5px 8px black;
 
     :hover {

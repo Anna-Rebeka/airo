@@ -1,7 +1,7 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
-import {CarouselButton} from "../button/CarouselButton";
 import styled from "@emotion/styled";
-import {increaseIndex} from "../../BasicUtils";
+import {CarouselInputFlights} from "./CarouselInputFlights";
+import {CarouselInputRoundTrips} from "./CarouselInputRoundTrips";
 
 interface Props {
     displayCarousel: boolean;
@@ -50,8 +50,8 @@ let TextSideParagraph = styled.p`
     margin: 0.25em 0;
 `;
 
-let SvgWrapper = styled.div<{isHovered: boolean}>`
-    color: ${p => p.isHovered? "#FF7F2A" : "white"};
+let SvgWrapper = styled.div<{ isHovered: boolean }>`
+    color: ${p => p.isHovered ? "#FF7F2A" : "white"};
     width: 50px;
     display: flex;
     align-items: center;
@@ -144,16 +144,22 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                  }}>
             <CarouselImgOpacityImg src={imgSource.default} alt={text.imageAlt}/>
             {displayCarousel ?
-                <TextWrapper side={side}>
-                    <TextTitle side={side}>
-                        {text.title}
-                    </TextTitle>
-                    <TextDescription side={side}>
-                        {text.description}
-                    </TextDescription>
-                    <CarouselButton href={"/search"} text={"Book a ticket"}/>
-                </TextWrapper> :
+                <>
+                    {side === "LEFT" ?
+                        <CarouselInputFlights/> :
+                        <CarouselInputRoundTrips/>
+                    }
 
+                    <TextWrapper side={side}>
+                        <TextTitle side={side}>
+                            {text.title}
+                        </TextTitle>
+                        <TextDescription side={side}>
+                            {text.description}
+                        </TextDescription>
+                    </TextWrapper>
+
+                </> :
                 showSideText || !displayCarousel ?
                     <SideText
                         isHovered={isHovered} onMouseEnter={() => {
@@ -178,7 +184,7 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                                         <path d="M0 0h24v24H0V0z" fill="none"/>
                                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/>
                                     </svg>
-                                    }
+                                }
                             </SvgWrapper>
                             <SideTextWrapper>
                                 <TextSideParagraph>

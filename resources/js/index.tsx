@@ -6,7 +6,7 @@ import React, {FunctionComponent, useState} from 'react';
 import {NavigationImpl} from "./components/navigation/NavigationImpl";
 import {FooterImpl} from "./components/footer/FooterImpl";
 import styled from "@emotion/styled";
-import {CarouselImageImpl} from "./components/image/CarouselmgImpl";
+import {CarouselImageImpl} from "./components/carousel/CarouselmgImpl";
 
 const store = createStore(() => {
 });

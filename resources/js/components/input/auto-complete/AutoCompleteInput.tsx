@@ -4,23 +4,22 @@ import {SuggestionList} from "./SuggestionList";
 import axios from "axios";
 
 interface Props {
-
+    placeholder?:string;
 }
 
 let WrapperDiv = styled.div`
-    min-width: 200px;
-    max-width: 500px;
-    width: 20%;
-    height: 30px;
+    width: 240px;
+    height: 40px;
 `
 
 let Input = styled.input`
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
     box-shadow: 2px 3px 8px 1px black;
 `
 
-export const AutoCompleteInput: FunctionComponent<Props> = ({}) => {
+export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder}) => {
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [input, setInput] = useState("");
@@ -65,7 +64,7 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({}) => {
 
     return (
         <WrapperDiv>
-            <Input onBlur={onBlur} onFocus={onFocus} type="text" onChange={onChange} value={input} onKeyDown={() => {
+            <Input placeholder={placeholder} onBlur={onBlur} onFocus={onFocus} type="text" onChange={onChange} value={input} onKeyDown={() => {
             }}/>
             {showSuggestions && input && <SuggestionList onClick={onClick} inputListReference={inputListReference}
                                                          filteredSuggestions={filteredSuggestions}/>}

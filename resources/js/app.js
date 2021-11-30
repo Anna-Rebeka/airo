@@ -4,6 +4,4 @@
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Example');
 require('./index.tsx');
-require('./search_flights.tsx');
