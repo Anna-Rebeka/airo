@@ -65,7 +65,7 @@ export const NavigationImpl: FunctionComponent<Props> = ({
                     )
                 )}
             </NavigationLinkItemDiv>
-            <NavigationLogo logo={{url: require("../../airplane.svg"), href: "airplane"}}/>
+            <NavigationLogo/>
 
             <NavigationLinkItemDiv direction={"START"}>
                 {navigationLinks.slice(middleIndex, navigationLinks.length).map((textField: any, index: number) => (

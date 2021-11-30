@@ -68,13 +68,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
             <WrapperInput>
                 <WrapperParagraph>No. of days</WrapperParagraph>
                 <IntegerInput value={numberOfDays} onChange={(e: any) => {
-                    if (e.target.value < 1) {
-                        setNumberOfDays(1);
-                    } else if (e.target.value > 14) {
-                        setNumberOfDays(14);
-                    } else {
-                        setNumberOfDays(e.target.value);
-                    }
+                    setNumberOfDays(e.target.value);
                 }} min={1} max={14}
                               type={"number"}/>
             </WrapperInput>

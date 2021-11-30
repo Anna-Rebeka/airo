@@ -74,11 +74,16 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({}) => {
                 </WrapperInput>
                 <WrapperInput>
                     <WrapperParagraph>No. of destinations</WrapperParagraph>
-                    <IntegerInput type={"number"} value={numberOfDestinations} min={1} max={12}/>
+                    <IntegerInput type={"number"} value={numberOfDestinations} min={1} max={12} onChange={(e: any) => {
+                        setNumberOfDestinations(e.target.value)
+                    }}/>
                 </WrapperInput>
                 <WrapperInput>
                     <WrapperParagraph>Price to</WrapperParagraph>
-                    <IntegerInput type={"number"} placeholder={"Type price"} value={priceTo} min={45} max={9999}/>
+                    <IntegerInput type={"number"} placeholder={"Type price"} value={priceTo} min={45} max={9999}
+                                  onChange={(e: any) => {
+                                      setPriceTo(e.target.value)
+                                  }}/>
                 </WrapperInput>
                 <CarouselButton href={"/search"} text={"Search a round trip"}/>
             </InputGroup>

@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import {useScrollTop} from "../../hooks/useScrollTop";
 
 interface NavigationLogoProps {
-    logo: any;
     className?: string;
 }
 
@@ -42,14 +41,13 @@ let NavigationLogoImg = styled.div`
 `
 
 export const NavigationLogo: FunctionComponent<NavigationLogoProps> = ({
-                                                                           logo,
                                                                            className
                                                                        }) => {
     return (
         <NavigationLogoImg onLoad={() => {
         }
         } onClick={() => {
-            useScrollTop()
+            window.location.href = "";
         }} className={className}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <g>

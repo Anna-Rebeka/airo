@@ -20,28 +20,10 @@ let Carousel = styled.div`
     height: 100vh;
 `
 
-let InputWrapper = styled.div`
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.4);
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 15%;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 20%;
-    padding-bottom: 3em;
-    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 1);
+let MainWrapper = styled.div`
+    max-width: 1920px;
 `;
 
-let TitleInput = styled.p`
-    color: white;
-    font-size: 2em;
-    font-weight: bold;
-    text-shadow: 0 5px 8px black;
-`
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
     let [displayCarousel, setDisplayCarousel] = useState("LEFT");
@@ -56,25 +38,9 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                 <CarouselImageImpl displayCarousel={"LEFT" === displayCarousel}
                                    setDisplayedSide={setDisplayCarousel}
                                    side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
-
-                {/*<InputWrapper>
-                    <TitleInput>
-                        From
-                    </TitleInput>
-                    <AutoCompleteInput/>
-                    <TitleInput>
-                        To
-                    </TitleInput>
-                    <AutoCompleteInput/>
-                    <TitleInput>
-                        Date
-                    </TitleInput>
-                    <AutoCompleteInput/>
-                </InputWrapper>*/}
             </Carousel>
             <FooterImpl iconLinks={null}/>
         </Provider>
-
     );
 }
 

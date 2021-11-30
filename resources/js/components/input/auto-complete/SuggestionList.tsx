@@ -9,7 +9,7 @@ interface Props {
 
 let Wrapper = styled.ul`
     padding: 0;
-    margin: 0;
+    margin: 0.2em 0 0 0;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -19,6 +19,7 @@ let Wrapper = styled.ul`
 let ElementInList = styled.li`
     list-style: none;
     cursor: pointer;
+    font-size: 1.2em;
 
     :hover {
         background-color: #FF7F2A;
