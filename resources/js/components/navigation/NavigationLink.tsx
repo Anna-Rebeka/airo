@@ -16,15 +16,14 @@ let NavigationLinkLi = styled.li`
 let NavigationLinkA = styled.a<{ activated: boolean }>`
     cursor: pointer;
     color: white;
-    text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.07em;
     display: inline-block;
     transition: font-size 1.3s, color 0.5s;
-    font-size: 2em;
+    font-size: 1em;
 
     :after {
-        background: none repeat scroll 0 0 white;
+        background: none repeat scroll 0 0 #FF7F2A;
         content: "";
         display: block;
         height: 2px;
@@ -32,8 +31,24 @@ let NavigationLinkA = styled.a<{ activated: boolean }>`
         transition: width 0.3s ease 0s, left 0.3s ease 0s;
     }
 
+    @media (min-width: 772px) {
+        font-size: 1.3em;
+    };
+
+    @media (min-width: 992px) {
+        font-size: 1.6em;
+    };
+
+    @media (min-width: 1280px) {
+        font-size: 2em;
+    };
+
+    @media (min-width: 1920px) {
+        font-size: 2.4em;
+    };
+
     :hover {
-        color: white;
+        color: #FF7F2A;
     }
 
     :hover:after {

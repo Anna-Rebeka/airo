@@ -2,7 +2,6 @@ import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {NavigationLink} from "./NavigationLink";
 import {NavigationLogo} from "./NavigationLogo";
-import {ButtonHref} from "../button/ButtonHref";
 
 interface Props {
     logo: any;
@@ -15,8 +14,7 @@ let NavigationImplDiv = styled.nav`
     box-shadow: 2px 3px 8px 1px black;
     z-index: 9999;
     position: fixed;
-    top: 2%;
-    width: 50%;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +55,7 @@ export const NavigationImpl: FunctionComponent<Props> = ({
                                                              user,
                                                              children,
                                                          }) => {
-    let navigationLinks = ["ONE", "TWO", "THREE", "FOUR"];
+    let navigationLinks = ["Home", "Gallery", "Contacts", "My flights"];
     let middleIndex: number = navigationLinks ? Math.floor(navigationLinks.length / 2) : 0;
     return (
         <NavigationImplDiv>

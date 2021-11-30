@@ -4,11 +4,9 @@ import {createStore} from "redux";
 
 import React, {FunctionComponent, useState} from 'react';
 import {NavigationImpl} from "./components/navigation/NavigationImpl";
-import {CarouselImpl} from "./components/carousel/CarouselImpl";
 import {FooterImpl} from "./components/footer/FooterImpl";
 import styled from "@emotion/styled";
-import {CarouselImageHalf} from "./components/image/CarouselImageHalf";
-import AutoCompleteInput from "./components/input/auto-complete/AutoCompleteInput";
+import {CarouselImageImpl} from "./components/image/CarouselmgImpl";
 
 const store = createStore(() => {
 });
@@ -18,15 +16,13 @@ interface RootProps {
 }
 
 let Carousel = styled.div`
-    display: flex;
-    flex-direction: row;
     width: 100%;
     height: 100vh;
 `
 
 let InputWrapper = styled.div`
     display: flex;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     flex-direction: column;
     align-items: center;
     position: absolute;
@@ -48,17 +44,19 @@ let TitleInput = styled.p`
 `
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
-    let [leftDisplayed, setLeftDisplayed] = useState(true);
+    let [displayCarousel, setDisplayCarousel] = useState("LEFT");
 
     return (
         <Provider store={store}>
             <NavigationImpl logo={null} user={dataset && JSON.parse(dataset.user)}/>
             <Carousel>
-                <CarouselImageHalf setLeftDisplayed={setLeftDisplayed} leftDisplayed={leftDisplayed} side={"RIGHT"} src={{url: require("../../public/images/second.jpg")}} alt={"first"}/>
-                <CarouselImageHalf  setLeftDisplayed={setLeftDisplayed} leftDisplayed={leftDisplayed} side={"LEFT"} src={{url: require("../../public/images/first.jpg")}} alt={"first"}/>
+                <CarouselImageImpl displayCarousel={"RIGHT" === displayCarousel}
+                                   setDisplayedSide={setDisplayCarousel}
+                                   side={"RIGHT"} imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
+                <CarouselImageImpl displayCarousel={"LEFT" === displayCarousel}
+                                   setDisplayedSide={setDisplayCarousel}
+                                   side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
 
-                {/*<CarouselImageHalf side={"RIGHT"} src={{url: require("../../public/images/second.jpg")}}
-                                   alt={"second"}/>*/}
                 {/*<InputWrapper>
                     <TitleInput>
                         From
@@ -74,9 +72,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                     <AutoCompleteInput/>
                 </InputWrapper>*/}
             </Carousel>
-            <FooterImpl textLinks={[{href: "/", text: "Home"}, {href: "/", text: "ONE"}, {href: "/", text: "TWO"},
-                {href: "/", text: "THREE"}]}
-                        iconLinks={null}/>
+            <FooterImpl iconLinks={null}/>
         </Provider>
 
     );

@@ -17,7 +17,6 @@ let ButtonCoreButton = styled.a`
   text-align: center;
   vertical-align: center;
   padding: 0.5rem 1rem;
-  font-family: 'Arial', cursive;
   margin: 0.4em 0.5em;
   box-shadow: 2px 3px 8px 1px black;
 
