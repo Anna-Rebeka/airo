@@ -21,11 +21,21 @@ class FlightController extends Controller
     }
 
 
-    public function searchFlights($from, $to, $when, $till, $price)
+    public function searchFlights($from, $to, $when, $price)
     {
         $city1 = City::find($from);
-        $city2 = City::find($from);
-        $flights = Flight::where('departure_id', $city1->id)->where('arrival_id', $city2->id)->where('price', '<=', $price)->get();
+        $city2 = City::find($to);
+
+        //treba vyrobit
+        $morning = $when;
+        $evening = $when;
+
+        $flights = Flight::where('departure_id', $city1->id)
+            ->where('arrival_id', $city2->id)
+            ->where('departure', '>=', $morning)
+            ->where('arrival', '<=', $evening)
+            ->where('price', '<=', $price)
+            ->get();
         
         return $flights;
     }

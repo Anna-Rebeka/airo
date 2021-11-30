@@ -18,8 +18,8 @@ class Ticket extends Model
 
         'user_id',
         'flight_id',
-        'price'
-
+        'price',
+        'token'
     ];
 
     public function user(){
