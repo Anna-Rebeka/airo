@@ -62,7 +62,7 @@ export const ResultItem: FunctionComponent<Props> = ({imgSrc, description, altTe
         /* pred <img> natiahnut este <a> s odkazom na stranku s detailami? */
         <ResultWrapper>
             <div className="result">
-                <img srcSet={imgSrc} alt={altText} /><h2>{headerText} - {price}</h2>
+                <img srcSet={imgSrc} alt={altText} /><h2>{headerText} - {price}&euro;</h2>
                 <br />
                 <p className="description">{description}</p>
             </div>
