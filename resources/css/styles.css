@@ -1,0 +1,143 @@
+html 
+{
+	background-color: black;
+}
+
+/*checkbox okno*/
+.myCheckbox 
+{
+  appearance: none;
+  background-color: rgba(134, 134, 122, 0.25);
+  margin: 5px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+  border: 3px solid orange;
+  border-radius: 2px;
+  transform: translateY(-0.075em);
+  cursor: pointer;
+}
+
+/* popis */
+.myLabel 
+{
+	color: white;
+	margin-left: 5px;
+	position: relative;
+	top: -11px;
+	cursor: pointer;
+}
+
+/* nadidenie */
+.myCheckbox:hover 
+{
+  background-color: orange;
+  border: none;
+}
+
+.myCheckbox:checked
+{
+	background-color: orange;
+}
+
+.myCheckbox:checked + .myLabel:after
+{
+  content: '\2713';
+  text-align: left;
+  left: -27px;
+  top: -2px;
+  opacity: 1;
+  width: 100%;
+  hegiht: 100%;
+  color: white;
+  border: none;
+  position: absolute;
+  font-family: 'Consolas';
+}
+
+.result 
+{
+	position: relative;
+	overflow: hidden;
+	width: 50%;
+	text-align: left;
+	display: block;
+	left: 30%;
+	color: white;
+	padding: 5px;
+	border: 1px gray solid;
+}
+
+.result img
+{
+	width: 100px;
+	height: 100px;
+	float: left;
+	margin-right: 15px;
+}
+
+.result h2, .description
+{
+	color: white;
+	position: relative;
+	margin: 0px;
+	float: left;
+	text-decoration: underline;
+}
+
+.description 
+{
+	height: 150px;	
+	width: 400px;	
+	margin: 5px;
+	overflow: hidden;
+	text-align: left;
+	text-decoration: none;
+}
+
+.result:nth-child(odd)
+{
+	background-color: rgb(100, 100, 100);
+	padding: 5px;
+}
+
+/*
+.myCheckbox:checked
+{
+	background-color: orange;
+}
+
+
+.myCheckbox:checked
+{
+	background-color: orange;
+}
+
+.myCheckbox:checked + .myLabel:before
+{
+  content: 'X';
+  text-align: center;
+  left: -19px;
+  top: -10px;
+  opacity: 1;
+  width: 100%;
+  hegiht: 100%;
+  color: white;
+  border: none;
+  position: relative;
+  font-family: 'Consolas'; 
+}
+
+/* Spravit vlastnu 'fajku' 
+.myCheckbox:checked + span
+{
+  content: 'X';
+  text-align: center;
+  color: 'white';
+  background-color: orange;
+  border: none;
+  position: relative;
+  font-family: 'consolas 18';
+}
+*/
