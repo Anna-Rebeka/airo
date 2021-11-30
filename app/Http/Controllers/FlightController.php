@@ -21,7 +21,7 @@ class FlightController extends Controller
     }
 
 
-    public function searchFlights($from, $to, $when, $price)
+    public function getFlights($from, $to, $when, $price)
     {
         $city1 = City::find($from);
         $city2 = City::find($to);

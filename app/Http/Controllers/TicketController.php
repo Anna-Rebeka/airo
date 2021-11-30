@@ -8,6 +8,17 @@ use Illuminate\Support\Facades\DB;
 
 class TicketController extends Controller
 {
+
+    public function getTicketsRegistered()
+    {   
+        return auth()->user()->tickets;
+    }
+
+    public function getTicketsUnregistered($token)
+    {   
+        return Ticket::where('token', $token)->get();   
+    }
+
     /**
      * Store a newly created resource in storage.
      *
