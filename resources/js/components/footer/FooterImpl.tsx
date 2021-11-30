@@ -4,7 +4,6 @@ import {FooterLinkText} from "./FooterLinkText";
 import {FooterLinkIcon} from "./FooterLinkIcon";
 
 interface Props {
-    textLinks: any | null;
     iconLinks: any | null;
     className?: string;
 }
@@ -24,7 +23,7 @@ let FooterWrapperDiv = styled.div`
     margin-left: auto;
     padding: 4.5em 3em 2.5em 3em;
 
-    max-width: 540px;
+    max-width: 360px;
 
     @media (min-width: 772px) {
         max-width: 730px;
@@ -51,17 +50,17 @@ let FooterLinksFlexBox = styled.ul`
     width: 100%;
 
     @media (min-width: 772px) {
-        width: 65%;
+        max-width: 65%;
         justify-content: center;
     };
 
     @media (min-width: 992px) {
-        width: 50%;
+        max-width: 50%;
         justify-content: center;
     };
 
     @media (min-width: 1280px) {
-        width: 35%;
+        max-width: 40%;
         justify-content: center;
     };
 `;
@@ -79,16 +78,16 @@ let FooterIconsFlexBox = styled.ul`
 let Credits = styled.div`
     margin: 2em;
     text-align: center;
-    font-family: "Arial", serif;
     color: white;
 `;
 
 export const FooterImpl: FunctionComponent<Props> = ({
-                                                         textLinks,
                                                          iconLinks,
                                                          className,
                                                          children
                                                      }) => {
+    let textLinks = [{href: "/", text: "Home"}, {href: "/", text: "Gallery"}, {href: "/", text: "Contacts"},
+    {href: "/", text: "My flights"}, {href: "/", text: "GDPR"}, {href: "/", text: "ABOUT"}]
     return (
         <FooterMainDiv className={className}>
             <FooterWrapperDiv>

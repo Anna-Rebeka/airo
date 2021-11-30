@@ -7,25 +7,23 @@ interface Props {
     text: string;
 }
 
-let ButtonCoreButton = styled.a`
+let StyledCarouselButton = styled.a`
     text-decoration: none;
-    border: 2px solid white;
+    border: 0.1em solid white;
     color: white;
     font-size: 1.05em;
     cursor: pointer;
-    text-shadow: 0 5px 8px black;
     background-color: transparent;
     text-align: center;
     vertical-align: center;
     padding: 0.5rem 1rem;
-    font-family: 'Arial', cursive;
     font-weight: bold;
-    margin: 0.4em 0.5em;
+    margin: 0.5em 0;
+    text-shadow: 0 5px 8px black;
 
     :hover {
-        color: black;
-        border: 2px solid black;
-        text-shadow: none;
+        color: #FF7F2A;
+        border: 0.1em solid #FF7F2A;
     }
 
     @media (min-width: 772px) {
@@ -43,17 +41,15 @@ let ButtonCoreButton = styled.a`
     @media (min-width: 1920px) {
         font-size: 2.5em;
     }
-
-
     transition: background-color 0.2s, color 0.3s;
 `;
 
 
-export const ButtonHrefAnother: FunctionComponent<Props> = ({text, href, className, children}) => {
+export const CarouselButton: FunctionComponent<Props> = ({text, href, className, children}) => {
     return (
-        <ButtonCoreButton href={href && href} className={className}>
+        <StyledCarouselButton href={href && href} className={className}>
             {text && text}
             {children}
-        </ButtonCoreButton>
+        </StyledCarouselButton>
     );
 }

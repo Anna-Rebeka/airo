@@ -21,12 +21,8 @@ const SearchFlights: FunctionComponent<SearchFlightsProps> = ({dataset}) => {
     return (
         <Provider store={store}>
             <NavigationImpl logo={null} user={dataset && JSON.parse(dataset.user)}/>
-            <CarouselImpl imageTickInterval={3500}
-                          images={[{url: require("/images/carousel0.jpg")}, {url: require("/images/carousel1.jpg")}, {url: require("/images/carousel2.jpg")}]}/>
-            
-            <FooterImpl textLinks={[{href: "/", text: "Home"}, {href: "/", text: "ONE"}, {href: "/", text: "TWO"},
-                {href: "/", text: "THREE"}]}
-                        iconLinks={null}/>
+
+            <FooterImpl iconLinks={null}/>
         </Provider>
 
     );

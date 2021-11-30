@@ -4,20 +4,19 @@
          <meta charset="utf-8">
          <meta name="viewport" content="width=device-width, initial-scale=1">
 
-         <title>Airo Plus</title>
+         <title>Airo+</title>
 
          <!-- Fonts -->
-         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+         <link href="https://fonts.gstatic.com" rel="preconnect">
+         <link as="style" href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap"
+                  onload="this.onload = null; this.rel='stylesheet'" rel="preload">
 
          <!-- Styles -->
          <style>
              html, body {
-                 background-color: #fff;
-                 color: #636b6f;
-                 font-family: 'Nunito', sans-serif;
-                 font-weight: 200;
-                 height: 100vh;
+                 font-family: "Fira Sans,sans-serif";
                  margin: 0;
+                 height: 100vh;
              }
          </style>
      </head>

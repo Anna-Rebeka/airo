@@ -23,11 +23,10 @@ let FooterLinkTextA = styled.a`
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
-    font-family: "Arial", serif;
     color: white;
 
     :hover {
-        color: orange;
+        color: #FF7F2A;
     }
 `;
 
