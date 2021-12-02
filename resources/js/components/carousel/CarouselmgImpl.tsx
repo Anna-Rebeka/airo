@@ -63,7 +63,7 @@ let Wrapper = styled.div<{ side: string, displayCarousel: boolean }>`
     top: 0;
     left: ${p => (p.side === "LEFT" && !p.displayCarousel) ? "-70%" : p.side === "LEFT" ? 0 : "15%"};
     box-shadow: 2px 3px 8px 1px rgba(22, 23, 24, 1);
-    width: 85vw;
+    width: 85%;
     height: 100%;
     overflow: hidden;
 

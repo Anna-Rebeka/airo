@@ -18,11 +18,13 @@ interface RootProps {
 let Carousel = styled.div`
     width: 100%;
     height: 100vh;
+    position: relative;
 `
 
-let MainWrapper = styled.div`
-    max-width: 1920px;
-`;
+let BackgroundWrapper = styled.div`
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #404040 74%);
+`
 
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
@@ -30,16 +32,19 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
 
     return (
         <Provider store={store}>
-            <NavigationImpl logo={null} user={dataset && JSON.parse(dataset.user)}/>
-            <Carousel>
-                <CarouselImageImpl displayCarousel={"RIGHT" === displayCarousel}
-                                   setDisplayedSide={setDisplayCarousel}
-                                   side={"RIGHT"} imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
-                <CarouselImageImpl displayCarousel={"LEFT" === displayCarousel}
-                                   setDisplayedSide={setDisplayCarousel}
-                                   side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
-            </Carousel>
-            <FooterImpl iconLinks={null}/>
+            <BackgroundWrapper>
+                    <NavigationImpl logo={null} user={dataset && JSON.parse(dataset.user)}/>
+                    <Carousel>
+                        <CarouselImageImpl displayCarousel={"RIGHT" === displayCarousel}
+                                           setDisplayedSide={setDisplayCarousel}
+                                           side={"RIGHT"}
+                                           imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
+                        <CarouselImageImpl displayCarousel={"LEFT" === displayCarousel}
+                                           setDisplayedSide={setDisplayCarousel}
+                                           side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
+                    </Carousel>
+                    <FooterImpl iconLinks={null}/>
+            </BackgroundWrapper>
         </Provider>
     );
 }
