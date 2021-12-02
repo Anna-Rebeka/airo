@@ -14,8 +14,6 @@ let StyledCarouselButton = styled.a`
     font-size: 1.05em;
     cursor: pointer;
     background-color: transparent;
-    text-align: center;
-    vertical-align: center;
     padding: 0.5rem 1rem;
     font-weight: bold;
     text-shadow: 0 5px 8px black;

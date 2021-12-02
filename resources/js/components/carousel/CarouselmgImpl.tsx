@@ -38,7 +38,7 @@ let SideText = styled.div<{ isHovered: boolean }>`
     width: 17.6%;
     height: 100%;
     color: ${p => p.isHovered ? "#FF7F2A" : "white"};
-    background: ${p => p.isHovered ? "none" : "rgba(26,26,20, 0.7)"};
+    background: rgba(26,26,20, 0.8);
     font-size: 2em;
     cursor: pointer;
     z-index: 10;
@@ -81,11 +81,11 @@ let CarouselImgOpacityImg = styled.img`
 `;
 
 let TextWrapper = styled.div<{ side: string }>`
-    top: ${p => p.side === "LEFT" ? "20%" : "20%"};
-    //bottom: ${p => p.side === "RIGHT" ? "20%" : "auto"};
+    top: ${p => p.side === "LEFT" ? "20%" : "60%"};
+        //bottom: ${p => p.side === "RIGHT" ? "20%" : "auto"};
     left: ${p => p.side === "LEFT" ? "5%" : "5%"};
     right: 0;
-    //right: ${p => p.side === "RIGHT" ? "5%" : "auto"};
+        //right: ${p => p.side === "RIGHT" ? "5%" : "auto"};
     position: absolute;
     display: flex;
     align-items: ${p => p.side === "RIGHT" ? "flex-start" : "flex-start"}; //flex-end
@@ -181,10 +181,7 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                                         <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/>
                                     </svg>
                                     :
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M0 0h24v24H0V0z" fill="none"/>
-                                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/>
-                                    </svg>
+                                    null
                                 }
                             </SvgWrapper>
                             <SideTextWrapper>
@@ -192,6 +189,17 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                                     {text.sideText}
                                 </TextSideParagraph>
                             </SideTextWrapper>
+
+                            {side === "LEFT" ?
+                                <SvgWrapper isHovered={isHovered}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M0 0h24v24H0V0z" fill="none"/>
+                                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/>
+                                    </svg>
+                                </SvgWrapper>
+                                :
+                                null
+                            }
                         </SideTextInsideWrapper>
                     </SideText> : null
 

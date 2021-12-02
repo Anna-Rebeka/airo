@@ -7,16 +7,27 @@ interface Props {
     placeholder?: string;
 }
 
-let WrapperDiv = styled.div`
-    width: 240px;
-    height: 40px;
-`
-
 let Input = styled.input`
     box-sizing: border-box;
     width: 100%;
-    height: 100%;
-    box-shadow: 2px 3px 8px 1px black;
+    height: 40px;
+    font-size: 1.12em;
+    border: white solid 1px;
+
+    @media (min-width: 576px) {
+        font-size: 1.17em;
+    }
+    @media (min-width: 768px) {
+        font-size: 1.22em;
+    }
+    @media (min-width: 992px) {
+        font-size: 1.28em;
+    }
+
+    @media (min-width: 1600px) {
+        font-size: 1.38em;
+    }
+
 `
 
 export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder}) => {
@@ -63,13 +74,13 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder}) => {
     };
 
     return (
-        <WrapperDiv>
+        <>
             <Input placeholder={placeholder} onBlur={onBlur} onFocus={onFocus} type="text" onChange={onChange}
                    value={input} onKeyDown={() => {
             }}/>
             {showSuggestions && input && <SuggestionList onClick={onClick} inputListReference={inputListReference}
                                                          filteredSuggestions={filteredSuggestions}/>}
-        </WrapperDiv>
+        </>
     );
 };
 export default AutoCompleteInput;
