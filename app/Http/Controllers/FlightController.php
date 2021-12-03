@@ -27,8 +27,11 @@ class FlightController extends Controller
         $city2 = City::find($to);
 
         //treba vyrobit
-        $morning = $when;
-        $evening = $when;
+        $theDate    = new DateTime($when);
+        $morning = $theDate->format('Y-m-d H:i:s');
+
+        $theDate->add(new DateInterval('PT' . 1439 . 'M'));
+        $evening = $theDate->format('Y-m-d H:i:s');
 
         $flights = Flight::where('departure_id', $city1->id)
             ->where('arrival_id', $city2->id)
