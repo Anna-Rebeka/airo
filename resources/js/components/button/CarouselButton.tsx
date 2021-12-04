@@ -3,11 +3,11 @@ import styled from "@emotion/styled";
 
 interface Props {
     className?: string;
-    href: string;
     text: string;
+    onClick: any;
 }
 
-let StyledCarouselButton = styled.a`
+let StyledCarouselButton = styled.button`
     text-decoration: none;
     border: 0.1em solid white;
     color: white;
@@ -42,11 +42,10 @@ let StyledCarouselButton = styled.a`
 `;
 
 
-export const CarouselButton: FunctionComponent<Props> = ({text, href, className, children}) => {
+export const CarouselButton: FunctionComponent<Props> = ({onClick, text, className}) => {
     return (
-        <StyledCarouselButton href={href && href} className={className}>
+        <StyledCarouselButton className={className} onClick={onClick}>
             {text && text}
-            {children}
         </StyledCarouselButton>
     );
 }

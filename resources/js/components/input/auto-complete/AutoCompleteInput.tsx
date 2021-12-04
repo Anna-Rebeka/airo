@@ -5,6 +5,7 @@ import axios from "axios";
 
 interface Props {
     placeholder?: string;
+    setMethod: any;
 }
 
 let Input = styled.input`
@@ -30,7 +31,7 @@ let Input = styled.input`
 
 `
 
-export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder}) => {
+export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder, setMethod}) => {
     const [filteredSuggestions, setFilteredSuggestions] = useState<any>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [input, setInput] = useState("");
@@ -45,6 +46,7 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder}) => {
     const onClick = (e: any) => {
         setFilteredSuggestions([]);
         setInput(e.target.innerText);
+        setMethod(e.target.innerText);
         setShowSuggestions(false);
     };
 
@@ -74,13 +76,13 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder}) => {
     };
 
     return (
-        <>
+        <div>
             <Input placeholder={placeholder} onBlur={onBlur} onFocus={onFocus} type="text" onChange={onChange}
                    value={input} onKeyDown={() => {
             }}/>
             {showSuggestions && input && <SuggestionList onClick={onClick} inputListReference={inputListReference}
                                                          filteredSuggestions={filteredSuggestions}/>}
-        </>
+        </div>
     );
 };
 export default AutoCompleteInput;

@@ -3,13 +3,14 @@ import React, {FunctionComponent, useState} from "react";
 import styled from "@emotion/styled";
 import {CarouselButton} from "../button/CarouselButton";
 import {InputLink} from "../input/InputLink";
+import axios from "axios";
 
 
 interface Props {
 
 }
 
-let InputGroup = styled.div`
+let Form = styled.form`
     position: absolute;
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
@@ -44,7 +45,7 @@ let InputGroup = styled.div`
 
 `
 
-let RowFlexBox = styled.div`
+let RowFlexBox = styled.ul`
     display: flex;
     flex-direction: column;
     margin-top: 1em;
@@ -57,7 +58,7 @@ let RowFlexBox = styled.div`
 
 `
 
-let RowFlexBoxWays = styled.div`
+let RowFlexBoxWays = styled.ul`
     display: flex;
     flex-direction: row;
 `
@@ -76,7 +77,7 @@ let WrapperParagraph = styled.p`
     margin: 0 0 0.8em;
 `;
 
-let FlexBoxCol = styled.div`
+let FlexBoxCol = styled.li`
     width: 90%;
 
     @media (min-width: 800px) {
@@ -109,6 +110,9 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
     let [numberOfDays, setNumberOfDays] = useState<number>(1);
     let [isOneWay, setIsOneWay] = useState<boolean>(false);
     let [activated, setActivated] = useState("ONE");
+    let [date, setDate] = useState();
+    let [from, setFrom] = useState();
+    let [to, setTo] = useState();
 
     let WhichActivated = (type: string) => {
         if (activated === type) {
@@ -117,8 +121,18 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
         setActivated(type === "ONE" ? "ONE" : "TWO");
     }
 
+    let getListOfFlights = () => {
+        console.log('flights/' + from + '/' + to + '/' + date + '/' + numberOfDays
+        );
+        axios.get('flights/' + from + '/' + to + '/' + date + '/' + numberOfDays
+        )
+            .then(res => {
+                console.log(res);
+            })
+    }
+
     return (
-        <InputGroup>
+        <Form onSubmit={e => e.preventDefault()}>
             <RowFlexBoxWays>
                 <InputLink onClick={WhichActivated} type={"ONE"} activated={activated} textField={"One way"}/>
                 <InputLink onClick={WhichActivated} type={"TWO"} activated={activated} textField={"Two Way"}/>
@@ -127,13 +141,13 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
                 <FlexBoxCol>
                     <WrapperInput>
                         <WrapperParagraph>From</WrapperParagraph>
-                        <AutoCompleteInput placeholder={"Departure city"}/>
+                        <AutoCompleteInput setMethod={setFrom} placeholder={"Departure city"}/>
                     </WrapperInput>
                 </FlexBoxCol>
                 <FlexBoxCol>
                     <WrapperInput>
                         <WrapperParagraph>To</WrapperParagraph>
-                        <AutoCompleteInput placeholder={"Arrival city"}/>
+                        <AutoCompleteInput setMethod={setTo} placeholder={"Arrival city"}/>
                     </WrapperInput>
                 </FlexBoxCol>
             </RowFlexBox>
@@ -142,7 +156,10 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
                 <FlexBoxCol>
                     <WrapperInput>
                         <WrapperParagraph>Date From</WrapperParagraph>
-                        <DateInput type={"date"}/>
+                        <DateInput type={"date"} onChange={(e: any) => {
+                            console.log(e.target.value);
+                            setDate(e.target.value);
+                        }}/>
                     </WrapperInput>
                 </FlexBoxCol>
                 <FlexBoxCol>
@@ -150,7 +167,9 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
                         activated === "TWO" ?
                             <WrapperInput>
                                 <WrapperParagraph>Date To</WrapperParagraph>
-                                <DateInput type={"date"}/>
+                                <DateInput type={"date"} onChange={(e: any) => {
+                                    setNumberOfDays(e.target.value);
+                                }}/>
                             </WrapperInput>
                             : null
                     }
@@ -168,10 +187,10 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
                 </FlexBoxCol>
                 <FlexBoxColButton>
                     <WrapperInput>
-                        <CarouselButton href={"/search"} text={"Book a ticket"}/>
+                        <CarouselButton onClick={getListOfFlights} text={"Book a ticket"}/>
                     </WrapperInput>
                 </FlexBoxColButton>
             </RowFlexBox>
-        </InputGroup>
+        </Form>
     )
 }
