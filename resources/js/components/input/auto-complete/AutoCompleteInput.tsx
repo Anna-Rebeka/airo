@@ -8,12 +8,24 @@ interface Props {
     setMethod: any;
 }
 
-let Input = styled.input`
+let MainDiv = styled.div`
+    position: relative;
+`
+
+let Input = styled.input<{ isWrongInput: boolean }>`
     box-sizing: border-box;
     width: 100%;
     height: 40px;
     font-size: 1.12em;
-    border: white solid 1px;
+
+    :not(:focus){
+    border: ${p => p.isWrongInput ? "red" : "white"} solid 1px;
+}
+
+
+    :focus{
+        outline: ${p => p.isWrongInput ? "red" : "blue"} 1px solid;
+    }
 
     @media (min-width: 576px) {
         font-size: 1.17em;
@@ -36,6 +48,7 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder, setMet
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [input, setInput] = useState("");
     const [inputListReference, setInputListReference] = useState<any>([]);
+    const [isWrongInput, setIsWrongInput] = useState<boolean>(false);
 
     useEffect(() => {
         getAndSetSuggestions();
@@ -48,6 +61,7 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder, setMet
         setInput(e.target.innerText);
         setMethod(e.target.innerText);
         setShowSuggestions(false);
+        setIsWrongInput(false);
     };
 
     let getAndSetSuggestions = () => {
@@ -72,17 +86,31 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder, setMet
         setInputListReference([]);
         setInput(e.target.value);
         setFilteredSuggestions(filteredSuggestions);
+        console.log(e.target.value);
+        console.log(checkFilteredSuggestions(e.target.value));
+        if (checkFilteredSuggestions(e.target.value)) {
+            setIsWrongInput(false);
+            setMethod(e.target.value)
+        } else {
+            setIsWrongInput(true);
+        }
         setShowSuggestions(true);
     };
 
-    return (
-        <div>
-            <Input placeholder={placeholder} onBlur={onBlur} onFocus={onFocus} type="text" onChange={onChange}
-                   value={input} onKeyDown={() => {
-            }}/>
-            {showSuggestions && input && <SuggestionList onClick={onClick} inputListReference={inputListReference}
-                                                         filteredSuggestions={filteredSuggestions}/>}
-        </div>
-    );
-};
+    const checkFilteredSuggestions = (currentCity: string) => {
+        return filteredSuggestions && Object.values(filteredSuggestions).some((city:any) => city.name === currentCity);
+    };
+
+return (
+    <MainDiv>
+        <Input isWrongInput={isWrongInput} placeholder={placeholder} onBlur={onBlur} onFocus={onFocus} type="text"
+               onChange={onChange}
+               value={input} onKeyDown={() => {
+        }}/>
+        {showSuggestions && input && <SuggestionList onClick={onClick} inputListReference={inputListReference}
+                                                     filteredSuggestions={filteredSuggestions}/>}
+    </MainDiv>
+);
+}
+
 export default AutoCompleteInput;

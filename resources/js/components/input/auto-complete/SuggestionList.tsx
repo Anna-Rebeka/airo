@@ -25,12 +25,18 @@ let ElementInList = styled.li`
         background-color: #FF7F2A;
         color: black;
     }
-
 `
+
+let MainWrapper = styled.div`
+    position: absolute;
+    overflow: scroll;
+    height: 100px;
+    width: 100%;
+`;
 
 export const SuggestionList: FunctionComponent<Props> = ({filteredSuggestions, inputListReference, onClick}) => {
     return (
-        <>
+        <MainWrapper>
             {(filteredSuggestions && filteredSuggestions.length > 0) ?
                 <Wrapper>
                     {filteredSuggestions.map((suggestion: any, index: number) => (
@@ -43,6 +49,6 @@ export const SuggestionList: FunctionComponent<Props> = ({filteredSuggestions, i
                     )}
                 </Wrapper> : null
             }
-        </>
+        </MainWrapper>
     )
 }

@@ -122,6 +122,8 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
     }
 
     let getListOfFlights = () => {
+        let searchFlights:boolean = true;
+
         console.log('flights/' + from + '/' + to + '/' + date + '/' + numberOfDays
         );
         axios.get('flights/' + from + '/' + to + '/' + date + '/' + numberOfDays
@@ -157,7 +159,6 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
                     <WrapperInput>
                         <WrapperParagraph>Date From</WrapperParagraph>
                         <DateInput type={"date"} onChange={(e: any) => {
-                            console.log(e.target.value);
                             setDate(e.target.value);
                         }}/>
                     </WrapperInput>
