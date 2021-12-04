@@ -86,8 +86,8 @@ export const FooterImpl: FunctionComponent<Props> = ({
                                                          className,
                                                          children
                                                      }) => {
-    let textLinks = [{href: "/", text: "Home"}, {href: "/", text: "Gallery"}, {href: "/", text: "Contacts"},
-    {href: "/", text: "My flights"}, {href: "/", text: "GDPR"}, {href: "/", text: "ABOUT"}]
+    let textLinks = [{href: "/", text: "Home"}, {href: "/gallery", text: "Gallery"}, {href: "/contacts", text: "Contacts"},
+    {href: "/login", text: "My flights"}, {href: "/", text: "GDPR"}, {href: "/", text: "ABOUT"}]
     return (
         <FooterMainDiv className={className}>
             <FooterWrapperDiv>
