@@ -66,7 +66,7 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({}) => {
             <InputGroup>
                 <WrapperInput>
                     <WrapperParagraph>From</WrapperParagraph>
-                    <AutoCompleteInput placeholder={"Type a departure city"}/>
+                    <AutoCompleteInput setMethod={null} placeholder={"Type a departure city"}/>
                 </WrapperInput>
                 <WrapperInput>
                     <WrapperParagraph>Date of departure</WrapperParagraph>
@@ -85,7 +85,7 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({}) => {
                                       setPriceTo(e.target.value)
                                   }}/>
                 </WrapperInput>
-                <CarouselButton href={"/search"} text={"Search a round trip"}/>
+                <CarouselButton onClick={null} text={"Search a round trip"}/>
             </InputGroup>
         </WrapperDiv>
 
