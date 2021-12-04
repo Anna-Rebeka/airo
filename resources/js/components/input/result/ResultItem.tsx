@@ -9,50 +9,54 @@ interface Props {
     price: number;
 }
 
-let ResultWrapper = styled.div`
-    .result
-    {
-        position: relative;
-        overflow: hidden;
-        width: 50%;
-        text-align: left;
-        display: block;
-        left: 30%;
-        color: white;
-        padding: 5px;
-        border: 1px gray solid;
-    }
+let Result = styled.div`
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+    text-align: left;
+    display: block;
+    left: 30%;
+    color: white;
+    padding: 5px;
+    border: 1px gray solid;
 
-    .result img
-    {
-        width: 100px;
-        height: 100px;
-        float: left;
-        margin-right: 15px;
-    }
-
-    .result h2, .description
-    {
-        color: white;
-        position: relative;
-        margin: 0px;
-        float: left;
-        text-decoration: underline;
-    }
-    .description
-    {
-        height: 150px;
-        width: 400px;
-        margin: 5px;
-        overflow: hidden;
-        text-align: left;
-        text-decoration: none;
-    }
-    .result:nth-child(odd)
+    :nth-child(odd)
     {
         background-color: rgb(100, 100, 100);
         padding: 5px;
     }
+`;
+
+let ResultImg = styled.img`
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 15px;
+`;
+
+let ResultH2 = styled.h2`
+    color: white;
+    position: relative;
+    margin: 0px;
+    float: left;
+    text-decoration: underline;
+`;
+
+
+let Description = styled.p`
+    color: white;
+    position: relative;
+    float: left;
+    height: 150px;
+    width: 400px;
+    margin: 5px;
+    overflow: hidden;
+    text-align: left;
+    text-decoration: none;
+`;
+
+
+let ResultWrapper = styled.div`
 `;
 
 export const ResultItem: FunctionComponent<Props> = ({imgSrc, description, altText,
@@ -61,11 +65,11 @@ export const ResultItem: FunctionComponent<Props> = ({imgSrc, description, altTe
     return (
         /* pred <img> natiahnut este <a> s odkazom na stranku s detailami? */
         <ResultWrapper>
-            <div className="result">
-                <img srcSet={imgSrc} alt={altText} /><h2>{headerText} - {price}&euro;</h2>
+            <Result>
+                <ResultImg srcSet={imgSrc} alt={altText} /><ResultH2>{headerText} - {price} &euro;</ResultH2>
                 <br />
-                <p className="description">{description}</p>
-            </div>
+                <Description>{description}</Description>
+            </Result>
         </ResultWrapper>
     );
 }
