@@ -29,8 +29,8 @@ let ElementInList = styled.li`
 
 let MainWrapper = styled.div`
     position: absolute;
-    overflow: scroll;
-    height: 100px;
+    overflow: auto;
+    max-height: 150px;
     width: 100%;
 `;
 

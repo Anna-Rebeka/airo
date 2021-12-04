@@ -55,21 +55,21 @@ export const NavigationImpl: FunctionComponent<Props> = ({
                                                              user,
                                                              children,
                                                          }) => {
-    let navigationLinks = ["Home", "Gallery", "Contacts", "My flights"];
+    let navigationLinks = [{name:"Home", href:"/"}, {name:"Gallery", href: "/"}, {name: "Contacts", href: "/"}, {name:"My flights", href: "/login"}];
     let middleIndex: number = navigationLinks ? Math.floor(navigationLinks.length / 2) : 0;
     return (
         <NavigationImplDiv>
             <NavigationLinkItemDiv direction={"END"}>
-                {navigationLinks.slice(0, middleIndex).map((textField: any, index: number) => (
-                        <NavigationLink key={"navigation-link-" + index} href={"/"} textField={textField}/>
+                {navigationLinks.slice(0, middleIndex).map((link: any, index: number) => (
+                        <NavigationLink key={"navigation-link-" + index} href={link.href} textField={link.name}/>
                     )
                 )}
             </NavigationLinkItemDiv>
             <NavigationLogo/>
 
             <NavigationLinkItemDiv direction={"START"}>
-                {navigationLinks.slice(middleIndex, navigationLinks.length).map((textField: any, index: number) => (
-                        <NavigationLink key={"navigation-link-" + index} href={"/"} textField={textField}/>
+                {navigationLinks.slice(middleIndex, navigationLinks.length).map((link: any, index: number) => (
+                        <NavigationLink key={"navigation-link-" + index} href={link.href} textField={link.name}/>
                     )
                 )}
                 <NavigationButtonsWrapper>

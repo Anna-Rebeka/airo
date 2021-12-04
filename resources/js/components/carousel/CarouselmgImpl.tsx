@@ -81,7 +81,7 @@ let CarouselImgOpacityImg = styled.img`
 `;
 
 let TextWrapper = styled.div<{ side: string }>`
-    top: ${p => p.side === "LEFT" ? "20%" : "60%"};
+    top: ${p => p.side === "LEFT" ? "15%" : "60%"};
         //bottom: ${p => p.side === "RIGHT" ? "20%" : "auto"};
     left: ${p => p.side === "LEFT" ? "5%" : "5%"};
     right: 0;
