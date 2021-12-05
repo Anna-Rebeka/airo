@@ -1,9 +1,8 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import {CarouselInputFlights} from "./CarouselInputFlights";
-import {CarouselInputRoundTrips} from "./CarouselInputRoundTrips";
 import useWindowSize from "../../BasicUtils";
-import {CarouselButton} from "../button/CarouselButton";
+import {CarouselInputRoundTrips} from "./CarouselInputRoundTrips";
 
 interface Props {
     displayCarousel: boolean;
@@ -129,7 +128,6 @@ let ContentWrapper = styled.div<{url:string}>`
     top: 10%;
     left: 0;
     right: 0;
-    z-index: 11;
     display: flex;
     flex-direction: column;
     justify-content: center;
