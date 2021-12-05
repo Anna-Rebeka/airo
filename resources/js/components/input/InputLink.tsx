@@ -9,31 +9,22 @@ interface NavigationLinkProps {
     className?: string;
 }
 
-let NavigationLinkLi = styled.li`
+let InputLinkLi = styled.li`
     list-style: none;
     display: block;
     padding: 8px 20px;
 `
 
-let NavigationLinkA = styled.button<{ activated: boolean }>`
+let InputLinkButton = styled.button<{ activated: boolean }>`
     cursor: pointer;
-    color: white;
+    color: ${p => p.activated? "#FF7F2A" : "white"};
     text-decoration: none;
     letter-spacing: 0.07em;
     display: inline-block;
     transition: font-size 1.3s, color 0.5s;
     font-size: 1em;
     background-color: transparent;
-    border: none;
-
-    :after {
-        background: none repeat scroll 0 0 #FF7F2A;
-        content: "";
-        display: block;
-        height: 2px;
-        width: ${p => p.activated ? 100 : 0};
-        transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    }
+    border: 0.1em solid ${p => p.activated? "#FF7F2A" : "white"};
 
     @media (min-width: 772px) {
         font-size: 1.1em;
@@ -74,11 +65,11 @@ export const InputLink: FunctionComponent<NavigationLinkProps> = ({className, te
 
     }, [activated]);
     return (
-        <NavigationLinkLi>
-            <NavigationLinkA activated={isActivated} className={className} onClick={() => onClick(type)}>
+        <InputLinkLi>
+            <InputLinkButton activated={isActivated} className={className} onClick={() => onClick(type)}>
                 {textField}
-            </NavigationLinkA>
-        </NavigationLinkLi>
+            </InputLinkButton>
+        </InputLinkLi>
 
     );
 }

@@ -37,7 +37,7 @@ let ResultImg = styled.img`
 let ResultH2 = styled.h2`
     color: white;
     position: relative;
-    margin: 0px;
+    margin: 0;
     float: left;
     text-decoration: underline;
 `;
@@ -67,7 +67,6 @@ export const ResultItem: FunctionComponent<Props> = ({imgSrc, description, altTe
         <ResultWrapper>
             <Result>
                 <ResultImg srcSet={imgSrc} alt={altText} /><ResultH2>{headerText} - {price} &euro;</ResultH2>
-                <br />
                 <Description>{description}</Description>
             </Result>
         </ResultWrapper>

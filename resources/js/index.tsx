@@ -7,6 +7,7 @@ import {NavigationImpl} from "./components/navigation/NavigationImpl";
 import {FooterImpl} from "./components/footer/FooterImpl";
 import styled from "@emotion/styled";
 import {CarouselImageImpl} from "./components/carousel/CarouselmgImpl";
+import ModularForm from "./components/input/modular-form/ModularForm";
 
 const store = createStore(() => {
 });
@@ -26,24 +27,42 @@ let BackgroundWrapper = styled.div`
     background-image: linear-gradient(315deg, #000000 0%, #404040 74%);
 `
 
+let ListOfTickets = styled.div`
+    width: 100%;
+    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
     let [displayCarousel, setDisplayCarousel] = useState("LEFT");
+    let [flightsTickets, setFlightTickets] = useState();
+    let [roundTrips, setRoundTrips] = useState();
 
     return (
         <Provider store={store}>
             <BackgroundWrapper>
-                    <NavigationImpl/>
-                    <Carousel>
-                        <CarouselImageImpl displayCarousel={"RIGHT" === displayCarousel}
-                                           setDisplayedSide={setDisplayCarousel}
-                                           side={"RIGHT"}
-                                           imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
-                        <CarouselImageImpl displayCarousel={"LEFT" === displayCarousel}
-                                           setDisplayedSide={setDisplayCarousel}
-                                           side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
-                    </Carousel>
-                    <FooterImpl/>
+                <NavigationImpl/>
+                <Carousel>
+                    <CarouselImageImpl onClick={setFlightTickets} displayCarousel={"RIGHT" === displayCarousel}
+                                       setDisplayedSide={setDisplayCarousel}
+                                       side={"RIGHT"}
+                                       imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
+                    <CarouselImageImpl onClick={setRoundTrips} displayCarousel={"LEFT" === displayCarousel}
+                                       setDisplayedSide={setDisplayCarousel}
+                                       side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
+                </Carousel>
+                {
+                    flightsTickets ?
+                        <ListOfTickets>
+                        </ListOfTickets> : null
+                }
+                <ModularForm>
+
+                </ModularForm>
+                <FooterImpl/>
             </BackgroundWrapper>
         </Provider>
     );
