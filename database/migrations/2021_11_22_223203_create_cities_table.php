@@ -21,7 +21,7 @@ class CreateCitiesTable extends Migration
             $table->string('country');
             $table->string('capital');
             $table->string('population');
-            $table->string('info')->nullable();
+            $table->longText('info')->nullable();
             $table->string('image')->nullable();
         });
     }

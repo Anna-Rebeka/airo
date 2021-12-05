@@ -40,6 +40,9 @@ class FlightController extends Controller
             ->where('departure', '>=', $morning)
             ->where('arrival', '<=', $evening)
             ->where('price', '<=', $price)
+            ->with('departure')
+            ->with('arrival')
+            ->with('company')
             ->get();
         
         return $flights;
