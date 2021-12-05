@@ -66,7 +66,7 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({}) => {
             <InputGroup>
                 <WrapperInput>
                     <WrapperParagraph>From</WrapperParagraph>
-                    <AutoCompleteInput setMethod={null} placeholder={"Type a departure city"}/>
+                    <AutoCompleteInput isError={false} setMethod={null} placeholder={"Type a departure city"}/>
                 </WrapperInput>
                 <WrapperInput>
                     <WrapperParagraph>Date of departure</WrapperParagraph>
