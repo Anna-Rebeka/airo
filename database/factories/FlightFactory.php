@@ -49,9 +49,9 @@ class FlightFactory extends Factory
 
         $company = Company::all()->random(1)->first();
 
-        $price =  $distance * (0.05 + 0.001 * $company->class +  0.0001 * rand(1,10));
+        $price =  $distance * (0.05 + 0.001 * $company->class +  0.001 * rand(1,10));
         //$price =  $distance;
-        $leaves = $this->faker->dateTimeBetween('+0 days', '+2 years');
+        $leaves = $this->faker->dateTimeBetween('+0 days', '+30 days');
         
         $minutes = round(($distance / 830) * 60);
 
