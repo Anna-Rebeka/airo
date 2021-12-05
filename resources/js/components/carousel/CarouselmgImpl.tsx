@@ -2,6 +2,8 @@ import React, {FunctionComponent, useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import {CarouselInputFlights} from "./CarouselInputFlights";
 import {CarouselInputRoundTrips} from "./CarouselInputRoundTrips";
+import useWindowSize from "../../BasicUtils";
+import {CarouselButton} from "../button/CarouselButton";
 
 interface Props {
     displayCarousel: boolean;
@@ -13,14 +15,31 @@ interface Props {
 
 let TextTitle = styled.p<{ side: string }>`
     color: white;
-    font-size: 3em;
+    font-size: 1.8em;
     font-weight: bold;
     text-shadow: 0 5px 8px black;
     margin: 0;
+
+    @media (min-width: 772px) {
+        font-size: 2em;
+    };
+
+    @media (min-width: 1060px) {
+        font-size: 2.4em;
+    };
+
+    @media (min-width: 1280px) {
+        font-size: 2.8em;
+    };
 `
 
 let TextDescription = styled.p<{ side: string }>`
-    max-width: 60%;
+    max-width: 90%;
+
+    @media (min-width: 1060px) {
+        max-width: 80%;
+    };
+
     color: white;
     font-size: 1.8em;
     text-shadow: 0 5px 8px black;
@@ -38,7 +57,7 @@ let SideText = styled.div<{ isHovered: boolean }>`
     width: 17.6%;
     height: 100%;
     color: ${p => p.isHovered ? "#FF7F2A" : "white"};
-    background: rgba(26,26,20, 0.8);
+    background: rgba(26, 26, 20, 0.8);
     font-size: 2em;
     cursor: pointer;
     z-index: 10;
@@ -61,11 +80,16 @@ let SvgWrapper = styled.div<{ isHovered: boolean }>`
 let Wrapper = styled.div<{ side: string, displayCarousel: boolean }>`
     position: absolute;
     top: 0;
-    left: ${p => (p.side === "LEFT" && !p.displayCarousel) ? "-70%" : p.side === "LEFT" ? 0 : "15%"};
+    left: ${p => (p.side === "LEFT" && !p.displayCarousel) ? "-100%" : 0};
     box-shadow: 2px 3px 8px 1px rgba(22, 23, 24, 1);
-    width: 85%;
+    width: 100%;
     height: 100%;
     overflow: hidden;
+
+    @media (min-width: 1060px) {
+        left: ${p => (p.side === "LEFT" && !p.displayCarousel) ? "-70%" : p.side === "LEFT" ? 0 : "15%"};
+        width: 85%;
+    };
 
     :hover {
         opacity: 1;
@@ -80,16 +104,12 @@ let CarouselImgOpacityImg = styled.img`
     object-fit: cover;
 `;
 
-let TextWrapper = styled.div<{ side: string }>`
-    top: ${p => p.side === "LEFT" ? "15%" : "60%"};
-        //bottom: ${p => p.side === "RIGHT" ? "20%" : "auto"};
-    left: ${p => p.side === "LEFT" ? "5%" : "5%"};
-    right: 0;
-        //right: ${p => p.side === "RIGHT" ? "5%" : "auto"};
-    position: absolute;
+let TextWrapper = styled.div`
     display: flex;
-    align-items: ${p => p.side === "RIGHT" ? "flex-start" : "flex-start"}; //flex-end
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
 `;
 
 let SideTextInsideWrapper = styled.div`
@@ -103,6 +123,22 @@ let SideTextWrapper = styled.div`
     flex-direction: column;
 `
 
+let ContentWrapper = styled.div`
+    position: absolute;
+    top: 5%;
+    left: 0;
+    right: 0;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 768px) {
+       top: 10%;
+    }
+`
+
 
 export const CarouselImageImpl: FunctionComponent<Props> = ({
                                                                 displayCarousel,
@@ -113,19 +149,19 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                                                             }) => {
 
     let leftText = {
-        title: "Looking for a flight?",
+        title: "Looking for a ticket?",
         description: "We offer tickets from multiple airline companies. You can choose a ticket which is tailored for your needs.",
         imageAlt: "Plane in skies",
         iconAlt: "Icon for showing direction to right",
-        sideText: "Looking for a flight ticket?"
+        sideText: "Flights"
 
     }
     let rightText = {
-        title: "  Are you interested in a round trip?",
+        title: "Are you interested in a round trip?",
         description: " Choose your starting point, budget and number of places you want to visit. Round trips will be based on your input and your preferences.",
-        imageAlt: "Shown round with mountains",
+        imageAlt: "Shown road with mountains",
         iconAlt: "Icon for showing direction to left",
-        sideText: "Interested in a round trip?"
+        sideText: "Round trips"
     }
 
     let text = side === "LEFT" ? leftText : rightText;
@@ -138,6 +174,8 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
         }
     }, [displayCarousel]);
 
+    let [width] = useWindowSize();
+
     return (
         <Wrapper side={side} displayCarousel={displayCarousel}
                  onTransitionEnd={(e: any) => {
@@ -145,23 +183,23 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                  }}>
             <CarouselImgOpacityImg src={imgSource.default} alt={text.imageAlt}/>
             {displayCarousel ?
-                <>
+                <ContentWrapper>
+                    {width < 1060 ?
+                       null :
+                        <TextWrapper>
+                            <TextTitle side={side}>
+                                {text.title}
+                            </TextTitle>
+                            <TextDescription side={side}>
+                                {text.description}
+                            </TextDescription>
+                        </TextWrapper>}
                     {side === "LEFT" ?
                         <CarouselInputFlights/> :
                         <CarouselInputRoundTrips/>
                     }
-
-                    <TextWrapper side={side}>
-                        <TextTitle side={side}>
-                            {text.title}
-                        </TextTitle>
-                        <TextDescription side={side}>
-                            {text.description}
-                        </TextDescription>
-                    </TextWrapper>
-
-                </> :
-                showSideText || !displayCarousel ?
+                </ContentWrapper> :
+                width > 1059 && (showSideText || !displayCarousel) ?
                     <SideText
                         isHovered={isHovered} onMouseEnter={() => {
                         setIsHovered(true);
@@ -201,8 +239,8 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                                 null
                             }
                         </SideTextInsideWrapper>
-                    </SideText> : null
-
+                    </SideText> :
+                    null
             }
         </Wrapper>
     )

@@ -35,7 +35,7 @@ let NavigationLinkA = styled.a<{ activated: boolean }>`
         font-size: 1.3em;
     };
 
-    @media (min-width: 992px) {
+    @media (min-width: 1060px) {
         font-size: 1.6em;
     };
 

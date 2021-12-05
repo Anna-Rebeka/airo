@@ -22,7 +22,7 @@ let NavigationLinkA = styled.button<{ activated: boolean }>`
     letter-spacing: 0.07em;
     display: inline-block;
     transition: font-size 1.3s, color 0.5s;
-    font-size: 0.8em;
+    font-size: 1em;
     background-color: transparent;
     border: none;
 
@@ -36,15 +36,15 @@ let NavigationLinkA = styled.button<{ activated: boolean }>`
     }
 
     @media (min-width: 772px) {
-        font-size: 0.9em;
+        font-size: 1.1em;
     };
 
     @media (min-width: 992px) {
-        font-size: 1em;
+        font-size: 1.2em;
     };
 
     @media (min-width: 1280px) {
-        font-size: 1.2em;
+        font-size: 1.3em;
     };
 
     @media (min-width: 1920px) {

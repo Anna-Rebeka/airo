@@ -11,7 +11,7 @@ let StyledCarouselButton = styled.button`
     text-decoration: none;
     border: 0.1em solid white;
     color: white;
-    font-size: 1.05em;
+    font-size: 1.2em;
     cursor: pointer;
     background-color: transparent;
     padding: 0.5rem 1rem;

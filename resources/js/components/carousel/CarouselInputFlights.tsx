@@ -1,5 +1,5 @@
 import AutoCompleteInput from "../input/auto-complete/AutoCompleteInput";
-import React, {FunctionComponent, useState} from "react";
+import React, {FunctionComponent, useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import {CarouselButton} from "../button/CarouselButton";
 import {InputLink} from "../input/InputLink";
@@ -11,16 +11,15 @@ interface Props {
 }
 
 let Form = styled.form`
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    top: 35%;
-    left: 5%;
-    z-index: 12;
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
 
     @media (min-width: 476px) {
         max-width: 400px;
@@ -48,11 +47,31 @@ let Form = styled.form`
 let RowFlexBox = styled.ul`
     display: flex;
     flex-direction: column;
-    margin-top: 1em;
-    margin-bottom: 1em;
     width: 600px;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: 476px) {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    };
 
     @media (min-width: 800px) {
+        flex-direction: row;
+    };
+`
+
+let RowFlexBoxDate = styled.ul`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin:0;
+    padding:0;
+
+    @media (min-width: 1060px) {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        width: 600px;
         flex-direction: row;
     };
 
@@ -61,8 +80,12 @@ let RowFlexBox = styled.ul`
 let RowFlexBoxWays = styled.ul`
     display: flex;
     flex-direction: row;
-`
+    margin:0;
 
+    @media (min-width: 476px) {
+
+    };
+`
 
 let WrapperInput = styled.div`
     display: flex;
@@ -73,8 +96,12 @@ let WrapperInput = styled.div`
 let WrapperParagraph = styled.p`
     color: white;
     text-shadow: 0 5px 8px black;
-    font-size: 1.5em;
-    margin: 0 0 0.8em;
+    font-size: 1.4em;
+    margin: 0 0 0.4em;
+
+    @media (min-width: 476px) {
+        margin: 0 0 0.8em;
+    };
 `;
 
 let FlexBoxCol = styled.li`
@@ -93,10 +120,14 @@ let FlexBoxColButton = styled.div`
     align-items: center;
 `
 
-let IntegerInput = styled.input`
+let IntegerInput = styled.input<{ isError: boolean }>`
     width: 100%;
     height: 40px;
     box-shadow: 2px 3px 8px 1px black;
+
+    :not(:focus) {
+        border: ${p => p.isError ? "red" : "white"} solid 1px;
+    }
 `
 
 let DateInput = styled.input<{ isError: boolean }>`
@@ -106,27 +137,39 @@ let DateInput = styled.input<{ isError: boolean }>`
     font-size: 1.12em;
     border: white solid 1px;
 
+    margin: 0;
+
+    @media (min-width: 476px) {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    };
+
     :not(:focus) {
         border: ${p => p.isError ? "red" : "white"} solid 1px;
     }
 `
 
+let Title = styled.p`
+    color: white;
+    text-align: center;
+    margin: 0;
+`
 export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
-    let [numberOfDays, setNumberOfDays] = useState<number>(1);
-    let [isOneWay, setIsOneWay] = useState<boolean>(true);
-    let [activated, setActivated] = useState("ONE");
-    let [dateFrom, setDateFrom] = useState();
-    let [dateTo, setDateTo] = useState();
-    let [price, setPrice] = useState();
-    let [from, setFrom] = useState();
-    let [to, setTo] = useState();
-    let [inputsFilledWrongly, setInputsFilledWrongly] = useState({
+    const [numberOfPersons, setNumberOfPersons] = useState<number>(1);
+    const [isOneWay, setIsOneWay] = useState<boolean>(true);
+    const [activated, setActivated] = useState("ONE");
+    const [dateFrom, setDateFrom] = useState<any>();
+    const [dateTo, setDateTo] = useState<any>();
+    const [price, setPrice] = useState<number>(100);
+    const [from, setFrom] = useState<string>();
+    const [to, setTo] = useState<string>();
+    const [inputsFilledWrongly, setInputsFilledWrongly] = useState({
         from: false,
         to: false,
         dateFrom: false,
         dateTo: false,
-        price: false,
-        numberOfDays: false
+        maximumPrice: false,
+        numberOfPersons: false
     });
 
     let WhichActivated = (type: string) => {
@@ -137,20 +180,24 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
         setIsOneWay(type === "ONE");
     }
 
-    let getListOfFlights = () => {
+
+    let checkInputs = () => {
         let inputsValues = {
             from: !from || from === "",
             to: !to || to === "",
             dateFrom: !dateFrom || dateFrom === "",
-            dateTo: !isOneWay && (!dateTo || dateTo === ""),
-            price: !numberOfDays || numberOfDays < 0 || numberOfDays > 14,
-            numberOfDays: !numberOfDays || numberOfDays < 0 || numberOfDays > 14,
-            maximumPrice: !price || price < 0 || price > 9999
+            dateTo: (!dateTo || dateTo === ""),
+            numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 14,
+            maximumPrice: !price || price <= 0 || price > 9999
         }
 
-        console.log(inputsValues);
-
         setInputsFilledWrongly({...inputsValues});
+        return inputsValues;
+    }
+
+
+    let getListOfFlights = () => {
+        let inputsValues = checkInputs();
 
         let searchFlights = Object.values(inputsValues).some((val) => {
                 if (val) {
@@ -162,7 +209,6 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
         if (searchFlights) {
             return;
         }
-
 
         let allFlights = [];
 
@@ -183,12 +229,19 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
                     console.log(res);
                 })
         }
-
-
     }
+
+    useEffect(() => {
+        if (isOneWay) {
+            setDateTo("");
+        }
+    }, [isOneWay])
 
     return (
         <Form onSubmit={e => e.preventDefault()}>
+            <RowFlexBox>
+                <Title>Flight tickets</Title>
+            </RowFlexBox>
             <RowFlexBoxWays>
                 <InputLink onClick={WhichActivated} type={"ONE"} activated={activated} textField={"One way"}/>
                 <InputLink onClick={WhichActivated} type={"TWO"} activated={activated} textField={"Two Way"}/>
@@ -210,13 +263,13 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
                 </FlexBoxCol>
             </RowFlexBox>
 
-            <RowFlexBox>
+            <RowFlexBoxDate>
                 <FlexBoxCol>
                     <WrapperInput>
                         <WrapperParagraph>Date From</WrapperParagraph>
                         <DateInput isError={inputsFilledWrongly.dateFrom} type={"date"} onChange={(e: any) => {
                             setDateFrom(e.target.value);
-                            setInputsFilledWrongly({...inputsFilledWrongly,dateFrom: false})
+                            setInputsFilledWrongly({...inputsFilledWrongly, dateFrom: false})
                         }}/>
                     </WrapperInput>
                 </FlexBoxCol>
@@ -227,33 +280,33 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
                                 <WrapperParagraph>Date To</WrapperParagraph>
                                 <DateInput isError={inputsFilledWrongly.dateTo} type={"date"} onChange={(e: any) => {
                                     setDateTo(e.target.value);
-                                    setInputsFilledWrongly({...inputsFilledWrongly,dateTo: false})
+                                    setInputsFilledWrongly({...inputsFilledWrongly, dateTo: false})
                                 }}/>
                             </WrapperInput>
                             : null
                     }
                 </FlexBoxCol>
-            </RowFlexBox>
-            <RowFlexBox>
+            </RowFlexBoxDate>
+            <RowFlexBoxDate>
                 <FlexBoxCol>
                     <WrapperInput>
                         <WrapperParagraph>No. of persons</WrapperParagraph>
-                        <IntegerInput value={numberOfDays} onChange={(e: any) => {
-                            setNumberOfDays(e.target.value);
-                        }} min={1} max={14}
+                        <IntegerInput isError={inputsFilledWrongly.numberOfPersons} placeholder={"Select no. of persons (between 1 and 20)"} value={numberOfPersons} onChange={(e: any) => {
+                            setNumberOfPersons(e.target.value);
+                        }} min={1} max={20}
                                       type={"number"}/>
                     </WrapperInput>
                 </FlexBoxCol>
                 <FlexBoxCol>
                     <WrapperInput>
                         <WrapperParagraph>Maximum price</WrapperParagraph>
-                        <IntegerInput value={price} onChange={(e: any) => {
+                        <IntegerInput isError={inputsFilledWrongly.maximumPrice} placeholder={"Select maximum price (from 100 to 9999)"} value={price} onChange={(e: any) => {
                             setPrice(e.target.value);
-                        }} min={1} max={9999}
+                        }} min={100} max={9999}
                                       type={"number"}/>
                     </WrapperInput>
                 </FlexBoxCol>
-            </RowFlexBox>
+            </RowFlexBoxDate>
             <RowFlexBox>
                 <FlexBoxColButton>
                     <WrapperInput>

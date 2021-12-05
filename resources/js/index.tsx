@@ -17,7 +17,7 @@ interface RootProps {
 
 let Carousel = styled.div`
     width: 100%;
-    height: 100vh;
+    height: 1280px;
     position: relative;
 `
 
@@ -33,7 +33,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     return (
         <Provider store={store}>
             <BackgroundWrapper>
-                    <NavigationImpl logo={null} user={dataset && JSON.parse(dataset.user)}/>
+                    <NavigationImpl logo={null}/>
                     <Carousel>
                         <CarouselImageImpl displayCarousel={"RIGHT" === displayCarousel}
                                            setDisplayedSide={setDisplayCarousel}
