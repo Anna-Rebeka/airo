@@ -51,7 +51,7 @@ class FlightFactory extends Factory
 
         $price =  $distance * (0.05 + 0.001 * $company->class +  0.001 * rand(1,10));
         //$price =  $distance;
-        $leaves = $this->faker->dateTimeBetween('+0 days', '+30 days');
+        $leaves = $this->faker->dateTimeBetween('+0 days', '+15 days');
         
         $minutes = round(($distance / 830) * 60);
 
