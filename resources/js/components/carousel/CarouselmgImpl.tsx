@@ -9,6 +9,7 @@ interface Props {
     imgSource: any;
     side: string;
     setDisplayedSide: any;
+    onClick: any;
 }
 
 
@@ -122,7 +123,7 @@ let SideTextWrapper = styled.div`
     flex-direction: column;
 `
 
-let ContentWrapper = styled.div<{url:string}>`
+let ContentWrapper = styled.div<{ url: string }>`
     background-image: ${p => p.url};
     position: absolute;
     top: 10%;
@@ -134,7 +135,7 @@ let ContentWrapper = styled.div<{url:string}>`
     align-items: center;
 
     @media (min-width: 768px) {
-       top: 10%;
+        top: 10%;
     }
 `
 
@@ -144,7 +145,7 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                                                                 imgSource,
                                                                 side,
                                                                 setDisplayedSide,
-                                                                children
+                                                                onClick
                                                             }) => {
 
     let leftText = {
@@ -184,7 +185,7 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
             {displayCarousel ?
                 <ContentWrapper url={imgSource.default}>
                     {width < 1060 ?
-                       null :
+                        null :
                         <TextWrapper>
                             <TextTitle side={side}>
                                 {text.title}
@@ -194,7 +195,7 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                             </TextDescription>
                         </TextWrapper>}
                     {side === "LEFT" ?
-                        <CarouselInputFlights/> :
+                        <CarouselInputFlights onClick={onClick}/> :
                         <CarouselInputRoundTrips/>
                     }
                 </ContentWrapper> :

@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 interface Props {
-
+    onClick: any;
 }
 
 let Form = styled.form`
@@ -152,7 +152,7 @@ let Title = styled.p`
     text-align: center;
     margin: 0;
 `
-export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
+export const CarouselInputFlights: FunctionComponent<Props> = ({onClick}) => {
     const [numberOfPersons, setNumberOfPersons] = useState<number>(1);
     const [isOneWay, setIsOneWay] = useState<boolean>(true);
     const [activated, setActivated] = useState("ONE");
@@ -208,7 +208,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
             return;
         }
 
-        let allFlights = [];
+        let allFlights: any = [];
 
         console.log('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
         );
@@ -227,6 +227,8 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
                     console.log(res);
                 })
         }
+
+        onClick(allFlights);
     }
 
     useEffect(() => {

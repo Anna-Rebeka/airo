@@ -1,29 +1,34 @@
-import React, {FunctionComponent} from "react";
+import React, {FunctionComponent, useState} from "react";
 import styled from '@emotion/styled';
 import {css} from "@emotion/react";
-import ReactDOM from "react-dom";
 
-interface Props {}
+interface Props {
+}
 
-let FormWrapper = styled.div`
-    display: none;
+let FormWrapper = styled.div<{ shouldBeDisplayed: boolean }>`
+    display: ${p => p.shouldBeDisplayed ? "flex" : "none"};
     position: fixed;
     overflow: auto;
     width: 100vw;
     height: 100vh;
+    left:0;
+    right:0;
+    top:0;
     /*left: 25vw;*/
     background-color: rgba(125, 125, 125, 0.5);
     text-align: center;
+    align-items: center;
+    justify-content: center;
 `;
 
 let Reg = styled.form`
+    display: block;
     text-align: center;
     border: 2px crimson solid;
     position: relative;
     width: 50%;
     height: 50%;
     background-color: rgba(0, 0, 0, 1);
-    left: 22%;
 `;
 
 let MyInput = css`
@@ -39,16 +44,14 @@ let MyInput = css`
     display: inline-block;
     box-sizing: border-box;
 
-    ::placeholder
-    {
+    ::placeholder {
         color: orange;
         font-family: math;
         font-size: 18px;
         opacity: 1;
     }
 
-    [type='submit']
-    {
+    [type='submit'] {
         border-radius: 25px;
         background-color: orange;
         color: black;
@@ -76,61 +79,25 @@ let Close = styled.button`
     }
 `;
 
-function SetDisplay(d: string)
-{
-    /*
-*
-  <body>
-	<div id='reg' class='FormWrapper'>
-		<form class='reg'>
-		<button class='Close' onclick="document.getElementById('reg').style.display='none';">X</button>
-			<h1>Registracia</h1>
-			<br>
-			<input type='text' id='username' name='username' placeholder='User name' class='MyInput' />
-			<br />
-			<input type='password' id='pw' name='pw' placeholder='Password' class='MyInput'/>
-			<br />
-			<input type='submit' id='register' name='register' value='Register' class='MyInput'>
-		</form>
-	</div>
-	<button id='ShowBtn' onclick="document.getElementById('reg').style.display='block'"> Formular </button>
-  </body>
-* */
-    /*function Show = (event: any) =>
-    try
-    {
-        // na normalny JS vyhadzuje chyby
-        try { Reg.__emotion_styles.display='block'; }
-        catch (err) { console.log(err); }
-        let e = document.getElementById('reg');
-        // @ts-ignore
-        e.style['display'] = d;
-    }
-    catch (err) { console.log(err); }*/
-}
-
-function Show(event: any) { SetDisplay('block'); }
-function Hide(event: any) { SetDisplay('none');  }
-
-export const ResultItem: FunctionComponent<Props> = ({}) =>
-{
+export const ModularForm: FunctionComponent<Props> = ({}) => {
+    let [display, setDisplay] = useState(false);
     return (
         <>
-        <FormWrapper>
-            <Reg id='reg'>
-                <Close id="hideBtn" onClick={ Hide }>X</Close>
-                <h1> Registrácia </h1>
-                <br />
-                <Username type="text" id="username" name="username" placeholder="User name"></Username>
-                <br />
-                <Password type="password" id="pw" name="pw" placeholder="Password"></Password>
-                <br />
-                <Submit type="submit" id="submit" name="submit" value="submit"></Submit>
-            </Reg>
-        </FormWrapper>
-        <button id="showBtn" onClick={ Show }> Registrácia </button>
+            <FormWrapper shouldBeDisplayed={display} onSubmit={(e) => e.preventDefault()}>
+                <Reg id='reg'>
+                    <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
+                    <h1> Registrácia </h1>
+                    <br/>
+                    <Username type="text" id="username" name="username" placeholder="User name"></Username>
+                    <br/>
+                    <Password type="password" id="pw" name="pw" placeholder="Password"></Password>
+                    <br/>
+                    <Submit type="submit" id="submit" name="submit" value="submit"></Submit>
+                </Reg>
+            </FormWrapper>
+            <button id="showBtn" onClick={() => setDisplay(true)}> Registrácia</button>
         </>
     );
 }
 
-export default ResultItem;
+export default ModularForm;
