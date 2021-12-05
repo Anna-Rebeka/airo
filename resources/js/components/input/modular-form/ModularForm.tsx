@@ -96,8 +96,7 @@ function SetDisplay(d: string)
 	<button id='ShowBtn' onclick="document.getElementById('reg').style.display='block'"> Formular </button>
   </body>
 * */
-
-    function Show(event: any)
+    /*function Show = (event: any) =>
     try
     {
         // na normalny JS vyhadzuje chyby
@@ -107,7 +106,7 @@ function SetDisplay(d: string)
         // @ts-ignore
         e.style['display'] = d;
     }
-    catch (err) { console.log(err); }
+    catch (err) { console.log(err); }*/
 }
 
 function Show(event: any) { SetDisplay('block'); }
