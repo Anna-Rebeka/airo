@@ -31,6 +31,16 @@ let Reg = styled.form`
     background-color: rgba(0, 0, 0, 1);
 `;
 
+let Log = styled.form`
+    display: block;
+    text-align: center;
+    border: 1px white solid;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 1);
+`;
+
 let MyInput = css`
     text-align: center;
     border: white 1px solid;
@@ -139,20 +149,27 @@ export const ModularForm: FunctionComponent<Props> = ({}) => {
                     setDisplay(false);
                 }
             }}>
-                <Reg id='reg' onMouseEnter={() => setCanClose(false)} onMouseLeave={() => setCanClose(true)}>
-                    <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
-                    <Title> Registration </Title>
-                    <InputWrapper>
-                        <Username type="text" id="username" name="username" placeholder="User name" value={emailAddress}
-                                  onChange={(e) => setEmailAddress(e.target.value)}/>
-                        <Password type="password" id="pw" name="pw" placeholder="Password" value={password}
-                                  onChange={(e) => setPassword(e.target.value)}/>
-                        <RegistrationButton type="submit" id="submit" name="submit"
-                                            value="submit"> Registration</RegistrationButton>
-                        <RegistrationButton id="showBtn" onClick={() => setDisplay(true)}> Already have
-                            account?</RegistrationButton>
-                    </InputWrapper>
-                </Reg>
+                {
+                    isRegister?
+                        <Reg id='reg' onMouseEnter={() => setCanClose(false)} onMouseLeave={() => setCanClose(true)}>
+                            <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
+                            <Title> Registration </Title>
+                            <InputWrapper>
+                                <Username type="text" id="username" name="username" placeholder="User name" value={emailAddress}
+                                          onChange={(e) => setEmailAddress(e.target.value)}/>
+                                <Password type="password" id="pw" name="pw" placeholder="Password" value={password}
+                                          onChange={(e) => setPassword(e.target.value)}/>
+                                <RegistrationButton type="submit" id="submit" name="submit"
+                                                    value="submit"> Registration</RegistrationButton>
+                                <RegistrationButton id="showBtn" onClick={() => setIsRegister(false)}> Already have
+                                    account?</RegistrationButton>
+                            </InputWrapper>
+                        </Reg>:
+                        <Log>
+
+                        </Log>
+            }
+
             </FormWrapper>
             <RegistrationButton id="showBtn" onClick={() => setDisplay(true)}> Registration</RegistrationButton>
         </>

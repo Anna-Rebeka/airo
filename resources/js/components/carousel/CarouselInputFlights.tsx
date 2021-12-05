@@ -147,10 +147,11 @@ let DateInput = styled.input<{ isError: boolean }>`
     }
 `
 
-let Title = styled.p`
+let Title = styled.h2`
     color: white;
     text-align: center;
     margin: 0;
+    width: 100%;
 `
 export const CarouselInputFlights: FunctionComponent<Props> = ({onClick}) => {
     const [numberOfPersons, setNumberOfPersons] = useState<number>(1);

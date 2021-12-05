@@ -8,13 +8,13 @@
 
          <!-- Fonts -->
          <link href="https://fonts.gstatic.com" rel="preconnect">
-         <link as="style" href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap"
+         <link as="style" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
                   onload="this.onload = null; this.rel='stylesheet'" rel="preload">
 
          <!-- Styles -->
          <style>
              html, body {
-                 font-family: "Fira Sans,sans-serif";
+                 font-family: 'Roboto', sans-serif;
                  margin: 0;
                  height: 100vh;
              }
