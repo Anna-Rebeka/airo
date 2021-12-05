@@ -197,10 +197,8 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
     let getListOfFlights = () => {
         let inputsValues = checkInputs();
 
-        console.log(inputsValues);
         let searchFlights = Object.values(inputsValues).some((val) => {
                 if (val) {
-                    console.log("here");
                     return true;
                 }
             }
