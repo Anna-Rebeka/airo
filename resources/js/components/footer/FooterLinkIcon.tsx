@@ -31,23 +31,22 @@ let FooterLinkIconContainer = styled.div`
 
 let FooterLinkIconImg = styled.img`
     transition: font-size 1s;
-
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
 
     @media (min-width: 772px) {
-        width: 23px;
-        height: 23px;
+        width: 28px;
+        height: 28px;
     };
 
     @media (min-width: 992px) {
-        width: 26px;
-        height: 26px;;
+        width: 32px;
+        height: 32px;;
     };
 
     @media (min-width: 1280px) {
-        width: 29px;
-        height: 29px;
+        width: 36px;
+        height: 36px;
     };
 `;
 
@@ -56,7 +55,7 @@ export const FooterLinkIcon: FunctionComponent<FooterLinkTextProps> = ({link, cl
     return (
         <FooterFlipLink href={link && link.href} className={className}>
             <FooterLinkIconContainer>
-                <FooterLinkIconImg src={link && link.url} alt={link && link.alt}/>
+                <FooterLinkIconImg src={link && link.url.default} alt={link && link.alt}/>
             </FooterLinkIconContainer>
             {children}
         </FooterFlipLink>

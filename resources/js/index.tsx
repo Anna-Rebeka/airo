@@ -33,7 +33,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     return (
         <Provider store={store}>
             <BackgroundWrapper>
-                    <NavigationImpl logo={null}/>
+                    <NavigationImpl/>
                     <Carousel>
                         <CarouselImageImpl displayCarousel={"RIGHT" === displayCarousel}
                                            setDisplayedSide={setDisplayCarousel}
@@ -43,7 +43,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                                            setDisplayedSide={setDisplayCarousel}
                                            side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
                     </Carousel>
-                    <FooterImpl iconLinks={null}/>
+                    <FooterImpl/>
             </BackgroundWrapper>
         </Provider>
     );

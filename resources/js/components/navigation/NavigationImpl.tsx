@@ -4,7 +4,6 @@ import {NavigationLink} from "./NavigationLink";
 import {NavigationLogo} from "./NavigationLogo";
 
 interface Props {
-    logo: any;
     className?: string;
 }
 

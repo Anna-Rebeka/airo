@@ -40,7 +40,7 @@ let NavigationLogoImg = styled.div`
     };
 `
 
-export const NavigationLogo: FunctionComponent<NavigationLogoProps> = ({
+export const FooterLogo: FunctionComponent<NavigationLogoProps> = ({
                                                                            className
                                                                        }) => {
     return (
