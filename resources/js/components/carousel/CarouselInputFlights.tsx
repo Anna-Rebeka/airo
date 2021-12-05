@@ -7,7 +7,8 @@ import axios from "axios";
 
 
 interface Props {
-    setFlights: any;
+    setFlightsFrom: any;
+    setFlightsTo: any;
 }
 
 let Form = styled.form`
@@ -153,7 +154,7 @@ let Title = styled.h2`
     margin: 0;
     width: 100%;
 `
-export const CarouselInputFlights: FunctionComponent<Props> = ({setFlights}) => {
+export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, setFlightsTo}) => {
     const [numberOfPersons, setNumberOfPersons] = useState<number>(1);
     const [isOneWay, setIsOneWay] = useState<boolean>(true);
     const [activated, setActivated] = useState("ONE");
@@ -198,25 +199,30 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlights}) => 
     let getListOfFlights = () => {
         let inputsValues = checkInputs();
 
-        let searchFlights = Object.values(inputsValues).some((val) => {
+        let notSearchFlights = Object.values(inputsValues).some((val) => {
                 if (val) {
                     return true;
                 }
             }
         )
 
-        if (searchFlights) {
+        if (notSearchFlights) {
+            console.log("stopped")
             return;
         }
 
-        let allFlights: any = [];
+        setFlightsFrom(["test","TEST"]);
 
         console.log('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
         );
         axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
         )
             .then(res => {
-                allFlights.push(res.data);
+                console.log("feeetching")
+                console.log(res.data);
+                console.log(setFlightsFrom)
+                setFlightsFrom(["test","TEST"]);
+                //setFlightsFrom([...res.data]);
             })
 
         if (!isOneWay) {
@@ -224,11 +230,14 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlights}) => 
             );
             axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
             )
-                .then(res => {
-                    allFlights.push(res.data);
+                .then( (res) => {
+                    console.log("hreeeerr")
+                    setFlightsTo(res.data)
                 })
         }
-        setFlights(allFlights);
+
+        setFlightsFrom(["test","TEST"]);
+
     }
 
     useEffect(() => {
@@ -237,6 +246,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlights}) => 
         }
     }, [isOneWay])
 
+    console.log(setFlightsFrom);
     return (
         <Form onSubmit={e => e.preventDefault()}>
             <RowFlexBox>

@@ -9,7 +9,8 @@ interface Props {
     imgSource: any;
     side: string;
     setDisplayedSide: any;
-    onClick: any;
+    setFlightsFrom: any;
+    setFlightsTo?: any;
 }
 
 
@@ -145,7 +146,8 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                                                                 imgSource,
                                                                 side,
                                                                 setDisplayedSide,
-                                                                onClick
+                                                                setFlightsFrom,
+                                                                setFlightsTo
                                                             }) => {
 
     let leftText = {
@@ -168,13 +170,19 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
     let [isHovered, setIsHovered] = useState(false);
     let [showSideText, setShowSideText] = useState(false);
 
+    let [width] = useWindowSize();
+
     useEffect(() => {
         return () => {
-
         }
     }, [displayCarousel]);
 
-    let [width] = useWindowSize();
+
+    let setTicketsFrom = (param:any) => {
+        console.log("set tickets");
+        setFlightsFrom(param);
+    }
+
 
     return (
         <Wrapper side={side} displayCarousel={displayCarousel}
@@ -195,7 +203,7 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                             </TextDescription>
                         </TextWrapper>}
                     {side === "LEFT" ?
-                        <CarouselInputFlights setFlights={onClick}/> :
+                        <CarouselInputFlights setFlightsTo={setFlightsTo} setFlightsFrom={setTicketsFrom}/> :
                         <CarouselInputRoundTrips/>
                     }
                 </ContentWrapper> :
