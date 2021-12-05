@@ -32,6 +32,10 @@ class Flight extends Model
         return $this->belongsTo(City::class);
     }
 
+    public function company(){
+        return $this->belongsTo(Company::class);
+    }
+
     public function arrival(){
         return $this->belongsTo(City::class);
     }

@@ -14,7 +14,7 @@ INSERT INTO `cities` (`id`, `name`, `lat`, `lng`, `country`, `capital`, `populat
 (428, 'Warsaw', 52.22, 21.03, 'Poland', 'primary', '1790658', NULL, NULL),
 (434, 'Brussels', 50.83, 4.33, 'Belgium', 'primary', '1743000', NULL, NULL),
 (436, 'Budapest', 47.50, 19.04, 'Hungary', 'primary', '1752286', NULL, NULL),
-(542, 'Praha', 50.08, 14.42, 'Czechia', 'primary', '1335084', NULL, NULL),
+(542, 'Prague', 50.08, 14.42, 'Czechia', 'primary', '1335084', NULL, NULL),
 (734, 'Amsterdam', 52.37, 4.88, 'Netherlands', 'primary', '862965', NULL, NULL),
 (737, 'Zagreb', 45.80, 15.95, 'Croatia', 'primary', '790017', NULL, NULL),
 (746, 'Oslo', 59.91, 10.75, 'Norway', 'primary', '693494', NULL, NULL),
