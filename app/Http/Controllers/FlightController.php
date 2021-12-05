@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Flight;
 use App\Models\City;
+use DateTime;
+use DateInterval;
 
 class FlightController extends Controller
 {
@@ -23,11 +25,11 @@ class FlightController extends Controller
 
     public function getFlights($from, $to, $when, $price)
     {
-        $city1 = City::find($from);
-        $city2 = City::find($to);
+        $city1 = City::where('name', $from)->get()->first();
+        $city2 = City::where('name', $to)->get()->first();
 
         //treba vyrobit
-        $theDate    = new DateTime($when);
+        $theDate = new DateTime($when);
         $morning = $theDate->format('Y-m-d H:i:s');
 
         $theDate->add(new DateInterval('PT' . 1439 . 'M'));
