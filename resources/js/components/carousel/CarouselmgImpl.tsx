@@ -195,7 +195,7 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                             </TextDescription>
                         </TextWrapper>}
                     {side === "LEFT" ?
-                        <CarouselInputFlights onClick={onClick}/> :
+                        <CarouselInputFlights setFlights={onClick}/> :
                         <CarouselInputRoundTrips/>
                     }
                 </ContentWrapper> :
