@@ -78,7 +78,8 @@ let FooterIconsFlexBox = styled.ul`
 `;
 
 let Credits = styled.p`
-    margin: 2em;
+    margin: 1em;
+    font-size: 1.5em;
     text-align: center;
     color: white;
 `;

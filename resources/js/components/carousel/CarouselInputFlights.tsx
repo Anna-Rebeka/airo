@@ -18,8 +18,6 @@ let Form = styled.form`
     flex-direction: row;
     flex-wrap: wrap;
     max-width: 100%;
-    width: 100vw;
-    height: 100vh;
 
     @media (min-width: 476px) {
         max-width: 400px;
@@ -65,8 +63,8 @@ let RowFlexBoxDate = styled.ul`
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 
     @media (min-width: 1060px) {
         margin-top: 1em;
@@ -80,7 +78,7 @@ let RowFlexBoxDate = styled.ul`
 let RowFlexBoxWays = styled.ul`
     display: flex;
     flex-direction: row;
-    margin:0;
+    margin: 0;
 
     @media (min-width: 476px) {
 
@@ -186,7 +184,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
             from: !from || from === "",
             to: !to || to === "",
             dateFrom: !dateFrom || dateFrom === "",
-            dateTo: (!dateTo || dateTo === ""),
+            dateTo: !isOneWay && (!dateTo || dateTo === ""),
             numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 14,
             maximumPrice: !price || price <= 0 || price > 9999
         }
@@ -199,8 +197,10 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
     let getListOfFlights = () => {
         let inputsValues = checkInputs();
 
+        console.log(inputsValues);
         let searchFlights = Object.values(inputsValues).some((val) => {
                 if (val) {
+                    console.log("here");
                     return true;
                 }
             }
@@ -291,18 +291,22 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({}) => {
                 <FlexBoxCol>
                     <WrapperInput>
                         <WrapperParagraph>No. of persons</WrapperParagraph>
-                        <IntegerInput isError={inputsFilledWrongly.numberOfPersons} placeholder={"Select no. of persons (between 1 and 20)"} value={numberOfPersons} onChange={(e: any) => {
-                            setNumberOfPersons(e.target.value);
-                        }} min={1} max={20}
+                        <IntegerInput isError={inputsFilledWrongly.numberOfPersons}
+                                      placeholder={"Select no. of persons (between 1 and 20)"} value={numberOfPersons}
+                                      onChange={(e: any) => {
+                                          setNumberOfPersons(e.target.value);
+                                      }} min={1} max={20}
                                       type={"number"}/>
                     </WrapperInput>
                 </FlexBoxCol>
                 <FlexBoxCol>
                     <WrapperInput>
                         <WrapperParagraph>Maximum price</WrapperParagraph>
-                        <IntegerInput isError={inputsFilledWrongly.maximumPrice} placeholder={"Select maximum price (from 100 to 9999)"} value={price} onChange={(e: any) => {
-                            setPrice(e.target.value);
-                        }} min={100} max={9999}
+                        <IntegerInput isError={inputsFilledWrongly.maximumPrice}
+                                      placeholder={"Select maximum price (from 100 to 9999)"} value={price}
+                                      onChange={(e: any) => {
+                                          setPrice(e.target.value);
+                                      }} min={100} max={9999}
                                       type={"number"}/>
                     </WrapperInput>
                 </FlexBoxCol>

@@ -123,9 +123,10 @@ let SideTextWrapper = styled.div`
     flex-direction: column;
 `
 
-let ContentWrapper = styled.div`
+let ContentWrapper = styled.div<{url:string}>`
+    background-image: ${p => p.url};
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 0;
     right: 0;
     z-index: 11;
@@ -183,7 +184,7 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                  }}>
             <CarouselImgOpacityImg src={imgSource.default} alt={text.imageAlt}/>
             {displayCarousel ?
-                <ContentWrapper>
+                <ContentWrapper url={imgSource.default}>
                     {width < 1060 ?
                        null :
                         <TextWrapper>
