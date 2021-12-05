@@ -218,11 +218,8 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
         axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
         )
             .then(res => {
-                console.log("feeetching")
                 console.log(res.data);
-                console.log(setFlightsFrom)
-                setFlightsFrom(["test","TEST"]);
-                //setFlightsFrom([...res.data]);
+                setFlightsFrom([...res.data]);
             })
 
         if (!isOneWay) {
@@ -238,6 +235,11 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
 
         setFlightsFrom(["test","TEST"]);
 
+        let element = document.getElementById('tickets');
+
+        if(element){
+            element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+        }
     }
 
     useEffect(() => {

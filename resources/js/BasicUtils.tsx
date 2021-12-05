@@ -21,4 +21,22 @@ export function useWindowSize() {
     return size;
 }
 
+export function useWindowSizeScrollResize() {
+    const [size, setSize] = useState([0, 0]);
+    useLayoutEffect(() => {
+        function updateSize() {
+            setSize([window.pageYOffset]);
+        }
+
+        window.addEventListener('scroll', updateSize);
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => {
+            window.removeEventListener('scroll', updateSize);
+            window.removeEventListener('resize', updateSize);
+        }
+    }, []);
+    return size;
+}
+
 export default useWindowSize;

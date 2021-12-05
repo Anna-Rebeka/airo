@@ -177,13 +177,6 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
         }
     }, [displayCarousel]);
 
-
-    let setTicketsFrom = (param:any) => {
-        console.log("set tickets");
-        setFlightsFrom(param);
-    }
-
-
     return (
         <Wrapper side={side} displayCarousel={displayCarousel}
                  onTransitionEnd={(e: any) => {
@@ -203,7 +196,7 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                             </TextDescription>
                         </TextWrapper>}
                     {side === "LEFT" ?
-                        <CarouselInputFlights setFlightsTo={setFlightsTo} setFlightsFrom={setTicketsFrom}/> :
+                        <CarouselInputFlights setFlightsTo={setFlightsTo} setFlightsFrom={setFlightsFrom}/> :
                         <CarouselInputRoundTrips/>
                     }
                 </ContentWrapper> :
