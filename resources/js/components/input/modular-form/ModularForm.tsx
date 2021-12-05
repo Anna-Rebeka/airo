@@ -14,7 +14,7 @@ let FormWrapper = styled.div<{ shouldBeDisplayed: boolean }>`
     left: 0;
     right: 0;
     top: 0;
-    background: rgba(26, 26, 20, 0.8);
+    background: rgba(26, 26, 20, 0.85);
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -38,8 +38,8 @@ let MyInput = css`
     width: 200px;
     height: 50px;
     opacity: 1;
-    background-color: gray;
-    color: orange;
+    background: white;
+    color: black;
     margin: 10px;
     display: inline-block;
     box-sizing: border-box;
@@ -63,14 +63,13 @@ let MyInput = css`
 
 let Username = styled.input(MyInput);
 let Password = styled.input(MyInput);
-let Submit = styled.input(MyInput);
 
 let Close = styled.button`
     position: relative;
     color: red;
     float: right;
     cursor: pointer;
-    background-color: rgba(125, 125, 125, 0);
+    background-color: transparent;
     border: 1px black solid;
     margin: 5px;
     font-size: 1.5em;
@@ -129,21 +128,29 @@ let RegistrationButton = styled.button`
 export const ModularForm: FunctionComponent<Props> = ({}) => {
     let [display, setDisplay] = useState(false);
     let [canClose, setCanClose] = useState(true);
+    let [emailAddress, setEmailAddress] = useState<string>();
+    let [password, setPassword] = useState<string>();
+    let [isRegister, setIsRegister] = useState<boolean>(true);
+
     return (
         <>
             <FormWrapper shouldBeDisplayed={display} onSubmit={(e) => e.preventDefault()} onClick={() => {
                 if (canClose) {
                     setDisplay(false);
                 }
-
             }}>
                 <Reg id='reg' onMouseEnter={() => setCanClose(false)} onMouseLeave={() => setCanClose(true)}>
                     <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
                     <Title> Registration </Title>
                     <InputWrapper>
-                        <Username type="text" id="username" name="username" placeholder="User name"/>
-                        <Password type="password" id="pw" name="pw" placeholder="Password"/>
-                        <Submit type="submit" id="submit" name="submit" value="submit"/>
+                        <Username type="text" id="username" name="username" placeholder="User name" value={emailAddress}
+                                  onChange={(e) => setEmailAddress(e.target.value)}/>
+                        <Password type="password" id="pw" name="pw" placeholder="Password" value={password}
+                                  onChange={(e) => setPassword(e.target.value)}/>
+                        <RegistrationButton type="submit" id="submit" name="submit"
+                                            value="submit"> Registration</RegistrationButton>
+                        <RegistrationButton id="showBtn" onClick={() => setDisplay(true)}> Already have
+                            account?</RegistrationButton>
                     </InputWrapper>
                 </Reg>
             </FormWrapper>
