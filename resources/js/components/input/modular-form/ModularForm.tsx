@@ -1,6 +1,7 @@
 import React, {FunctionComponent} from "react";
 import styled from '@emotion/styled';
 import {css} from "@emotion/react";
+import ReactDOM from "react-dom";
 
 interface Props {}
 
@@ -75,7 +76,7 @@ let Close = styled.button`
     }
 `;
 
-export const ResultItem: FunctionComponent<Props> = ({}) =>
+function SetDisplay(d: string)
 {
     /*
 *
@@ -97,25 +98,29 @@ export const ResultItem: FunctionComponent<Props> = ({}) =>
 * */
 
     function Show(event: any)
+    try
     {
         // na normalny JS vyhadzuje chyby
         try { Reg.__emotion_styles.display='block'; }
         catch (err) { console.log(err); }
+        let e = document.getElementById('reg');
+        // @ts-ignore
+        e.style['display'] = d;
     }
+    catch (err) { console.log(err); }
+}
 
-    function Hide(event: any)
-    {
-        // na normalny JS vyhadzuje chyby
-        try { Reg.__emotion_styles.display='none'; }
-        catch (err) { console.log(err); }
-    }
+function Show(event: any) { SetDisplay('block'); }
+function Hide(event: any) { SetDisplay('none');  }
 
+export const ResultItem: FunctionComponent<Props> = ({}) =>
+{
     return (
         <>
         <FormWrapper>
             <Reg id='reg'>
                 <Close id="hideBtn" onClick={ Hide }>X</Close>
-                <h1>Registracia</h1>
+                <h1> Registrácia </h1>
                 <br />
                 <Username type="text" id="username" name="username" placeholder="User name"></Username>
                 <br />
@@ -124,7 +129,7 @@ export const ResultItem: FunctionComponent<Props> = ({}) =>
                 <Submit type="submit" id="submit" name="submit" value="submit"></Submit>
             </Reg>
         </FormWrapper>
-        <button id="showBtn" onClick={ Show }> Registracia </button>
+        <button id="showBtn" onClick={ Show }> Registrácia </button>
         </>
     );
 }
