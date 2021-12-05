@@ -216,7 +216,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({onClick}) => {
         axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
         )
             .then(res => {
-                console.log(res);
+                console.log(res.data);
             })
 
         if (!isOneWay) {
@@ -225,7 +225,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({onClick}) => {
             axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
             )
                 .then(res => {
-                    console.log(res);
+                    console.log(res.data);
                 })
         }
 

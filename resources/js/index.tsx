@@ -27,6 +27,14 @@ let BackgroundWrapper = styled.div`
     background-image: linear-gradient(315deg, #000000 0%, #404040 74%);
 `
 
+let ListOfTickets = styled.div`
+    width: 100%;
+    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
     let [displayCarousel, setDisplayCarousel] = useState("LEFT");
@@ -48,8 +56,8 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                 </Carousel>
                 {
                     flightsTickets ?
-                        <>
-                    </> : null
+                        <ListOfTickets>
+                        </ListOfTickets> : null
                 }
                 <ModularForm>
 
