@@ -49,17 +49,9 @@ let MyInput = css`
     height: 50px;
     opacity: 1;
     background: white;
-    color: black;
     margin: 10px;
     display: inline-block;
     box-sizing: border-box;
-
-    ::placeholder {
-        color: orange;
-        font-family: math;
-        font-size: 18px;
-        opacity: 1;
-    }
 
     [type='submit'] {
         border-radius: 25px;
@@ -71,8 +63,7 @@ let MyInput = css`
     }
 `;
 
-let Username = styled.input(MyInput);
-let Password = styled.input(MyInput);
+let InputElement = styled.input(MyInput);
 
 let Close = styled.button`
     position: relative;
@@ -138,9 +129,12 @@ let RegistrationButton = styled.button`
 export const ModularForm: FunctionComponent<Props> = ({}) => {
     let [display, setDisplay] = useState(false);
     let [canClose, setCanClose] = useState(true);
-    let [emailAddress, setEmailAddress] = useState<string>();
+    let [username, setUsername] = useState<string>();
     let [password, setPassword] = useState<string>();
     let [isRegister, setIsRegister] = useState<boolean>(true);
+
+    let [firstName, setFirstName] = useState<string>();
+    let [lastName, setLastName] = useState<string>();
 
     return (
         <>
@@ -150,28 +144,49 @@ export const ModularForm: FunctionComponent<Props> = ({}) => {
                 }
             }}>
                 {
-                    isRegister?
+                    isRegister ?
                         <Reg id='reg' onMouseEnter={() => setCanClose(false)} onMouseLeave={() => setCanClose(true)}>
                             <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
                             <Title> Registration </Title>
                             <InputWrapper>
-                                <Username type="text" id="username" name="username" placeholder="User name" value={emailAddress}
-                                          onChange={(e) => setEmailAddress(e.target.value)}/>
-                                <Password type="password" id="pw" name="pw" placeholder="Password" value={password}
-                                          onChange={(e) => setPassword(e.target.value)}/>
+                                <InputElement type="text" id="firstname" name="firstname" placeholder="First name"
+                                              value={firstName}
+                                              onChange={(e) => setFirstName(e.target.value)}/>
+                                <InputElement type="text" id="lastname" name="lastname" placeholder="Last name"
+                                              value={lastName}
+                                              onChange={(e) => setLastName(e.target.value)}/>
+                                <InputElement type="text" id="username" name="username" placeholder="User name"
+                                              value={username}
+                                              onChange={(e) => setUsername(e.target.value)}/>
+                                <InputElement type="password" id="pw" name="pw" placeholder="Password" value={password}
+                                              onChange={(e) => setPassword(e.target.value)}/>
                                 <RegistrationButton type="submit" id="submit" name="submit"
                                                     value="submit"> Registration</RegistrationButton>
                                 <RegistrationButton id="showBtn" onClick={() => setIsRegister(false)}> Already have
                                     account?</RegistrationButton>
                             </InputWrapper>
-                        </Reg>:
-                        <Log>
-
+                        </Reg> :
+                        <Log id='reg' onMouseEnter={() => setCanClose(false)} onMouseLeave={() => setCanClose(true)}>
+                            <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
+                            <Title> Login </Title>
+                            <InputWrapper>
+                                <InputElement type="text" id="username" name="username" placeholder="User name"
+                                              value={username}
+                                              onChange={(e) => setUsername(e.target.value)}/>
+                                <InputElement type="password" id="pw" name="pw" placeholder="Password" value={password}
+                                              onChange={(e: any) => setPassword(e.target.value)}/>
+                                <RegistrationButton type="submit" id="submit" name="submit"
+                                                    value="submit"> Log in</RegistrationButton>
+                                <RegistrationButton id="showBtn" onClick={() => setIsRegister(true)}> Don't have an
+                                    account? Create one!</RegistrationButton>
+                            </InputWrapper>
                         </Log>
-            }
-
+                }
             </FormWrapper>
-            <RegistrationButton id="showBtn" onClick={() => setDisplay(true)}> Registration</RegistrationButton>
+            <RegistrationButton id="showBtn" onClick={() => {
+                setIsRegister(true);
+                setDisplay(true);
+            }}> Registration</RegistrationButton>
         </>
     );
 }
