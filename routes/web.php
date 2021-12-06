@@ -29,7 +29,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/from/{letters}', [App\Http\Controllers\CityController::class, 'findByName']);
-Route::get('/from/{letters}', [App\Http\Controllers\CityController::class, 'checkName']);
 
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index']);
 

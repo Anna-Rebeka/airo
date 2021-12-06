@@ -13,7 +13,7 @@ class CityController extends Controller
         return City::where('name','like', $name . '%')->limit(20)->get();
     }
 
-    public function chceckName($name){
+    public function checkName($name){
 
         $result = City::where('lower(name)','like', '%'.strtolower($name).'%')->get();
 
