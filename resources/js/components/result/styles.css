@@ -1,0 +1,126 @@
+/**/
+@media (min-width: 600px)
+{
+	html { background-color: black; color: orange; }
+
+	.result
+	{
+		position: relative;
+		overflow: hidden;
+		width: 38vw;
+		height: 150px;
+		text-align: left;
+		display: block;
+		left: 30vw;
+		color: orange;
+		padding: 5px 0 0 0;
+		border: 1px gray solid;
+		margin: 0 0 10px 0;
+	}
+
+	.result img
+	{
+		width: 100px;
+		height: 100px;
+		float: left;
+		margin: 0 15px 0 5px;
+	}
+
+	.result h2, .description
+	{
+		position: relative;
+		margin: 0px;
+		float: left;
+		text-decoration: underline;
+		
+	}
+	
+	.result h3
+	{
+		margin: 15px 0 8px 0;
+		text-decoration: underline;
+	}
+
+	.description
+	{
+		height: 150px;
+		width: 400px;
+		margin: 5px;
+		overflow: hidden;
+		text-align: left;
+		float: left;
+		right: 5px;
+		text-decoration: none;
+	}
+
+	.result:nth-child(odd)
+	{
+		background-color: rgb(100, 100, 100);
+	}	
+}
+
+
+@media(max-width: 600px)
+{
+	
+	html { background-color: black; color: orange; font-family: sans-serif; }
+	.result
+	{
+		position: relative;
+		overflow: hidden;
+		width: auto;
+		height: auto;
+		text-align: left;
+		display: block;
+		color: orange;
+		padding: 5px 0 0 0;
+		border: 1px gray solid;
+		margin: 0 0 20px 5px;
+		padding: 5px;
+	}
+
+	.result img
+	{
+		width: 250px;
+		height: 200px;
+		float: left;
+		margin: 0 10px 0 0;
+		display: block;
+	}
+
+	.result h2, .description
+	{
+		position: relative;
+		margin: 0px;
+		text-decoration: underline;
+		font-size: 24px;
+		
+	}
+
+	.result h3
+	{
+		font-size: 22px;
+		margin: 10px 0 10px 0;
+		text-decoration: underline;
+	}
+
+	.description
+	{
+		margin: 0 0 15px 15px;
+		overflow: hidden;
+		text-align: center;
+		float: left;
+		right: 5px;
+		text-decoration: none;
+		font-size: 20px;
+		display: none;
+	}
+
+	.result:nth-child(odd)
+	{
+		background-color: rgb(100, 100, 100);
+	}
+}
+
+
+
