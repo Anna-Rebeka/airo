@@ -95,7 +95,7 @@ let WrapperInput = styled.div`
 let WrapperParagraph = styled.p`
     color: white;
     text-shadow: 0 5px 8px black;
-    font-size: 1.4em;
+    font-size: 1.2em;
     margin: 0 0 0.4em;
 
     @media (min-width: 476px) {

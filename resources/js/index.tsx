@@ -68,7 +68,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                     flightsFrom ?
                         <ListOfTickets id={"tickets"}>
                             {
-                                flightsFrom.map((element: any, index: number) =>
+                                flightsFrom.length === 0 && flightsFrom.map((element: any, index: number) =>
                                     <ResultItem key={"result-item-flights" + index} imgSrc={element.imgSrc}
                                                 price={element.price} description={element.description}
                                                 altText={element.altText} arrival={element.arrival}
