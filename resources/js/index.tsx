@@ -40,7 +40,7 @@ let ListOfTickets = styled.div`
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
     const [displayCarousel, setDisplayCarousel] = useState("LEFT");
-    const [flightsFrom, setFlightsFrom] = useState<any>();
+    const [flightsFrom, setFlightsFrom] = useState<any>([]);
     const [flightsTicketsTo, setFlightTicketsTo] = useState();
     const [roundTrips, setRoundTrips] = useState();
 
@@ -74,9 +74,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                             }
                         </ListOfTickets> : null
                 }
-                <ModularForm>
-
-                </ModularForm>
+                <ModularForm/>
                 <ScrollTopElementButton/>
                 <FooterImpl/>
             </BackgroundWrapper>

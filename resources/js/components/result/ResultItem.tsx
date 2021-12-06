@@ -21,7 +21,7 @@ let ResultWrapper = styled.div`
     padding: 5px;
     border: 1px gray solid;
 
-    :nth-child(odd) {
+    :nth-of-type(odd) {
         background-color: rgb(100, 100, 100);
         padding: 5px;
     }
@@ -59,12 +59,14 @@ export const ResultItem: FunctionComponent<Props> = ({
                                                          imgSrc, description, altText,
                                                          arrival, price, departure
                                                      }) => {
+    console.log(imgSrc);
     return (
+
         /* pred <img> natiahnut este <a> s odkazom na stranku s detailami? */
         <ResultWrapper>
             <div className="result">
-                <ResultImg srcSet={imgSrc}
-                           alt={altText}/><ResultH2>{(arrival && arrival.name) + " -> " + (departure && departure.name)}{" - " + (price) + " €"}</ResultH2>
+                <ResultImg srcSet={imgSrc && require(imgSrc).default}
+                           alt={altText}/><ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ResultH2>
                 <ResultDescription className="description">{description}</ResultDescription>
                 <CarouselButton text={"Book"} onClick={null}/>
             </div>
