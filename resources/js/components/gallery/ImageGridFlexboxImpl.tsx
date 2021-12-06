@@ -35,8 +35,8 @@ export const ImageGridFlexboxImpl: FunctionComponent<ImageGridFlexboxImplProps> 
     return (
         <Wrapper>
             <ImageGridFlexboxImplDiv className={className}>
-                {documents && documents.map((image: any) => (
-                    <ImageGridFlexboxImg key={"img-" + image.id} imageAttributes={image}/>
+                {documents && documents.map((image: any, index:number) => (
+                    <ImageGridFlexboxImg key={"img-gallery-" + index} image={image}/>
                 ))}
             </ImageGridFlexboxImplDiv>
             {children}

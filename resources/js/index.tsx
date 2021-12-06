@@ -10,6 +10,7 @@ import {CarouselImageImpl} from "./components/carousel/CarouselmgImpl";
 import ModularForm from "./components/input/modular-form/ModularForm";
 import ResultItem from "./components/result/ResultItem";
 import {ScrollTopElementButton} from "./components/scroll/ScrollTopElementButton";
+import {GalleryImpl} from "./components/gallery/GalleryImpl";
 
 const store = createStore(() => {
 });
@@ -43,10 +44,6 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     const [flightsFrom, setFlightsFrom] = useState<any>([]);
     const [flightsTicketsTo, setFlightTicketsTo] = useState();
     const [roundTrips, setRoundTrips] = useState();
-
-    useEffect(() => {
-        console.log("changed", flightsFrom);
-    }, [flightsFrom, flightsTicketsTo])
 
     return (
         <Provider store={store}>

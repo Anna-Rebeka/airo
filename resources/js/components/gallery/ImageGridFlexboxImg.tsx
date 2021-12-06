@@ -2,7 +2,7 @@ import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 
 interface ImageGridFlexboxProps {
-    imageAttributes: any;
+    image: any;
     className?: string;
 }
 
@@ -30,8 +30,8 @@ let ImageGridFlexboxImgElement = styled.img`
 `;
 
 
-export const ImageGridFlexboxImg: FunctionComponent<ImageGridFlexboxProps> = ({imageAttributes, className}) => {
+export const ImageGridFlexboxImg: FunctionComponent<ImageGridFlexboxProps> = ({image, className}) => {
     return (
-        <ImageGridFlexboxImgElement src={imageAttributes.url} alt={"image"} className={className}/>
+        <ImageGridFlexboxImgElement src={image.default} alt={"gallery image"} className={className}/>
     );
 }
