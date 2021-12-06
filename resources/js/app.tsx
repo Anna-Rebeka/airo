@@ -5,3 +5,4 @@
  */
 
 require('./index.tsx');
+require('./components/gallery/GalleryImpl.tsx');
