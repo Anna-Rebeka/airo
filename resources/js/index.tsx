@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 
-import React, {FunctionComponent, useEffect, useState} from 'react';
+import React, {FunctionComponent, useState} from 'react';
 import {NavigationImpl} from "./components/navigation/NavigationImpl";
 import {FooterImpl} from "./components/footer/FooterImpl";
 import styled from "@emotion/styled";
@@ -10,7 +10,6 @@ import {CarouselImageImpl} from "./components/carousel/CarouselmgImpl";
 import ModularForm from "./components/input/modular-form/ModularForm";
 import ResultItem from "./components/result/ResultItem";
 import {ScrollTopElementButton} from "./components/scroll/ScrollTopElementButton";
-import {GalleryImpl} from "./components/gallery/GalleryImpl";
 
 const store = createStore(() => {
 });
@@ -21,8 +20,12 @@ interface RootProps {
 
 let Carousel = styled.div`
     width: 100%;
-    height: 1280px;
+    height: 800px;
     position: relative;
+
+    @media (min-width: 576px) {
+       height: 1280px;
+    }
 `
 
 let BackgroundWrapper = styled.div`
@@ -65,8 +68,10 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                         <ListOfTickets id={"tickets"}>
                             {
                                 flightsFrom.map((element: any, index: number) =>
-                                    <ResultItem key={"result-item-flights"+index} imgSrc={element.imgSrc} price={element.price} description={element.description}
-                                                altText={element.altText} arrival={element.arrival} departure={element.departure}/>
+                                    <ResultItem key={"result-item-flights" + index} imgSrc={element.imgSrc}
+                                                price={element.price} description={element.description}
+                                                altText={element.altText} arrival={element.arrival}
+                                                departure={element.departure}/>
                                 )
                             }
                         </ListOfTickets> : null
