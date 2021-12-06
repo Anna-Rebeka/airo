@@ -39,6 +39,3 @@ Route::get('/user/myflights', [App\Http\Controllers\TicketController::class, 'ge
 Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store']);
 
 Route::get('/{token}/tickets', [App\Http\Controllers\TicketController::class, 'getTicketsUnregistered']);
-
-
-Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store']);
