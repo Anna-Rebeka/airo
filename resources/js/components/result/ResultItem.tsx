@@ -140,7 +140,7 @@ export const ResultItem: FunctionComponent<Props> = ({
                     <ResultDescription>{description}</ResultDescription>
                 </WrapperContentCol>
                 <WrapperContentCol>
-                    <ModularForm/>
+                    <ModularForm userExist={false}/>
                 </WrapperContentCol>
             </MainWrapperContent>
         </ResultWrapper>
