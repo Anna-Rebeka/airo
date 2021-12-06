@@ -55,7 +55,8 @@ WHERE `name` = 'Paris';
 
 UPDATE `cities`
 SET `image` = '/images/cities/default.jpg', 
-	`info` = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin fermentum augue ac ultricies rhoncus. Phasellus eu sodales ligula, 
-			ac auctor lectus. Mauris non lobortis nunc, nec blandit turpis. Curabitur porttitor lacus lorem, id semper libero feugiat nec. 
-			Etiam viverra risus id lacus elementum pulvinar. '
+	`info` = 'A city is a large human settlement. It can be defined as a permanent and densely settled place with administratively defined boundaries 
+			whose members work primarily on non-agricultural tasks. Cities generally have extensive systems for housing, transportation, sanitation, 
+			utilities, land use, production of goods, and communication. Their density facilitates interaction between people, government organisations 
+			and businesses, etc.
 WHERE `image` IS NULL;
