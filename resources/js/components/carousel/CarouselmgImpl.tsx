@@ -127,7 +127,7 @@ let SideTextWrapper = styled.div`
 let ContentWrapper = styled.div<{ url: string }>`
     background-image: ${p => p.url};
     position: absolute;
-    top: 10%;
+    top: 15%;
     left: 0;
     right: 0;
     display: flex;
