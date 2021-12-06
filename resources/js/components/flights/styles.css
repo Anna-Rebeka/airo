@@ -1,0 +1,162 @@
+/**/
+html { background-color: gray; color: orange;  font-family: sans-serif;}
+@media (min-width: 701px)
+{
+	
+	
+	.TicketList
+	{
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+	
+	.Ticket
+	{
+		list-style-type: none;
+		margin: 0px 0px 10px 0px;
+		padding: 10px;
+		display: flex;
+		flex-direction: column;
+		background-color: rgba(60, 60, 60, 1);
+	}
+	
+	.Ticket:nth-child(odd)
+	{
+		background-color: rgba(80, 80, 80, 1);
+	}
+	
+	.Ticket button
+	{
+		background-color: rgba(0, 0, 0, 0);
+		color: black;
+		font-weight: bold;
+		box-shadow: none;
+		border: 0 black solid;
+		cursor: pointer;
+		width: 50%;
+		position: relative;
+		float: right;
+		left: 50%;
+		top: 0%;
+		text-decoration: underline;
+	}
+	
+	.Ticket p
+	{
+		margin: 10px;
+	}
+}
+
+
+@media(max-width: 700px)
+{
+	
+	
+	.TicketList
+	{
+		display: flex;
+		font-size: 24px;
+		justify-content: center;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.TicketList ul
+	{
+		padding: 0;
+	}
+	
+	.Ticket
+	{
+		list-style-type: none;
+		margin: 0px 0px 5px 0px;
+		padding: 0px;
+		display: flex;
+		flex-direction: column;
+		background-color: rgba(60, 60, 60, 1);
+	}
+	
+	.Ticket:nth-child(odd)
+	{
+		background-color: rgba(80, 80, 80, 1);
+	}
+	
+	.Ticket button
+	{
+		background-color: rgba(0, 0, 0, 0);
+		color: black;
+		font-weight: bold;
+		box-shadow: none;
+		border: 0 black solid;
+		cursor: pointer;
+		width: 50%;
+		position: relative;
+		float: right;
+		left: 50%;
+		bottom: 45px;
+		text-decoration: underline;
+		font-size: 24px;
+	}
+	
+	.Ticket p
+	{
+		margin: 10px;
+		
+	}
+}
+
+/* vsetko pod 600px */
+@media(max-width: 600px)
+{
+	
+	
+	.TicketList
+	{
+		display: block;
+		font-size: 24px;
+		padding: 0;
+		margin: 0;
+		
+	}
+	
+	.TicketList ul
+	{
+		padding: 0;
+	}
+	
+	.Ticket
+	{
+		list-style-type: none;
+		display: block;	
+		background-color: rgba(60, 60, 60, 1);
+		/* ked bude obsah listka prilis dlhy, bude mozne v nom scrollovat doprava a dolava*/
+		overflow: scroll;
+		width: auto;
+		height: 100%;
+	}
+	
+	.Ticket:nth-child(odd)
+	{
+		background-color: rgba(80, 80, 80, 1);
+	}
+	
+	.Ticket button
+	{
+		background-color: rgba(0, 0, 0, 0);
+		color: black;
+		font-weight: bold;
+		box-shadow: none;
+		border: 0 black solid;
+		cursor: pointer;
+		text-decoration: underline;
+		font-size: 24px;
+	}
+	
+	.Ticket p
+	{
+		margin: 10px;
+		
+	}
+}
+

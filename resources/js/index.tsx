@@ -13,6 +13,7 @@ import {ScrollTopElementButton} from "./components/scroll/ScrollTopElementButton
 import {GalleryImpl} from "./components/gallery/GalleryImpl";
 
 const store = createStore(() => {
+	
 });
 
 interface RootProps {
