@@ -11,7 +11,12 @@ class TicketController extends Controller
 
     public function getTicketsRegistered()
     {   
-        return auth()->user()->tickets;
+        $tickets = auth()->user()->tickets()->with('flights')->with('arrival')->with('departure')->get();
+
+        return view('flights.index', [
+            'user' => auth()->user(),
+            'tickets' => $tickets
+        ]);
     }
 
     public function getTicketsUnregistered($token)

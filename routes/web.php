@@ -35,7 +35,9 @@ Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])
 
 Route::get('/search', [App\Http\Controllers\FlightController::class, 'index']);
 Route::get('/flights/{from}/{to}/{when}/{price}', [App\Http\Controllers\FlightController::class, 'getFlights']);
-Route::get('/user/tickets', [App\Http\Controllers\TicketController::class, 'getTicketsRegistered']);
+Route::get('/user/myflights', [App\Http\Controllers\TicketController::class, 'getTicketsRegistered']);
+Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store']);
+
 Route::get('/{token}/tickets', [App\Http\Controllers\TicketController::class, 'getTicketsUnregistered']);
 
 
