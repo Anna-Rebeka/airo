@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import {css} from "@emotion/react";
 
 interface Props {
+    shouldBeActivated?:boolean;
+    userExist: boolean;
 }
 
 let FormWrapper = styled.div<{ shouldBeDisplayed: boolean }>`
@@ -26,9 +28,19 @@ let Reg = styled.form`
     text-align: center;
     border: 1px white solid;
     position: relative;
-    width: 50%;
+    width: 80%;
     max-height: 60%;
     background-color: rgba(0, 0, 0, 1);
+
+    @media (min-width: 576px) {
+        width: 50%;
+    }
+    @media (min-width: 768px) {
+
+    }
+    @media (min-width: 992px) {
+
+    }
 `;
 
 let Log = styled.form`
@@ -36,9 +48,19 @@ let Log = styled.form`
     text-align: center;
     border: 1px white solid;
     position: relative;
-    width: 50%;
     height: 50%;
+    width: 80%;
     background-color: rgba(0, 0, 0, 1);
+
+    @media (min-width: 576px) {
+        width: 50%;
+    }
+    @media (min-width: 768px) {
+
+    }
+    @media (min-width: 992px) {
+
+    }
 `;
 
 let MyInput = css`
@@ -132,8 +154,8 @@ let RegistrationButton = styled.button`
     transition: background-color 0.2s, color 0.3s;
 `;
 
-export const ModularForm: FunctionComponent<Props> = ({}) => {
-    let [display, setDisplay] = useState(false);
+export const ModularForm: FunctionComponent<Props> = ({shouldBeActivated}) => {
+    let [display, setDisplay] = useState(!!shouldBeActivated);
     let [canClose, setCanClose] = useState(true);
     let [username, setUsername] = useState<string>();
     let [password, setPassword] = useState<string>();
@@ -151,7 +173,7 @@ export const ModularForm: FunctionComponent<Props> = ({}) => {
             }}>
                 {
                     isRegister ?
-                        <Reg id='reg' onMouseEnter={() => setCanClose(false)} onMouseLeave={() => setCanClose(true)}>
+                        <Reg id='reg' onTouchStart={() => setCanClose(false)} onMouseEnter={() => setCanClose(false)} onMouseLeave={() => setCanClose(true)}>
                             <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
                             <Title> Registration </Title>
                             <InputWrapper>
@@ -192,7 +214,7 @@ export const ModularForm: FunctionComponent<Props> = ({}) => {
             <RegistrationButton id="showBtn" onClick={() => {
                 setIsRegister(true);
                 setDisplay(true);
-            }}> Registration</RegistrationButton>
+            }}> Book</RegistrationButton>
         </>
     );
 }

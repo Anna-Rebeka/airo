@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 
-import React, {FunctionComponent, useState} from 'react';
+import React, {FunctionComponent, useEffect, useState} from 'react';
 import {NavigationImpl} from "./components/navigation/NavigationImpl";
 import {FooterImpl} from "./components/footer/FooterImpl";
 import styled from "@emotion/styled";
@@ -25,7 +25,7 @@ let Carousel = styled.div`
     position: relative;
 
     @media (min-width: 576px) {
-       height: 1280px;
+        height: 1280px;
     }
 `
 
@@ -35,12 +35,25 @@ let BackgroundWrapper = styled.div`
 `
 
 let ListOfTickets = styled.div`
-    width: 100%;
-    margin: 2em 0;
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
 `
+
+let Heading1 = styled.h1`
+    color: white;
+`
+
+let images =
+    [{name: "/images/cities/bratislava.jpg", url: require("../../public/images/cities/bratislava.jpg")},
+        {name: "/images/cities/default.jpg", url: require("../../public/images/cities/default.jpg")},
+        {name: "/images/cities/newyork.jpg", url: require("../../public/images/cities/newyork.jpg")},
+        {name: "/images/cities/tokyo.jpg", url: require("../../public/images/cities/tokyo.jpg")},
+        {name: "/images/cities/paris.jpg", url: require("../../public/images/cities/paris.jpg")},
+        {name: "/images/cities/rome.jpg", url: require("../../public/images/cities/rome.jpg")},
+        {name: "/images/cities/praha.jpg", url: require("../../public/images/cities/praha.jpg")},
+    ];
 
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
@@ -48,6 +61,12 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     const [flightsFrom, setFlightsFrom] = useState<any>([]);
     const [flightsTicketsTo, setFlightTicketsTo] = useState();
     const [roundTrips, setRoundTrips] = useState();
+    const [user, setUser] = useState();
+
+
+    useEffect(() => {
+        setUser(dataset.user);
+    },[dataset])
 
     return (
         <Provider store={store}>
@@ -64,20 +83,29 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                                        setDisplayedSide={setDisplayCarousel}
                                        side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
                 </Carousel>
-                {
-                    flightsFrom ?
-                        <ListOfTickets id={"tickets"}>
-                            {
-                                flightsFrom.length === 0 && flightsFrom.map((element: any, index: number) =>
-                                    <ResultItem key={"result-item-flights" + index} imgSrc={element.imgSrc}
-                                                price={element.price} description={element.description}
-                                                altText={element.altText} arrival={element.arrival}
-                                                departure={element.departure}/>
-                                )
-                            }
-                        </ListOfTickets> : null
-                }
-                <ModularForm/>
+                <ListOfTickets id={"tickets"}>
+                    {flightsFrom.length !== 0 ?
+                        <>
+                            <Heading1>
+                                Found tickets
+                            </Heading1>
+                            {flightsFrom.map((element: any, index: number) =>
+                                <ResultItem companyClass={element && element.company && element.company.class}
+                                            companyName={element && element.company && element.company.name}
+                                            dateAndTime={"2012"}
+                                            distance={element && element.distance}
+                                            duration={element && element.duration}
+                                            images={images} key={"result-item-flights" + index}
+                                            imgSrc={element && element.arrival && element.arrival.image}
+                                            price={element.price}
+                                            description={element && element.arrival && element.arrival.info}
+                                            altText={element.altText} arrival={element.arrival}
+                                            departure={element.departure}/>
+                            )}
+                        </> : null
+                    }
+                </ListOfTickets>
+                <ModularForm userExist={user !== null}/>
                 <ScrollTopElementButton/>
                 <FooterImpl/>
             </BackgroundWrapper>
@@ -90,8 +118,7 @@ export default Root;
 let element = document.getElementById('root');
 if (element) {
     ReactDOM.render(<Root dataset={Object.assign({}, element.dataset)}/>, element);
-}
-else{
+} else {
     element = document.getElementById('gallery');
-    ReactDOM.render(<GalleryImpl/>, element);
+    ReactDOM.render(<GalleryImpl images={images}/>, element);
 }

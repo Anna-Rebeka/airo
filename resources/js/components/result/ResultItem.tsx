@@ -1,20 +1,28 @@
-import React, {FunctionComponent} from "react";
+import React, {FunctionComponent, useState} from "react";
 import styled from "@emotion/styled";
 import {CarouselButton} from "../button/CarouselButton";
+import ModularForm from "../input/modular-form/ModularForm";
 
 interface Props {
+    images: any;
     imgSrc: any;
     description: string;
     altText: string;
     arrival: any;
     departure: any;
     price: number;
+    distance: number;
+    duration: number;
+    companyName: string;
+    companyClass: number;
+    dateAndTime: string;
+
 }
 
 let ResultWrapper = styled.div`
     position: relative;
     overflow: hidden;
-    width: 50%;
+    width: 80%;
     text-align: left;
     display: block;
     color: white;
@@ -25,13 +33,36 @@ let ResultWrapper = styled.div`
         background-color: rgb(100, 100, 100);
         padding: 5px;
     }
+
+    @media (min-width: 772px) {
+        width: 50%;
+    };
+
+    @media (min-width: 1060px) {
+        width: 75%;
+    };
+
+    @media (min-width: 1280px) {
+    };
 `;
 
 let ResultImg = styled.img`
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: auto;
     float: left;
     margin-right: 15px;
+
+    @media (min-width: 772px) {
+        width: 200px;
+    };
+
+    @media (min-width: 1060px) {
+        width: 220px;
+    };
+
+    @media (min-width: 1280px) {
+        width: 240px;
+    };
 `
 
 let ResultH2 = styled.h2`
@@ -42,34 +73,76 @@ let ResultH2 = styled.h2`
     text-decoration: underline;
 `
 
+let ResultH3 = styled.h3`
+    color: white;
+    position: relative;
+    margin: 0;
+    float: left;
+`
+
 let ResultDescription = styled.p`
     color: white;
     position: relative;
     float: left;
-    height: 150px;
-    width: 400px;
-    margin: 5px;
+    margin: 0.2em 0;
+    width: 100%;
     overflow: hidden;
-    text-align: left;
     text-decoration: none;
+    text-align: left;
+`
+
+let MainWrapperContent = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 772px) {
+        flex-direction: row;
+    };
+`
+
+let WrapperContentCol = styled.div`
+    display: flex;
+    flex-direction: column;
 `
 
 
 export const ResultItem: FunctionComponent<Props> = ({
-                                                         imgSrc, description, altText,
-                                                         arrival, price, departure
+                                                         imgSrc,
+                                                         description,
+                                                         altText,
+                                                         arrival,
+                                                         price,
+                                                         departure,
+                                                         images,
+                                                         dateAndTime,
+                                                         companyName,
+                                                         companyClass,
+                                                         duration,
+                                                         distance
                                                      }) => {
-    console.log(imgSrc);
+    let imgUrl = images.find((obj: any) => {
+        if (obj.name === imgSrc) {
+            return obj;
+        }
+    })
+    let [showLoginForm, setShowLoginForm] = useState(false);
     return (
-
-        /* pred <img> natiahnut este <a> s odkazom na stranku s detailami? */
         <ResultWrapper>
-            <div className="result">
-                <ResultImg srcSet={imgSrc && require(imgSrc).default}
-                           alt={altText}/><ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ResultH2>
-                <ResultDescription>{description}</ResultDescription>
-                <CarouselButton text={"Book"} onClick={null}/>
-            </div>
+            <MainWrapperContent>
+                <WrapperContentCol>
+                    <ResultImg src={imgUrl && imgUrl.url.default}
+                               alt={altText}/>
+                </WrapperContentCol>
+                <WrapperContentCol>
+                    <ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}{" "+ dateAndTime}</ResultH2>
+                    <ResultH3>{"Flight by company " + companyName + "*".repeat(companyClass)}</ResultH3>
+                    <ResultH3>{"Distance between cities is " + distance + "km." + " Duration of flight is " + duration + " minutes."}</ResultH3>
+                    <ResultDescription>{description}</ResultDescription>
+                </WrapperContentCol>
+                <WrapperContentCol>
+                    <ModularForm/>
+                </WrapperContentCol>
+            </MainWrapperContent>
         </ResultWrapper>
     );
 }

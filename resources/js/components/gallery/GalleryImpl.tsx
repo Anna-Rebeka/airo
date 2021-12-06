@@ -4,20 +4,18 @@ import {FooterImpl} from "../footer/FooterImpl";
 import {ImageGridFlexboxImpl} from "./ImageGridFlexboxImpl";
 
 interface Props {
-
+    images: any;
 }
 
 
 export const GalleryImpl: FunctionComponent<Props> = ({
+                                                          images,
                                                           children
                                                       }) => {
     return (
         <div id={"gallery"}>
             <NavigationImpl/>
-            <ImageGridFlexboxImpl
-                images={[require("../../../../public/images/cities/bratislava.jpg"), require("../../../../public/images/cities/default.jpg"),
-                    require("../../../../public/images/cities/newyork.jpg"), require("../../../../public/images/cities/paris.jpg"), require("../../../../public/images/cities/praha.jpg")
-                    , require("../../../../public/images/cities/tokyo.jpg"), require("../../../../public/images/cities/rome.jpg")]}/>
+            <ImageGridFlexboxImpl images={images}/>
             <FooterImpl/>
         </div>
     )

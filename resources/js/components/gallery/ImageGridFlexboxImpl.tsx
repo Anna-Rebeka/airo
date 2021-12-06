@@ -31,12 +31,11 @@ export const ImageGridFlexboxImpl: FunctionComponent<ImageGridFlexboxImplProps> 
                                                                                    }) => {
     const [width] = useWindowSize();
     let documents = images ? width >= 1280 && width < 1920 ? images.slice(0, images.length - 1) : images : [];
-
     return (
         <Wrapper>
             <ImageGridFlexboxImplDiv className={className}>
-                {documents && documents.map((image: any, index:number) => (
-                    <ImageGridFlexboxImg key={"img-gallery-" + index} image={image}/>
+                {documents && Object.values(documents).map((image: any, index:number) => (
+                    <ImageGridFlexboxImg key={"img-gallery-" + index} image={image.url}/>
                 ))}
             </ImageGridFlexboxImplDiv>
             {children}
