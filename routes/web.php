@@ -29,11 +29,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/from/{letters}', [App\Http\Controllers\CityController::class, 'findByName']);
+Route::get('/from/{letters}', [App\Http\Controllers\CityController::class, 'checkName']);
+
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index']);
 
 Route::get('/search', [App\Http\Controllers\FlightController::class, 'index']);
 Route::get('/flights/{from}/{to}/{when}/{price}', [App\Http\Controllers\FlightController::class, 'getFlights']);
 Route::get('/user/tickets', [App\Http\Controllers\TicketController::class, 'getTicketsRegistered']);
 Route::get('/{token}/tickets', [App\Http\Controllers\TicketController::class, 'getTicketsUnregistered']);
+
 
 Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store']);

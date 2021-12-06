@@ -70,4 +70,8 @@ class TicketController extends Controller
             $ticket->delete();
         });
     }
+
+    public function getTicketsByUserId($id){
+        return Ticket::where('user_id','like', $id . '%')->get();
+    }
 }
