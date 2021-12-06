@@ -10,6 +10,7 @@ import {CarouselImageImpl} from "./components/carousel/CarouselmgImpl";
 import ModularForm from "./components/input/modular-form/ModularForm";
 import ResultItem from "./components/result/ResultItem";
 import {ScrollTopElementButton} from "./components/scroll/ScrollTopElementButton";
+import {GalleryImpl} from "./components/gallery/GalleryImpl";
 
 const store = createStore(() => {
 });
@@ -86,7 +87,11 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
 
 export default Root;
 
-const element = document.getElementById('root');
+let element = document.getElementById('root');
 if (element) {
     ReactDOM.render(<Root dataset={Object.assign({}, element.dataset)}/>, element);
+}
+else{
+    element = document.getElementById('gallery');
+    ReactDOM.render(<GalleryImpl/>, element);
 }

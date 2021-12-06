@@ -11,7 +11,7 @@ let NavigationImplDiv = styled.nav`
     background-color: black;
     box-shadow: 2px 3px 8px 1px black;
     z-index: 9999;
-    position: fixed;
+    position: sticky;
     top: 0;
     display: flex;
     align-items: center;
