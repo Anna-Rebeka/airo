@@ -20,7 +20,7 @@ let ScrollTopElementDiv = styled.div<{ breakPoint: boolean }>`
     background-color: white;
     opacity: ${p => p.breakPoint ? 1 : 0};
     transition: opacity 0.3s linear;
-    z-index: 9999;
+    z-index: 9998;
 `
 
 let Icon = styled.img`

@@ -67,7 +67,7 @@ export const ResultItem: FunctionComponent<Props> = ({
             <div className="result">
                 <ResultImg srcSet={imgSrc && require(imgSrc).default}
                            alt={altText}/><ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ResultH2>
-                <ResultDescription className="description">{description}</ResultDescription>
+                <ResultDescription>{description}</ResultDescription>
                 <CarouselButton text={"Book"} onClick={null}/>
             </div>
         </ResultWrapper>

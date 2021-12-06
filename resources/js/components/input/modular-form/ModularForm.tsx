@@ -27,7 +27,7 @@ let Reg = styled.form`
     border: 1px white solid;
     position: relative;
     width: 50%;
-    height: 50%;
+    max-height: 60%;
     background-color: rgba(0, 0, 0, 1);
 `;
 
@@ -72,7 +72,7 @@ let Close = styled.button`
     cursor: pointer;
     background-color: transparent;
     border: 1px black solid;
-    margin: 5px;
+    margin: 0.4em;
     font-size: 1.5em;
 
     :hover, :focus {
@@ -102,6 +102,12 @@ let RegistrationButton = styled.button`
     padding: 0.5rem 1rem;
     font-weight: bold;
     text-shadow: 0 5px 8px black;
+
+    :not(:last-of-type){
+        margin-top: 0.4em;
+    }
+
+    margin-bottom: 0.4em;
 
     :hover {
         color: #FF7F2A;
