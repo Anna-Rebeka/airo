@@ -1,6 +1,7 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import ModularForm from "../input/modular-form/ModularForm";
+import {makeLogger} from "ts-loader/dist/logger";
 
 interface Props {
     element: any;
