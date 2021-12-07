@@ -13,7 +13,7 @@ import {ScrollTopElementButton} from "./components/scroll/ScrollTopElementButton
 import {GalleryImpl} from "./components/gallery/GalleryImpl";
 
 const store = createStore(() => {
-	
+
 });
 
 interface RootProps {
@@ -66,7 +66,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
 
 
     useEffect(() => {
-        setUser(dataset.user);
+        setUser(JSON.parse(dataset.user));
     },[dataset])
 
     return (
@@ -101,12 +101,16 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                                             price={element.price}
                                             description={element && element.arrival && element.arrival.info}
                                             altText={element.altText} arrival={element.arrival}
-                                            departure={element.departure}/>
+                                            departure={element.departure}
+                                            element={element}
+                                            user={user}
+                                            setUser={setUser}
+                                            setFlightsFrom={setFlightsFrom}
+                                />
                             )}
                         </> : null
                     }
                 </ListOfTickets>
-                <ModularForm userExist={user !== null}/>
                 <ScrollTopElementButton/>
                 <FooterImpl/>
             </BackgroundWrapper>

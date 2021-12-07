@@ -207,14 +207,11 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
         )
 
         if (notSearchFlights) {
-            console.log("stopped")
             return;
         }
 
         setFlightsFrom(["test","TEST"]);
 
-        console.log('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
-        );
         axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
         )
             .then(res => {
@@ -223,12 +220,9 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
             })
 
         if (!isOneWay) {
-            console.log('flights/' + to + '/' + from + '/' + dateTo + '/' + price
-            );
             axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
             )
                 .then( (res) => {
-                    console.log("hreeeerr")
                     setFlightsTo(res.data)
                 })
         }
@@ -248,7 +242,6 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
         }
     }, [isOneWay])
 
-    console.log(setFlightsFrom);
     return (
         <Form onSubmit={e => e.preventDefault()}>
             <RowFlexBox>

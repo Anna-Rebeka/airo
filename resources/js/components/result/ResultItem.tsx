@@ -1,9 +1,9 @@
 import React, {FunctionComponent, useState} from "react";
 import styled from "@emotion/styled";
-import {CarouselButton} from "../button/CarouselButton";
 import ModularForm from "../input/modular-form/ModularForm";
 
 interface Props {
+    element: any;
     images: any;
     imgSrc: any;
     description: string;
@@ -16,7 +16,9 @@ interface Props {
     companyName: string;
     companyClass: number;
     dateAndTime: string;
-
+    setUser: any;
+    user: any;
+    setFlightsFrom:any;
 }
 
 let ResultWrapper = styled.div`
@@ -118,14 +120,17 @@ export const ResultItem: FunctionComponent<Props> = ({
                                                          companyName,
                                                          companyClass,
                                                          duration,
-                                                         distance
+                                                         distance,
+                                                         element,
+                                                         setUser,
+                                                         user,
+                                                         setFlightsFrom
                                                      }) => {
     let imgUrl = images.find((obj: any) => {
         if (obj.name === imgSrc) {
             return obj;
         }
     })
-    let [showLoginForm, setShowLoginForm] = useState(false);
     return (
         <ResultWrapper>
             <MainWrapperContent>
@@ -134,13 +139,13 @@ export const ResultItem: FunctionComponent<Props> = ({
                                alt={altText}/>
                 </WrapperContentCol>
                 <WrapperContentCol>
-                    <ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}{" "+ dateAndTime}</ResultH2>
+                    <ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}{" " + dateAndTime}</ResultH2>
                     <ResultH3>{"Flight by company " + companyName + "*".repeat(companyClass)}</ResultH3>
                     <ResultH3>{"Distance between cities is " + distance + "km." + " Duration of flight is " + duration + " minutes."}</ResultH3>
                     <ResultDescription>{description}</ResultDescription>
                 </WrapperContentCol>
                 <WrapperContentCol>
-                    <ModularForm userExist={false}/>
+                    <ModularForm user={user} setUser={setUser} element={element} setFlightsFrom={setFlightsFrom}/>
                 </WrapperContentCol>
             </MainWrapperContent>
         </ResultWrapper>

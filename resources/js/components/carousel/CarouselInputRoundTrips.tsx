@@ -210,8 +210,6 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({}) => {
 
         let allFlights = [];
 
-        console.log('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
-        );
         axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
         )
             .then(res => {
@@ -219,8 +217,6 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({}) => {
             })
 
         if (!isOneWay) {
-            console.log('flights/' + to + '/' + from + '/' + dateTo + '/' + price
-            );
             axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
             )
                 .then(res => {
