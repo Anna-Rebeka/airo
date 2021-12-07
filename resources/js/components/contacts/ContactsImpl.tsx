@@ -3,16 +3,17 @@ import {NavigationImpl} from "../navigation/NavigationImpl";
 import {FooterImpl} from "../footer/FooterImpl";
 
 interface Props {
-
+    dataset: any;
 }
 
 
 export const ContactsImpl: FunctionComponent<Props> = ({
+                                                           dataset,
                                                            children
                                                        }) => {
     return (
         <div id={"contacts"}>
-            <NavigationImpl/>
+            <NavigationImpl user={JSON.parse(dataset.user)}/>
 
             <FooterImpl/>
         </div>

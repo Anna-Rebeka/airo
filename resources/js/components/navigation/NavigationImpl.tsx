@@ -4,6 +4,7 @@ import {NavigationLink} from "./NavigationLink";
 import {NavigationLogo} from "./NavigationLogo";
 
 interface Props {
+    user: any;
     className?: string;
 }
 
@@ -73,25 +74,33 @@ let StyledCarouselButton = styled.button`
 `;
 
 export const NavigationImpl: FunctionComponent<Props> = ({
+                                                             user,
                                                              children,
                                                          }) => {
-    let navigationLinks = [{name: "Home", href: "/"}, {name: "Gallery", href: "/gallery"}, {
+    let navigationLinks = [{name: "Home", href: "/", needLogin: false}, {
+        name: "Gallery",
+        href: "/gallery",
+        needLogin: false
+    }, {
         name: "Contacts",
-        href: "/contacts"
-    }, {name: "My flights", href: "/myflights"}];
+        href: "/contacts",
+        needLogin: false
+    }, {name: "My flights", href: "/myflights", needLogin: true}];
     let middleIndex: number = navigationLinks ? Math.floor(navigationLinks.length / 2) : 0;
     return (
         <NavigationImplDiv>
             <NavigationLogo/>
             <NavigationLinkItemDiv direction={"END"}>
                 {navigationLinks.slice(0, middleIndex).map((link: any, index: number) => (
-                        <NavigationLink key={"navigation-link-" + index} href={link.href} textField={link.name}/>
+                        <NavigationLink user={user} key={"navigation-link-" + index} href={link.href} textField={link.name}
+                                        needLogin={link.needLogin}/>
                     )
                 )}
             </NavigationLinkItemDiv>
             <NavigationLinkItemDiv direction={"START"}>
                 {navigationLinks.slice(middleIndex, navigationLinks.length).map((link: any, index: number) => (
-                        <NavigationLink key={"navigation-link-" + index} href={link.href} textField={link.name}/>
+                        <NavigationLink user={user} key={"navigation-link-" + index} href={link.href} textField={link.name}
+                                        needLogin={link.needLogin}/>
                     )
                 )}
             </NavigationLinkItemDiv>

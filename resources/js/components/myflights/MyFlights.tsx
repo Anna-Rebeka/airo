@@ -8,11 +8,12 @@ interface Props {
 
 
 export const MyFlights: FunctionComponent<Props> = ({
-                                                          children
-                                                      }) => {
+                                                        dataset,
+                                                        children
+                                                    }) => {
     return (
         <div id={"gallery"}>
-            <NavigationImpl/>
+            <NavigationImpl user={JSON.parse(dataset.user)}/>
 
             <FooterImpl/>
         </div>

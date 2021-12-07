@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from "react";
+import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import ModularForm from "../input/modular-form/ModularForm";
 
@@ -15,10 +15,11 @@ interface Props {
     duration: number;
     companyName: string;
     companyClass: number;
-    dateAndTime: string;
+    arrives: string;
+    leaves: string;
     setUser: any;
     user: any;
-    setFlightsFrom:any;
+    setFlightsFrom: any;
 }
 
 let ResultWrapper = styled.div`
@@ -116,7 +117,8 @@ export const ResultItem: FunctionComponent<Props> = ({
                                                          price,
                                                          departure,
                                                          images,
-                                                         dateAndTime,
+                                                         leaves,
+                                                         arrives,
                                                          companyName,
                                                          companyClass,
                                                          duration,
@@ -139,7 +141,8 @@ export const ResultItem: FunctionComponent<Props> = ({
                                alt={altText}/>
                 </WrapperContentCol>
                 <WrapperContentCol>
-                    <ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}{" " + dateAndTime}</ResultH2>
+                    <ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ResultH2>
+                    <ResultH3>{"Departure time: " + leaves +". Estimated arrival time: " + arrives}</ResultH3>
                     <ResultH3>{"Flight by company " + companyName + "*".repeat(companyClass)}</ResultH3>
                     <ResultH3>{"Distance between cities is " + distance + "km." + " Duration of flight is " + duration + " minutes."}</ResultH3>
                     <ResultDescription>{description}</ResultDescription>

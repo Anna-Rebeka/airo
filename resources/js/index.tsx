@@ -73,7 +73,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     return (
         <Provider store={store}>
             <BackgroundWrapper>
-                <NavigationImpl/>
+                <NavigationImpl user={user}/>
                 <Carousel>
                     <CarouselImageImpl setFlightsTo={setFlightTicketsTo} setFlightsFrom={setRoundTrips}
                                        displayCarousel={"RIGHT" === displayCarousel}
@@ -94,7 +94,8 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                             {flightsFrom.map((element: any, index: number) =>
                                 <ResultItem companyClass={element && element.company && element.company.class}
                                             companyName={element && element.company && element.company.name}
-                                            dateAndTime={"2012"}
+                                            arrives={element && element.arrives}
+                                            leaves={element && element.leaves}
                                             distance={element && element.distance}
                                             duration={element && element.duration}
                                             images={images} key={"result-item-flights" + index}
@@ -129,10 +130,10 @@ let elementContacts = document.getElementById('contacts');
 if (elementMain) {
     ReactDOM.render(<Root dataset={Object.assign({}, elementMain.dataset)}/>, elementMain);
 } else if (elementGallery) {
-    ReactDOM.render(<GalleryImpl images={images}/>, elementGallery);
+    ReactDOM.render(<GalleryImpl images={images} dataset={Object.assign({}, elementGallery.dataset)}/>, elementGallery);
 } else if (elementMyFlights) {
     ReactDOM.render(<MyFlights dataset={Object.assign({}, elementMyFlights.dataset)}/>, elementMyFlights);
-} else {
-    ReactDOM.render(<ContactsImpl/>, elementContacts);
+} else if (elementContacts) {
+    ReactDOM.render(<ContactsImpl dataset={Object.assign({}, elementContacts.dataset)}/>, elementContacts);
 }
 

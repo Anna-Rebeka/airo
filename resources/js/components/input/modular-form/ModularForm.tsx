@@ -288,44 +288,51 @@ export const ModularForm: FunctionComponent<Props> = ({shouldBeActivated, elemen
                             <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
                             <Title> Registration </Title>
                             <InputWrapper>
-                                <InputElement type="text" id="firstname" name="firstname" placeholder="First name"
+                                <InputElement type="text" id="firstname_0" name="firstname" placeholder="First name"
                                               value={firstName}
                                               onChange={(e) => setFirstName(e.target.value)}/>
-                                <InputElement type="text" id="lastname" name="lastname" placeholder="Last name"
+                                <InputElement type="text" id="lastname_0" name="lastname" placeholder="Last name"
                                               value={lastName}
                                               onChange={(e) => setLastName(e.target.value)}/>
-                                <InputElement type="text" id="username" name="username" placeholder="Email address"
+                                <InputElement type="text" id="username_0" name="username" placeholder="Email address"
                                               value={emailAddress}
                                               onChange={(e) => setEmailAddress(e.target.value)}/>
-                                <InputElement type="password" id="pw" name="pw" placeholder="Password" value={password}
+                                <InputElement type="password" id="pw_0" name="pw" placeholder="Password"
+                                              value={password}
                                               onChange={(e) => setPassword(e.target.value)}/>
-                                <RegistrationButton type="submit" id="submit" name="submit"
-                                                    value="submit"> Registration</RegistrationButton>
-                                <RegistrationButton id="showBtn" onClick={() => setIsRegister(false)}> Already have
+                                <RegistrationButton type="submit" id="submit_0" name="submit"
+                                                    value="submit"
+                                                    onClick={() => axios.post("/register", {
+                                                        first_name: firstName,
+                                                        last_name: lastName,
+                                                        password: password,
+                                                        email: emailAddress
+                                                    })}> Registration</RegistrationButton>
+                                <RegistrationButton id="showBtn_0" onClick={() => setIsRegister(false)}> Already have
                                     account?</RegistrationButton>
                             </InputWrapper>
                         </Reg> :
                         !isRegister && !userExist ?
                             <Log id='reg' onMouseEnter={() => setCanClose(false)}
                                  onMouseLeave={() => setCanClose(true)}>
-                                <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
+                                <Close id="hideBtn1" onClick={() => setDisplay(false)}>X</Close>
                                 <Title> Login </Title>
                                 <InputWrapper>
-                                    <InputElement type="text" id="username" name="username" placeholder="Email address"
+                                    <InputElement type="text" id="username1" name="username" placeholder="Email address"
                                                   value={emailAddress}
                                                   onChange={(e) => setEmailAddress(e.target.value)}/>
-                                    <InputElement type="password" id="pw" name="pw" placeholder="Password"
+                                    <InputElement type="password" id="pw1" name="pw" placeholder="Password"
                                                   value={password}
                                                   onChange={(e: any) => setPassword(e.target.value)}/>
-                                    <RegistrationButton type="submit" id="submit" name="submit"
+                                    <RegistrationButton type="submit" id="submit1" name="submit"
                                                         value="submit"> Log in</RegistrationButton>
-                                    <RegistrationButton id="showBtn" onClick={() => setIsRegister(true)}> Don't have an
+                                    <RegistrationButton id="showBtn1" onClick={() => setIsRegister(true)}> Don't have an
                                         account? Create one!</RegistrationButton>
                                 </InputWrapper>
                             </Log> :
                             !isComplete ?
                                 <Check>
-                                    <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
+                                    <Close id="hideBtn2" onClick={() => setDisplay(false)}>X</Close>
                                     <Title>Check your purchase</Title>
                                     <Text>You are about to buy your selected ticket. Please check details below about
                                         the
@@ -341,9 +348,9 @@ export const ModularForm: FunctionComponent<Props> = ({shouldBeActivated, elemen
                                     </FlexboxInputsCheckout>
                                     <Text>Do you want to book?</Text>
                                     <FlexboxInputs>
-                                        <ProceedButton id="showBtn0"
+                                        <ProceedButton id="showBtn2"
                                                        onClick={() => setDisplay(false)}> Cancel</ProceedButton>
-                                        <ProceedButton id="showBtn1" onClick={() => {
+                                        <ProceedButton id="showBtn2" onClick={() => {
                                             console.log({
                                                 userId: user.id,
                                                 token: 'testing',
