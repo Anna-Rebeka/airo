@@ -5,6 +5,7 @@ import {NavigationLogo} from "./NavigationLogo";
 
 interface Props {
     user: any;
+    setUser: any;
     className?: string;
 }
 
@@ -74,6 +75,7 @@ let StyledCarouselButton = styled.button`
 `;
 
 export const NavigationImpl: FunctionComponent<Props> = ({
+                                                             setUser,
                                                              user,
                                                              children,
                                                          }) => {
@@ -92,14 +94,16 @@ export const NavigationImpl: FunctionComponent<Props> = ({
             <NavigationLogo/>
             <NavigationLinkItemDiv direction={"END"}>
                 {navigationLinks.slice(0, middleIndex).map((link: any, index: number) => (
-                        <NavigationLink user={user} key={"navigation-link-" + index} href={link.href} textField={link.name}
+                        <NavigationLink setUser={setUser} user={user} key={"navigation-link-" + index} href={link.href}
+                                        textField={link.name}
                                         needLogin={link.needLogin}/>
                     )
                 )}
             </NavigationLinkItemDiv>
             <NavigationLinkItemDiv direction={"START"}>
                 {navigationLinks.slice(middleIndex, navigationLinks.length).map((link: any, index: number) => (
-                        <NavigationLink user={user} key={"navigation-link-" + index} href={link.href} textField={link.name}
+                        <NavigationLink setUser={setUser} user={user} key={"navigation-link-" + index} href={link.href}
+                                        textField={link.name}
                                         needLogin={link.needLogin}/>
                     )
                 )}

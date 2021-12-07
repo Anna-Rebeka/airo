@@ -73,7 +73,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     return (
         <Provider store={store}>
             <BackgroundWrapper>
-                <NavigationImpl user={user}/>
+                <NavigationImpl user={user} setUser={setUser}/>
                 <Carousel>
                     <CarouselImageImpl setFlightsTo={setFlightTicketsTo} setFlightsFrom={setRoundTrips}
                                        displayCarousel={"RIGHT" === displayCarousel}

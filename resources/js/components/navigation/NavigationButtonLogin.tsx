@@ -4,12 +4,9 @@ import {css} from "@emotion/react";
 import axios from "axios";
 
 interface Props {
-    element: any;
     shouldBeActivated?: boolean;
     user: any;
     setUser: any;
-    setFlightsFrom: any;
-    isWithoutButton?: any;
 }
 
 let FormWrapper = styled.div<{ shouldBeDisplayed: boolean }>`
@@ -258,19 +255,61 @@ let FlexboxInputsCheckout = styled.div`
     align-items: center;
 `
 
-export const ModularForm: FunctionComponent<Props> = ({
-                                                          shouldBeActivated,
-                                                          element,
-                                                          user,
-                                                          setFlightsFrom,
-                                                          isWithoutButton
-                                                      }) => {
+let NavigationLinkButton = styled.button<{ activated: boolean }>`
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.07em;
+    display: inline-block;
+    transition: font-size 1.3s, color 0.5s;
+    font-size: 1em;
+    background-color: transparent;
+    border: 0;
+
+    :after {
+        background: none repeat scroll 0 0 #FF7F2A;
+        content: "";
+        display: block;
+        height: 2px;
+        width: ${p => p.activated ? 100 : 0};
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    }
+
+    @media (min-width: 772px) {
+        font-size: 1.3em;
+    };
+
+    @media (min-width: 1060px) {
+        font-size: 1.6em;
+    };
+
+    @media (min-width: 1280px) {
+        font-size: 2em;
+    };
+
+    @media (min-width: 1920px) {
+        font-size: 2.4em;
+    };
+
+    :hover {
+        color: #FF7F2A;
+    }
+
+    :hover:after {
+        width: 100%;
+        left: 0;
+    }
+`
+
+export const NavigationButtonLogin: FunctionComponent<Props> = ({
+                                                                    shouldBeActivated,
+                                                                    user
+                                                                }) => {
     let [display, setDisplay] = useState(!!shouldBeActivated);
     let [canClose, setCanClose] = useState(true);
     let [emailAddress, setEmailAddress] = useState<string>();
     let [password, setPassword] = useState<string>();
     let [isRegister, setIsRegister] = useState<boolean>(true);
-    let [isComplete, setIsComplete] = useState(false);
 
     let [firstName, setFirstName] = useState<string>();
     let [lastName, setLastName] = useState<string>();
@@ -336,64 +375,17 @@ export const ModularForm: FunctionComponent<Props> = ({
                                     <RegistrationButton id="showBtn1" onClick={() => setIsRegister(true)}> Don't have an
                                         account? Create one!</RegistrationButton>
                                 </InputWrapper>
-                            </Log> :
-                            !isComplete ?
-                                <Check>
-                                    <Close id="hideBtn2" onClick={() => setDisplay(false)}>X</Close>
-                                    <Title>Check your purchase</Title>
-                                    <Text>You are about to buy your selected ticket. Please check details below about
-                                        the
-                                        ticket.</Text>
-                                    <FlexboxInputsCheckout>
-                                        <TextCheckout>Departure and arrival
-                                            city: {(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)} </TextCheckout>
-                                        <TextCheckout>Date and time: {element && element.date}</TextCheckout>
-                                        <TextCheckout>Price: {element && element.price}e</TextCheckout>
-                                        <TextCheckout>Company: {element && element.company && element.company.name + "*".repeat(element && element.company && element.companyClass)}</TextCheckout>
-                                        <TextCheckout>Duration and
-                                            distance: {element && element.duration + "mins " + element && element.distance + "km"}</TextCheckout>
-                                    </FlexboxInputsCheckout>
-                                    <Text>Do you want to book?</Text>
-                                    <FlexboxInputs>
-                                        <ProceedButton id="showBtn2"
-                                                       onClick={() => setDisplay(false)}> Cancel</ProceedButton>
-                                        <ProceedButton id="showBtn2" onClick={() => {
-                                            console.log({
-                                                userId: user.id,
-                                                token: 'testing',
-                                                price: element.price,
-                                            });
-                                            axios.post('/ticket', {
-                                                userId: user.id,
-                                                token: 'testing',
-                                                price: element.price,
-                                            }).then((res) => {
-                                                setIsComplete(true);
-                                            })
-                                        }}> Book</ProceedButton>
-                                    </FlexboxInputs>
-                                </Check> :
-                                <Successful>
-                                    <Title>Ticket bought.</Title>
-                                    <Text>Your ticket was successfully bought. Thank you for your purchase!</Text>
-                                    <RegistrationButton type="submit" id="submit" name="submit"
-                                                        value="submit"
-                                                        onClick={() => window.location.href = "/"}>Home</RegistrationButton>
-                                </Successful>
-
+                            </Log> : null
                 }
             </FormWrapper>
-            {isWithoutButton ?
-                <RegistrationButton id="showBtn" onClick={() => {
+                <NavigationLinkButton activated={false} id="showBtn" onClick={() => {
                     if (!userExist) {
                         setIsRegister(true);
                     }
                     setDisplay(true);
-                }}> Book</RegistrationButton> :
-                null
-            }
+                }}> My flights</NavigationLinkButton>
         </>
     );
 }
 
-export default ModularForm;
+export default NavigationButtonLogin;
