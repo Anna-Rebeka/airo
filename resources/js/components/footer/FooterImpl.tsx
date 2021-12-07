@@ -104,7 +104,7 @@ export const FooterImpl: FunctionComponent<Props> = ({
         href: "/contacts",
         text: "Contacts"
     },
-        {href: "/login", text: "My flights"}, {href: "/", text: "GDPR"}, {href: "/", text: "ABOUT"}]
+        {href: "/myflights", text: "My flights"}, {href: "/", text: "GDPR"}, {href: "/", text: "ABOUT"}]
     let iconLinks = [{href: "/", url:require("../../../../public/images/facebook.svg"),alt:"Facebook icon"}, {href: "/", url:require("../../../../public/images/instagram.svg"),alt:"Instagram icon"}];
     return (
         <FooterMainDiv className={className}>

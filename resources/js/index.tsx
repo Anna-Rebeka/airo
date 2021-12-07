@@ -7,10 +7,11 @@ import {NavigationImpl} from "./components/navigation/NavigationImpl";
 import {FooterImpl} from "./components/footer/FooterImpl";
 import styled from "@emotion/styled";
 import {CarouselImageImpl} from "./components/carousel/CarouselmgImpl";
-import ModularForm from "./components/input/modular-form/ModularForm";
 import ResultItem from "./components/result/ResultItem";
 import {ScrollTopElementButton} from "./components/scroll/ScrollTopElementButton";
 import {GalleryImpl} from "./components/gallery/GalleryImpl";
+import {MyFlights} from "./components/myflights/MyFlights";
+import {ContactsImpl} from "./components/contacts/ContactsImpl";
 
 const store = createStore(() => {
 
@@ -67,7 +68,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
 
     useEffect(() => {
         setUser(JSON.parse(dataset.user));
-    },[dataset])
+    }, [dataset])
 
     return (
         <Provider store={store}>
@@ -120,10 +121,18 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
 
 export default Root;
 
-let element = document.getElementById('root');
-if (element) {
-    ReactDOM.render(<Root dataset={Object.assign({}, element.dataset)}/>, element);
+let elementMain = document.getElementById('root');
+let elementGallery = document.getElementById('gallery');
+let elementMyFlights = document.getElementById('myflights');
+let elementContacts = document.getElementById('contacts');
+
+if (elementMain) {
+    ReactDOM.render(<Root dataset={Object.assign({}, elementMain.dataset)}/>, elementMain);
+} else if (elementGallery) {
+    ReactDOM.render(<GalleryImpl images={images}/>, elementGallery);
+} else if (elementMyFlights) {
+    ReactDOM.render(<MyFlights dataset={Object.assign({}, elementMyFlights.dataset)}/>, elementMyFlights);
 } else {
-    element = document.getElementById('gallery');
-    ReactDOM.render(<GalleryImpl images={images}/>, element);
+    ReactDOM.render(<ContactsImpl/>, elementContacts);
 }
+

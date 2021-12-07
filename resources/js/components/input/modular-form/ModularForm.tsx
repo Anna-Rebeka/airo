@@ -260,7 +260,7 @@ let FlexboxInputsCheckout = styled.div`
 export const ModularForm: FunctionComponent<Props> = ({shouldBeActivated, element, user, setFlightsFrom}) => {
     let [display, setDisplay] = useState(!!shouldBeActivated);
     let [canClose, setCanClose] = useState(true);
-    let [username, setUsername] = useState<string>();
+    let [emailAddress, setEmailAddress] = useState<string>();
     let [password, setPassword] = useState<string>();
     let [isRegister, setIsRegister] = useState<boolean>(true);
     let [isComplete, setIsComplete] = useState(false);
@@ -294,9 +294,9 @@ export const ModularForm: FunctionComponent<Props> = ({shouldBeActivated, elemen
                                 <InputElement type="text" id="lastname" name="lastname" placeholder="Last name"
                                               value={lastName}
                                               onChange={(e) => setLastName(e.target.value)}/>
-                                <InputElement type="text" id="username" name="username" placeholder="User name"
-                                              value={username}
-                                              onChange={(e) => setUsername(e.target.value)}/>
+                                <InputElement type="text" id="username" name="username" placeholder="Email address"
+                                              value={emailAddress}
+                                              onChange={(e) => setEmailAddress(e.target.value)}/>
                                 <InputElement type="password" id="pw" name="pw" placeholder="Password" value={password}
                                               onChange={(e) => setPassword(e.target.value)}/>
                                 <RegistrationButton type="submit" id="submit" name="submit"
@@ -311,9 +311,9 @@ export const ModularForm: FunctionComponent<Props> = ({shouldBeActivated, elemen
                                 <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
                                 <Title> Login </Title>
                                 <InputWrapper>
-                                    <InputElement type="text" id="username" name="username" placeholder="User name"
-                                                  value={username}
-                                                  onChange={(e) => setUsername(e.target.value)}/>
+                                    <InputElement type="text" id="username" name="username" placeholder="Email address"
+                                                  value={emailAddress}
+                                                  onChange={(e) => setEmailAddress(e.target.value)}/>
                                     <InputElement type="password" id="pw" name="pw" placeholder="Password"
                                                   value={password}
                                                   onChange={(e: any) => setPassword(e.target.value)}/>

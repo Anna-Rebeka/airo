@@ -3,15 +3,15 @@ import {NavigationImpl} from "../navigation/NavigationImpl";
 import {FooterImpl} from "../footer/FooterImpl";
 
 interface Props {
-
+    dataset: any;
 }
 
 
-export const ContactsImpl: FunctionComponent<Props> = ({
-                                                           children
-                                                       }) => {
+export const MyFlights: FunctionComponent<Props> = ({
+                                                          children
+                                                      }) => {
     return (
-        <div id={"contacts"}>
+        <div id={"gallery"}>
             <NavigationImpl/>
 
             <FooterImpl/>
