@@ -33,7 +33,6 @@ class TicketController extends Controller
     public function store(Request $fields)
     {
         $attributes = $fields->validate([
-            'price' => ['integer', 'min:0', 'required'],
             'token' => ['string', 'max:255'],
             'flight_id' => ['required']
         ]);
@@ -53,7 +52,6 @@ class TicketController extends Controller
             $ticket = Ticket::create([
                 'name' => $attributes['name'],
                 'user_id' => $user_id,
-                'price' => $attributes['price'],
                 'flight_id' => $attributes['flight_id'],
                 'token' => $attributes['token'],
             ]);
