@@ -314,10 +314,12 @@ export const NavigationButtonLogin: FunctionComponent<Props> = ({
     let [firstName, setFirstName] = useState<string>();
     let [lastName, setLastName] = useState<string>();
 
+    let [registrationSuccessful, setRegistrationSuccessful] = useState<boolean>(false);
+
     let [userExist, setUserExist] = useState(user !== null);
 
     useEffect(() => {
-        setUserExist(user);
+        setUserExist(user != null);
     }, [user])
 
     return (
@@ -328,7 +330,7 @@ export const NavigationButtonLogin: FunctionComponent<Props> = ({
                 }
             }}>
                 {
-                    isRegister && !userExist ?
+                    isRegister && !userExist && !registrationSuccessful ?
                         <Reg id='reg' onTouchStart={() => setCanClose(false)} onMouseEnter={() => setCanClose(false)}
                              onMouseLeave={() => setCanClose(true)}>
                             <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
@@ -353,12 +355,17 @@ export const NavigationButtonLogin: FunctionComponent<Props> = ({
                                                         last_name: lastName,
                                                         password: password,
                                                         email: emailAddress
+                                                    }).then((res) => {
+                                                        if (res.data === 1) {
+                                                            console.log("yes");
+                                                            setRegistrationSuccessful(true);
+                                                        }
                                                     })}> Registration</RegistrationButton>
                                 <RegistrationButton id="showBtn_0" onClick={() => setIsRegister(false)}> Already have
                                     account?</RegistrationButton>
                             </InputWrapper>
                         </Reg> :
-                        !isRegister && !userExist ?
+                        !isRegister && (!userExist || registrationSuccessful) ?
                             <Log id='reg' onMouseEnter={() => setCanClose(false)}
                                  onMouseLeave={() => setCanClose(true)}>
                                 <Close id="hideBtn1" onClick={() => setDisplay(false)}>X</Close>
@@ -371,19 +378,32 @@ export const NavigationButtonLogin: FunctionComponent<Props> = ({
                                                   value={password}
                                                   onChange={(e: any) => setPassword(e.target.value)}/>
                                     <RegistrationButton type="submit" id="submit1" name="submit"
-                                                        value="submit"> Log in</RegistrationButton>
+                                                        value="submit" onClick={() => {
+                                        axios.post("/login", {email: emailAddress, password: password}).then((res) => {
+                                                console.log(res.data);
+                                            }
+                                        )
+                                    }
+                                    }> Log in</RegistrationButton>
                                     <RegistrationButton id="showBtn1" onClick={() => setIsRegister(true)}> Don't have an
                                         account? Create one!</RegistrationButton>
                                 </InputWrapper>
-                            </Log> : null
+                            </Log> :
+                            registrationSuccessful ?
+                                <Reg>
+                                    <Title>Registration was successful. Please log in</Title>
+                                    <RegistrationButton id="showBtn_0" onClick={() => setIsRegister(false)}> Log
+                                        in</RegistrationButton>
+                                </Reg> :
+                                null
                 }
             </FormWrapper>
-                <NavigationLinkButton activated={false} id="showBtn" onClick={() => {
-                    if (!userExist) {
-                        setIsRegister(true);
-                    }
-                    setDisplay(true);
-                }}> My flights</NavigationLinkButton>
+            <NavigationLinkButton activated={false} id="showBtn" onClick={() => {
+                if (!userExist) {
+                    setIsRegister(true);
+                }
+                setDisplay(true);
+            }}> My flights</NavigationLinkButton>
         </>
     );
 }

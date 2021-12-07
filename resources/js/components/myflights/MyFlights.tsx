@@ -13,7 +13,7 @@ export const MyFlights: FunctionComponent<Props> = ({
                                                     }) => {
     return (
         <div id={"gallery"}>
-            <NavigationImpl user={JSON.parse(dataset.user)}/>
+            <NavigationImpl setUser={null} user={JSON.parse(dataset.user)}/>
 
             <FooterImpl/>
         </div>

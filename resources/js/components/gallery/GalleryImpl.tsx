@@ -6,17 +6,19 @@ import {ImageGridFlexboxImpl} from "./ImageGridFlexboxImpl";
 interface Props {
     images: any;
     dataset: any;
+    setUser: any;
 }
 
 
 export const GalleryImpl: FunctionComponent<Props> = ({
+                                                          setUser,
                                                           dataset,
                                                           images,
                                                           children
                                                       }) => {
     return (
         <div id={"gallery"}>
-            <NavigationImpl user={JSON.parse(dataset.user)}/>
+            <NavigationImpl setUser={setUser} user={JSON.parse(dataset.user)}/>
             <ImageGridFlexboxImpl images={images}/>
             <FooterImpl/>
         </div>

@@ -130,7 +130,7 @@ let elementContacts = document.getElementById('contacts');
 if (elementMain) {
     ReactDOM.render(<Root dataset={Object.assign({}, elementMain.dataset)}/>, elementMain);
 } else if (elementGallery) {
-    ReactDOM.render(<GalleryImpl images={images} dataset={Object.assign({}, elementGallery.dataset)}/>, elementGallery);
+    ReactDOM.render(<GalleryImpl setUser={null} images={images} dataset={Object.assign({}, elementGallery.dataset)}/>, elementGallery);
 } else if (elementMyFlights) {
     ReactDOM.render(<MyFlights dataset={Object.assign({}, elementMyFlights.dataset)}/>, elementMyFlights);
 } else if (elementContacts) {

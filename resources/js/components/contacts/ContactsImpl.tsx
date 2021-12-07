@@ -13,7 +13,7 @@ export const ContactsImpl: FunctionComponent<Props> = ({
                                                        }) => {
     return (
         <div id={"contacts"}>
-            <NavigationImpl user={JSON.parse(dataset.user)}/>
+            <NavigationImpl setUser={null} user={JSON.parse(dataset.user)}/>
 
             <FooterImpl/>
         </div>
