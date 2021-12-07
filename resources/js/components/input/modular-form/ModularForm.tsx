@@ -279,15 +279,18 @@ export const ModularForm: FunctionComponent<Props> = ({
 
     let [userExist, setUserExist] = useState(user !== null);
 
+    let [forcer, setForcer] = useState(0);
+
     useEffect(() => {
         setUserExist(user !== null);
     }, [user])
 
+
     return (
         <>
             <FormWrapper shouldBeDisplayed={display} onSubmit={(e) => e.preventDefault()} onClick={() => {
-                if (canClose) {
-                    setDisplay(false);
+                if (canClose && isComplete) {
+                    setDisplay(true);
                 }
             }}>
                 {isComplete ?
@@ -348,9 +351,12 @@ export const ModularForm: FunctionComponent<Props> = ({
                                                   onChange={(e: any) => setPassword(e.target.value)}/>
                                     <RegistrationButton type="submit" id="submit1" name="submit"
                                                         value="submit" onClick={() => {
+                                        console.log("log user");
                                         axios.post("/login", {email: emailAddress, password: password}).then((res) => {
                                                 setUser(res.data);
+                                                setIsRegister(true);
                                                 setIsComplete(false);
+                                                setRegistrationSuccessful(false);
                                             }
                                         )
                                     }}> Log in</RegistrationButton>
@@ -361,7 +367,9 @@ export const ModularForm: FunctionComponent<Props> = ({
                             registrationSuccessful ?
                                 <Reg>
                                     <Title>Registration was successful. Please log in</Title>
-                                    <RegistrationButton id="showBtn_0" onClick={() => setIsRegister(false)}> Log
+                                    <RegistrationButton id="showBtn_0" onClick={() => {
+                                        setIsRegister(false);
+                                    }}> Log
                                         in</RegistrationButton>
                                 </Reg> :
                                 !isComplete ?
@@ -389,7 +397,7 @@ export const ModularForm: FunctionComponent<Props> = ({
                                                 axios.post('/ticket', {
                                                     flight_id: element.id
                                                 }).then((res) => {
-                                                    console.log(res.data);
+                                                    setForcer(forcer + 1);
                                                     setIsRegister(false);
                                                     setIsComplete(true);
                                                 })
