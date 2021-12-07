@@ -278,7 +278,7 @@ export const ModularForm: FunctionComponent<Props> = ({
     let [userExist, setUserExist] = useState(user !== null);
 
     useEffect(() => {
-        setUserExist(user);
+        setUserExist(user !== null);
     }, [user])
 
     return (
@@ -288,7 +288,15 @@ export const ModularForm: FunctionComponent<Props> = ({
                     setDisplay(false);
                 }
             }}>
-                {
+                {isComplete ?
+                    <Successful>
+                        <Title>Ticket bought.</Title>
+                        <Text>Your ticket was successfully bought. Thank you for your
+                            purchase!</Text>
+                        <RegistrationButton type="submit" id="submit" name="submit"
+                                            value="submit"
+                                            onClick={() => window.location.href = "/"}>Home</RegistrationButton>
+                    </Successful> :
                     isRegister && !userExist && !registrationSuccessful ?
                         <Reg id='reg' onTouchStart={() => setCanClose(false)} onMouseEnter={() => setCanClose(false)}
                              onMouseLeave={() => setCanClose(true)}>
@@ -314,6 +322,11 @@ export const ModularForm: FunctionComponent<Props> = ({
                                                         last_name: lastName,
                                                         password: password,
                                                         email: emailAddress
+                                                    }).then((res) => {
+                                                        if (res.data === 1) {
+                                                            console.log("yes");
+                                                            setRegistrationSuccessful(true);
+                                                        }
                                                     })}> Registration</RegistrationButton>
                                 <RegistrationButton id="showBtn_0" onClick={() => setIsRegister(false)}> Already have
                                     account?</RegistrationButton>
@@ -334,7 +347,7 @@ export const ModularForm: FunctionComponent<Props> = ({
                                     <RegistrationButton type="submit" id="submit1" name="submit"
                                                         value="submit" onClick={() => {
                                         axios.post("/login", {email: emailAddress, password: password}).then((res) => {
-                                                window.location.href = "/myflights";
+                                                setIsComplete(false);
                                             }
                                         )
                                     }}> Log in</RegistrationButton>
@@ -374,19 +387,13 @@ export const ModularForm: FunctionComponent<Props> = ({
                                                     flight_id: element.id
                                                 }).then((res) => {
                                                     console.log(res.data);
+                                                    setIsRegister(false);
                                                     setIsComplete(true);
                                                 })
                                             }}> Book</ProceedButton>
                                         </FlexboxInputs>
                                     </Check> :
-                                    <Successful>
-                                        <Title>Ticket bought.</Title>
-                                        <Text>Your ticket was successfully bought. Thank you for your purchase!</Text>
-                                        <RegistrationButton type="submit" id="submit" name="submit"
-                                                            value="submit"
-                                                            onClick={() => window.location.href = "/"}>Home</RegistrationButton>
-                                    </Successful>
-
+                                    null
                 }
             </FormWrapper>
             <RegistrationButton id="showBtn" onClick={() => {
