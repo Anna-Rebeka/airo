@@ -24,10 +24,10 @@ export const MyFlights: FunctionComponent<Props> = ({
                                                         dataset,
                                                         children
                                                     }) => {
-    console.log(JSON.parse(dataset));
+    console.log(dataset);
     return (
         <div id={"gallery"}>
-            <NavigationImpl setUser={null} user={JSON.parse(dataset.user)}/>
+            <NavigationImpl setUser={null} user={null}/>
             <ListOfTickets id={"tickets"}>
                 <>
                     <Heading1>
