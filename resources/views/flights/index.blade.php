@@ -21,7 +21,7 @@
          </style>
      </head>
      <body>
-         <div id="myflights" data-user="{{ json_encode(auth()->user()) }}" data-user="{{ json_encode($tickets) }}">
+         <div id="myflights" data-user="{{ json_encode(auth()->user()) }}" data-flights="{{ json_encode($tickets) }}">
          </div>
          <script src="<?php echo e(mix('js/app.js')); ?>"></script>
      </body>
