@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth']], function() {
 
  Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
  Route::post('login', [CustomAuthController::class, 'index']);
- Route::post('registration', [CustomAuthController::class, 'registration']);
+ Route::post('register', [CustomAuthController::class, 'customRegistration']);
  Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::get('/contacts', [App\Http\Controllers\UserController::class, 'contacts']);
