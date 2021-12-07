@@ -9,7 +9,6 @@ interface Props {
     user: any;
     setUser: any;
     setFlightsFrom: any;
-    isWithoutButton?: any;
 }
 
 let FormWrapper = styled.div<{ shouldBeDisplayed: boolean }>`
@@ -262,8 +261,7 @@ export const ModularForm: FunctionComponent<Props> = ({
                                                           shouldBeActivated,
                                                           element,
                                                           user,
-                                                          setFlightsFrom,
-                                                          isWithoutButton
+                                                          setFlightsFrom
                                                       }) => {
     let [display, setDisplay] = useState(!!shouldBeActivated);
     let [canClose, setCanClose] = useState(true);
@@ -367,16 +365,10 @@ export const ModularForm: FunctionComponent<Props> = ({
                                             <ProceedButton id="showBtn2"
                                                            onClick={() => setDisplay(false)}> Cancel</ProceedButton>
                                             <ProceedButton id="showBtn2" onClick={() => {
-                                                console.log({
-                                                    userId: user.id,
-                                                    token: 'testing',
-                                                    price: element.price,
-                                                });
                                                 axios.post('/ticket', {
-                                                    userId: user.id,
-                                                    token: 'testing',
-                                                    price: element.price,
+                                                    flight_id: element.id
                                                 }).then((res) => {
+                                                    console.log(res.data);
                                                     setIsComplete(true);
                                                 })
                                             }}> Book</ProceedButton>
@@ -392,15 +384,12 @@ export const ModularForm: FunctionComponent<Props> = ({
 
                 }
             </FormWrapper>
-            {isWithoutButton ?
-                <RegistrationButton id="showBtn" onClick={() => {
-                    if (!userExist) {
-                        setIsRegister(true);
-                    }
-                    setDisplay(true);
-                }}> Book</RegistrationButton> :
-                null
-            }
+            <RegistrationButton id="showBtn" onClick={() => {
+                if (!userExist) {
+                    setIsRegister(true);
+                }
+                setDisplay(true);
+            }}> Book</RegistrationButton>
         </>
     );
 }
