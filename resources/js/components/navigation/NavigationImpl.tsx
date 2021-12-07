@@ -78,7 +78,7 @@ export const NavigationImpl: FunctionComponent<Props> = ({
     let navigationLinks = [{name: "Home", href: "/"}, {name: "Gallery", href: "/gallery"}, {
         name: "Contacts",
         href: "/contacts"
-    }, {name: "My flights", href: "/login"}];
+    }, {name: "My flights", href: "/myflights"}];
     let middleIndex: number = navigationLinks ? Math.floor(navigationLinks.length / 2) : 0;
     return (
         <NavigationImplDiv>
