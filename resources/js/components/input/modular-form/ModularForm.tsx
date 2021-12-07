@@ -332,7 +332,12 @@ export const ModularForm: FunctionComponent<Props> = ({
                                                   value={password}
                                                   onChange={(e: any) => setPassword(e.target.value)}/>
                                     <RegistrationButton type="submit" id="submit1" name="submit"
-                                                        value="submit"> Log in</RegistrationButton>
+                                                        value="submit" onClick={() => {
+                                        axios.post("/login", {email: emailAddress, password: password}).then((res) => {
+                                                window.location.href = "/myflights";
+                                            }
+                                        )
+                                    }}> Log in</RegistrationButton>
                                     <RegistrationButton id="showBtn1" onClick={() => setIsRegister(true)}> Don't have an
                                         account? Create one!</RegistrationButton>
                                 </InputWrapper>
