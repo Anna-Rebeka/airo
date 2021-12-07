@@ -275,6 +275,8 @@ export const ModularForm: FunctionComponent<Props> = ({
     let [firstName, setFirstName] = useState<string>();
     let [lastName, setLastName] = useState<string>();
 
+    let [registrationSuccessful, setRegistrationSuccessful] = useState<boolean>(false);
+
     let [userExist, setUserExist] = useState(user !== null);
 
     useEffect(() => {
@@ -289,7 +291,7 @@ export const ModularForm: FunctionComponent<Props> = ({
                 }
             }}>
                 {
-                    isRegister && !userExist ?
+                    isRegister && !userExist && !registrationSuccessful ?
                         <Reg id='reg' onTouchStart={() => setCanClose(false)} onMouseEnter={() => setCanClose(false)}
                              onMouseLeave={() => setCanClose(true)}>
                             <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
@@ -319,7 +321,7 @@ export const ModularForm: FunctionComponent<Props> = ({
                                     account?</RegistrationButton>
                             </InputWrapper>
                         </Reg> :
-                        !isRegister && !userExist ?
+                        !isRegister && (!userExist || registrationSuccessful) ?
                             <Log id='reg' onMouseEnter={() => setCanClose(false)}
                                  onMouseLeave={() => setCanClose(true)}>
                                 <Close id="hideBtn1" onClick={() => setDisplay(false)}>X</Close>
@@ -337,49 +339,56 @@ export const ModularForm: FunctionComponent<Props> = ({
                                         account? Create one!</RegistrationButton>
                                 </InputWrapper>
                             </Log> :
-                            !isComplete ?
-                                <Check>
-                                    <Close id="hideBtn2" onClick={() => setDisplay(false)}>X</Close>
-                                    <Title>Check your purchase</Title>
-                                    <Text>You are about to buy your selected ticket. Please check details below about
-                                        the
-                                        ticket.</Text>
-                                    <FlexboxInputsCheckout>
-                                        <TextCheckout>Departure and arrival
-                                            city: {(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)} </TextCheckout>
-                                        <TextCheckout>Date and time: {element && element.date}</TextCheckout>
-                                        <TextCheckout>Price: {element && element.price}e</TextCheckout>
-                                        <TextCheckout>Company: {element && element.company && element.company.name + "*".repeat(element && element.company && element.companyClass)}</TextCheckout>
-                                        <TextCheckout>Duration and
-                                            distance: {element && element.duration + "mins " + element && element.distance + "km"}</TextCheckout>
-                                    </FlexboxInputsCheckout>
-                                    <Text>Do you want to book?</Text>
-                                    <FlexboxInputs>
-                                        <ProceedButton id="showBtn2"
-                                                       onClick={() => setDisplay(false)}> Cancel</ProceedButton>
-                                        <ProceedButton id="showBtn2" onClick={() => {
-                                            console.log({
-                                                userId: user.id,
-                                                token: 'testing',
-                                                price: element.price,
-                                            });
-                                            axios.post('/ticket', {
-                                                userId: user.id,
-                                                token: 'testing',
-                                                price: element.price,
-                                            }).then((res) => {
-                                                setIsComplete(true);
-                                            })
-                                        }}> Book</ProceedButton>
-                                    </FlexboxInputs>
-                                </Check> :
-                                <Successful>
-                                    <Title>Ticket bought.</Title>
-                                    <Text>Your ticket was successfully bought. Thank you for your purchase!</Text>
-                                    <RegistrationButton type="submit" id="submit" name="submit"
-                                                        value="submit"
-                                                        onClick={() => window.location.href = "/"}>Home</RegistrationButton>
-                                </Successful>
+                            registrationSuccessful ?
+                                <Reg>
+                                    <Title>Registration was successful. Please log in</Title>
+                                    <RegistrationButton id="showBtn_0" onClick={() => setIsRegister(false)}> Log
+                                        in</RegistrationButton>
+                                </Reg> :
+                                !isComplete ?
+                                    <Check>
+                                        <Close id="hideBtn2" onClick={() => setDisplay(false)}>X</Close>
+                                        <Title>Check your purchase</Title>
+                                        <Text>You are about to buy your selected ticket. Please check details below
+                                            about
+                                            the
+                                            ticket.</Text>
+                                        <FlexboxInputsCheckout>
+                                            <TextCheckout>Departure and arrival
+                                                city: {(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)} </TextCheckout>
+                                            <TextCheckout>Date and time: {element && element.date}</TextCheckout>
+                                            <TextCheckout>Price: {element && element.price}e</TextCheckout>
+                                            <TextCheckout>Company: {element && element.company && element.company.name + "*".repeat(element && element.company && element.companyClass)}</TextCheckout>
+                                            <TextCheckout>Duration and
+                                                distance: {element && element.duration + "mins " + element && element.distance + "km"}</TextCheckout>
+                                        </FlexboxInputsCheckout>
+                                        <Text>Do you want to book?</Text>
+                                        <FlexboxInputs>
+                                            <ProceedButton id="showBtn2"
+                                                           onClick={() => setDisplay(false)}> Cancel</ProceedButton>
+                                            <ProceedButton id="showBtn2" onClick={() => {
+                                                console.log({
+                                                    userId: user.id,
+                                                    token: 'testing',
+                                                    price: element.price,
+                                                });
+                                                axios.post('/ticket', {
+                                                    userId: user.id,
+                                                    token: 'testing',
+                                                    price: element.price,
+                                                }).then((res) => {
+                                                    setIsComplete(true);
+                                                })
+                                            }}> Book</ProceedButton>
+                                        </FlexboxInputs>
+                                    </Check> :
+                                    <Successful>
+                                        <Title>Ticket bought.</Title>
+                                        <Text>Your ticket was successfully bought. Thank you for your purchase!</Text>
+                                        <RegistrationButton type="submit" id="submit" name="submit"
+                                                            value="submit"
+                                                            onClick={() => window.location.href = "/"}>Home</RegistrationButton>
+                                    </Successful>
 
                 }
             </FormWrapper>
