@@ -11,7 +11,13 @@ class TicketController extends Controller
 
     public function getTicketsRegistered()
     {   
-        $tickets = auth()->user()->tickets()->with('flights')->with('arrival')->with('departure')->get();
+        $tickets = auth()->user()->tickets()->get();
+
+        foreach ($tickets as $ticket){
+            $flight = $ticket->flight;
+            $flight->arrival;
+            $flight->departure;
+        }
 
         return view('flights.index', [
             'user' => auth()->user(),

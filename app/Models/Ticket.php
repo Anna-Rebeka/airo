@@ -25,7 +25,7 @@ class Ticket extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function flights(){
-        return $this->hasMany(Flight::class);
+    public function flight(){
+        return $this->belongsTo(Flight::class);
     }
 }
