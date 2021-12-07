@@ -380,7 +380,7 @@ export const NavigationButtonLogin: FunctionComponent<Props> = ({
                                     <RegistrationButton type="submit" id="submit1" name="submit"
                                                         value="submit" onClick={() => {
                                         axios.post("/login", {email: emailAddress, password: password}).then((res) => {
-                                                console.log(res.data);
+                                                window.location.href = "/myflights";
                                             }
                                         )
                                     }
