@@ -37,8 +37,8 @@ class FlightController extends Controller
 
         $flights = Flight::where('departure_id', $city1->id)
             ->where('arrival_id', $city2->id)
-            ->where('departure', '>=', $morning)
-            ->where('arrival', '<=', $evening)
+            ->where('leaves', '>=', $morning)
+            ->where('arrives', '<=', $evening)
             ->where('price', '<=', $price)
             ->with('departure')
             ->with('arrival')

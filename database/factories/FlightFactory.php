@@ -64,8 +64,8 @@ class FlightFactory extends Factory
             'departure_id' => $city1->id,
             'arrival_id' => $city2->id,
             'company_id' => $company->id,
-            'departure' => $leaves,
-            'arrival' => $arrives ,
+            'leaves' => $leaves,
+            'arrives' => $arrives ,
             'duration' => $minutes,
             'distance' => $distance,
             'price' => $price

@@ -16,13 +16,18 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->decimal('price');
+            $table->unsignedBigInteger('flight_id')->nullable();
             $table->string('token')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
+                ->onDelete('cascade');
+            
+            $table->foreign('flight_id')
+                ->references('id')
+                ->on('flights')
                 ->onDelete('cascade');
         });
     }

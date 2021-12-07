@@ -16,8 +16,8 @@ class Flight extends Model
      */
     protected $fillable = [
         'name',
-        'departure',
-        'arrival',
+        'leaves',
+        'arrives',
         'departure_id',
         'arrival_id',
         'company_id',
