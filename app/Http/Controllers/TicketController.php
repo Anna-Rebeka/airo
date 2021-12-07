@@ -50,7 +50,6 @@ class TicketController extends Controller
 
         $ticket = DB::transaction(function () use(&$user, $attributes, &$fields){
             $ticket = Ticket::create([
-                'name' => $attributes['name'],
                 'user_id' => $user_id,
                 'flight_id' => $attributes['flight_id'],
                 'token' => $attributes['token'],
