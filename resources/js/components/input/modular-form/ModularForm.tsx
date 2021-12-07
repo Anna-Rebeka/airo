@@ -258,6 +258,8 @@ let FlexboxInputsCheckout = styled.div`
 `
 
 export const ModularForm: FunctionComponent<Props> = ({
+
+                                                          setUser,
                                                           shouldBeActivated,
                                                           element,
                                                           user,
@@ -347,6 +349,7 @@ export const ModularForm: FunctionComponent<Props> = ({
                                     <RegistrationButton type="submit" id="submit1" name="submit"
                                                         value="submit" onClick={() => {
                                         axios.post("/login", {email: emailAddress, password: password}).then((res) => {
+                                                setUser(res.data);
                                                 setIsComplete(false);
                                             }
                                         )
