@@ -42,4 +42,4 @@ Route::get('/flights/{from}/{to}/{when}/{price}', [App\Http\Controllers\FlightCo
 Route::get('/myflights', [App\Http\Controllers\TicketController::class, 'getTicketsRegistered']);
 Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store']);
 
-Route::get('/{token}/tickets', [App\Http\Controllers\TicketController::class, 'getTicketsUnregistered']);
+Route::get('/ticket/{token}', [App\Http\Controllers\TicketController::class, 'getTicketsUnregistered']);

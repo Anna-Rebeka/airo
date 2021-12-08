@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RezervationMade;
 
 class TicketController extends Controller
 {
@@ -45,14 +47,17 @@ class TicketController extends Controller
                 
         $user = auth()->user();
         $user_id = null;
-        
+        $attributes['token'] = null;
+
         if($user){
             $user_id = $user->id;
         }
-
-        if ($fields['token'] == ''){
-            $attributes['token'] = null;
-        } 
+        else{
+            do{
+                $token = Str::random(16);
+            } while (Ticket::where('token', $token)->first());
+            $attributes['token'] = $token;
+        }
 
         $ticket = DB::transaction(function () use(&$user_id, $attributes, &$fields){
             $ticket = Ticket::create([
@@ -61,6 +66,13 @@ class TicketController extends Controller
                 'token' => $attributes['token'],
             ]);
             return $ticket;
+            '''
+            if(!$user){
+                Mail::to($email_address)
+                    ->send(new RezervationMade($group->name, auth()->user()->name, $invite))
+                ;
+            }
+            '''
         });
         return $ticket;
     }
