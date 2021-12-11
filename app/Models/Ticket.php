@@ -18,6 +18,7 @@ class Ticket extends Model
 
         'user_id',
         'flight_id',
+        'no',
         'token'
     ];
 
