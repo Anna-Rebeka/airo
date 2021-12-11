@@ -1,7 +1,7 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
 
 import styled from "@emotion/styled";
-import ResultItem from "../result/ResultItem";
+import TicketItem from "../ticket/TicketItem";
 import BasicImpl from "../sections/BasicImpl";
 
 
@@ -40,7 +40,7 @@ const ReservedTicketsNoRegistered: FunctionComponent<Props> = ({
                                                                    dataset
                                                                }) => {
 
-    var element = JSON.parse(dataset.ticket);
+    let element = JSON.parse(dataset.ticket);
     const [user, setUser] = useState<any>();
 
     useEffect(() => {
@@ -49,7 +49,7 @@ const ReservedTicketsNoRegistered: FunctionComponent<Props> = ({
 
     return (
         <BasicImpl id={"main"} user={user} setUser={setUser}>
-            <ResultItem companyClass={element && element.flight.company && element.flight.company.class}
+            <TicketItem companyClass={element && element.flight.company && element.flight.company.class}
                         companyName={element && element.flight.company && element.flight.company.name}
                         arrives={element && element.flight.arrives}
                         leaves={element && element.flight.leaves}
