@@ -21,7 +21,11 @@ let FooterNav = styled.nav`
     align-items: center;
     justify-content: center;
     margin: 1em;
-    width: 50%;
+    width: 100%;
+
+    @media (min-width: 476px) {
+        width: 50%;
+    }
 `;
 
 let FooterWrapperDiv = styled.div`
@@ -55,12 +59,13 @@ let FooterWrapperDiv = styled.div`
 let FooterLinksFlexBox = styled.ul`
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     text-align: center;
     margin: 0;
     padding: 0;
     width: 100%;
+    flex-direction: row;
 
     @media (min-width: 1280px) {
         justify-content: center;
@@ -69,12 +74,27 @@ let FooterLinksFlexBox = styled.ul`
 
 let FooterIconsFlexBox = styled.ul`
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin: 0;
     padding: 0;
+
+    @media (min-width: 476px) {
+        flex-direction: column;
+    }
+`;
+
+let FooterIconsFlexBoxIcons = styled.ul`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
 `;
 
 let Credits = styled.p`
@@ -85,20 +105,23 @@ let Credits = styled.p`
 `;
 
 let FooterContact = styled.address`
-    width: 25%;
+    width: 100%;
+    text-align: center;
     color: white;
-`;
 
-let FooterContactParagraph = styled.p`
-    color: white;
-    padding: 0;
-    margin-top: 0;
-    margin-bottom: 0.5em;
-
+    @media (min-width: 476px) {
+        width: 25%;
+    }
 `;
 
 let FooterLogoWrapper = styled.div`
-    width: 25%;
+    display:flex;
+    justify-content: center;
+    width: 100%;
+
+    @media (min-width: 476px) {
+        width: 25%;
+    }
 `
 
 export const FooterImpl: FunctionComponent<Props> = ({
@@ -127,11 +150,11 @@ export const FooterImpl: FunctionComponent<Props> = ({
                             <FooterLinkText key={"footer-link-text-" + index} link={link}/>
                         ))}
                     </FooterLinksFlexBox>
-                    <FooterIconsFlexBox>
+                    <FooterIconsFlexBoxIcons>
                         {iconLinks && iconLinks.map((link: any, index: number) => (
                             <FooterLinkIcon link={link} key={"footer-link-icon-" + index}/>
                         ))}
-                    </FooterIconsFlexBox>
+                    </FooterIconsFlexBoxIcons>
                 </FooterNav>
                 <FooterContact>
                     Airline search engine plus<br/>

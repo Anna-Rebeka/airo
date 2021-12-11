@@ -40,7 +40,7 @@ const ReservedTicketsNoRegistered: FunctionComponent<Props> = ({
                                                                    dataset
                                                                }) => {
 
-    var element = JSON.parse(dataset.ticket);
+    let element = JSON.parse(dataset.ticket);
     const [user, setUser] = useState<any>();
 
     useEffect(() => {
