@@ -44,7 +44,6 @@ class TicketController extends Controller
     public function store(Request $fields)
     {
         $attributes = $fields->validate([
-            'token' => ['string', 'max:255'],
             'flight_id' => ['required']
         ]);
                 
