@@ -1,7 +1,7 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
 
 import styled from "@emotion/styled";
-import ResultItem from "../result/ResultItem";
+import ResultItem from "../ticket/TicketItem";
 import BasicImpl from "../sections/BasicImpl";
 
 
