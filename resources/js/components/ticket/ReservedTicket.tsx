@@ -49,7 +49,7 @@ const ReservedTicketsNoRegistered: FunctionComponent<Props> = ({
 
     return (
         <BasicImpl id={"main"} user={user} setUser={setUser}>
-            <ResultItem companyClass={element && element.flight.company && element.flight.company.class}
+            <ResultItem no={1} companyClass={element && element.flight.company && element.flight.company.class}
                         companyName={element && element.flight.company && element.flight.company.name}
                         arrives={element && element.flight.arrives}
                         leaves={element && element.flight.leaves}

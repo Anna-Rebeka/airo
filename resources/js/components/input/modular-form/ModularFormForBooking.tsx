@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useEffect, useState} from "react";
+import React, {FunctionComponent, useState} from "react";
 import styled from '@emotion/styled';
 import {ModularFormRegisterImpl} from "./ModularFormRegisterImpl";
 import {ModularFormCheckoutImpl} from "./ModularFormCheckoutImpl";
@@ -11,6 +11,7 @@ interface Props {
     user: any;
     setUser: any;
     withActivationButton: boolean;
+    no: number;
 }
 
 // je reprezentovany orazovym ?, po nadideni zobrazi text "hint"
@@ -54,10 +55,12 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
                                                                     shouldBeActivated,
                                                                     element,
                                                                     user,
-                                                                    withActivationButton
+                                                                    withActivationButton,
+                                                                    no
+
                                                                 }) => {
     let [display, setDisplay] = useState(shouldBeActivated);
-    let [state, setState] = useState<string>(user ? "LOGGED":"REGISTER");
+    let [state, setState] = useState<string>(user ? "LOGGED" : "REGISTER");
 
 
     let ValidateFName = function (entry: string): boolean {
@@ -96,8 +99,8 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
             {display ?
                 (!user && state === "REGISTER" ?
                     <ModularFormRegisterImpl setState={setState} displayForm={display} setDisplay={setDisplay}/> :
-                    state === "CHECKOUT" || state === "LOGGED" ?
-                        <ModularFormCheckoutImpl user={user} displayForm={display} setDisplay={setDisplay}
+                    state === "CHECKOUT" || state === "LOGGED"  || state === "CHECKOUT_NOT_REGISTERED"?
+                        <ModularFormCheckoutImpl state={state} no={no} user={user} displayForm={display} setDisplay={setDisplay}
                                                  element={element}
                                                  setState={setState}/> :
                         state === "LOGIN" ?

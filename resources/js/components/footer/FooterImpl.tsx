@@ -72,20 +72,6 @@ let FooterLinksFlexBox = styled.ul`
     };
 `;
 
-let FooterIconsFlexBox = styled.ul`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-
-    @media (min-width: 476px) {
-        flex-direction: column;
-    }
-`;
-
 let FooterIconsFlexBoxIcons = styled.ul`
     display: flex;
     flex-direction: row;

@@ -64,6 +64,7 @@ let images =
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
     const [displayCarousel, setDisplayCarousel] = useState("LEFT");
     const [flightsFrom, setFlightsFrom] = useState<any>([]);
+    const [no, setNo] = useState<number>(1);
     const [flightsTicketsTo, setFlightTicketsTo] = useState();
     const [roundTrips, setRoundTrips] = useState();
     const [user, setUser] = useState();
@@ -76,12 +77,12 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     return (
         <BasicImpl id={"main"} user={user} setUser={setUser}>
             <Carousel>
-                <CarouselImageImpl setFlightsTo={setFlightTicketsTo} setFlightsFrom={setRoundTrips}
+                <CarouselImageImpl setNo={setNo} setFlightsTo={setFlightTicketsTo} setFlightsFrom={setRoundTrips}
                                    displayCarousel={"RIGHT" === displayCarousel}
                                    setDisplayedSide={setDisplayCarousel}
                                    side={"RIGHT"}
                                    imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
-                <CarouselImageImpl setFlightsFrom={setFlightsFrom} setFlightsTo={setFlightTicketsTo}
+                <CarouselImageImpl setNo={setNo} setFlightsFrom={setFlightsFrom} setFlightsTo={setFlightTicketsTo}
                                    displayCarousel={"LEFT" === displayCarousel}
                                    setDisplayedSide={setDisplayCarousel}
                                    side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
@@ -93,22 +94,24 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                             Found tickets
                         </Heading1>
                         {flightsFrom.map((element: any, index: number) =>
-                            <ResultItem companyClass={element && element.company && element.company.class}
-                                        companyName={element && element.company && element.company.name}
-                                        arrives={element && element.arrives}
-                                        leaves={element && element.leaves}
-                                        distance={element && element.distance}
-                                        duration={element && element.duration}
-                                        images={images} key={"result-item-flights" + index}
-                                        imgSrc={element && element.arrival && element.arrival.image}
-                                        price={element.price}
-                                        description={element && element.arrival && element.arrival.info}
-                                        altText={element.altText} arrival={element.arrival}
-                                        departure={element.departure}
-                                        element={element}
-                                        user={user}
-                                        setUser={setUser}
-                                        setFlightsFrom={setFlightsFrom}
+                            <ResultItem
+                                no={no}
+                                companyClass={element && element.company && element.company.class}
+                                companyName={element && element.company && element.company.name}
+                                arrives={element && element.arrives}
+                                leaves={element && element.leaves}
+                                distance={element && element.distance}
+                                duration={element && element.duration}
+                                images={images} key={"result-item-flights" + index}
+                                imgSrc={element && element.arrival && element.arrival.image}
+                                price={element.price}
+                                description={element && element.arrival && element.arrival.info}
+                                altText={element.altText} arrival={element.arrival}
+                                departure={element.departure}
+                                element={element}
+                                user={user}
+                                setUser={setUser}
+                                setFlightsFrom={setFlightsFrom}
                             />
                         )}
                     </> : null

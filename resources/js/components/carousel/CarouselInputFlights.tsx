@@ -9,6 +9,7 @@ import axios from "axios";
 interface Props {
     setFlightsFrom: any;
     setFlightsTo: any;
+    setNo: any;
 }
 
 let Form = styled.form`
@@ -154,7 +155,7 @@ let Title = styled.h2`
     margin: 0;
     width: 100%;
 `
-export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, setFlightsTo}) => {
+export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, setFlightsTo, setNo}) => {
     const [numberOfPersons, setNumberOfPersons] = useState<number>(1);
     const [isOneWay, setIsOneWay] = useState<boolean>(true);
     const [activated, setActivated] = useState("ONE");
@@ -210,7 +211,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
             return;
         }
 
-        setFlightsFrom(["test","TEST"]);
+        setFlightsFrom(["test", "TEST"]);
 
         axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
         )
@@ -222,16 +223,16 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
         if (!isOneWay) {
             axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
             )
-                .then( (res) => {
+                .then((res) => {
                     setFlightsTo(res.data)
                 })
         }
 
-        setFlightsFrom(["test","TEST"]);
+        setFlightsFrom(["test", "TEST"]);
 
         let element = document.getElementById('tickets');
 
-        if(element){
+        if (element) {
             element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
         }
     }
@@ -300,6 +301,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
                                       placeholder={"Select no. of persons (between 1 and 20)"} value={numberOfPersons}
                                       onChange={(e: any) => {
                                           setNumberOfPersons(e.target.value);
+                                          setNo(e.target.value);
                                       }} min={1} max={20}
                                       type={"number"}/>
                     </WrapperInput>

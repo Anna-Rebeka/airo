@@ -20,6 +20,7 @@ interface Props {
     setUser: any;
     user: any;
     setFlightsFrom: any;
+    no: number;
 }
 
 let ResultWrapper = styled.article`
@@ -125,7 +126,8 @@ export const ResultItem: FunctionComponent<Props> = ({
                                                          element,
                                                          setUser,
                                                          user,
-                                                         setFlightsFrom
+                                                         setFlightsFrom,
+                                                         no
                                                      }) => {
 
     let imgUrl = images.find((obj: any) => {
@@ -143,7 +145,8 @@ export const ResultItem: FunctionComponent<Props> = ({
                 <WrapperContentCol>
                     <WrapperDetails>
                         <ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ResultH2>
-                        <Element>{"Departure time: " + leaves + ". Estimated arrival time: " + arrives}</Element>
+                        <Element>{"Departure time: " + leaves}</Element>
+                        <Element>{"Estimated arrival time: " + arrives}</Element>
                         <Element>{"Flight company: " + companyName + "*".repeat(companyClass)}</Element>
                         <Element>{"Distance between cities is " + distance + "km."}</Element>
                         <Element>{"Duration of flight is " + duration + " minutes."}</Element>
@@ -151,7 +154,8 @@ export const ResultItem: FunctionComponent<Props> = ({
                     </WrapperDetails>
                 </WrapperContentCol>
                 <WrapperContentCol>
-                    <ModularFormForBooking withActivationButton={true} user={user} setUser={setUser} element={element}/>
+                    <ModularFormForBooking no={no} withActivationButton={true} user={user} setUser={setUser}
+                                           element={element}/>
                 </WrapperContentCol>
             </RowWrapper>
         </ResultWrapper>
