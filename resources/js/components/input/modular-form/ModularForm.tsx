@@ -2,6 +2,7 @@ import React, {FunctionComponent, useEffect, useState} from "react";
 import styled from '@emotion/styled';
 import {css} from "@emotion/react";
 import axios from "axios";
+import ReactDOM from "react-dom";
 
 interface Props {
     element: any;
@@ -25,6 +26,40 @@ let FormWrapper = styled.div<{ shouldBeDisplayed: boolean }>`
     align-items: center;
     justify-content: center;
     z-index: 9999;
+`;
+
+// je reprezentovany orazovym ?, po nadideni zobrazi text "hint"
+let ToolTip = styled.text<{ hint: string }>`
+    color: orange;
+    margin: 0 0 0 5px;
+    content: '';
+    display: inline;
+    font-weight: bold;
+
+    :before {
+        display: inline;
+        content: '';
+    }
+    :after {
+        display: inline;
+        content: '?';
+    }
+
+    :hover {
+        /* cursor: normal; <-- nefunguje */
+        display: inline;
+        content: '';
+    }
+
+    :hover:before {
+        display: none;
+        content: '';
+    }
+
+    :hover:after {
+        display: inline;
+        content: ${ h => h.hint };
+    }
 `;
 
 let Reg = styled.form`
@@ -285,6 +320,40 @@ export const ModularForm: FunctionComponent<Props> = ({
         setUserExist(user !== null);
     }, [user])
 
+    let ValidateFName = function (entry: string): boolean
+    {
+        // na zaciatku velke pismeno, zvysok male pismena. ziadne specialne znaky (-)
+        let regex = '^[A-Z][a-z]+';
+        let result = entry.match(regex);
+        return result != null && result[0] == result.input;
+
+    }
+
+    let ValidateLName = function (entry: string)
+    {
+        // na zaciatku velke pismeno, zvysok male pismena alebo specialne znaky (-, \\s)
+        let regex = '[A-Z][a-z]+\\s?[-]?\\s?[A-Za-z]+';
+        let result = entry.match(regex);
+        return result != null && result[0] == result.input;
+    }
+    let ValidateEmail = function (entry: string): boolean
+    {
+        /*'[a-zA-Z0-9-._,?*+]+';   <-- username check, since it is email, different is used */
+        //na ziaciatku pismena+cisla, niekde @ za nim pismena+cisla, ., domena 2-5 znakov
+        let regex = '^[a-zA-Z0-9].*[@][a-zA-Z0-9]+.[a-z]{2,5}$';
+        let result = entry?.match(regex);
+        return result != null && result[0] == result.input;
+
+
+    }
+    let ValidatePW = function (entry: string)
+    {
+        // musi obsahovat aspon 1 cislo, aspon 1 velke pismeno a mat aspon 8 znakov dlzku
+        let regex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[A-Z])[A-Za-z\\d]{8,}$";
+        let result = entry.match(regex);
+        return result != null && result[0] == result.input;
+
+    }
 
     return (
         <>
@@ -308,31 +377,52 @@ export const ModularForm: FunctionComponent<Props> = ({
                             <Close id="hideBtn" onClick={() => setDisplay(false)}>X</Close>
                             <Title> Registration </Title>
                             <InputWrapper>
-                                <InputElement type="text" id="firstname_0" name="firstname" placeholder="First name"
+                                <InputElement type="text"
+                                              id="firstname_0"
+                                              name="firstname"
+                                              placeholder="First name"
                                               value={firstName}
                                               onChange={(e) => setFirstName(e.target.value)}/>
-                                <InputElement type="text" id="lastname_0" name="lastname" placeholder="Last name"
+                                <ToolTip hint="Enter your name" />
+                                <InputElement type="text"
+                                              id="lastname_0"
+                                              name="lastname"
+                                              placeholder="Last name"
                                               value={lastName}
                                               onChange={(e) => setLastName(e.target.value)}/>
-                                <InputElement type="text" id="username_0" name="username" placeholder="Email address"
+                                <ToolTip hint="Enter your surname" />
+                                <InputElement type="text"
+                                              id="username_0"
+                                              name="username"
+                                              placeholder="Email address"
                                               value={emailAddress}
                                               onChange={(e) => setEmailAddress(e.target.value)}/>
-                                <InputElement type="password" id="pw_0" name="pw" placeholder="Password"
+                                <ToolTip hint="Enter your email address" />
+                                <InputElement type="password"
+                                              id="pw_0"
+                                              name="pw"
+                                              placeholder="Password"
                                               value={password}
-                                              onChange={(e) => setPassword(e.target.value)}/>
-                                <RegistrationButton type="submit" id="submit_0" name="submit"
+                                              onChange={ (e) => setPassword(e.target.value) }/>
+                                <ToolTip
+                                    hint="Password must contains: 1 uppercase, 1 number and be length of 8 at least" />
+
+                                <RegistrationButton type="submit"
+                                                    id="submit_0"
+                                                    name="submit"
                                                     value="submit"
-                                                    onClick={() => axios.post("/register", {
-                                                        first_name: firstName,
-                                                        last_name: lastName,
-                                                        password: password,
-                                                        email: emailAddress
-                                                    }).then((res) => {
-                                                        if (res.data === 1) {
-                                                            console.log("yes");
-                                                            setRegistrationSuccessful(true);
-                                                        }
-                                                    })}> Registration</RegistrationButton>
+                                                    onClick={ () => {
+                                    axios.post("/register", {
+                                    first_name: firstName,
+                                    last_name: lastName,
+                                    password: password,
+                                    email: emailAddress
+                                    }).then((res) => {
+                                        if (res.data === 1) {
+                                            console.log("yes");
+                                            setRegistrationSuccessful(true);
+                                    }})
+                                }}>Registration</RegistrationButton>
                                 <RegistrationButton id="showBtn_0" onClick={() => setIsRegister(false)}> Already have
                                     account?</RegistrationButton>
                             </InputWrapper>
@@ -346,20 +436,23 @@ export const ModularForm: FunctionComponent<Props> = ({
                                     <InputElement type="text" id="username1" name="username" placeholder="Email address"
                                                   value={emailAddress}
                                                   onChange={(e) => setEmailAddress(e.target.value)}/>
+                                    <ToolTip id="tooltip_login_username" hint={"Enter your username"}> </ToolTip>
                                     <InputElement type="password" id="pw1" name="pw" placeholder="Password"
                                                   value={password}
                                                   onChange={(e: any) => setPassword(e.target.value)}/>
+                                    <ToolTip id="tooltip_login_pw" hint={"Enter your password"}> </ToolTip>
                                     <RegistrationButton type="submit" id="submit1" name="submit"
                                                         value="submit" onClick={() => {
                                         console.log("log user");
-                                        axios.post("/login", {email: emailAddress, password: password}).then((res) => {
-                                                setUser(res.data);
-                                                setIsRegister(true);
-                                                setIsComplete(false);
-                                                setRegistrationSuccessful(false);
-                                            }
-                                        )
-                                    }}> Log in</RegistrationButton>
+                                        axios.post("/login",
+                                            {email: emailAddress, password: password}).then((res) =>
+                                            {
+                                                    setUser(res.data);
+                                                    setIsRegister(true);
+                                                    setIsComplete(false);
+                                                    setRegistrationSuccessful(false);
+                                            })
+                                        }}> Log in</RegistrationButton>
                                     <RegistrationButton id="showBtn1" onClick={() => setIsRegister(true)}> Don't have an
                                         account? Create one!</RegistrationButton>
                                 </InputWrapper>

@@ -1,7 +1,6 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import ModularForm from "../input/modular-form/ModularForm";
-import {makeLogger} from "ts-loader/dist/logger";
 
 interface Props {
     element: any;
@@ -129,7 +128,10 @@ export const ResultItem: FunctionComponent<Props> = ({
                                                          user,
                                                          setFlightsFrom
                                                      }) => {
+
+    console.log(images);
     let imgUrl = images.find((obj: any) => {
+        console.log(obj);
         if (obj.name === imgSrc) {
             return obj;
         }
@@ -143,7 +145,7 @@ export const ResultItem: FunctionComponent<Props> = ({
                 </WrapperContentCol>
                 <WrapperContentCol>
                     <ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ResultH2>
-                    <ResultH3>{"Departure time: " + leaves +". Estimated arrival time: " + arrives}</ResultH3>
+                    <ResultH3>{"Departure time: " + leaves + ". Estimated arrival time: " + arrives}</ResultH3>
                     <ResultH3>{"Flight by company " + companyName + "*".repeat(companyClass)}</ResultH3>
                     <ResultH3>{"Distance between cities is " + distance + "km." + " Duration of flight is " + duration + " minutes."}</ResultH3>
                     <ResultDescription>{description}</ResultDescription>
