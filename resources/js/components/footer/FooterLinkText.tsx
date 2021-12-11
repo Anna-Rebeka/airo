@@ -14,10 +14,6 @@ let FooterLinkLi = styled.li`
     @media (min-width: 772px) {
         width: 33.33333%;
     };
-
-    @media (min-width: 992px) {
-        width: 25%;
-    };
 `;
 
 let FooterLinkTextA = styled.a`

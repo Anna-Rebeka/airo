@@ -12,6 +12,7 @@ let FooterMainDiv = styled.footer`
     display: flex;
     flex-direction: column;
     background-color: black;
+    align-items: center;
 `;
 
 let FooterNav = styled.nav`
@@ -20,6 +21,7 @@ let FooterNav = styled.nav`
     align-items: center;
     justify-content: center;
     margin: 1em;
+    width: 50%;
 `;
 
 let FooterWrapperDiv = styled.div`
@@ -27,9 +29,7 @@ let FooterWrapperDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 2em;
+    margin: 1em;
 
     max-width: 480px;
 
@@ -84,8 +84,9 @@ let Credits = styled.p`
     color: white;
 `;
 
-let FooterContact = styled.div`
-
+let FooterContact = styled.address`
+    width: 25%;
+    color: white;
 `;
 
 let FooterContactParagraph = styled.p`
@@ -96,6 +97,10 @@ let FooterContactParagraph = styled.p`
 
 `;
 
+let FooterLogoWrapper = styled.div`
+    width: 25%;
+`
+
 export const FooterImpl: FunctionComponent<Props> = ({
                                                          className,
                                                          children
@@ -105,11 +110,17 @@ export const FooterImpl: FunctionComponent<Props> = ({
         text: "Contacts"
     },
         {href: "/myflights", text: "My flights"}, {href: "/", text: "GDPR"}, {href: "/", text: "ABOUT"}]
-    let iconLinks = [{href: "/", url:require("../../../../public/images/facebook.svg"),alt:"Facebook icon"}, {href: "/", url:require("../../../../public/images/instagram.svg"),alt:"Instagram icon"}];
+    let iconLinks = [{
+        href: "/",
+        url: require("../../../../public/images/facebook.svg"),
+        alt: "Facebook icon"
+    }, {href: "/", url: require("../../../../public/images/instagram.svg"), alt: "Instagram icon"}];
     return (
         <FooterMainDiv className={className}>
             <FooterWrapperDiv>
-                <FooterLogo/>
+                <FooterLogoWrapper>
+                    <FooterLogo/>
+                </FooterLogoWrapper>
                 <FooterNav>
                     <FooterLinksFlexBox>
                         {textLinks && textLinks.map((link: any, index: number) => (
@@ -123,15 +134,9 @@ export const FooterImpl: FunctionComponent<Props> = ({
                     </FooterIconsFlexBox>
                 </FooterNav>
                 <FooterContact>
-                    <FooterContactParagraph>
-                        Airline search engine plus
-                    </FooterContactParagraph>
-                    <FooterContactParagraph>
-                        Bratislavská 47
-                    </FooterContactParagraph>
-                    <FooterContactParagraph>
-                        Bratislava
-                    </FooterContactParagraph>
+                    Airline search engine plus<br/>
+                    Bratislavská 47<br/>
+                    Bratislava<br/>
                 </FooterContact>
             </FooterWrapperDiv>
             <Credits>

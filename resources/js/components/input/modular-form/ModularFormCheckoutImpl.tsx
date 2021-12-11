@@ -50,8 +50,8 @@ export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setD
                         <TextCheckout>Departure and arrival
                             city: {(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)} </TextCheckout>
                         <TextCheckout>Date and time: {element && element.date}</TextCheckout>
-                        <TextCheckout>Price: {element && element.price}e</TextCheckout>
-                        <TextCheckout>Company: {element && element.company && element.company.name + "*".repeat(element && element.company && element.companyClass)}</TextCheckout>
+                        <TextCheckout>Price: {element && element.price} €</TextCheckout>
+                        <TextCheckout>Company: {element && element.company && element.company.name + "*".repeat(element && element.company && element.company.companyClass)}</TextCheckout>
                         <TextCheckout>Duration and
                             distance: {element && element.duration + "mins " + element && element.distance + "km"}</TextCheckout>
                     </FlexboxInputsCheckout>

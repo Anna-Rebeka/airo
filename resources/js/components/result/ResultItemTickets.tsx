@@ -34,19 +34,12 @@ let ResultWrapper = styled.div`
     };
 `;
 
-let ResultH2 = styled.h2`
-    color: white;
-    position: relative;
-    margin: 0;
-    float: left;
-    text-decoration: underline;
-`
-
 let ResultH3 = styled.h3`
     color: white;
     position: relative;
     margin: 0;
     float: left;
+    text-decoration: underline;
 `
 
 let ResultDescription = styled.p`
@@ -60,7 +53,7 @@ let ResultDescription = styled.p`
     text-align: left;
 `
 
-let MainWrapperContent = styled.div`
+let MainWrapperContent = styled.ul`
     display: flex;
     flex-direction: column;
 
@@ -69,7 +62,7 @@ let MainWrapperContent = styled.div`
     };
 `
 
-let WrapperContentCol = styled.div`
+let WrapperContentCol = styled.li`
     display: flex;
     flex-direction: column;
 `
@@ -83,9 +76,8 @@ export const ResultItemTickets: FunctionComponent<Props> = ({
         <ResultWrapper>
             <MainWrapperContent>
                 <WrapperContentCol>
-                    <ResultH2>{(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)}{" - " + (element && element.price) + " €"}</ResultH2>
-                    <ResultH3>{"Departure time: " + element && element.leaves + ". Estimated arrival time: " + element && element.arrives}</ResultH3>
-
+                    <ResultH3>{(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)}{" - " + (element && element.price) + " €"}</ResultH3>
+                    <ResultDescription>{"Departure time: " + element && element.leaves + ". Estimated arrival time: " + element && element.arrives}</ResultDescription>
                 </WrapperContentCol>
             </MainWrapperContent>
         </ResultWrapper>

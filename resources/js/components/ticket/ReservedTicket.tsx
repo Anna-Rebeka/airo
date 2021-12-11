@@ -8,6 +8,7 @@ import BasicImpl from "../sections/BasicImpl";
 interface Props {
     dataset: any;
     images: any;
+    element: any;
 }
 
 let Carousel = styled.div`
@@ -35,17 +36,18 @@ let Heading1 = styled.h1`
 `
 
 
-const RezervedTickets: FunctionComponent<Props> = ({
-    images,
-    dataset,    
-    }) => {
+const ReservedTicketsNoRegistered: FunctionComponent<Props> = ({
+                                                                   images,
+                                                                   dataset,
+                                                                   element
+                                                               }) => {
 
     const [user, setUser] = useState<any>();
 
     useEffect(() => {
         setUser(JSON.parse(dataset.user));
     }, [dataset])
-    
+
     return (
         <BasicImpl id={"main"} user={user} setUser={setUser}>
             <ResultItem companyClass={element && element.flight.company && element.flight.company.class}
@@ -54,7 +56,7 @@ const RezervedTickets: FunctionComponent<Props> = ({
                         leaves={element && element.flight.leaves}
                         distance={element && element.flight.distance}
                         duration={element && element.flight.duration}
-                        images={images} key={"result-item-flights" + index}
+                        images={images} key={"result-item-flights" + 0}
                         imgSrc={element && element.flight.arrival && element.flight.arrival.image}
                         price={element.price}
                         description={element && element.flight.arrival && element.flight.arrival.info}
@@ -63,11 +65,11 @@ const RezervedTickets: FunctionComponent<Props> = ({
                         element={element}
                         user={user}
                         setUser={setUser}
-                        setFlightsFrom={setFlightsFrom}
+                        setFlightsFrom={null}
             />
-                      
+
         </BasicImpl>
     );
 }
 
-export default RezervedTickets;
+export default ReservedTicketsNoRegistered;

@@ -5,7 +5,6 @@ import BasicImpl from "./BasicImpl";
 
 interface Props {
     dataset: any;
-    flights: any;
 }
 
 let Heading1 = styled.h1`
@@ -30,14 +29,14 @@ let Wrapper = styled.div`
 `
 
 export const MyFlightsImpl: FunctionComponent<Props> = ({
-                                                            dataset,
-                                                            flights
+                                                            dataset
                                                         }) => {
     const [user, setUser] = useState<any>();
-
+    const [flights, setFlights] = useState<any>();
 
     useEffect(() => {
         setUser(JSON.parse(dataset.user));
+        setFlights(JSON.parse(dataset.flights));
     }, [dataset])
 
     return (
@@ -46,11 +45,11 @@ export const MyFlightsImpl: FunctionComponent<Props> = ({
                 <Heading1>Your tickets</Heading1>
                 <Heading2>Welcome {user && user.first_name} {user && user.last_name}</Heading2>
 
-                {flights && Object.keys(flights).length>0?
+                {flights && Object.keys(flights).length > 0 ?
                     flights.map((element: any, index: number) => (
-                            <ResultItemTickets user={dataset && JSON.parse(dataset.user)} key={"src" + index}
-                                               element={element && element.flight}
-                            />)):
+                        <ResultItemTickets user={dataset && JSON.parse(dataset.user)} key={"src" + index}
+                                           element={element && element.flight}
+                        />)) :
                     <Paragraph>
                         You don't have any flights.
                     </Paragraph>

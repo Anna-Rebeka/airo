@@ -5,7 +5,6 @@ import BasicImpl from "./BasicImpl";
 interface Props {
     images: any;
     dataset: any;
-    setUser: any;
 }
 
 export const GalleryImpl: FunctionComponent<Props> = ({

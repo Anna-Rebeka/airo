@@ -6,7 +6,7 @@ import {CarouselImageImpl} from "./components/carousel/CarouselmgImpl";
 import ResultItem from "./components/result/ResultItem";
 import {GalleryImpl} from "./components/sections/GalleryImpl";
 import {MyFlightsImpl} from "./components/sections/MyFlightsImpl";
-import RezervedTicket from "./components/ticket/RezervedTicket";
+import RezervedTicket from "./components/ticket/ReservedTicket";
 
 import {ContactsImpl} from "./components/sections/ContactsImpl";
 import BasicImpl from "./components/sections/BasicImpl";
@@ -131,11 +131,9 @@ let elementTicket = document.getElementById('show-ticket');
 if (elementMain) {
     ReactDOM.render(<Root dataset={Object.assign({}, elementMain.dataset)}/>, elementMain);
 } else if (elementGallery) {
-    ReactDOM.render(<GalleryImpl setUser={null} images={images}
-                                 dataset={Object.assign({}, elementGallery.dataset)}/>, elementGallery);
+    ReactDOM.render(<GalleryImpl images={images} dataset={Object.assign({}, elementGallery.dataset)}/>, elementGallery);
 } else if (elementMyFlights) {
-    ReactDOM.render(<MyFlightsImpl flights={[]}
-                                   dataset={Object.assign({}, elementMyFlights.dataset)}/>, elementMyFlights);
+    ReactDOM.render(<MyFlightsImpl dataset={Object.assign({}, elementMyFlights.dataset)}/>, elementMyFlights);
 } else if (elementContacts) {
     ReactDOM.render(<ContactsImpl dataset={Object.assign({}, elementContacts.dataset)}/>, elementContacts);
 } else if (elementPageNotFound) {
