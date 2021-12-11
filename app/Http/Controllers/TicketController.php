@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\Ticket;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\RezervationMade;
+use App\Mail\ReservationMade;
 
 class TicketController extends Controller
 {
@@ -105,13 +105,13 @@ class TicketController extends Controller
                 'token' => $attributes['token'],
             ]);
             return $ticket;
-            /*
-            if(!$user){
-                Mail::to($email_address)
-                    ->send(new RezervationMade($group->name, auth()->user()->name, $invite))
+            
+            if(!$user && $field['email']){
+                Mail::to($field['email'])
+                    ->send(new ReservationMade($attributes['token']))
                 ;
             }
-            */
+        
         });
         return $ticket;
     }

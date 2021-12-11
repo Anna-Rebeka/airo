@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class RezervationMade extends Mailable
+class ReservationMade extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -22,7 +22,7 @@ class RezervationMade extends Mailable
      */
     public function __construct($token)
     {
-        $this->url = env('APP_URL') . '/ticket/' . $token;
+        $this->url = env('APP_URL') . '/tickets/' . $token;
     }
 
     /**
@@ -33,6 +33,6 @@ class RezervationMade extends Mailable
     public function build()
     {
         return $this->markdown('emails.show-ticket')
-            ->subject('Your ticket rezervation is complete');
+            ->subject('Your ticket reservation is complete');
     }
 }

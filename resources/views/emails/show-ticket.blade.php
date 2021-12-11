@@ -1,5 +1,5 @@
 @component('mail::message')
-# Your ticket rezervation is confirmed!
+# Your ticket reservation is confirmed!
 
 You can see your ticket details in the link below.
 
