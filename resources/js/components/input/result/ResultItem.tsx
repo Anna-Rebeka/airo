@@ -63,7 +63,6 @@ export const ResultItem: FunctionComponent<Props> = ({imgSrc, description, altTe
                                                          headerText, price}) =>
 {
     return (
-        /* pred <img> natiahnut este <a> s odkazom na stranku s detailami? */
         <ResultWrapper>
             <Result>
                 <ResultImg srcSet={imgSrc} alt={altText} /><ResultH2>{headerText} - {price} &euro;</ResultH2>
