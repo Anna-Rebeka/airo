@@ -101,7 +101,7 @@ let FooterContact = styled.address`
 `;
 
 let FooterLogoWrapper = styled.div`
-    display:flex;
+    display: flex;
     justify-content: center;
     width: 100%;
 
