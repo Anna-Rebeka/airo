@@ -6,9 +6,12 @@ import {CarouselImageImpl} from "./components/carousel/CarouselmgImpl";
 import ResultItem from "./components/result/ResultItem";
 import {GalleryImpl} from "./components/sections/GalleryImpl";
 import {MyFlightsImpl} from "./components/sections/MyFlightsImpl";
+import RezervedTicket from "./components/ticket/RezervedTicket";
+
 import {ContactsImpl} from "./components/sections/ContactsImpl";
 import BasicImpl from "./components/sections/BasicImpl";
 import {PageNotFound} from "./components/not-found/PageNotFound";
+
 
 interface RootProps {
     dataset: any;
@@ -122,6 +125,8 @@ let elementGallery = document.getElementById('gallery');
 let elementMyFlights = document.getElementById('myflights');
 let elementContacts = document.getElementById('contacts');
 let elementPageNotFound = document.getElementById('e404');
+let elementTicket = document.getElementById('show-ticket');
+
 
 if (elementMain) {
     ReactDOM.render(<Root dataset={Object.assign({}, elementMain.dataset)}/>, elementMain);
@@ -135,5 +140,8 @@ if (elementMain) {
     ReactDOM.render(<ContactsImpl dataset={Object.assign({}, elementContacts.dataset)}/>, elementContacts);
 } else if (elementPageNotFound) {
     ReactDOM.render(<PageNotFound/>, elementPageNotFound);
+} else if (elementTicket) {
+    ReactDOM.render(<RezervedTicket images={images}
+                                    dataset={Object.assign({}, elementTicket.dataset)}/>, elementTicket);
 }
 

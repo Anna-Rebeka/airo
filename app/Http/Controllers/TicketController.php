@@ -39,13 +39,27 @@ class TicketController extends Controller
         if(!auth()->user() || $ticket->user != auth()->user()){
             return redirect('/');
         }
+        $ticket->flight;
+        $ticket->flight->arrival;
+        $ticket->flight->departure;
 
-        return $ticket;
+        return view('tickets.show', [
+            'user' => auth()->user(),
+            'ticket' => $ticket
+        ]);
     }
 
     public function getTicketsUnregistered($token)
     {   
-        return Ticket::where('token', $token)->get()->first();   
+        $ticket = Ticket::where('token', $token)->get()->first();
+        $ticket->flight;
+        $ticket->flight->arrival;
+        $ticket->flight->departure;   
+        
+        return view('tickets.show', [
+            'user' => auth()->user(),
+            'ticket' => $ticket
+        ]);
     }
 
     /**
