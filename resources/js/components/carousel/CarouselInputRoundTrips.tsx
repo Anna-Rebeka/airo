@@ -2,7 +2,7 @@ import AutoCompleteInput from "../input/auto-complete/AutoCompleteInput";
 import React, {FunctionComponent, useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import {CarouselButton} from "../button/CarouselButton";
-import {InputLink} from "../input/InputLink";
+import {InputLink} from "../input/input-link/InputLink";
 import axios from "axios";
 
 
