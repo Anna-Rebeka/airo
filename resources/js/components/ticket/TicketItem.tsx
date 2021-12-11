@@ -42,7 +42,7 @@ let ResultWrapper = styled.article`
     };
 
     @media (min-width: 1060px) {
-        width: 75%;
+        width: 100%;
     };
 
     @media (min-width: 1280px) {
