@@ -13,7 +13,8 @@ interface RootProps {
 
 let BackgroundWrapper = styled.div`
     background-color: #000000;
-    background-image: linear-gradient(315deg, #000000 0%, #404040 74%);
+    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);
+    min-height: 100vh;
 `
 
 

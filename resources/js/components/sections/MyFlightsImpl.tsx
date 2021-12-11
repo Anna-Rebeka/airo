@@ -14,7 +14,7 @@ let Heading1 = styled.h2`
 
 let Wrapper = styled.div`
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     background-color: black;
     display: flex;
     flex-direction: column;

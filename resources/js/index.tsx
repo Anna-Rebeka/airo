@@ -28,6 +28,9 @@ let ListOfTickets = styled.div`
     width: 100%;
     flex-direction: column;
     align-items: center;
+
+    background-color: #000000;
+    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);
 `
 
 let Heading1 = styled.h1`
@@ -35,13 +38,22 @@ let Heading1 = styled.h1`
 `
 
 let images =
-    [{name: "/images/cities/bratislava.jpg", url: require("../../public/images/cities/bratislava.jpg")},
-        {name: "/images/cities/default.jpg", url: require("../../public/images/cities/default.jpg")},
-        {name: "/images/cities/newyork.jpg", url: require("../../public/images/cities/newyork.jpg")},
-        {name: "/images/cities/tokyo.jpg", url: require("../../public/images/cities/tokyo.jpg")},
-        {name: "/images/cities/paris.jpg", url: require("../../public/images/cities/paris.jpg")},
-        {name: "/images/cities/rome.jpg", url: require("../../public/images/cities/rome.jpg")},
-        {name: "/images/cities/praha.jpg", url: require("../../public/images/cities/praha.jpg")},
+    [{name: "bratislava", url: require("../../public/images/bratislava.jpg")},
+        {name: "newyork", url: require("../../public/images/newyork.jpg")},
+        {name: "tokyo", url: require("../../public/images/tokyo.jpg")},
+        {name: "paris", url: require("../../public/images/paris.jpg")},
+        {name: "rome", url: require("../../public/images/rome.jpg")},
+        {name: "prague", url: require("../../public/images/praha.jpg")},
+        {name: "default", url: require("../../public/images/default0.jpg")},
+        {name: "default", url: require("../../public/images/default1.jpg")},
+        {name: "default", url: require("../../public/images/default2.jpg")},
+        {name: "default", url: require("../../public/images/default3.jpg")},
+        {name: "default", url: require("../../public/images/default4.jpg")},
+        {name: "default", url: require("../../public/images/default5.jpg")},
+        {name: "default", url: require("../../public/images/default6.jpg")},
+        {name: "default", url: require("../../public/images/default7.jpg")},
+        {name: "default", url: require("../../public/images/default8.jpg")},
+        {name: "default", url: require("../../public/images/default9.jpg")},
     ];
 
 

@@ -79,7 +79,6 @@ export const ResultItemTickets: FunctionComponent<Props> = ({
                                                                 element,
                                                                 user
                                                             }) => {
-    console.log(user);
     return (
         <ResultWrapper>
             <MainWrapperContent>

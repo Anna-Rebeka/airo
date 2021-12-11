@@ -23,10 +23,6 @@ let ImageGridFlexboxImgElement = styled.img`
   @media (min-width: 1920px) {
     width: 25%;
   }
-
-  @media (min-width: 2560px) {
-    width: 12.5%;
-  }
 `;
 
 
