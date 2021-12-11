@@ -31,9 +31,21 @@ class TicketController extends Controller
         ]);
     }
 
+
+    public function getTicketRegistered($id)
+    {   
+        $ticket = Ticket::find($id);
+        
+        if(!auth()->user() || $ticket->user != auth()->user()){
+            return redirect('/');
+        }
+
+        return $ticket;
+    }
+
     public function getTicketsUnregistered($token)
     {   
-        return Ticket::where('token', $token)->get();   
+        return Ticket::where('token', $token)->get()->first();   
     }
 
     /**
