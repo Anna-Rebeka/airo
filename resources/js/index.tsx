@@ -6,11 +6,11 @@ import {CarouselImageImpl} from "./components/carousel/CarouselmgImpl";
 import ResultItem from "./components/result/ResultItem";
 import {GalleryImpl} from "./components/sections/GalleryImpl";
 import {MyFlightsImpl} from "./components/sections/MyFlightsImpl";
-import RezervedTicket from "./components/ticket/ReservedTicket";
 
 import {ContactsImpl} from "./components/sections/ContactsImpl";
 import BasicImpl from "./components/sections/BasicImpl";
 import {PageNotFound} from "./components/not-found/PageNotFound";
+import {ReservedTicketsNoRegistered} from "./components/ticket/ReservedTicketsNoRegistered";
 
 
 interface RootProps {
@@ -142,7 +142,7 @@ if (elementMain) {
 } else if (elementPageNotFound) {
     ReactDOM.render(<PageNotFound/>, elementPageNotFound);
 } else if (elementTicket) {
-    ReactDOM.render(<RezervedTicket images={images}
-                                    dataset={Object.assign({}, elementTicket.dataset)}/>, elementTicket);
+    ReactDOM.render(<ReservedTicketsNoRegistered images={images}
+                                                 dataset={Object.assign({}, elementTicket.dataset)}/>, elementTicket);
 }
 

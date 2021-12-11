@@ -23,17 +23,13 @@ interface Props {
 
 let ResultWrapper = styled.article`
     position: relative;
-    overflow: hidden;
-    width: 99%;
+    width: 100%;
     text-align: left;
     display: block;
     color: white;
-    padding: 5px;
-    border: 1px gray solid;
 
     :nth-of-type(odd) {
         background-color: rgb(100, 100, 100);
-        padding: 5px;
     }
 
     @media (min-width: 1280px) {
@@ -69,24 +65,23 @@ let ResultH2 = styled.h2`
 
 let Element = styled.li`
     color: white;
-    margin: 0;
-`
-
-let ResultDescription = styled.li`
-    color: white;
-    margin: 0.2em 0;
-    width: 100%;
-    overflow: hidden;
+    list-style: none;
+    margin: 0.2em 0.7em;
+    padding: 0;
 `
 
 let WrapperContentCol = styled.li`
     display: flex;
     flex-direction: column;
+    list-style: none;
+    margin: 0.6em;
+    padding: 0;
 `
 
 let RowWrapper = styled.ul`
     display: flex;
     flex-direction: column;
+    padding: 0;
 
     @media (min-width: 772px) {
         flex-direction: row;
@@ -96,10 +91,11 @@ let RowWrapper = styled.ul`
 let WrapperDetails = styled.ul`
     display: flex;
     flex-direction: column;
+    padding: 0;
 `
 
 
-export const ResultItem: FunctionComponent<Props> = ({
+export const TicketItem: FunctionComponent<Props> = ({
                                                          imgSrc,
                                                          description,
                                                          altText,
@@ -112,11 +108,7 @@ export const ResultItem: FunctionComponent<Props> = ({
                                                          companyName,
                                                          companyClass,
                                                          duration,
-                                                         distance,
-                                                         element,
-                                                         setUser,
-                                                         user,
-                                                         setFlightsFrom
+                                                         distance
                                                      }) => {
 
     let imgUrl = images.find((obj: any) => {
@@ -145,5 +137,3 @@ export const ResultItem: FunctionComponent<Props> = ({
         </ResultWrapper>
     );
 }
-
-export default ResultItem;

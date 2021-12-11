@@ -15,7 +15,7 @@ interface NavigationLinkProps {
 let NavigationLinkLi = styled.li`
     list-style: none;
     display: block;
-    padding: 8px 20px;
+    padding: 4px 10px;
 `
 
 let NavigationLinkA = styled.a<{ activated: boolean }>`

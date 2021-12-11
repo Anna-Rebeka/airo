@@ -11,11 +11,12 @@ let NavigationLogoImg = styled.div`
     text-decoration: none;
     display: block;
     padding: 8px 20px;
-    width: 40px;
+    width: 30px;
     height: auto;
     cursor: pointer;
     color: white;
     text-align: center;
+    font-size: 0.6em;
 
     :hover {
         color: #FF7F2A;
@@ -25,14 +26,17 @@ let NavigationLogoImg = styled.div`
 
     @media (min-width: 772px) {
         width: 50px;
+        font-size: 1em;
     };
 
     @media (min-width: 992px) {
         width: 55px;
+        font-size: 1.2em;
     }
 
     @media (min-width: 1280px) {
         width: 65px;
+        font-size: 1.4em;
     };
 
     @media (min-width: 1920px) {

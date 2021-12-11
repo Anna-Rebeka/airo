@@ -31,7 +31,11 @@ let NavigationLinkItemDiv = styled.ul<{ direction: string }>`
     flex-direction: column;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 50%;
+
+    @media (min-width: 476px) {
+       width: 100%;
+    }
 
     @media (min-width: 772px) {
         flex-direction: row;
@@ -39,6 +43,41 @@ let NavigationLinkItemDiv = styled.ul<{ direction: string }>`
         display: flex;
     }
 `;
+
+let LogoutButton = styled.div`
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    padding: 8px 20px;
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+
+    :hover {
+        color: #FF7F2A;
+    }
+
+    transition: color 0.7s ease;
+
+    @media (min-width: 772px) {
+        width: 70px;
+    };
+
+    @media (min-width: 992px) {
+        width: 75px;
+    }
+
+    @media (min-width: 1280px) {
+        width: 85px;
+    };
+
+    @media (min-width: 1920px) {
+        width: 100px;
+    };
+`
 
 export const NavigationImpl: FunctionComponent<Props> = ({
                                                              setUser,
@@ -74,6 +113,20 @@ export const NavigationImpl: FunctionComponent<Props> = ({
                     )
                 )}
             </NavigationLinkItemDiv>
+            {user ?
+                <LogoutButton>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"  fill="currentColor">
+                        <g>
+                            <path d="M0,0h24v24H0V0z" fill="none"/>
+                        </g>
+                        <g>
+                            <path
+                                d="M17,8l-1.41,1.41L17.17,11H9v2h8.17l-1.58,1.58L17,16l4-4L17,8z M5,5h7V3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h7v-2H5V5z"/>
+                        </g>
+                    </svg>
+                </LogoutButton> : null
+            }
         </NavigationImplDiv>
     )
 

@@ -1,8 +1,6 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
-
-import styled from "@emotion/styled";
-import TicketItem from "../ticket/TicketItem";
 import BasicImpl from "../sections/BasicImpl";
+import {TicketItem} from "./TicketItem";
 
 
 interface Props {
@@ -10,32 +8,8 @@ interface Props {
     images: any;
 }
 
-let Carousel = styled.div`
-    width: 100%;
-    height: 800px;
-    position: relative;
 
-    @media (min-width: 576px) {
-        height: 1280px;
-    }
-`
-
-let ListOfTickets = styled.div`
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-
-    background-color: #000000;
-    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);
-`
-
-let Heading1 = styled.h1`
-    color: white;
-`
-
-
-const ReservedTicketsNoRegistered: FunctionComponent<Props> = ({
+export const ReservedTicketsNoRegistered: FunctionComponent<Props> = ({
                                                                    images,
                                                                    dataset
                                                                }) => {
@@ -70,5 +44,3 @@ const ReservedTicketsNoRegistered: FunctionComponent<Props> = ({
         </BasicImpl>
     );
 }
-
-export default ReservedTicketsNoRegistered;
