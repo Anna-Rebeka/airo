@@ -5,4 +5,4 @@
  */
 
 require('./index.tsx');
-require('./components/gallery/GalleryImpl.tsx');
+require('./components/sections/GalleryImpl.tsx');

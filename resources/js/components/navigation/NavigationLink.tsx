@@ -72,7 +72,7 @@ export const NavigationLink: FunctionComponent<NavigationLinkProps> = ({
     return (
         <NavigationLinkLi>
             {(needLogin && user == null) ?
-                <NavigationButtonLogin user={user} setUser={setUser}>
+                <NavigationButtonLogin isRegisterProps={false} user={user} setUser={setUser}>
                     {textField}
                 </NavigationButtonLogin> :
                 <NavigationLinkA activated={textField == "ONE"} href={href} className={className}>

@@ -7,6 +7,7 @@ interface Props {
     shouldBeActivated?: boolean;
     user: any;
     setUser: any;
+    isRegisterProps:boolean;
 }
 
 let FormWrapper = styled.div<{ shouldBeDisplayed: boolean }>`
@@ -303,13 +304,14 @@ let NavigationLinkButton = styled.button<{ activated: boolean }>`
 
 export const NavigationButtonLogin: FunctionComponent<Props> = ({
                                                                     shouldBeActivated,
-                                                                    user
+                                                                    user,
+                                                                    isRegisterProps
                                                                 }) => {
     let [display, setDisplay] = useState(!!shouldBeActivated);
     let [canClose, setCanClose] = useState(true);
     let [emailAddress, setEmailAddress] = useState<string>();
     let [password, setPassword] = useState<string>();
-    let [isRegister, setIsRegister] = useState<boolean>(true);
+    let [isRegister, setIsRegister] = useState<boolean>(isRegisterProps);
 
     let [firstName, setFirstName] = useState<string>();
     let [lastName, setLastName] = useState<string>();
@@ -357,7 +359,6 @@ export const NavigationButtonLogin: FunctionComponent<Props> = ({
                                                         email: emailAddress
                                                     }).then((res) => {
                                                         if (res.data === 1) {
-                                                            console.log("yes");
                                                             setRegistrationSuccessful(true);
                                                         }
                                                     })}> Registration</RegistrationButton>
