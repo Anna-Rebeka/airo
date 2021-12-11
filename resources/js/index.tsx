@@ -121,6 +121,7 @@ let elementMain = document.getElementById('root');
 let elementGallery = document.getElementById('gallery');
 let elementMyFlights = document.getElementById('myflights');
 let elementContacts = document.getElementById('contacts');
+let elementPageNotFound = document.getElementById('e404');
 
 if (elementMain) {
     ReactDOM.render(<Root dataset={Object.assign({}, elementMain.dataset)}/>, elementMain);
@@ -132,5 +133,7 @@ if (elementMain) {
                                    dataset={Object.assign({}, elementMyFlights.dataset)}/>, elementMyFlights);
 } else if (elementContacts) {
     ReactDOM.render(<ContactsImpl dataset={Object.assign({}, elementContacts.dataset)}/>, elementContacts);
+} else if (elementPageNotFound) {
+    ReactDOM.render(<PageNotFound/>, elementPageNotFound);
 }
 

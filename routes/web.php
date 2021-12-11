@@ -43,3 +43,7 @@ Route::get('/myflights', [App\Http\Controllers\TicketController::class, 'getTick
 Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store']);
 
 Route::get('/ticket/{token}', [App\Http\Controllers\TicketController::class, 'getTicketsUnregistered']);
+
+Route::fallback(function () {
+    return view("404");
+});
