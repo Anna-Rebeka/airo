@@ -66,13 +66,13 @@ class TicketController extends Controller
                 'token' => $attributes['token'],
             ]);
             return $ticket;
-            '''
+            /*
             if(!$user){
                 Mail::to($email_address)
                     ->send(new RezervationMade($group->name, auth()->user()->name, $invite))
                 ;
             }
-            '''
+            */
         });
         return $ticket;
     }
