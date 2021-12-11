@@ -13,6 +13,9 @@ class TicketController extends Controller
 
     public function getTicketsRegistered()
     {   
+        if(!auth()->user()){
+            return redirect('/');
+        }
         $tickets = auth()->user()->tickets()->get();
 
         foreach ($tickets as $ticket){
