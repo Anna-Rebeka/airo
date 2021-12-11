@@ -11,7 +11,7 @@ WHERE `name` = 'Bratislava';
 
 
 UPDATE `cities`
-SET `image` = 'praha',
+SET `image` = 'prague',
 	`info` = 'Prague is the capital and largest city in the Czech Republic, the 13th largest city in the European Union and the historical
 			capital of Bohemia. ... Situated on the Vltava river, Prague is home to about 1.3 million people, while its metropolitan area
 			is estimated to have a population of 2.7 million.'
