@@ -1,6 +1,7 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {ModularButton} from "../input/modular-form/ModularButton";
+import axios from "axios";
 
 
 interface Props {
@@ -83,7 +84,15 @@ export const ResultItemTickets: FunctionComponent<Props> = ({
                 </WrapperContentCol>
                 <ModularButton type={"submit"} name={"detail"} value={"detail"}
                                    text={"Detail"} id="showDetail"
-                                   setOnClickValueMethod={() => { window.location.href = "/mytickets/" + element.ticket_id;;
+                                   setOnClickValueMethod={() => { window.location.href = "/mytickets/" + element.ticket_id
+                                   ;
+                }}/>
+                <ModularButton type={"submit"} name={"cancel"} value={"cancel"}
+                                   text={"Cancel"} id="cancelTicket"
+                                   setOnClickValueMethod={() => { 
+                                        axios.delete('/ticket/' + element.ticket_id).then((response) => {
+                                            window.location.href = "/myflights";
+                                        });
                                    ;
                 }}/>
             </MainWrapperContent>

@@ -41,6 +41,7 @@ Route::get('/search', [App\Http\Controllers\FlightController::class, 'index']);
 Route::get('/flights/{from}/{to}/{when}/{price}', [App\Http\Controllers\FlightController::class, 'getFlights']);
 Route::get('/myflights', [App\Http\Controllers\TicketController::class, 'getTicketsRegistered']);
 Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store']);
+Route::delete('/ticket/{id}', [App\Http\Controllers\TicketController::class, 'destroy']);
 
 Route::get('/mytickets/{id}', [App\Http\Controllers\TicketController::class, 'showTicketRegistered']);
 Route::get('/tickets/{token}', [App\Http\Controllers\TicketController::class, 'showTicketsUnregistered']);
