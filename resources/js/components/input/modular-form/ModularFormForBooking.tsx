@@ -98,13 +98,16 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
         <>
             {display ?
                 (!user && state === "REGISTER" ?
-                    <ModularFormRegisterImpl setState={setState} displayForm={display} setDisplay={setDisplay}/> :
-                    state === "CHECKOUT" || state === "LOGGED"  || state === "CHECKOUT_NOT_REGISTERED"?
-                        <ModularFormCheckoutImpl state={state} no={no} user={user} displayForm={display} setDisplay={setDisplay}
+                    <ModularFormRegisterImpl bookingWithoutRegistration={true} setState={setState} displayForm={display}
+                                             setDisplay={setDisplay}/> :
+                    state === "CHECKOUT" || state === "LOGGED" || state === "CHECKOUT_NOT_REGISTERED" ?
+                        <ModularFormCheckoutImpl state={state} no={no} user={user} displayForm={display}
+                                                 setDisplay={setDisplay}
                                                  element={element}
                                                  setState={setState}/> :
                         state === "LOGIN" ?
-                            <ModularFormLoginImpl setUser={setUser} setState={setState} setDisplay={setDisplay}/>
+                            <ModularFormLoginImpl bookingWithoutRegistration={true} setUser={setUser}
+                                                  setState={setState} setDisplay={setDisplay}/>
                             : null)
                 :
                 null
@@ -113,7 +116,14 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
                 withActivationButton ?
                     <ModularButton type={"submit"} name={"book"} value={"book"}
                                    text={"Book"} id="bookATicket"
-                                   setOnClickValueMethod={() => setDisplay(true)}/>
+                                   setOnClickValueMethod={() => {
+                                       if (user) {
+                                           setState("LOGGED");
+                                       } else {
+                                           setState("REGISTER");
+                                       }
+                                       setDisplay(true);
+                                   }}/>
                     : null
             }
         </>

@@ -67,9 +67,9 @@ export const NavigationModularForm: FunctionComponent<Props> = ({
         <>
             {display ?
                 !user && state === "REGISTER" ?
-                    <ModularFormRegisterImpl setState={setState} displayForm={display} setDisplay={setDisplay}/> :
+                    <ModularFormRegisterImpl bookingWithoutRegistration={false} setState={setState} displayForm={display} setDisplay={setDisplay}/> :
                     state === "LOGIN" ?
-                        <ModularFormLoginImpl additionalLoginOnClickMethod={() => window.location.href = "/myflights"}
+                        <ModularFormLoginImpl bookingWithoutRegistration={false} additionalLoginOnClickMethod={() => window.location.href = "/myflights"}
                                               setUser={setUser} setState={setState} setDisplay={setDisplay}/> :
                         null :
                 null
