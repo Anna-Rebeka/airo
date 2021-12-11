@@ -53,12 +53,11 @@ let MyCBWrapper = styled.div`
     }
 `;
 
-export const MyCheckbox: FunctionComponent<Props> = ({label, id}) =>
-{
+export const MyCheckbox: FunctionComponent<Props> = ({label, id}) => {
     return (
         <MyCBWrapper>
-                <input type="checkbox" className="myCheckbox" id={id} name={id}/>
-                <label htmlFor={id} className="myLabel">{label}</label>
+            <input type="checkbox" className="myCheckbox" id={id} name={id}/>
+            <label htmlFor={id} className="myLabel">{label}</label>
         </MyCBWrapper>
     );
 }

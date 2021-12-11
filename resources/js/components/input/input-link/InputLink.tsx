@@ -17,14 +17,14 @@ let InputLinkLi = styled.li`
 
 let InputLinkButton = styled.button<{ activated: boolean }>`
     cursor: pointer;
-    color: ${p => p.activated? "#FF7F2A" : "white"};
+    color: ${p => p.activated ? "#FF7F2A" : "white"};
     text-decoration: none;
     letter-spacing: 0.07em;
     display: inline-block;
     transition: font-size 1.3s, color 0.5s;
     font-size: 1em;
     background-color: transparent;
-    border: 0.1em solid ${p => p.activated? "#FF7F2A" : "white"};
+    border: 0.1em solid ${p => p.activated ? "#FF7F2A" : "white"};
 
     @media (min-width: 772px) {
         font-size: 1.1em;

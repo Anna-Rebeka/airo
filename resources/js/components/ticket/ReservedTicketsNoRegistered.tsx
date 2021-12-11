@@ -10,9 +10,9 @@ interface Props {
 
 
 export const ReservedTicketsNoRegistered: FunctionComponent<Props> = ({
-                                                                   images,
-                                                                   dataset
-                                                               }) => {
+                                                                          images,
+                                                                          dataset
+                                                                      }) => {
 
     let element = JSON.parse(dataset.ticket);
     const [user, setUser] = useState<any>();

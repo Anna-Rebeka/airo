@@ -34,7 +34,7 @@ let NavigationLinkItemDiv = styled.ul<{ direction: string }>`
     width: 50%;
 
     @media (min-width: 476px) {
-       width: 100%;
+        width: 100%;
     }
 
     @media (min-width: 772px) {
@@ -116,7 +116,7 @@ export const NavigationImpl: FunctionComponent<Props> = ({
             {user ?
                 <LogoutButton>
                     <svg xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 24 24"  fill="currentColor">
+                         viewBox="0 0 24 24" fill="currentColor">
                         <g>
                             <path d="M0,0h24v24H0V0z" fill="none"/>
                         </g>

@@ -198,7 +198,8 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                             </TextDescription>
                         </TextWrapper>}
                     {side === "LEFT" ?
-                        <CarouselInputFlights setNo={setNo} setFlightsTo={setFlightsTo} setFlightsFrom={setFlightsFrom}/> :
+                        <CarouselInputFlights setNo={setNo} setFlightsTo={setFlightsTo}
+                                              setFlightsFrom={setFlightsFrom}/> :
                         <CarouselInputRoundTrips/>
                     }
                 </ContentWrapper> :
