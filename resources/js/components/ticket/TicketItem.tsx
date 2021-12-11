@@ -25,7 +25,7 @@ interface Props {
 let ResultWrapper = styled.article`
     position: relative;
     overflow: hidden;
-    width: 80%;
+    width: 99%;
     text-align: left;
     display: block;
     color: white;
@@ -36,14 +36,6 @@ let ResultWrapper = styled.article`
         background-color: rgb(100, 100, 100);
         padding: 5px;
     }
-
-    @media (min-width: 772px) {
-        width: 50%;
-    };
-
-    @media (min-width: 1060px) {
-        width: 100%;
-    };
 
     @media (min-width: 1280px) {
     };
