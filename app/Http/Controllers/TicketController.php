@@ -23,6 +23,7 @@ class TicketController extends Controller
             $flight = $ticket->flight;
             $flight->arrival;
             $flight->departure;
+            $flight->ticket_id = $ticket->id;
         }
 
         return view('flights.index', [
@@ -36,7 +37,11 @@ class TicketController extends Controller
     {   
         $ticket = Ticket::find($id);
         
-        if(!auth()->user() || $ticket->user != auth()->user()){
+        if(!$ticket){
+            return redirect('/404');
+        }
+
+        if(!auth()->user() || !$ticket || $ticket->user != auth()->user()){
             return redirect('/');
         }
         $ticket->flight;
@@ -53,6 +58,11 @@ class TicketController extends Controller
     public function showTicketsUnregistered($token)
     {   
         $ticket = Ticket::where('token', $token)->get()->first();
+
+        if(!$ticket){
+            return redirect('/404');
+        }
+
         $ticket->flight;
         $ticket->flight->company;
         $ticket->flight->arrival;

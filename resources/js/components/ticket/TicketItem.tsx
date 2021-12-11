@@ -1,6 +1,5 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import ModularFormForBooking from "../input/modular-form/ModularFormForBooking";
 
 interface Props {
     element: any;

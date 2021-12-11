@@ -1,5 +1,7 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
+import {ModularButton} from "../input/modular-form/ModularButton";
+
 
 interface Props {
     element: any;
@@ -79,6 +81,11 @@ export const ResultItemTickets: FunctionComponent<Props> = ({
                     <ResultH3>{(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)}{" - " + (element && element.price) + " €"}</ResultH3>
                     <ResultDescription>{"Departure time: " + element && element.leaves + ". Estimated arrival time: " + element && element.arrives}</ResultDescription>
                 </WrapperContentCol>
+                <ModularButton type={"submit"} name={"detail"} value={"detail"}
+                                   text={"Detail"} id="showDetail"
+                                   setOnClickValueMethod={() => { window.location.href = "/mytickets/" + element.ticket_id;;
+                                   ;
+                }}/>
             </MainWrapperContent>
         </ResultWrapper>
     );
