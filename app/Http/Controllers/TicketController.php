@@ -73,9 +73,16 @@ class TicketController extends Controller
     public function store(Request $fields)
     {
         $attributes = $fields->validate([
-            'flight_id' => ['required']
+            'flight_id' => ['required'],
+            'no' => ['integer'],
         ]);
-                
+        
+        $attributes['no'] = 1;
+        
+        if($fields['no']){
+            $attributes['no'] = $fields['no'];
+        }
+
         $user = auth()->user();
         $user_id = null;
         $attributes['token'] = null;
@@ -94,6 +101,7 @@ class TicketController extends Controller
             $ticket = Ticket::create([
                 'user_id' => $user_id,
                 'flight_id' => $attributes['flight_id'],
+                'no' => $attributes['no'],
                 'token' => $attributes['token'],
             ]);
             return $ticket;
