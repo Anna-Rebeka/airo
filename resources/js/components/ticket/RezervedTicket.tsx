@@ -40,6 +40,7 @@ const RezervedTickets: FunctionComponent<Props> = ({
     dataset,    
     }) => {
 
+    var element = JSON.parse(dataset.ticket);
     const [user, setUser] = useState<any>();
 
     useEffect(() => {
@@ -54,16 +55,16 @@ const RezervedTickets: FunctionComponent<Props> = ({
                         leaves={element && element.flight.leaves}
                         distance={element && element.flight.distance}
                         duration={element && element.flight.duration}
-                        images={images} key={"result-item-flights" + index}
+                        images={images} key={"result-item-flights" + element.flight.arrival.image}
                         imgSrc={element && element.flight.arrival && element.flight.arrival.image}
-                        price={element.price}
+                        price={element.flight.price}
                         description={element && element.flight.arrival && element.flight.arrival.info}
                         altText={element.altText} arrival={element.flight.arrival}
                         departure={element.flight.departure}
                         element={element}
                         user={user}
                         setUser={setUser}
-                        setFlightsFrom={setFlightsFrom}
+                        setFlightsFrom={element.flight.leaves}
             />
                       
         </BasicImpl>

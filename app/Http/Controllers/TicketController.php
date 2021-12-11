@@ -40,6 +40,7 @@ class TicketController extends Controller
             return redirect('/');
         }
         $ticket->flight;
+        $ticket->flight->company;
         $ticket->flight->arrival;
         $ticket->flight->departure;
 
@@ -53,6 +54,7 @@ class TicketController extends Controller
     {   
         $ticket = Ticket::where('token', $token)->get()->first();
         $ticket->flight;
+        $ticket->flight->company;
         $ticket->flight->arrival;
         $ticket->flight->departure;   
         
