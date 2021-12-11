@@ -8,7 +8,6 @@ interface Props {
     setUser: any;
 }
 
-
 export const GalleryImpl: FunctionComponent<Props> = ({
                                                           dataset,
                                                           images
