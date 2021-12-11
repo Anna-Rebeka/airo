@@ -8,6 +8,7 @@ import {GalleryImpl} from "./components/sections/GalleryImpl";
 import {MyFlightsImpl} from "./components/sections/MyFlightsImpl";
 import {ContactsImpl} from "./components/sections/ContactsImpl";
 import BasicImpl from "./components/sections/BasicImpl";
+import {PageNotFound} from "./components/not-found/PageNotFound";
 
 interface RootProps {
     dataset: any;
@@ -44,16 +45,16 @@ let images =
         {name: "paris", url: require("../../public/images/paris.jpg")},
         {name: "rome", url: require("../../public/images/rome.jpg")},
         {name: "prague", url: require("../../public/images/praha.jpg")},
-        {name: "default", url: require("../../public/images/default0.jpg")},
-        {name: "default", url: require("../../public/images/default1.jpg")},
-        {name: "default", url: require("../../public/images/default2.jpg")},
-        {name: "default", url: require("../../public/images/default3.jpg")},
-        {name: "default", url: require("../../public/images/default4.jpg")},
-        {name: "default", url: require("../../public/images/default5.jpg")},
-        {name: "default", url: require("../../public/images/default6.jpg")},
-        {name: "default", url: require("../../public/images/default7.jpg")},
-        {name: "default", url: require("../../public/images/default8.jpg")},
-        {name: "default", url: require("../../public/images/default9.jpg")},
+        {name: "default0", url: require("../../public/images/default0.jpg")},
+        {name: "default1", url: require("../../public/images/default1.jpg")},
+        {name: "default2", url: require("../../public/images/default2.jpg")},
+        {name: "default3", url: require("../../public/images/default3.jpg")},
+        {name: "default4", url: require("../../public/images/default4.jpg")},
+        {name: "default5", url: require("../../public/images/default5.jpg")},
+        {name: "default6", url: require("../../public/images/default6.jpg")},
+        {name: "default7", url: require("../../public/images/default7.jpg")},
+        {name: "default8", url: require("../../public/images/default8.jpg")},
+        {name: "default9", url: require("../../public/images/default9.jpg")},
     ];
 
 
