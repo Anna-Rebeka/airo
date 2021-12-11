@@ -32,7 +32,7 @@ class TicketController extends Controller
     }
 
 
-    public function getTicketRegistered($id)
+    public function showTicketRegistered($id)
     {   
         $ticket = Ticket::find($id);
         
@@ -50,7 +50,7 @@ class TicketController extends Controller
         ]);
     }
 
-    public function getTicketsUnregistered($token)
+    public function showTicketsUnregistered($token)
     {   
         $ticket = Ticket::where('token', $token)->get()->first();
         $ticket->flight;
