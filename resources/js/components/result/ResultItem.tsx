@@ -80,23 +80,31 @@ let ResultH2 = styled.h2`
 let Element = styled.li`
     color: white;
     margin: 0;
-`
-
-let ResultDescription = styled.li`
-    color: white;
-    margin: 0.2em 0;
-    width: 100%;
-    overflow: hidden;
+    list-style: none;
 `
 
 let WrapperContentCol = styled.li`
     display: flex;
     flex-direction: column;
+    list-style: none;
+`
+
+let WrapperContentColDescription = styled.li`
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+
+    @media (min-width: 476px) {
+        width: 70%;
+    };
 `
 
 let RowWrapper = styled.ul`
     display: flex;
     flex-direction: column;
+    margin: 1em;
+    padding: 0;
 
     @media (min-width: 772px) {
         flex-direction: row;
@@ -106,6 +114,8 @@ let RowWrapper = styled.ul`
 let WrapperDetails = styled.ul`
     display: flex;
     flex-direction: column;
+    padding: 0;
+    margin: 0.5em;
 `
 
 
@@ -142,7 +152,7 @@ export const ResultItem: FunctionComponent<Props> = ({
                     <ResultImg src={imgUrl && imgUrl.url.default}
                                alt={altText}/>
                 </WrapperContentCol>
-                <WrapperContentCol>
+                <WrapperContentColDescription>
                     <WrapperDetails>
                         <ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ResultH2>
                         <Element>{"Departure time: " + leaves}</Element>
@@ -150,9 +160,8 @@ export const ResultItem: FunctionComponent<Props> = ({
                         <Element>{"Flight company: " + companyName + "*".repeat(companyClass)}</Element>
                         <Element>{"Distance between cities is " + distance + "km."}</Element>
                         <Element>{"Duration of flight is " + duration + " minutes."}</Element>
-                        <Element>{"Description: " + description}</Element>
                     </WrapperDetails>
-                </WrapperContentCol>
+                </WrapperContentColDescription>
                 <WrapperContentCol>
                     <ModularFormForBooking no={no} withActivationButton={true} user={user} setUser={setUser}
                                            element={element}/>

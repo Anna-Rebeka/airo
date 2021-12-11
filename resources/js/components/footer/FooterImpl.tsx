@@ -118,7 +118,7 @@ export const FooterImpl: FunctionComponent<Props> = ({
         href: "/contacts",
         text: "Contacts"
     },
-        {href: "/myflights", text: "My flights"}, {href: "/", text: "GDPR"}, {href: "/", text: "ABOUT"}]
+        {href: "/myflights", text: "My flights"}, {href: "https://gdpr-slovensko.sk/co-je-gdpr/", text: "GDPR"}, {href: "/faq", text: "FAQ"}]
     let iconLinks = [{
         href: "/",
         url: require("../../../../public/images/facebook.svg"),
