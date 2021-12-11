@@ -10,13 +10,15 @@ interface Props {
     setUser: any;
     setDisplay: any;
     additionalLoginOnClickMethod?: any;
+    bookingWithoutRegistration: boolean;
 }
 
 export const ModularFormLoginImpl: FunctionComponent<Props> = ({
                                                                    setUser,
                                                                    setDisplay,
                                                                    setState,
-                                                                   additionalLoginOnClickMethod
+                                                                   additionalLoginOnClickMethod,
+                                                                   bookingWithoutRegistration
                                                                }) => {
 
     let [emailAddress, setEmailAddress] = useState("");
@@ -46,6 +48,11 @@ export const ModularFormLoginImpl: FunctionComponent<Props> = ({
                 <ModularButton type={"submit"} name={"register"} value={"register"}
                                text={"Don't have an account? Create one!"} id="registerThroughLoginUser"
                                setOnClickValueMethod={() => setState("REGISTER")}/>
+                {bookingWithoutRegistration ?
+                    <ModularButton type={"submit"} name={"withoutRegisterLogin"} value={"withoutRegisterLoginValue"}
+                                   text={"Book without login"} id="withoutRegisterLoginId"
+                                   setOnClickValueMethod={() => setState("CHECKOUT_NOT_REGISTERED")}/> : null
+                }
             </ModularFormInputWrapper>
         </ModularFormRoot>
     );

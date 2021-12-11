@@ -9,9 +9,14 @@ interface Props {
     setDisplay: any;
     setState: any;
     displayForm: boolean;
+    bookingWithoutRegistration: boolean;
 }
 
-export const ModularFormRegisterImpl: FunctionComponent<Props> = ({setDisplay, setState}) => {
+export const ModularFormRegisterImpl: FunctionComponent<Props> = ({
+                                                                      setDisplay,
+                                                                      setState,
+                                                                      bookingWithoutRegistration
+                                                                  }) => {
 
     let [firstName, setFirstName] = useState("");
     let [lastName, setLastName] = useState("");
@@ -61,6 +66,11 @@ export const ModularFormRegisterImpl: FunctionComponent<Props> = ({setDisplay, s
             <ModularButton type={"submit"} name={"backToLoginFromRegister"} value={"backToLoginFromRegister"}
                            text={"Go back to log in"} id="backToLoginThroughRegister"
                            setOnClickValueMethod={() => setState("LOGIN")}/>
+            {bookingWithoutRegistration ?
+                <ModularButton type={"submit"} name={"withoutRegister"} value={"withoutRegisterValue"}
+                               text={"Book without registering"} id="withoutRegisterId"
+                               setOnClickValueMethod={() => setState("CHECKOUT_NOT_REGISTERED")}/> : null
+            }
         </ModularFormRoot>
     );
 }
