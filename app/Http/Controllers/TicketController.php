@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Ticket;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -30,9 +31,35 @@ class TicketController extends Controller
         ]);
     }
 
+
+    public function getTicketRegistered($id)
+    {   
+        $ticket = Ticket::find($id);
+        
+        if(!auth()->user() || $ticket->user != auth()->user()){
+            return redirect('/');
+        }
+        $ticket->flight;
+        $ticket->flight->arrival;
+        $ticket->flight->departure;
+
+        return view('tickets.show', [
+            'user' => auth()->user(),
+            'ticket' => $ticket
+        ]);
+    }
+
     public function getTicketsUnregistered($token)
     {   
-        return Ticket::where('token', $token)->get();   
+        $ticket = Ticket::where('token', $token)->get()->first();
+        $ticket->flight;
+        $ticket->flight->arrival;
+        $ticket->flight->departure;   
+        
+        return view('tickets.show', [
+            'user' => auth()->user(),
+            'ticket' => $ticket
+        ]);
     }
 
     /**
@@ -44,7 +71,6 @@ class TicketController extends Controller
     public function store(Request $fields)
     {
         $attributes = $fields->validate([
-            'token' => ['string', 'max:255'],
             'flight_id' => ['required']
         ]);
                 

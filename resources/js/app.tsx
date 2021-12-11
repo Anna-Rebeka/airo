@@ -6,3 +6,4 @@
 
 require('./index.tsx');
 require('./components/sections/GalleryImpl.tsx');
+require('./components/not-found/PageNotFound.tsx');
