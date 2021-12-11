@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import ModularForm from "../input/modular-form/ModularForm";
+import ModularFormForBooking from "../input/modular-form/ModularFormForBooking";
 
 interface Props {
     element: any;
@@ -22,7 +22,7 @@ interface Props {
     setFlightsFrom: any;
 }
 
-let ResultWrapper = styled.div`
+let ResultWrapper = styled.article`
     position: relative;
     overflow: hidden;
     width: 80%;
@@ -76,25 +76,24 @@ let ResultH2 = styled.h2`
     text-decoration: underline;
 `
 
-let ResultH3 = styled.h3`
+let Element = styled.li`
     color: white;
-    position: relative;
     margin: 0;
-    float: left;
 `
 
-let ResultDescription = styled.p`
+let ResultDescription = styled.li`
     color: white;
-    position: relative;
-    float: left;
     margin: 0.2em 0;
     width: 100%;
     overflow: hidden;
-    text-decoration: none;
-    text-align: left;
 `
 
-let MainWrapperContent = styled.div`
+let WrapperContentCol = styled.li`
+    display: flex;
+    flex-direction: column;
+`
+
+let RowWrapper = styled.ul`
     display: flex;
     flex-direction: column;
 
@@ -103,7 +102,7 @@ let MainWrapperContent = styled.div`
     };
 `
 
-let WrapperContentCol = styled.div`
+let WrapperDetails = styled.ul`
     display: flex;
     flex-direction: column;
 `
@@ -129,31 +128,32 @@ export const ResultItem: FunctionComponent<Props> = ({
                                                          setFlightsFrom
                                                      }) => {
 
-    console.log(images);
     let imgUrl = images.find((obj: any) => {
-        console.log(obj);
         if (obj.name === imgSrc) {
             return obj;
         }
     })
     return (
         <ResultWrapper>
-            <MainWrapperContent>
+            <RowWrapper>
                 <WrapperContentCol>
                     <ResultImg src={imgUrl && imgUrl.url.default}
                                alt={altText}/>
                 </WrapperContentCol>
                 <WrapperContentCol>
-                    <ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ResultH2>
-                    <ResultH3>{"Departure time: " + leaves + ". Estimated arrival time: " + arrives}</ResultH3>
-                    <ResultH3>{"Flight by company " + companyName + "*".repeat(companyClass)}</ResultH3>
-                    <ResultH3>{"Distance between cities is " + distance + "km." + " Duration of flight is " + duration + " minutes."}</ResultH3>
-                    <ResultDescription>{description}</ResultDescription>
+                    <WrapperDetails>
+                        <ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ResultH2>
+                        <Element>{"Departure time: " + leaves + ". Estimated arrival time: " + arrives}</Element>
+                        <Element>{"Flight company: " + companyName + "*".repeat(companyClass)}</Element>
+                        <Element>{"Distance between cities is " + distance + "km."}</Element>
+                        <Element>{"Duration of flight is " + duration + " minutes."}</Element>
+                        <Element>{"Description: " + description}</Element>
+                    </WrapperDetails>
                 </WrapperContentCol>
                 <WrapperContentCol>
-                    <ModularForm user={user} setUser={setUser} element={element} setFlightsFrom={setFlightsFrom}/>
+                    <ModularFormForBooking withActivationButton={true} user={user} setUser={setUser} element={element}/>
                 </WrapperContentCol>
-            </MainWrapperContent>
+            </RowWrapper>
         </ResultWrapper>
     );
 }

@@ -40,7 +40,6 @@ export const MyFlightsImpl: FunctionComponent<Props> = ({
         setUser(JSON.parse(dataset.user));
     }, [dataset])
 
-    console.log(flights && Object.keys(flights).length)
     return (
         <BasicImpl user={user} setUser={setUser} id={"myflights"}>
             <Wrapper>

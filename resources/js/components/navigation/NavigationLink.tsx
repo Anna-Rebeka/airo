@@ -1,6 +1,7 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import NavigationButtonLogin from "./NavigationButtonLogin";
+import ModularFormForBooking from "../input/modular-form/ModularFormForBooking";
+import {NavigationModularForm} from "./NavigationModularForm";
 
 interface NavigationLinkProps {
     user: any;
@@ -72,9 +73,9 @@ export const NavigationLink: FunctionComponent<NavigationLinkProps> = ({
     return (
         <NavigationLinkLi>
             {(needLogin && user == null) ?
-                <NavigationButtonLogin isRegisterProps={false} user={user} setUser={setUser}>
+                <NavigationModularForm setUser={setUser} user={user}>
                     {textField}
-                </NavigationButtonLogin> :
+                </NavigationModularForm> :
                 <NavigationLinkA activated={textField == "ONE"} href={href} className={className}>
                     {textField}
                 </NavigationLinkA>}
