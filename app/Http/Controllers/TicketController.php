@@ -104,15 +104,14 @@ class TicketController extends Controller
                 'no' => $attributes['no'],
                 'token' => $attributes['token'],
             ]);
-            return $ticket;
-            
-            if(!$user && $field['email']){
-                Mail::to($field['email'])
-                    ->send(new ReservationMade($attributes['token']))
-                ;
-            }
-        
+            return $ticket;        
         });
+
+        if(!$user && $fields['email']){
+            Mail::to($fields['email'])
+                ->send(new ReservationMade($attributes['token']))
+            ;
+        }
         return $ticket;
     }
 
