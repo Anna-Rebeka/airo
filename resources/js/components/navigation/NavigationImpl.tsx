@@ -2,6 +2,7 @@ import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {NavigationLink} from "./NavigationLink";
 import {NavigationLogo} from "./NavigationLogo";
+import axios from "axios";
 
 interface Props {
     user: any;
@@ -114,7 +115,7 @@ export const NavigationImpl: FunctionComponent<Props> = ({
                 )}
             </NavigationLinkItemDiv>
             {user ?
-                <LogoutButton>
+                <LogoutButton onClick={() => window.location.href = "/logout"}>
                     <svg xmlns="http://www.w3.org/2000/svg"
                          viewBox="0 0 24 24" fill="currentColor">
                         <g>

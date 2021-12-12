@@ -7,8 +7,7 @@ interface Props {
 }
 
 let MyCBWrapper = styled.div`
-    .myCheckbox
-    {
+    .myCheckbox {
         appearance: none;
         background-color: rgba(134, 134, 122, 0.25);
         margin: 5px;
@@ -22,8 +21,7 @@ let MyCBWrapper = styled.div`
         cursor: pointer;
     }
 
-    .myLabel
-    {
+    .myLabel {
         color: white;
         margin-left: 5px;
         position: relative;
@@ -31,14 +29,16 @@ let MyCBWrapper = styled.div`
         cursor: pointer;
     }
 
-    .myCheckbox:hover
-    {
+    .myCheckbox:hover {
         background-color: orange;
         border: none;
     }
-    .myCheckbox:checked { background-color: orange; }
-    .myCheckbox:checked + .myLabel:after
-    {
+
+    .myCheckbox:checked {
+        background-color: orange;
+    }
+
+    .myCheckbox:checked + .myLabel:after {
         content: '\\2713';
         text-align: left;
         left: -27px;
