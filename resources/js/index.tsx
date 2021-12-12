@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import React, {FunctionComponent, useEffect, useState} from 'react';
 import styled from "@emotion/styled";
 import {CarouselImageImpl} from "./components/carousel/CarouselmgImpl";
-import ResultItem from "./components/result/ResultItem";
 import {GalleryImpl} from "./components/sections/GalleryImpl";
 import {MyFlightsImpl} from "./components/sections/MyFlightsImpl";
 
@@ -12,6 +11,7 @@ import BasicImpl from "./components/sections/BasicImpl";
 import {PageNotFound} from "./components/not-found/PageNotFound";
 import {ReservedTicketsNoRegistered} from "./components/ticket/ReservedTicketsNoRegistered";
 import {Heading2} from "./components/heading/Heading2";
+import {ResultItem} from "./components/result/ResultItem";
 
 
 interface RootProps {
@@ -65,14 +65,15 @@ let images =
 
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
+
     const [displayCarousel, setDisplayCarousel] = useState("LEFT");
     const [flightsFrom, setFlightsFrom] = useState<any>(null);
     const [no, setNo] = useState<number>(1);
-    const [flightsTicketsTo, setFlightTicketsTo] = useState();
+    const [flightsTicketsTo, setFlightTicketsTo] = useState<any>();
     const [roundTrips, setRoundTrips] = useState();
     const [user, setUser] = useState();
-    const [isTwoWay, setIsTwoWay] = useState(false);
-
+    const [showSecondWay, setShowSecondWay] = useState<any>();
+    const [selectedFirstWay, setSelectedFirstWay] = useState();
 
     useEffect(() => {
         setUser(JSON.parse(dataset.user));
@@ -81,25 +82,29 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     return (
         <BasicImpl id={"main"} user={user} setUser={setUser}>
             <Carousel>
-                <CarouselImageImpl setTwoWay={setIsTwoWay} setNo={setNo} setFlightsTo={setFlightTicketsTo} setFlightsFrom={setRoundTrips}
+                <CarouselImageImpl setNo={setNo} setFlightsTo={setFlightTicketsTo} setFlightsFrom={setRoundTrips}
                                    displayCarousel={"RIGHT" === displayCarousel}
                                    setDisplayedSide={setDisplayCarousel}
                                    side={"RIGHT"}
                                    imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
-                <CarouselImageImpl setTwoWay={setIsTwoWay} setNo={setNo} setFlightsFrom={setFlightsFrom} setFlightsTo={setFlightTicketsTo}
+                <CarouselImageImpl setNo={setNo} setFlightsFrom={setFlightsFrom} setFlightsTo={setFlightTicketsTo}
                                    displayCarousel={"LEFT" === displayCarousel}
                                    setDisplayedSide={setDisplayCarousel}
                                    side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
             </Carousel>
             <ListOfTickets id={"tickets"}>
-                {flightsFrom && flightsFrom.length !== 0 ?
+                {!showSecondWay && flightsFrom && flightsFrom.length !== 0 ?
                     <>
                         <Heading2>
                             Found tickets
                         </Heading2>
                         {flightsFrom.map((element: any, index: number) =>
                             <ResultItem
-                                isTwoWay={isTwoWay}
+                                selectedFirstWay={selectedFirstWay}
+                                showSecondWay={showSecondWay}
+                                setSelectedFirstWay={setSelectedFirstWay}
+                                setShowSecondWay={setShowSecondWay}
+                                flightsTo={flightsTicketsTo}
                                 no={no}
                                 companyClass={element && element.company && element.company.class}
                                 companyName={element && element.company && element.company.name}
@@ -119,7 +124,44 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                             />
                         )}
                     </> :
-                    flightsFrom ?
+                    !showSecondWay && flightsFrom ?
+                        <Paragraph>
+                            No flights were found. Please change your inputs.
+                        </Paragraph>
+                        : null
+                }
+                {showSecondWay && flightsTicketsTo && flightsTicketsTo.length !== 0 ?
+                    <>
+                        <Heading2>
+                            Found tickets from arrival to departure
+                        </Heading2>
+                        {flightsTicketsTo.map((element: any, index: number) =>
+                            <ResultItem
+                                selectedFirstWay={selectedFirstWay}
+                                showSecondWay={showSecondWay}
+                                setSelectedFirstWay={setSelectedFirstWay}
+                                setShowSecondWay={setShowSecondWay}
+                                flightsTo={flightsTicketsTo}
+                                no={no}
+                                companyClass={element && element.company && element.company.class}
+                                companyName={element && element.company && element.company.name}
+                                arrives={element && element.arrives}
+                                leaves={element && element.leaves}
+                                distance={element && element.distance}
+                                duration={element && element.duration}
+                                images={images} key={"result-item-flights-second-way" + index}
+                                imgSrc={element && element.arrival && element.arrival.image}
+                                price={element.price}
+                                description={element && element.arrival && element.arrival.info}
+                                altText={element.altText} arrival={element.arrival}
+                                departure={element.departure}
+                                element={element}
+                                user={user}
+                                setUser={setUser}
+                            />
+                        )}
+                    </> :
+                    showSecondWay && flightsTicketsTo ?
                         <Paragraph>
                             No flights were found. Please change your inputs.
                         </Paragraph>

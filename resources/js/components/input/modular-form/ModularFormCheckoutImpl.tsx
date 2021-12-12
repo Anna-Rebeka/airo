@@ -14,12 +14,20 @@ interface Props {
     setDisplay: any;
     displayForm: boolean;
     no: number;
-    isTwoWay: boolean;
+    flightsTo: any;
+    selectedFirstWay: any;
 }
 
 let Text = styled.p`
     color: white;
     text-align: center;
+`
+
+let TextTitle = styled.p`
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    margin: 0.5em;
 `
 
 let FlexboxInputsCheckout = styled.ul`
@@ -52,7 +60,14 @@ let WrapperInput = styled.div`
 `
 
 
-export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setDisplay, state, no, isTwoWay}) => {
+export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({
+                                                                      element,
+                                                                      setDisplay,
+                                                                      state,
+                                                                      no,
+                                                                      flightsTo,
+                                                                      selectedFirstWay
+                                                                  }) => {
 
     let [successfulBooking, setSuccessfulBooking] = useState(false);
     let [emailAddress, setEmailAddress] = useState("");
@@ -63,8 +78,27 @@ export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setD
             {!successfulBooking ?
                 <>
                     <Text>You are about to buy your selected ticket. Please check details below about the ticket.</Text>
+                    {selectedFirstWay ?
+                        <WrapperInput>
+                            <FlexboxInputsCheckout>
+                                <TextTitle>Departure ticket</TextTitle>
+                                <TextCheckout>Departure and arrival
+                                    city: {(selectedFirstWay && selectedFirstWay.departure && selectedFirstWay.departure.name) + " -> " + (selectedFirstWay && selectedFirstWay.arrival && selectedFirstWay.arrival.name)} </TextCheckout>
+                                <TextCheckout>Date and time of
+                                    departure: {selectedFirstWay && selectedFirstWay.leaves}</TextCheckout>
+                                <TextCheckout>Date and time of
+                                    arrival: {selectedFirstWay && selectedFirstWay.arrives}</TextCheckout>
+                                <TextCheckout>Price: {selectedFirstWay ? (selectedFirstWay.price * no) + " € " + ((no > 1) ? ("(" + (selectedFirstWay.price) + "€/each)") : "") : ""}</TextCheckout>
+                                <TextCheckout>Number of persons: {no}</TextCheckout>
+                                <TextCheckout>Company: {selectedFirstWay && selectedFirstWay.company && selectedFirstWay.company.name + "*".repeat(selectedFirstWay && selectedFirstWay.company && selectedFirstWay.company.class)}</TextCheckout>
+                                <TextCheckout>Duration and
+                                    distance: {selectedFirstWay && selectedFirstWay.duration + "mins " + selectedFirstWay && selectedFirstWay.distance + "km"}</TextCheckout>
+                            </FlexboxInputsCheckout>
+                        </WrapperInput> : null
+                    }
                     <WrapperInput>
                         <FlexboxInputsCheckout>
+                            <TextTitle>{selectedFirstWay ? "Arrival ticket" : "Departure ticket"}</TextTitle>
                             <TextCheckout>Departure and arrival
                                 city: {(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)} </TextCheckout>
                             <TextCheckout>Date and time of departure: {element && element.leaves}</TextCheckout>
@@ -95,12 +129,20 @@ export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setD
                         }}/>
                         <ModularButton text={"Book"} type="submit" id="book" name="book checkout button"
                                        value="book checkout" setOnClickValueMethod={() => {
-
-                            if (!emailAddress || emailAddress === "") {
+                            if (state !== "LOGGED" && (!emailAddress || emailAddress === "")) {
                                 setIsWrongEmail(true);
                                 return;
                             }
-                            if (!isWrongEmail) {
+                            if (!isWrongEmail || state === "LOGGED") {
+                                if (selectedFirstWay) {
+                                    axios.post('/ticket', {
+                                        flight_id: selectedFirstWay.id,
+                                        no: no,
+                                        email: emailAddress
+                                    }).then((res) => {
+
+                                    })
+                                }
                                 axios.post('/ticket', {
                                     flight_id: element.id,
                                     no: no,

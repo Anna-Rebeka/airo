@@ -21,7 +21,11 @@ interface Props {
     setUser: any;
     user: any;
     no: number;
-    isTwoWay: boolean;
+    flightsTo: any;
+    setShowSecondWay: any;
+    setSelectedFirstWay: any;
+    showSecondWay: boolean;
+    selectedFirstWay: any;
 }
 
 let ResultWrapper = styled.article`
@@ -134,7 +138,11 @@ export const ResultItem: FunctionComponent<Props> = ({
                                                          setUser,
                                                          user,
                                                          no,
-                                                         isTwoWay
+                                                         flightsTo,
+                                                         setSelectedFirstWay,
+                                                         setShowSecondWay,
+                                                         showSecondWay,
+                                                         selectedFirstWay
                                                      }) => {
 
     let imgUrl = images.find((obj: any) => {
@@ -160,7 +168,9 @@ export const ResultItem: FunctionComponent<Props> = ({
                     </WrapperDetails>
                 </WrapperContentColDescription>
                 <WrapperContentCol>
-                    <ModularFormForBooking isTwoWay={isTwoWay} images={images} no={no} withActivationButton={true}
+                    <ModularFormForBooking selectedFirstWay={selectedFirstWay} showSecondWay={showSecondWay} setShowSecondWay={setShowSecondWay}
+                                           setSelectedFirstWay={setSelectedFirstWay} flightsTo={flightsTo}
+                                           images={images} no={no} withActivationButton={true}
                                            user={user}
                                            setUser={setUser}
                                            element={element}/>
@@ -169,5 +179,3 @@ export const ResultItem: FunctionComponent<Props> = ({
         </ResultWrapper>
     );
 }
-
-export default ResultItem;

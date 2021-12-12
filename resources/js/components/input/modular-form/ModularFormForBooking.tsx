@@ -13,7 +13,11 @@ interface Props {
     withActivationButton: boolean;
     no: number;
     images: any;
-    isTwoWay: boolean;
+    flightsTo: any;
+    setShowSecondWay: any;
+    setSelectedFirstWay: any;
+    showSecondWay: boolean;
+    selectedFirstWay: any;
 }
 
 export const ModularFormForBooking: FunctionComponent<Props> = ({
@@ -24,8 +28,11 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
                                                                     user,
                                                                     withActivationButton,
                                                                     no,
-                                                                    isTwoWay
-
+                                                                    flightsTo,
+                                                                    setShowSecondWay,
+                                                                    setSelectedFirstWay,
+                                                                    showSecondWay,
+                                                                    selectedFirstWay
                                                                 }) => {
     let [display, setDisplay] = useState(shouldBeActivated);
     let [state, setState] = useState<string>(user ? "LOGGED" : "REGISTER");
@@ -37,7 +44,9 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
                     <ModularFormRegisterImpl bookingWithoutRegistration={true} setState={setState} displayForm={display}
                                              setDisplay={setDisplay}/> :
                     state === "CHECKOUT" || state === "LOGGED" || state === "CHECKOUT_NOT_REGISTERED" ?
-                        <ModularFormCheckoutImpl isTwoWay={isTwoWay} state={state} no={no} user={user} displayForm={display}
+                        <ModularFormCheckoutImpl selectedFirstWay={selectedFirstWay} flightsTo={flightsTo} state={state}
+                                                 no={no} user={user}
+                                                 displayForm={display}
                                                  setDisplay={setDisplay}
                                                  element={element}
                                                  setState={setState}/> :
@@ -54,6 +63,11 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
                         <ModularButton type={"submit"} name={"book"} value={"book"}
                                        text={"Book"} id="bookATicket"
                                        setOnClickValueMethod={() => {
+                                           if (!showSecondWay && flightsTo && flightsTo.length > 0) {
+                                               setShowSecondWay(true);
+                                               setSelectedFirstWay(element);
+                                               return;
+                                           }
                                            if (user) {
                                                setState("LOGGED");
                                            } else {
