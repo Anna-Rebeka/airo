@@ -14,6 +14,7 @@ interface Props {
     setDisplay: any;
     displayForm: boolean;
     no: number;
+    isTwoWay: boolean;
 }
 
 let Text = styled.p`
@@ -51,7 +52,7 @@ let WrapperInput = styled.div`
 `
 
 
-export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setDisplay, state, no}) => {
+export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setDisplay, state, no, isTwoWay}) => {
 
     let [successfulBooking, setSuccessfulBooking] = useState(false);
     let [emailAddress, setEmailAddress] = useState("");

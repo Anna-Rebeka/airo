@@ -20,8 +20,8 @@ interface Props {
     leaves: string;
     setUser: any;
     user: any;
-    setFlightsFrom: any;
     no: number;
+    isTwoWay: boolean;
 }
 
 let ResultWrapper = styled.article`
@@ -133,7 +133,8 @@ export const ResultItem: FunctionComponent<Props> = ({
                                                          element,
                                                          setUser,
                                                          user,
-                                                         no
+                                                         no,
+                                                         isTwoWay
                                                      }) => {
 
     let imgUrl = images.find((obj: any) => {
@@ -159,7 +160,8 @@ export const ResultItem: FunctionComponent<Props> = ({
                     </WrapperDetails>
                 </WrapperContentColDescription>
                 <WrapperContentCol>
-                    <ModularFormForBooking images={images} no={no} withActivationButton={true} user={user}
+                    <ModularFormForBooking isTwoWay={isTwoWay} images={images} no={no} withActivationButton={true}
+                                           user={user}
                                            setUser={setUser}
                                            element={element}/>
                 </WrapperContentCol>

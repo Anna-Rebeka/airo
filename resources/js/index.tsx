@@ -71,6 +71,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     const [flightsTicketsTo, setFlightTicketsTo] = useState();
     const [roundTrips, setRoundTrips] = useState();
     const [user, setUser] = useState();
+    const [isTwoWay, setIsTwoWay] = useState(false);
 
 
     useEffect(() => {
@@ -80,12 +81,12 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     return (
         <BasicImpl id={"main"} user={user} setUser={setUser}>
             <Carousel>
-                <CarouselImageImpl setNo={setNo} setFlightsTo={setFlightTicketsTo} setFlightsFrom={setRoundTrips}
+                <CarouselImageImpl setTwoWay={setIsTwoWay} setNo={setNo} setFlightsTo={setFlightTicketsTo} setFlightsFrom={setRoundTrips}
                                    displayCarousel={"RIGHT" === displayCarousel}
                                    setDisplayedSide={setDisplayCarousel}
                                    side={"RIGHT"}
                                    imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
-                <CarouselImageImpl setNo={setNo} setFlightsFrom={setFlightsFrom} setFlightsTo={setFlightTicketsTo}
+                <CarouselImageImpl setTwoWay={setIsTwoWay} setNo={setNo} setFlightsFrom={setFlightsFrom} setFlightsTo={setFlightTicketsTo}
                                    displayCarousel={"LEFT" === displayCarousel}
                                    setDisplayedSide={setDisplayCarousel}
                                    side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
@@ -98,6 +99,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                         </Heading2>
                         {flightsFrom.map((element: any, index: number) =>
                             <ResultItem
+                                isTwoWay={isTwoWay}
                                 no={no}
                                 companyClass={element && element.company && element.company.class}
                                 companyName={element && element.company && element.company.name}
@@ -114,7 +116,6 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                                 element={element}
                                 user={user}
                                 setUser={setUser}
-                                setFlightsFrom={setFlightsFrom}
                             />
                         )}
                     </> :

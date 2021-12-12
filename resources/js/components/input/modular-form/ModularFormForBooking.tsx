@@ -13,6 +13,7 @@ interface Props {
     withActivationButton: boolean;
     no: number;
     images: any;
+    isTwoWay: boolean;
 }
 
 export const ModularFormForBooking: FunctionComponent<Props> = ({
@@ -22,7 +23,8 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
                                                                     element,
                                                                     user,
                                                                     withActivationButton,
-                                                                    no
+                                                                    no,
+                                                                    isTwoWay
 
                                                                 }) => {
     let [display, setDisplay] = useState(shouldBeActivated);
@@ -35,7 +37,7 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
                     <ModularFormRegisterImpl bookingWithoutRegistration={true} setState={setState} displayForm={display}
                                              setDisplay={setDisplay}/> :
                     state === "CHECKOUT" || state === "LOGGED" || state === "CHECKOUT_NOT_REGISTERED" ?
-                        <ModularFormCheckoutImpl state={state} no={no} user={user} displayForm={display}
+                        <ModularFormCheckoutImpl isTwoWay={isTwoWay} state={state} no={no} user={user} displayForm={display}
                                                  setDisplay={setDisplay}
                                                  element={element}
                                                  setState={setState}/> :

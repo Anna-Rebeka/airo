@@ -13,6 +13,7 @@ interface Props {
     setFlightsFrom: any;
     setFlightsTo: any;
     setNo: any;
+    setTwoWay:any;
 }
 
 let Form = styled.form`
@@ -155,7 +156,7 @@ const Title = styled(Heading2)`
     text-align: center;
 `
 
-export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, setFlightsTo, setNo}) => {
+export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, setFlightsTo, setNo, setTwoWay}) => {
     const [numberOfPersons, setNumberOfPersons] = useState<number>(1);
     const [isOneWay, setIsOneWay] = useState<boolean>(true);
     const [activated, setActivated] = useState("ONE");
@@ -180,6 +181,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
         }
         setActivated(type === "ONE" ? "ONE" : "TWO");
         setIsOneWay(type === "ONE");
+        setTwoWay(type === "TWO");
     }
 
 
@@ -226,7 +228,6 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
                 })
         }
 
-        console.log();
         let element = document.getElementById('tickets');
         if (element) {
             element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
