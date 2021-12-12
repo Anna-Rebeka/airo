@@ -16,7 +16,6 @@ let NavigationLogoImg = styled.div`
     cursor: pointer;
     color: white;
     text-align: center;
-    font-size: 0.6em;
 
     :hover {
         color: #FF7F2A;
@@ -25,22 +24,35 @@ let NavigationLogoImg = styled.div`
     transition: color 0.7s ease;
 
     @media (min-width: 772px) {
-        width: 50px;
-        font-size: 1em;
+        width: 40px;
     };
 
     @media (min-width: 992px) {
-        width: 55px;
-        font-size: 1.2em;
+        width: 45px;
     }
 
     @media (min-width: 1280px) {
-        width: 65px;
-        font-size: 1.4em;
+        width: 50px;
     };
 
     @media (min-width: 1920px) {
-        width: 80px;
+        width: 60px;
+    };
+`
+
+let Span = styled.span`
+    font-size: 0.7em;
+
+    @media (min-width: 772px) {
+        font-size: 0.8em;
+    };
+
+    @media (min-width: 992px) {
+        font-size: 0.9em;
+    }
+
+    @media (min-width: 1280px) {
+        font-size: 1em;
     };
 `
 
@@ -60,7 +72,9 @@ export const NavigationLogo: FunctionComponent<NavigationLogoProps> = ({
                     <path d="M0,0h24v24H0V0z" fill="none"/>
                 </g>
             </svg>
-            Airo+
+            <Span>
+                Airo+
+            </Span>
         </NavigationLogoImg>
     );
 }

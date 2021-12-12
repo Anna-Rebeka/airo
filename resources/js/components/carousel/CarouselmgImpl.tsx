@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import {CarouselInputFlights} from "./CarouselInputFlights";
 import useWindowSize from "../../BasicUtils";
 import {CarouselInputRoundTrips} from "./CarouselInputRoundTrips";
+import {Heading1} from "../heading/Heading1";
 
 interface Props {
     displayCarousel: boolean;
@@ -15,24 +16,8 @@ interface Props {
 }
 
 
-let TextTitle = styled.p<{ side: string }>`
-    color: white;
-    font-size: 1.8em;
-    font-weight: bold;
+let TextTitle = styled(Heading1)`
     text-shadow: 0 5px 8px black;
-    margin: 0;
-
-    @media (min-width: 772px) {
-        font-size: 2em;
-    };
-
-    @media (min-width: 1060px) {
-        font-size: 2.4em;
-    };
-
-    @media (min-width: 1280px) {
-        font-size: 2.8em;
-    };
 `
 
 let TextDescription = styled.p<{ side: string }>`
@@ -128,7 +113,7 @@ let SideTextWrapper = styled.div`
 let ContentWrapper = styled.div<{ url: string }>`
     background-image: ${p => p.url};
     position: absolute;
-    top: 5%;
+    top: 0;
     left: 0;
     right: 0;
     display: flex;
@@ -187,16 +172,16 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
             <CarouselImgOpacityImg src={imgSource.default} alt={text.imageAlt}/>
             {displayCarousel ?
                 <ContentWrapper url={imgSource.default}>
-                    {width < 1060 ?
-                        null :
-                        <TextWrapper>
-                            <TextTitle side={side}>
-                                {text.title}
-                            </TextTitle>
+                    <TextWrapper>
+                        <TextTitle>
+                            {text.title}
+                        </TextTitle>
+                        {width > 1060 ?
                             <TextDescription side={side}>
                                 {text.description}
-                            </TextDescription>
-                        </TextWrapper>}
+                            </TextDescription> : null
+                        }
+                    </TextWrapper>
                     {side === "LEFT" ?
                         <CarouselInputFlights setNo={setNo} setFlightsTo={setFlightsTo}
                                               setFlightsFrom={setFlightsFrom}/> :

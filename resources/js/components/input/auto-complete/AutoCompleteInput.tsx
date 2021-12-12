@@ -104,6 +104,7 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder, setMet
             setMethod(e.target.value)
         } else {
             setIsWrongInput(true);
+            setMethod("");
         }
         setShowSuggestions(true);
     };

@@ -24,7 +24,7 @@ let NavigationLinkA = styled.a<{ activated: boolean }>`
     letter-spacing: 0.07em;
     display: inline-block;
     transition: font-size 1.3s, color 0.5s;
-    font-size: 1em;
+    font-size: 1.1em;
 
     :after {
         background: none repeat scroll 0 0 #FF7F2A;

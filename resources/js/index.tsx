@@ -11,6 +11,7 @@ import {ContactsImpl} from "./components/sections/ContactsImpl";
 import BasicImpl from "./components/sections/BasicImpl";
 import {PageNotFound} from "./components/not-found/PageNotFound";
 import {ReservedTicketsNoRegistered} from "./components/ticket/ReservedTicketsNoRegistered";
+import {Heading2} from "./components/heading/Heading2";
 
 
 interface RootProps {
@@ -37,7 +38,9 @@ let ListOfTickets = styled.div`
     background-image: linear-gradient(0deg, #000000 0%, #404040 100%);
 `
 
-let Heading1 = styled.h1`
+let Paragraph = styled.p`
+    margin: 2em;
+    font-size: 1.8em;
     color: white;
 `
 
@@ -63,7 +66,7 @@ let images =
 
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
     const [displayCarousel, setDisplayCarousel] = useState("LEFT");
-    const [flightsFrom, setFlightsFrom] = useState<any>([]);
+    const [flightsFrom, setFlightsFrom] = useState<any>(null);
     const [no, setNo] = useState<number>(1);
     const [flightsTicketsTo, setFlightTicketsTo] = useState();
     const [roundTrips, setRoundTrips] = useState();
@@ -88,11 +91,11 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                                    side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
             </Carousel>
             <ListOfTickets id={"tickets"}>
-                {flightsFrom.length !== 0 ?
+                {flightsFrom && flightsFrom.length !== 0 ?
                     <>
-                        <Heading1>
+                        <Heading2>
                             Found tickets
-                        </Heading1>
+                        </Heading2>
                         {flightsFrom.map((element: any, index: number) =>
                             <ResultItem
                                 no={no}
@@ -114,7 +117,12 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                                 setFlightsFrom={setFlightsFrom}
                             />
                         )}
-                    </> : null
+                    </> :
+                    flightsFrom ?
+                        <Paragraph>
+                            No flights were found. Please change your inputs.
+                        </Paragraph>
+                        : null
                 }
             </ListOfTickets>
         </BasicImpl>

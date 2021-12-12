@@ -2,18 +2,12 @@ import React, {FunctionComponent, useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import ResultItemTickets from "../result/ResultItemTickets";
 import BasicImpl from "./BasicImpl";
+import { Heading1 } from "../heading/Heading1";
+import { Heading2 } from "../heading/Heading2";
 
 interface Props {
     dataset: any;
 }
-
-let Heading1 = styled.h1`
-    color: white;
-`
-
-let Heading2 = styled.h2`
-    color: white;
-`
 
 let Paragraph = styled.p`
     color: white;

@@ -59,6 +59,7 @@ let ResultDescription = styled.p`
 let MainWrapperContent = styled.ul`
     display: flex;
     flex-direction: column;
+    padding: 0;
 
     @media (min-width: 772px) {
         flex-direction: row;
@@ -68,6 +69,7 @@ let MainWrapperContent = styled.ul`
 let WrapperContentCol = styled.li`
     display: flex;
     flex-direction: column;
+    width: 75%;
 `
 
 

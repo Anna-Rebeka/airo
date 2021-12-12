@@ -1,6 +1,7 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import ModularFormForBooking from "../input/modular-form/ModularFormForBooking";
+import {Heading3} from "../heading/Heading3";
 
 interface Props {
     element: any;
@@ -35,7 +36,6 @@ let ResultWrapper = styled.article`
 
     :nth-of-type(odd) {
         background-color: rgb(100, 100, 100);
-        padding: 5px;
     }
 
     @media (min-width: 772px) {
@@ -69,12 +69,9 @@ let ResultImg = styled.img`
     };
 `
 
-let ResultH2 = styled.h2`
-    color: white;
-    position: relative;
-    margin: 0;
-    float: left;
+let ElementTitle = styled(Heading3)`
     text-decoration: underline;
+    margin: 0.2em 0;
 `
 
 let Element = styled.li`
@@ -154,7 +151,9 @@ export const ResultItem: FunctionComponent<Props> = ({
                 </WrapperContentCol>
                 <WrapperContentColDescription>
                     <WrapperDetails>
-                        <ResultH2>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ResultH2>
+                        <Element>
+                            <ElementTitle>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ElementTitle>
+                        </Element>
                         <Element>{"Departure time: " + leaves}</Element>
                         <Element>{"Estimated arrival time: " + arrives}</Element>
                         <Element>{"Flight company: " + companyName + "*".repeat(companyClass)}</Element>

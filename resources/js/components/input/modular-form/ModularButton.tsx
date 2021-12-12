@@ -14,7 +14,7 @@ let ModularButtonBtn = styled.button`
     text-decoration: none;
     border: 0.1em solid white;
     color: white;
-    font-size: 1.2em;
+    font-size: 1em;
     cursor: pointer;
     background-color: transparent;
     padding: 0.5rem 1rem;
@@ -29,19 +29,19 @@ let ModularButtonBtn = styled.button`
     }
 
     @media (min-width: 772px) {
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
 
     @media (min-width: 992px) {
-        font-size: 1.6em;
+        font-size: 1.4em;
     }
 
     @media (min-width: 1280px) {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
 
     @media (min-width: 1920px) {
-        font-size: 2em;
+        font-size: 1.8em;
     }
     transition: background-color 0.2s, color 0.3s;
 `;

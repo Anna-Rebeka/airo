@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import {CarouselButton} from "../button/CarouselButton";
 import {InputLink} from "../input/input-link/InputLink";
 import axios from "axios";
+import {Heading2} from "../heading/Heading2";
 
 
 interface Props {
@@ -47,6 +48,7 @@ let Form = styled.form`
 let RowFlexBox = styled.ul`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 600px;
     margin: 0;
     padding: 0;
@@ -149,12 +151,10 @@ let DateInput = styled.input<{ isError: boolean }>`
     }
 `
 
-let Title = styled.h2`
-    color: white;
+const Title = styled(Heading2)`
     text-align: center;
-    margin: 0;
-    width: 100%;
 `
+
 export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, setFlightsTo, setNo}) => {
     const [numberOfPersons, setNumberOfPersons] = useState<number>(1);
     const [isOneWay, setIsOneWay] = useState<boolean>(true);
@@ -188,9 +188,11 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
             to: !to || to === "",
             dateFrom: !dateFrom || dateFrom === "",
             dateTo: !isOneWay && (!dateTo || dateTo === ""),
-            numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 14,
-            maximumPrice: !price || price <= 0 || price > 9999
+            numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 20,
+            maximumPrice: !price || price < 50 || price > 9999
         }
+
+        console.log(to, !to || to === "")
 
         setInputsFilledWrongly({...inputsValues});
         return inputsValues;
@@ -199,6 +201,8 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
 
     let getListOfFlights = () => {
         let inputsValues = checkInputs();
+
+        console.log(inputsValues);
 
         let notSearchFlights = Object.values(inputsValues).some((val) => {
                 if (val) {
@@ -298,7 +302,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
                     <WrapperInput>
                         <WrapperParagraph>No. of persons</WrapperParagraph>
                         <IntegerInput isError={inputsFilledWrongly.numberOfPersons}
-                                      placeholder={"Select no. of persons (between 1 and 20)"} value={numberOfPersons}
+                                      placeholder={"No. of persons (between 1 and 20)"} value={numberOfPersons}
                                       onChange={(e: any) => {
                                           setNumberOfPersons(e.target.value);
                                           setNo(e.target.value);
@@ -310,10 +314,10 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
                     <WrapperInput>
                         <WrapperParagraph>Maximum price</WrapperParagraph>
                         <IntegerInput isError={inputsFilledWrongly.maximumPrice}
-                                      placeholder={"Select maximum price (from 100 to 9999)"} value={price}
+                                      placeholder={"Maximum price (from 50 to 9999)"} value={price}
                                       onChange={(e: any) => {
                                           setPrice(e.target.value);
-                                      }} min={100} max={9999}
+                                      }} min={50} max={9999}
                                       type={"number"}/>
                     </WrapperInput>
                 </FlexBoxCol>
