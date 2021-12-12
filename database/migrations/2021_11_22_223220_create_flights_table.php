@@ -19,8 +19,8 @@ class CreateFlightsTable extends Migration
             $table->unsignedBigInteger('departure_id');
             $table->unsignedBigInteger('arrival_id');
             $table->unsignedBigInteger('company_id');
-            $table->unsignedBigInteger('duration');
-            $table->unsignedBigInteger('distance');
+            $table->decimal('duration');
+            $table->decimal('distance');
             $table->decimal('price');
             $table->dateTime('leaves');
             $table->dateTime('arrives');
