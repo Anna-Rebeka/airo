@@ -1,4 +1,4 @@
-INSERT INTO `preferences` (`name`) VALUES
+INSERT INTO 'preferences' ('name') VALUES
 ('History'),
 ('Social'),
 ('Adventure'),

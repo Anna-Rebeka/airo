@@ -1,4 +1,4 @@
-INSERT INTO `cities` (`id`, `name`, `lat`, `lng`, `country`, `capital`, `population`, `info`, `image`) VALUES
+INSERT INTO 'cities' ('id', 'name', 'lat', 'lng', 'country', 'capital', 'population', 'info', 'image') VALUES
 (1, 'Tokyo', 35.69, 139.69, 'Japan', 'primary', '37977000', NULL, NULL),
 (8, 'Seoul', 37.56, 126.99, 'Korea, South', 'primary', '21794000', NULL, NULL),
 (9, 'Mexico City', 19.43, -99.13, 'Mexico', 'primary', '20996000', NULL, NULL),
