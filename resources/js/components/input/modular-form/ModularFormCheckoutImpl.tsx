@@ -4,7 +4,7 @@ import axios from "axios";
 import styled from "@emotion/styled";
 import {ModularButton} from "./ModularButton";
 import {ModularFormInputElement} from "./ModularFormInputElement";
-import {ValidateFName} from "../../../hooks/useValidators";
+import {ValidateEmail} from "../../../hooks/useValidators";
 
 interface Props {
     user: any;
@@ -21,21 +21,31 @@ let Text = styled.p`
     text-align: center;
 `
 
-let FlexboxInputsCheckout = styled.div`
+let FlexboxInputsCheckout = styled.ul`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 0;
+    margin: 0;
+    max-width: 70%;
 `
 
-let TextCheckout = styled.p`
+let TextCheckout = styled.li`
     color: white;
-    text-align: center;
+    text-align: left;
     margin: 0;
+    padding: 0;
+    list-style: none;
 `
 let FlexboxInputs = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`
+
+let WrapperInput = styled.div`
+    width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
 `
@@ -52,20 +62,25 @@ export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setD
             {!successfulBooking ?
                 <>
                     <Text>You are about to buy your selected ticket. Please check details below about the ticket.</Text>
-                    <FlexboxInputsCheckout>
-                        <TextCheckout>Departure and arrival
-                            city: {(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)} </TextCheckout>
-                        <TextCheckout>Date and time of departure: {element && element.leaves}</TextCheckout>
-                        <TextCheckout>Date and time of arrival: {element && element.arrives}</TextCheckout>
-                        <TextCheckout>Price: {element ? (element.price * no) + " € " + ((no > 1) ? ("(" + (element.price) + "€/each)") : "") : ""}</TextCheckout>
-                        <TextCheckout>Number of persons: {no}</TextCheckout>
-                        <TextCheckout>Company: {element && element.company && element.company.name + "*".repeat(element && element.company && element.company.class)}</TextCheckout>
-                        <TextCheckout>Duration and
-                            distance: {element && element.duration + "mins " + element && element.distance + "km"}</TextCheckout>
-                    </FlexboxInputsCheckout>
+                    <WrapperInput>
+                        <FlexboxInputsCheckout>
+                            <TextCheckout>Departure and arrival
+                                city: {(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)} </TextCheckout>
+                            <TextCheckout>Date and time of departure: {element && element.leaves}</TextCheckout>
+                            <TextCheckout>Date and time of arrival: {element && element.arrives}</TextCheckout>
+                            <TextCheckout>Price: {element ? (element.price * no) + " € " + ((no > 1) ? ("(" + (element.price) + "€/each)") : "") : ""}</TextCheckout>
+                            <TextCheckout>Number of persons: {no}</TextCheckout>
+                            <TextCheckout>Company: {element && element.company && element.company.name + "*".repeat(element && element.company && element.company.class)}</TextCheckout>
+                            <TextCheckout>Duration and
+                                distance: {element && element.duration + "mins " + element && element.distance + "km"}</TextCheckout>
+                        </FlexboxInputsCheckout>
+                    </WrapperInput>
                     <Text>Do you want to book?</Text>
                     {state === "CHECKOUT_NOT_REGISTERED" ?
-                        <ModularFormInputElement isWrongFromParent={isWrongEmail} setIsWrongParentMethod={setIsWrongEmail} validatorMethodIsValid={ValidateFName} errorMessage={"Email address is not in a correct format."} type="text"
+                        <ModularFormInputElement isWrongFromParent={isWrongEmail}
+                                                 setIsWrongParentMethod={setIsWrongEmail}
+                                                 validatorMethodIsValid={ValidateEmail}
+                                                 errorMessage={"Email address is not in a correct format."} type="text"
                                                  id="emailAddressRegisterInput" name="emailAddress"
                                                  placeholder="Email address"
                                                  value={emailAddress}
@@ -79,14 +94,22 @@ export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setD
                         }}/>
                         <ModularButton text={"Book"} type="submit" id="book" name="book checkout button"
                                        value="book checkout" setOnClickValueMethod={() => {
-                            axios.post('/ticket', {
-                                flight_id: element.id,
-                                no: no,
-                                email: emailAddress
-                            }).then((res) => {
-                                setSuccessfulBooking(true);
-                            })
-                        }}/>
+
+                            if (!emailAddress || emailAddress === "") {
+                                setIsWrongEmail(true);
+                                return;
+                            }
+                            if (!isWrongEmail) {
+                                axios.post('/ticket', {
+                                    flight_id: element.id,
+                                    no: no,
+                                    email: emailAddress
+                                }).then((res) => {
+                                    setSuccessfulBooking(true);
+                                })
+                            }
+                        }
+                        }/>
                     </FlexboxInputs>
                 </> :
                 <>
