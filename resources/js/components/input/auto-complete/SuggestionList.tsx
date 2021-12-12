@@ -19,11 +19,11 @@ let Wrapper = styled.ul`
 let ElementInList = styled.li`
     list-style: none;
     cursor: pointer;
+    color: black;
     font-size: 1.2em;
 
     :hover {
         background-color: #FF7F2A;
-        color: black;
     }
 `
 

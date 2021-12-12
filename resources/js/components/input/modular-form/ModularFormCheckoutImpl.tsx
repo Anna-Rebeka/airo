@@ -4,6 +4,7 @@ import axios from "axios";
 import styled from "@emotion/styled";
 import {ModularButton} from "./ModularButton";
 import {ModularFormInputElement} from "./ModularFormInputElement";
+import {ValidateFName} from "../../../hooks/useValidators";
 
 interface Props {
     user: any;
@@ -44,7 +45,7 @@ export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setD
 
     let [successfulBooking, setSuccessfulBooking] = useState(false);
     let [emailAddress, setEmailAddress] = useState("");
-
+    let [isWrongEmail, setIsWrongEmail] = useState(false);
 
     return (
         <ModularFormRoot setDisplay={setDisplay} title={successfulBooking ? "Ticket bought" : "Check your purchase"}>
@@ -64,7 +65,8 @@ export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setD
                     </FlexboxInputsCheckout>
                     <Text>Do you want to book?</Text>
                     {state === "CHECKOUT_NOT_REGISTERED" ?
-                        <ModularFormInputElement type="text" id="emailAddressRegisterInput" name="emailAddress"
+                        <ModularFormInputElement isWrongFromParent={isWrongEmail} setIsWrongParentMethod={setIsWrongEmail} validatorMethodIsValid={ValidateFName} errorMessage={"Email address is not in a correct format."} type="text"
+                                                 id="emailAddressRegisterInput" name="emailAddress"
                                                  placeholder="Email address"
                                                  value={emailAddress}
                                                  setOnChangeValueMethod={setEmailAddress}/>

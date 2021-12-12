@@ -5,6 +5,8 @@ import {CarouselButton} from "../button/CarouselButton";
 import {InputLink} from "../input/input-link/InputLink";
 import axios from "axios";
 import {Heading2} from "../heading/Heading2";
+import {Heading3} from "../heading/Heading3";
+import {Error} from "../input/auto-complete/Error";
 
 
 interface Props {
@@ -95,10 +97,8 @@ let WrapperInput = styled.div`
     margin: 1em;
 `;
 
-let WrapperParagraph = styled.p`
-    color: white;
+let InputTitle = styled(Heading3)`
     text-shadow: 0 5px 8px black;
-    font-size: 1.2em;
     margin: 0 0 0.4em;
 
     @media (min-width: 476px) {
@@ -164,6 +164,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
     const [price, setPrice] = useState<number>(100);
     const [from, setFrom] = useState<string>();
     const [to, setTo] = useState<string>();
+    const [dateToBeforeDateFrom, setDateToBeforeDateFrom] = useState(false);
     const [inputsFilledWrongly, setInputsFilledWrongly] = useState({
         from: false,
         to: false,
@@ -187,13 +188,10 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
             from: !from || from === "",
             to: !to || to === "",
             dateFrom: !dateFrom || dateFrom === "",
-            dateTo: !isOneWay && (!dateTo || dateTo === ""),
+            dateTo: !isOneWay && (!dateTo || dateTo === "") || (dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo)),
             numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 20,
             maximumPrice: !price || price < 50 || price > 9999
         }
-
-        console.log(to, !to || to === "")
-
         setInputsFilledWrongly({...inputsValues});
         return inputsValues;
     }
@@ -201,9 +199,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
 
     let getListOfFlights = () => {
         let inputsValues = checkInputs();
-
-        console.log(inputsValues);
-
+        setDateToBeforeDateFrom(dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo));
         let notSearchFlights = Object.values(inputsValues).some((val) => {
                 if (val) {
                     return true;
@@ -214,8 +210,6 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
         if (notSearchFlights) {
             return;
         }
-
-        setFlightsFrom(["test", "TEST"]);
 
         axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
         )
@@ -228,14 +222,12 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
             axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
             )
                 .then((res) => {
-                    setFlightsTo(res.data)
+                    setFlightsTo([...res.data])
                 })
         }
 
-        setFlightsFrom(["test", "TEST"]);
-
+        console.log();
         let element = document.getElementById('tickets');
-
         if (element) {
             element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
         }
@@ -259,14 +251,14 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
             <RowFlexBox>
                 <FlexBoxCol>
                     <WrapperInput>
-                        <WrapperParagraph>From</WrapperParagraph>
+                        <InputTitle>From</InputTitle>
                         <AutoCompleteInput isError={inputsFilledWrongly.from} setMethod={setFrom}
                                            placeholder={"Departure city"}/>
                     </WrapperInput>
                 </FlexBoxCol>
                 <FlexBoxCol>
                     <WrapperInput>
-                        <WrapperParagraph>To</WrapperParagraph>
+                        <InputTitle>To</InputTitle>
                         <AutoCompleteInput isError={inputsFilledWrongly.to} setMethod={setTo}
                                            placeholder={"Arrival city"}/>
                     </WrapperInput>
@@ -276,7 +268,7 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
             <RowFlexBoxDate>
                 <FlexBoxCol>
                     <WrapperInput>
-                        <WrapperParagraph>Date From</WrapperParagraph>
+                        <InputTitle>Departure date</InputTitle>
                         <DateInput isError={inputsFilledWrongly.dateFrom} type={"date"} onChange={(e: any) => {
                             setDateFrom(e.target.value);
                             setInputsFilledWrongly({...inputsFilledWrongly, dateFrom: false})
@@ -286,13 +278,22 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
                 <FlexBoxCol>
                     {
                         activated === "TWO" ?
-                            <WrapperInput>
-                                <WrapperParagraph>Date To</WrapperParagraph>
-                                <DateInput isError={inputsFilledWrongly.dateTo} type={"date"} onChange={(e: any) => {
-                                    setDateTo(e.target.value);
-                                    setInputsFilledWrongly({...inputsFilledWrongly, dateTo: false})
-                                }}/>
-                            </WrapperInput>
+                            <>
+                                <WrapperInput>
+                                    <InputTitle>Return date</InputTitle>
+                                    <DateInput isError={inputsFilledWrongly.dateTo} type={"date"}
+                                               onChange={(e: any) => {
+                                                   setDateTo(e.target.value);
+                                                   setInputsFilledWrongly({...inputsFilledWrongly, dateTo: false})
+                                               }}/>
+                                </WrapperInput>
+                                {dateToBeforeDateFrom ?
+                                    <Error>
+                                        Return date is before departure date
+                                    </Error> :
+                                    null}
+                            </>
+
                             : null
                     }
                 </FlexBoxCol>
@@ -300,9 +301,9 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
             <RowFlexBoxDate>
                 <FlexBoxCol>
                     <WrapperInput>
-                        <WrapperParagraph>No. of persons</WrapperParagraph>
+                        <InputTitle>No. of persons</InputTitle>
                         <IntegerInput isError={inputsFilledWrongly.numberOfPersons}
-                                      placeholder={"No. of persons (between 1 and 20)"} value={numberOfPersons}
+                                      placeholder={"between 1 and 20"} value={numberOfPersons}
                                       onChange={(e: any) => {
                                           setNumberOfPersons(e.target.value);
                                           setNo(e.target.value);
@@ -312,9 +313,9 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
                 </FlexBoxCol>
                 <FlexBoxCol>
                     <WrapperInput>
-                        <WrapperParagraph>Maximum price</WrapperParagraph>
+                        <InputTitle>Maximum price</InputTitle>
                         <IntegerInput isError={inputsFilledWrongly.maximumPrice}
-                                      placeholder={"Maximum price (from 50 to 9999)"} value={price}
+                                      placeholder={"from 50 to 9999"} value={price}
                                       onChange={(e: any) => {
                                           setPrice(e.target.value);
                                       }} min={50} max={9999}
