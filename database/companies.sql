@@ -1,4 +1,4 @@
-INSERT INTO 'companies' ('name', 'class') VALUES
+INSERT INTO companies (name, class) VALUES
 ('Smartwings', 1),
 ('Ryanair', 1),
 ('KLM', 3),
