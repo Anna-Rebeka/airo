@@ -14,7 +14,7 @@ export const ValidateLName = function (entry: string) {
 export const ValidateEmail = function (entry: string): boolean {
     /*'[a-zA-Z0-9-._,?*+]+';   <-- username check, since it is email, different is used */
     //na ziaciatku pismena+cisla, niekde @ za nim pismena+cisla, ., domena 2-5 znakov
-    let regex = '^[a-zA-Z0-9].*[@][a-zA-Z0-9]+.[a-z]{2,10}$';
+    let regex = '^[a-zA-Z0-9].*[@][a-zA-Z0-9]+[.][a-z]{2,10}$';
     let result = entry?.match(regex);
     return result != null && result[0] == result.input;
 }

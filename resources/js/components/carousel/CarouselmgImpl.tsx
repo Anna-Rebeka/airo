@@ -28,7 +28,7 @@ let TextDescription = styled.p<{ side: string }>`
     };
 
     color: white;
-    font-size: 1.8em;
+    font-size: 1.6em;
     text-shadow: 0 5px 8px black;
     margin: 0.35em 0;
 `

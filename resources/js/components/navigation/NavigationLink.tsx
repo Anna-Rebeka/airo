@@ -44,11 +44,11 @@ let NavigationLinkA = styled.a<{ activated: boolean }>`
     };
 
     @media (min-width: 1280px) {
-        font-size: 2em;
+        font-size: 1.8em;
     };
 
     @media (min-width: 1920px) {
-        font-size: 2.4em;
+        font-size: 2em;
     };
 
     :hover {
