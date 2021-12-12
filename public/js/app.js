@@ -5242,13 +5242,19 @@ var AutoCompleteInput = function AutoCompleteInput(_a) {
   };
 
   var onChange = function onChange(e) {
+    var val = e.target.value;
+
+    if (val && val.length > 0) {
+      val = val.charAt(0).toUpperCase() + val.slice(1);
+    }
+
     setInputListReference([]);
-    setInput(e.target.value);
+    setInput(val);
     setFilteredSuggestions(filteredSuggestions);
 
-    if (checkFilteredSuggestions(e.target.value)) {
+    if (checkFilteredSuggestions(val)) {
       setIsWrongInput(false);
-      setMethod(e.target.value);
+      setMethod(val);
     } else {
       setIsWrongInput(true);
       setMethod("");

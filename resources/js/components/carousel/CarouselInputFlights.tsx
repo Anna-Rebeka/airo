@@ -182,7 +182,6 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
         setIsOneWay(type === "ONE");
     }
 
-
     let checkInputs = () => {
         let inputsValues = {
             from: !from || from === "",

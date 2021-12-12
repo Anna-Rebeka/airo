@@ -68,7 +68,6 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder, setMet
         };
     }, [isError]);
 
-
     const onClick = (e: any) => {
         setFilteredSuggestions([]);
         setInput(e.target.innerText);
@@ -96,12 +95,18 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder, setMet
     }
 
     const onChange = (e: any) => {
+
+        let val = e.target.value;
+        if (val && val.length > 0) {
+            val = val.charAt(0).toUpperCase() + val.slice(1)
+        }
+
         setInputListReference([]);
-        setInput(e.target.value);
+        setInput(val);
         setFilteredSuggestions(filteredSuggestions);
-        if (checkFilteredSuggestions(e.target.value)) {
+        if (checkFilteredSuggestions(val)) {
             setIsWrongInput(false);
-            setMethod(e.target.value)
+            setMethod(val)
         } else {
             setIsWrongInput(true);
             setMethod("");
