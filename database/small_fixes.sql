@@ -48,7 +48,7 @@ WHERE name = 'New York';
 UPDATE cities
 SET image = 'paris',
 	info = 'Paris is the capital and most populous city of France, with an estimated population of 2,175,601 residents as of 2018, in an area of more
-			than 105 square kilometres  Since the 17th century, Paris has been one of Europe\'s major centres of finance, diplomacy, commerce, fashion,
+			than 105 square kilometres  Since the 17th century, Paris has been one of Europes major centres of finance, diplomacy, commerce, fashion,
 			gastronomy, science, and arts.'
 WHERE name = 'Paris';
 
