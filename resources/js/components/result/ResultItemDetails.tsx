@@ -1,6 +1,5 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import ModularFormForBooking from "../input/modular-form/ModularFormForBooking";
 import {Heading3} from "../heading/Heading3";
 
 interface Props {
@@ -20,52 +19,36 @@ interface Props {
     leaves: string;
     setUser: any;
     user: any;
-    setFlightsFrom: any;
     no: number;
 }
 
 let ResultWrapper = styled.article`
     position: relative;
     overflow: hidden;
-    width: 80%;
+    width: 100%;
     text-align: left;
     display: block;
     color: white;
-    padding: 5px;
     border: 1px gray solid;
-
-    :nth-of-type(odd) {
-        background-color: rgb(100, 100, 100);
-    }
-
-    @media (min-width: 772px) {
-        width: 50%;
-    };
-
-    @media (min-width: 1060px) {
-        width: 75%;
-    };
-
-    @media (min-width: 1280px) {
-    };
+    background-color: rgb(100, 100, 100);
 `;
 
 let ResultImg = styled.img`
-    width: 180px;
+    width: 280px;
     height: auto;
     float: left;
     margin-right: 15px;
 
     @media (min-width: 772px) {
-        width: 200px;
+        width: 300px;
     };
 
     @media (min-width: 1060px) {
-        width: 220px;
+        width: 320px;
     };
 
     @media (min-width: 1280px) {
-        width: 240px;
+        width: 340px;
     };
 `
 
@@ -82,7 +65,7 @@ let Element = styled.li`
 
 let WrapperContentCol = styled.li`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     list-style: none;
 `
 
@@ -101,40 +84,33 @@ let RowWrapper = styled.ul`
     display: flex;
     flex-direction: column;
     margin: 1em;
+    align-items: center;
     padding: 0;
-
-    @media (min-width: 772px) {
-        flex-direction: row;
-    };
 `
 
 let WrapperDetails = styled.ul`
     display: flex;
     flex-direction: column;
-    padding: 0;
     margin: 0.5em;
+    padding: 0;
 `
 
 
-export const ResultItem: FunctionComponent<Props> = ({
-                                                         imgSrc,
-                                                         description,
-                                                         altText,
-                                                         arrival,
-                                                         price,
-                                                         departure,
-                                                         images,
-                                                         leaves,
-                                                         arrives,
-                                                         companyName,
-                                                         companyClass,
-                                                         duration,
-                                                         distance,
-                                                         element,
-                                                         setUser,
-                                                         user,
-                                                         no
-                                                     }) => {
+export const ResultItemDetails: FunctionComponent<Props> = ({
+                                                                imgSrc,
+                                                                description,
+                                                                altText,
+                                                                arrival,
+                                                                price,
+                                                                departure,
+                                                                images,
+                                                                leaves,
+                                                                arrives,
+                                                                companyName,
+                                                                companyClass,
+                                                                duration,
+                                                                distance
+                                                            }) => {
 
     let imgUrl = images.find((obj: any) => {
         if (obj.name === imgSrc) {
@@ -156,16 +132,12 @@ export const ResultItem: FunctionComponent<Props> = ({
                         <Element>{"Departure time: " + leaves}</Element>
                         <Element>{"Estimated arrival time: " + arrives}</Element>
                         <Element>{"Flight company: " + companyName + "*".repeat(companyClass)}</Element>
+                        <Element>{"Distance between cities is " + distance + "km."}</Element>
+                        <Element>{"Duration of flight is " + duration + " minutes."}</Element>
+                        <Element>{"Description: " + description}</Element>
                     </WrapperDetails>
                 </WrapperContentColDescription>
-                <WrapperContentCol>
-                    <ModularFormForBooking images={images} no={no} withActivationButton={true} user={user}
-                                           setUser={setUser}
-                                           element={element}/>
-                </WrapperContentCol>
             </RowWrapper>
         </ResultWrapper>
     );
 }
-
-export default ResultItem;

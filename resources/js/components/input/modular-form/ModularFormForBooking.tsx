@@ -1,9 +1,9 @@
 import React, {FunctionComponent, useState} from "react";
-import styled from '@emotion/styled';
 import {ModularFormRegisterImpl} from "./ModularFormRegisterImpl";
 import {ModularFormCheckoutImpl} from "./ModularFormCheckoutImpl";
 import {ModularFormLoginImpl} from "./ModularFormLoginImpl";
 import {ModularButton} from "./ModularButton";
+import {ModularFormCityDetails} from "./ModularFormCityDetails";
 
 interface Props {
     element: any;
@@ -12,45 +12,11 @@ interface Props {
     setUser: any;
     withActivationButton: boolean;
     no: number;
+    images: any;
 }
 
-// je reprezentovany orazovym ?, po nadideni zobrazi text "hint"
-let ToolTip = styled.text<{ hint: string }>`
-    color: orange;
-    margin: 0 0 0 5px;
-    content: '';
-    display: inline;
-    font-weight: bold;
-
-    :before {
-        display: inline;
-        content: '';
-    }
-
-    :after {
-        display: inline;
-        content: '?';
-    }
-
-    :hover {
-        /* cursor: normal; <-- nefunguje */
-        display: inline;
-        content: '';
-    }
-
-    :hover:before {
-        display: none;
-        content: '';
-    }
-
-    :hover:after {
-        display: inline;
-        content: ${h => h.hint};
-    }
-`;
-
 export const ModularFormForBooking: FunctionComponent<Props> = ({
-
+                                                                    images,
                                                                     setUser,
                                                                     shouldBeActivated,
                                                                     element,
@@ -82,16 +48,39 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
             }
             {
                 withActivationButton ?
-                    <ModularButton type={"submit"} name={"book"} value={"book"}
-                                   text={"Book"} id="bookATicket"
-                                   setOnClickValueMethod={() => {
-                                       if (user) {
-                                           setState("LOGGED");
-                                       } else {
-                                           setState("REGISTER");
-                                       }
-                                       setDisplay(true);
-                                   }}/>
+                    <>
+                        <ModularButton type={"submit"} name={"book"} value={"book"}
+                                       text={"Book"} id="bookATicket"
+                                       setOnClickValueMethod={() => {
+                                           if (user) {
+                                               setState("LOGGED");
+                                           } else {
+                                               setState("REGISTER");
+                                           }
+                                           setDisplay(true);
+                                       }}/>
+                        <ModularFormCityDetails no={no}
+                                                companyClass={element && element.company && element.company.class}
+                                                companyName={element && element.company && element.company.name}
+                                                arrives={element && element.arrives}
+                                                leaves={element && element.leaves}
+                                                distance={element && element.distance}
+                                                duration={element && element.duration}
+                                                images={images}
+                                                key={"result-item-flights-details-" + element.price + element.departure + element.arrival}
+                                                imgSrc={element && element.arrival && element.arrival.image}
+                                                price={element.price}
+                                                description={element && element.arrival && element.arrival.info}
+                                                altText={element.altText} arrival={element.arrival}
+                                                departure={element.departure}
+                                                element={element}
+                                                user={user}
+                                                setUser={setUser}
+                                                withActivationButton={true}
+                                                shouldBeActivated={false}/>
+
+                    </>
+
                     : null
             }
         </>
