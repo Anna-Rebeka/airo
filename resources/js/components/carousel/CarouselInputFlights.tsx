@@ -11,6 +11,9 @@ interface Props {
     setFlightsFrom: any;
     setFlightsTo: any;
     setNo: any;
+    oneWay: boolean;
+    step: number;
+    flightsTo: any;
 }
 
 let Form = styled.form`
@@ -155,7 +158,7 @@ const Title = styled(Heading2)`
     text-align: center;
 `
 
-export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, setFlightsTo, setNo}) => {
+export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, setFlightsTo, setNo, oneWay, step, flightsTo}) => {
     const [numberOfPersons, setNumberOfPersons] = useState<number>(1);
     const [isOneWay, setIsOneWay] = useState<boolean>(true);
     const [activated, setActivated] = useState("ONE");
@@ -228,6 +231,8 @@ export const CarouselInputFlights: FunctionComponent<Props> = ({setFlightsFrom, 
             axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
             )
                 .then((res) => {
+                    oneWay = true;
+                    flightsTo = res.data;
                     setFlightsTo(res.data)
                 })
         }

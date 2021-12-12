@@ -67,10 +67,13 @@ let images =
 const Root: FunctionComponent<RootProps> = ({dataset}) => {
     const [displayCarousel, setDisplayCarousel] = useState("LEFT");
     const [flightsFrom, setFlightsFrom] = useState<any>(null);
+    const [flightsTo, setFlightsTo] = useState<any>(null);
     const [no, setNo] = useState<number>(1);
     const [flightsTicketsTo, setFlightTicketsTo] = useState();
     const [roundTrips, setRoundTrips] = useState();
     const [user, setUser] = useState();
+    let oneWay = true;
+    let step = 1;
 
 
     useEffect(() => {
@@ -84,11 +87,20 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                                    displayCarousel={"RIGHT" === displayCarousel}
                                    setDisplayedSide={setDisplayCarousel}
                                    side={"RIGHT"}
-                                   imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
+                                   imgSource={require("../../public/images/carousel_round_trip.jpg")}
+                                   oneWay={oneWay}
+                                   step={step}
+                                   flightsTo={flightsTo}
+                                   />
+                                   
                 <CarouselImageImpl setNo={setNo} setFlightsFrom={setFlightsFrom} setFlightsTo={setFlightTicketsTo}
                                    displayCarousel={"LEFT" === displayCarousel}
                                    setDisplayedSide={setDisplayCarousel}
-                                   side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
+                                   side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}
+                                   oneWay={oneWay}
+                                   step={step}
+                                   flightsTo={flightsTo}
+                                   />
             </Carousel>
             <ListOfTickets id={"tickets"}>
                 {flightsFrom && flightsFrom.length !== 0 ?
@@ -115,6 +127,10 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                                 user={user}
                                 setUser={setUser}
                                 setFlightsFrom={setFlightsFrom}
+                                oneWay={oneWay}
+                                step={step}
+                                flightsFrom={flightsFrom}
+                                flightsTo={flightsTo}
                             />
                         )}
                     </> :

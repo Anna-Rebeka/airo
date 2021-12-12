@@ -22,6 +22,10 @@ interface Props {
     user: any;
     setFlightsFrom: any;
     no: number;
+    oneWay: boolean;
+    step: number;
+    flightsFrom: any;
+    flightsTo: any;
 }
 
 let ResultWrapper = styled.article`
@@ -134,7 +138,11 @@ export const ResultItem: FunctionComponent<Props> = ({
                                                          setUser,
                                                          user,
                                                          setFlightsFrom,
-                                                         no
+                                                         no,
+                                                         oneWay,
+                                                         step,
+                                                         flightsFrom,
+                                                         flightsTo
                                                      }) => {
 
     let imgUrl = images.find((obj: any) => {
@@ -163,7 +171,9 @@ export const ResultItem: FunctionComponent<Props> = ({
                 </WrapperContentColDescription>
                 <WrapperContentCol>
                     <ModularFormForBooking no={no} withActivationButton={true} user={user} setUser={setUser}
-                                           element={element}/>
+                                           oneWay={oneWay} step={step} element={element} flightsFrom={flightsFrom}
+                                           flightsTo={flightsTo}
+                                           />
                 </WrapperContentCol>
             </RowWrapper>
         </ResultWrapper>

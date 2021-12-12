@@ -12,6 +12,10 @@ interface Props {
     setUser: any;
     withActivationButton: boolean;
     no: number;
+    oneWay: boolean;
+    step: number;
+    flightsFrom: any;
+    flightsTo: any;
 }
 
 // je reprezentovany orazovym ?, po nadideni zobrazi text "hint"
@@ -56,7 +60,11 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
                                                                     element,
                                                                     user,
                                                                     withActivationButton,
-                                                                    no
+                                                                    no,
+                                                                    oneWay,
+                                                                    step,
+                                                                    flightsFrom,
+                                                                    flightsTo
 
                                                                 }) => {
     let [display, setDisplay] = useState(shouldBeActivated);
@@ -104,7 +112,12 @@ export const ModularFormForBooking: FunctionComponent<Props> = ({
                         <ModularFormCheckoutImpl state={state} no={no} user={user} displayForm={display}
                                                  setDisplay={setDisplay}
                                                  element={element}
-                                                 setState={setState}/> :
+                                                 setState={setState}
+                                                 oneWay={oneWay}
+                                                 step={step}
+                                                 flightsFrom={flightsFrom}
+                                                 flightsTo={flightsTo}
+                                                 /> :
                         state === "LOGIN" ?
                             <ModularFormLoginImpl bookingWithoutRegistration={true} setUser={setUser}
                                                   setState={setState} setDisplay={setDisplay}/>

@@ -13,6 +13,11 @@ interface Props {
     setDisplay: any;
     displayForm: boolean;
     no: number;
+    oneWay: boolean;
+    step: number;
+    flightsFrom: any;
+    flightsTo: any;
+
 }
 
 let Text = styled.p`
@@ -40,7 +45,7 @@ let FlexboxInputs = styled.div`
 `
 
 
-export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setDisplay, state, no}) => {
+export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setDisplay, state, no, oneWay, step, flightsFrom, flightsTo}) => {
 
     let [successfulBooking, setSuccessfulBooking] = useState(false);
     let [emailAddress, setEmailAddress] = useState("");
@@ -82,6 +87,20 @@ export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setD
                                 no: no,
                                 email: emailAddress
                             }).then((res) => {
+                                console.log('one way');
+                                console.log(!oneWay);
+                                if(!oneWay){
+                                    step += 1;
+                                    flightsFrom = flightsTo; 
+                                    console.log('changed');
+                                    console.log(flightsFrom);
+                                    if (step == 2){
+                                        step = 1;
+                                    }
+
+                                }
+                                
+
                                 setSuccessfulBooking(true);
                             })
                         }}/>
@@ -90,10 +109,22 @@ export const ModularFormCheckoutImpl: FunctionComponent<Props> = ({element, setD
                 <>
                     <Text>Your ticket was successfully bought. Thank you for your
                         purchase!</Text>
+
+                    if(!oneWay){
+                        <ModularButton text={"Home"} type="submit" id="backToHomeSuccessfulBook"
+                        name="backToHomeSuccessfulBookName"
+                        value="backToHomeSuccessfulBookValue"
+
+                        setOnClickValueMethod={() => console.log('not one way')}/>
+                    }
                     <ModularButton text={"Home"} type="submit" id="backToHomeSuccessfulBook"
                                    name="backToHomeSuccessfulBookName"
                                    value="backToHomeSuccessfulBookValue"
-                                   setOnClickValueMethod={() => window.location.href = "/"}/>
+
+                                   setOnClickValueMethod={() => 
+                                        console.log('haha')
+                                   
+                                  }/>
                 </>
             }
         </ModularFormRoot>
