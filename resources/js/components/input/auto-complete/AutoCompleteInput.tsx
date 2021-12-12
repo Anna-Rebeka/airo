@@ -98,7 +98,7 @@ export const AutoCompleteInput: FunctionComponent<Props> = ({placeholder, setMet
 
         let val = e.target.value;
         if (val && val.length > 0) {
-            val = val.charAt(0).toUpperCase() + val.slice(1)
+            val = val.charAt(0).toUpperCase() + val.slice(1).toLowerCase();
         }
 
         setInputListReference([]);

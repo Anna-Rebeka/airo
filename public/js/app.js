@@ -5245,7 +5245,7 @@ var AutoCompleteInput = function AutoCompleteInput(_a) {
     var val = e.target.value;
 
     if (val && val.length > 0) {
-      val = val.charAt(0).toUpperCase() + val.slice(1);
+      val = val.charAt(0).toUpperCase() + val.slice(1).toLowerCase();
     }
 
     setInputListReference([]);
