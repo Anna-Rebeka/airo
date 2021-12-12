@@ -1,6 +1,6 @@
 export const ValidateFName = function (entry: string): boolean {
     // ziadne specialne znaky (-)
-    let regex = '^[a-zA-z]+';
+    let regex = '^[a-zA-Z]+$';
     let result = entry.match(regex);
     return result != null && result[0] == result.input;
 }
