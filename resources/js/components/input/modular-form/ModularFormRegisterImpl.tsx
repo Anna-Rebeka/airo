@@ -111,7 +111,7 @@ export const ModularFormRegisterImpl: FunctionComponent<Props> = ({
                         address.</Error> : null
             }
             <ModularButton type={"submit"} name={"backToLoginFromRegister"} value={"backToLoginFromRegister"}
-                           text={"Go back to log in"} id="backToLoginThroughRegister"
+                           text={"Log in panel"} id="backToLoginThroughRegister"
                            setOnClickValueMethod={() => setState("LOGIN")}/>
             {bookingWithoutRegistration ?
                 <ModularButton type={"submit"} name={"withoutRegister"} value={"withoutRegisterValue"}
