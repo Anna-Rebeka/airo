@@ -173,13 +173,16 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
             {displayCarousel ?
                 <ContentWrapper url={imgSource.default}>
                     <TextWrapper>
-                        <TextTitle>
-                            {text.title}
-                        </TextTitle>
-                        {width > 1060 ?
-                            <TextDescription side={side}>
-                                {text.description}
-                            </TextDescription> : null
+                        {width > 1059 ?
+                            <>
+                                <TextTitle>
+                                    {text.title}
+                                </TextTitle>
+                                <TextDescription side={side}>
+                                    {text.description}
+                                </TextDescription>
+                            </>
+                            : null
                         }
                     </TextWrapper>
                     {side === "LEFT" ?

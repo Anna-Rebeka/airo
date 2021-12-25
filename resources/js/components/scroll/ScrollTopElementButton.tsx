@@ -11,7 +11,7 @@ interface ScrollTopElementProps {
 let ScrollTopElementDiv = styled.div<{ breakPoint: boolean }>`
     cursor: pointer;
     position: fixed;
-    bottom: 5%;
+    bottom: 10%;
     right: 2%;
     color: #b80d16;
     font-size: 0.8em;

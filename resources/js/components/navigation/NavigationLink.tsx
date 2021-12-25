@@ -77,7 +77,8 @@ export const NavigationLink: FunctionComponent<NavigationLinkProps> = ({
                 </NavigationModularForm> :
                 <NavigationLinkA activated={textField == "ONE"} href={href} className={className}>
                     {textField}
-                </NavigationLinkA>}
+                </NavigationLinkA>
+            }
         </NavigationLinkLi>
     );
 }

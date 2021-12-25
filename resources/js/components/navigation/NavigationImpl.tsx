@@ -10,7 +10,7 @@ interface Props {
     className?: string;
 }
 
-let NavigationImplDiv = styled.nav`
+let NavigationImplNav = styled.nav`
     background-color: black;
     box-shadow: 2px 3px 8px 1px black;
     z-index: 9999;
@@ -96,7 +96,7 @@ export const NavigationImpl: FunctionComponent<Props> = ({
     }, {name: "My flights", href: "/myflights", needLogin: true}];
     let middleIndex: number = navigationLinks ? Math.floor(navigationLinks.length / 2) : 0;
     return (
-        <NavigationImplDiv>
+        <NavigationImplNav>
             <NavigationLogo/>
             <NavigationLinkItemDiv direction={"END"}>
                 {navigationLinks.slice(0, middleIndex).map((link: any, index: number) => (
@@ -128,7 +128,7 @@ export const NavigationImpl: FunctionComponent<Props> = ({
                     </svg>
                 </LogoutButton> : null
             }
-        </NavigationImplDiv>
+        </NavigationImplNav>
     )
 
 }

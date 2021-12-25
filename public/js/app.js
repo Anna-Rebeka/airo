@@ -4503,9 +4503,9 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
     alt: text.imageAlt
   }), displayCarousel ? react_1["default"].createElement(ContentWrapper, {
     url: imgSource["default"]
-  }, react_1["default"].createElement(TextWrapper, null, react_1["default"].createElement(TextTitle, null, text.title), width > 1060 ? react_1["default"].createElement(TextDescription, {
+  }, react_1["default"].createElement(TextWrapper, null, width > 1059 ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(TextTitle, null, text.title), react_1["default"].createElement(TextDescription, {
     side: side
-  }, text.description) : null), side === "LEFT" ? react_1["default"].createElement(CarouselInputFlights_1.CarouselInputFlights, {
+  }, text.description)) : null), side === "LEFT" ? react_1["default"].createElement(CarouselInputFlights_1.CarouselInputFlights, {
     setNo: setNo,
     setFlightsTo: setFlightsTo,
     setFlightsFrom: setFlightsFrom
@@ -6553,7 +6553,7 @@ var ModularFormRegisterImpl = function ModularFormRegisterImpl(_a) {
     type: "submit",
     name: "backToLoginFromRegister",
     value: "backToLoginFromRegister",
-    text: "Go back to log in",
+    text: "Log in panel",
     id: "backToLoginThroughRegister",
     setOnClickValueMethod: function setOnClickValueMethod() {
       return setState("LOGIN");
@@ -6791,6 +6791,79 @@ var templateObject_1;
 
 /***/ }),
 
+/***/ "./resources/js/components/navigation/NavigationDownImpl.tsx":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/navigation/NavigationDownImpl.tsx ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.NavigationDownImpl = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var NavigationImplNav = styled_1["default"].nav(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: black;\n    box-shadow: 2px 3px 8px 1px black;\n    z-index: 9999;\n    position: sticky;\n    bottom: 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 40px;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n\n    button:nth-of-type(2n) {\n        margin-left: 0.3em;\n    }\n"], ["\n    background-color: black;\n    box-shadow: 2px 3px 8px 1px black;\n    z-index: 9999;\n    position: sticky;\n    bottom: 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 40px;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n\n    button:nth-of-type(2n) {\n        margin-left: 0.3em;\n    }\n"])));
+var NavDownBtn = styled_1["default"].button(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    cursor: pointer;\n    background: transparent;\n    border: none;\n    color: white;\n    align-items: center;\n    justify-content: center;\n    margin-top: 0.3em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    cursor: pointer;\n    background: transparent;\n    border: none;\n    color: white;\n    align-items: center;\n    justify-content: center;\n    margin-top: 0.3em;\n"])));
+var NavDownImg = styled_1["default"].img(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 36px;\n    height: auto;\n"], ["\n    width: 36px;\n    height: auto;\n"])));
+var NavDownParagraph = styled_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    margin: 0.4em 0;\n"], ["\n    margin: 0.4em 0;\n"])));
+
+var NavigationDownImpl = function NavigationDownImpl(_a) {
+  var displayCarousel = _a.displayCarousel,
+      setDisplayCarousel = _a.setDisplayCarousel;
+
+  var chooseDisplay = function chooseDisplay(isFlightBtn) {
+    if (isFlightBtn && displayCarousel === "RIGHT") {
+      setDisplayCarousel("LEFT");
+    }
+
+    if (!isFlightBtn && displayCarousel === "LEFT") {
+      setDisplayCarousel("RIGHT");
+    }
+  };
+
+  return react_1["default"].createElement(NavigationImplNav, null, react_1["default"].createElement(NavDownBtn, null, react_1["default"].createElement(NavDownImg, {
+    onClick: function onClick() {
+      return chooseDisplay(true);
+    },
+    src: (__webpack_require__(/*! ../../../../public/images/flightrip.svg */ "./public/images/flightrip.svg")["default"])
+  }), react_1["default"].createElement(NavDownParagraph, null, "Flight trip")), react_1["default"].createElement(NavDownBtn, null, react_1["default"].createElement(NavDownImg, {
+    onClick: function onClick() {
+      return chooseDisplay(false);
+    },
+    src: (__webpack_require__(/*! ../../../../public/images/roundtrip.svg */ "./public/images/roundtrip.svg")["default"])
+  }), react_1["default"].createElement(NavDownParagraph, null, "Round trip")));
+};
+
+exports.NavigationDownImpl = NavigationDownImpl;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+
+/***/ }),
+
 /***/ "./resources/js/components/navigation/NavigationImpl.tsx":
 /*!***************************************************************!*\
   !*** ./resources/js/components/navigation/NavigationImpl.tsx ***!
@@ -6831,7 +6904,7 @@ var NavigationLink_1 = __webpack_require__(/*! ./NavigationLink */ "./resources/
 
 var NavigationLogo_1 = __webpack_require__(/*! ./NavigationLogo */ "./resources/js/components/navigation/NavigationLogo.tsx");
 
-var NavigationImplDiv = styled_1["default"].nav(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: black;\n    box-shadow: 2px 3px 8px 1px black;\n    z-index: 9999;\n    position: sticky;\n    top: 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 20px;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n"], ["\n    background-color: black;\n    box-shadow: 2px 3px 8px 1px black;\n    z-index: 9999;\n    position: sticky;\n    top: 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 20px;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n"])));
+var NavigationImplNav = styled_1["default"].nav(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: black;\n    box-shadow: 2px 3px 8px 1px black;\n    z-index: 9999;\n    position: sticky;\n    top: 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 20px;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n"], ["\n    background-color: black;\n    box-shadow: 2px 3px 8px 1px black;\n    z-index: 9999;\n    position: sticky;\n    top: 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 20px;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n"])));
 var NavigationLinkItemDiv = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    align-items: center;\n    justify-content: ", ";\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 50%;\n\n    @media (min-width: 476px) {\n        width: 100%;\n    }\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n        display: flex;\n    }\n"], ["\n    align-items: center;\n    justify-content: ", ";\n    flex-direction: column;\n    margin: 0;\n    padding: 0;\n    width: 50%;\n\n    @media (min-width: 476px) {\n        width: 100%;\n    }\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n        flex-wrap: nowrap;\n        display: flex;\n    }\n"])), function (p) {
   return p.direction === "END" ? "flex-end" : "flex-start";
 });
@@ -6859,7 +6932,7 @@ var NavigationImpl = function NavigationImpl(_a) {
     needLogin: true
   }];
   var middleIndex = navigationLinks ? Math.floor(navigationLinks.length / 2) : 0;
-  return react_1["default"].createElement(NavigationImplDiv, null, react_1["default"].createElement(NavigationLogo_1.NavigationLogo, null), react_1["default"].createElement(NavigationLinkItemDiv, {
+  return react_1["default"].createElement(NavigationImplNav, null, react_1["default"].createElement(NavigationLogo_1.NavigationLogo, null), react_1["default"].createElement(NavigationLinkItemDiv, {
     direction: "END"
   }, navigationLinks.slice(0, middleIndex).map(function (link, index) {
     return react_1["default"].createElement(NavigationLink_1.NavigationLink, {
@@ -6967,6 +7040,62 @@ var templateObject_1, templateObject_2;
 
 /***/ }),
 
+/***/ "./resources/js/components/navigation/NavigationLinkButton.tsx":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/navigation/NavigationLinkButton.tsx ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.NavigationLinkButton = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var NavigationLinkBtn = styled_1["default"].button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    cursor: pointer;\n    color: white;\n    text-decoration: none;\n    letter-spacing: 0.07em;\n    display: inline-block;\n    transition: font-size 1.3s, color 0.5s;\n    font-size: 1em;\n    background-color: transparent;\n    border: 0;\n\n    :after {\n        background: none repeat scroll 0 0 #FF7F2A;\n        content: \"\";\n        display: block;\n        height: 2px;\n        width: ", ";\n        transition: width 0.3s ease 0s, left 0.3s ease 0s;\n    }\n\n    @media (min-width: 772px) {\n        font-size: 1.3em;\n    };\n\n    @media (min-width: 1060px) {\n        font-size: 1.6em;\n    };\n\n    @media (min-width: 1280px) {\n        font-size: 1.8em;\n    };\n\n    @media (min-width: 1920px) {\n        font-size: 2em;\n    };\n\n    :hover {\n        color: #FF7F2A;\n    }\n\n    :hover:after {\n        width: 100%;\n        left: 0;\n    }\n"], ["\n    cursor: pointer;\n    color: white;\n    text-decoration: none;\n    letter-spacing: 0.07em;\n    display: inline-block;\n    transition: font-size 1.3s, color 0.5s;\n    font-size: 1em;\n    background-color: transparent;\n    border: 0;\n\n    :after {\n        background: none repeat scroll 0 0 #FF7F2A;\n        content: \"\";\n        display: block;\n        height: 2px;\n        width: ", ";\n        transition: width 0.3s ease 0s, left 0.3s ease 0s;\n    }\n\n    @media (min-width: 772px) {\n        font-size: 1.3em;\n    };\n\n    @media (min-width: 1060px) {\n        font-size: 1.6em;\n    };\n\n    @media (min-width: 1280px) {\n        font-size: 1.8em;\n    };\n\n    @media (min-width: 1920px) {\n        font-size: 2em;\n    };\n\n    :hover {\n        color: #FF7F2A;\n    }\n\n    :hover:after {\n        width: 100%;\n        left: 0;\n    }\n"])), function (p) {
+  return p.activated ? 100 : 0;
+});
+
+var NavigationLinkButton = function NavigationLinkButton(_a) {
+  var activated = _a.activated,
+      onClick = _a.onClick,
+      text = _a.text;
+  return react_1["default"].createElement(NavigationLinkBtn, {
+    id: "show-btn-" + text,
+    activated: activated,
+    onClick: onClick
+  }, text);
+};
+
+exports.NavigationLinkButton = NavigationLinkButton;
+var templateObject_1;
+
+/***/ }),
+
 /***/ "./resources/js/components/navigation/NavigationLogo.tsx":
 /*!***************************************************************!*\
   !*** ./resources/js/components/navigation/NavigationLogo.tsx ***!
@@ -7040,18 +7169,6 @@ var templateObject_1, templateObject_2;
 "use strict";
 
 
-var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-};
-
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
   Object.defineProperty(o, k2, {
@@ -7086,12 +7203,6 @@ var __importStar = this && this.__importStar || function (mod) {
   return result;
 };
 
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
@@ -7103,11 +7214,7 @@ var ModularFormRegisterImpl_1 = __webpack_require__(/*! ../input/modular-form/Mo
 
 var ModularFormLoginImpl_1 = __webpack_require__(/*! ../input/modular-form/ModularFormLoginImpl */ "./resources/js/components/input/modular-form/ModularFormLoginImpl.tsx");
 
-var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
-
-var NavigationLinkButton = styled_1["default"].button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    cursor: pointer;\n    color: white;\n    text-decoration: none;\n    letter-spacing: 0.07em;\n    display: inline-block;\n    transition: font-size 1.3s, color 0.5s;\n    font-size: 1em;\n    background-color: transparent;\n    border: 0;\n\n    :after {\n        background: none repeat scroll 0 0 #FF7F2A;\n        content: \"\";\n        display: block;\n        height: 2px;\n        width: ", ";\n        transition: width 0.3s ease 0s, left 0.3s ease 0s;\n    }\n\n    @media (min-width: 772px) {\n        font-size: 1.3em;\n    };\n\n    @media (min-width: 1060px) {\n        font-size: 1.6em;\n    };\n\n    @media (min-width: 1280px) {\n        font-size: 1.8em;\n    };\n\n    @media (min-width: 1920px) {\n        font-size: 2em;\n    };\n\n    :hover {\n        color: #FF7F2A;\n    }\n\n    :hover:after {\n        width: 100%;\n        left: 0;\n    }\n"], ["\n    cursor: pointer;\n    color: white;\n    text-decoration: none;\n    letter-spacing: 0.07em;\n    display: inline-block;\n    transition: font-size 1.3s, color 0.5s;\n    font-size: 1em;\n    background-color: transparent;\n    border: 0;\n\n    :after {\n        background: none repeat scroll 0 0 #FF7F2A;\n        content: \"\";\n        display: block;\n        height: 2px;\n        width: ", ";\n        transition: width 0.3s ease 0s, left 0.3s ease 0s;\n    }\n\n    @media (min-width: 772px) {\n        font-size: 1.3em;\n    };\n\n    @media (min-width: 1060px) {\n        font-size: 1.6em;\n    };\n\n    @media (min-width: 1280px) {\n        font-size: 1.8em;\n    };\n\n    @media (min-width: 1920px) {\n        font-size: 2em;\n    };\n\n    :hover {\n        color: #FF7F2A;\n    }\n\n    :hover:after {\n        width: 100%;\n        left: 0;\n    }\n"])), function (p) {
-  return p.activated ? 100 : 0;
-});
+var NavigationLinkButton_1 = __webpack_require__(/*! ./NavigationLinkButton */ "./resources/js/components/navigation/NavigationLinkButton.tsx");
 
 var NavigationModularForm = function NavigationModularForm(_a) {
   var setUser = _a.setUser,
@@ -7135,17 +7242,16 @@ var NavigationModularForm = function NavigationModularForm(_a) {
     setUser: setUser,
     setState: setState,
     setDisplay: setDisplay
-  }) : null : null, react_1["default"].createElement(NavigationLinkButton, {
+  }) : null : null, react_1["default"].createElement(NavigationLinkButton_1.NavigationLinkButton, {
+    text: "My flights",
     activated: false,
-    id: "showBtn",
     onClick: function onClick() {
       setDisplay(true);
     }
-  }, " My flights"));
+  }));
 };
 
 exports.NavigationModularForm = NavigationModularForm;
-var templateObject_1;
 
 /***/ }),
 
@@ -7500,7 +7606,7 @@ var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./nod
 
 var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
 
-var ScrollTopElementDiv = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    cursor: pointer;\n    position: fixed;\n    bottom: 5%;\n    right: 2%;\n    color: #b80d16;\n    font-size: 0.8em;\n    text-align: center;\n    min-width: 35px;\n    background-color: white;\n    opacity: ", ";\n    transition: opacity 0.3s linear;\n    z-index: 9998;\n"], ["\n    cursor: pointer;\n    position: fixed;\n    bottom: 5%;\n    right: 2%;\n    color: #b80d16;\n    font-size: 0.8em;\n    text-align: center;\n    min-width: 35px;\n    background-color: white;\n    opacity: ", ";\n    transition: opacity 0.3s linear;\n    z-index: 9998;\n"])), function (p) {
+var ScrollTopElementDiv = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    cursor: pointer;\n    position: fixed;\n    bottom: 10%;\n    right: 2%;\n    color: #b80d16;\n    font-size: 0.8em;\n    text-align: center;\n    min-width: 35px;\n    background-color: white;\n    opacity: ", ";\n    transition: opacity 0.3s linear;\n    z-index: 9998;\n"], ["\n    cursor: pointer;\n    position: fixed;\n    bottom: 10%;\n    right: 2%;\n    color: #b80d16;\n    font-size: 0.8em;\n    text-align: center;\n    min-width: 35px;\n    background-color: white;\n    opacity: ", ";\n    transition: opacity 0.3s linear;\n    z-index: 9998;\n"])), function (p) {
   return p.breakPoint ? 1 : 0;
 });
 var Icon = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    padding: 0.5em;\n"], ["\n    padding: 0.5em;\n"])));
@@ -8230,6 +8336,10 @@ var Heading2_1 = __webpack_require__(/*! ./components/heading/Heading2 */ "./res
 
 var ResultItem_1 = __webpack_require__(/*! ./components/result/ResultItem */ "./resources/js/components/result/ResultItem.tsx");
 
+var NavigationDownImpl_1 = __webpack_require__(/*! ./components/navigation/NavigationDownImpl */ "./resources/js/components/navigation/NavigationDownImpl.tsx");
+
+var BasicUtils_1 = __importDefault(__webpack_require__(/*! ./BasicUtils */ "./resources/js/BasicUtils.tsx"));
+
 var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 100%;\n    height: 800px;\n    position: relative;\n\n    @media (min-width: 576px) {\n        height: 1280px;\n    }\n"], ["\n    width: 100%;\n    height: 800px;\n    position: relative;\n\n    @media (min-width: 576px) {\n        height: 1280px;\n    }\n"])));
 var ListOfTickets = styled_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n\n    background-color: #000000;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n"], ["\n    display: flex;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n\n    background-color: #000000;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n"])));
 var Paragraph = styled_1["default"].p(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    margin: 2em;\n    font-size: 1.8em;\n    color: white;\n"], ["\n    margin: 2em;\n    font-size: 1.8em;\n    color: white;\n"])));
@@ -8321,7 +8431,8 @@ var Root = function Root(_a) {
   (0, react_1.useEffect)(function () {
     setUser(JSON.parse(dataset.user));
   }, [dataset]);
-  return react_1["default"].createElement(BasicImpl_1["default"], {
+  var width = (0, BasicUtils_1["default"])()[0];
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(BasicImpl_1["default"], {
     id: "main",
     user: user,
     setUser: setUser
@@ -8395,7 +8506,10 @@ var Root = function Root(_a) {
       user: user,
       setUser: setUser
     });
-  })) : showSecondWay && flightsTicketsTo ? react_1["default"].createElement(Paragraph, null, "No flights were found. Please change your inputs.") : null));
+  })) : showSecondWay && flightsTicketsTo ? react_1["default"].createElement(Paragraph, null, "No flights were found. Please change your inputs.") : null)), width < 1060 ? react_1["default"].createElement(NavigationDownImpl_1.NavigationDownImpl, {
+    displayCarousel: displayCarousel,
+    setDisplayCarousel: setDisplayCarousel
+  }) : null);
 };
 
 exports["default"] = Root;
@@ -8459,7 +8573,7 @@ __webpack_require__(/*! ./index.tsx */ "./resources/js/index.tsx");
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/arrow_up.svg?5809b531052121c848c62edd0041f1dc");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/arrow_up.svg?9c8f8f29eb8916981395774e70d5b8a9");
 
 /***/ }),
 
@@ -8631,6 +8745,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./public/images/flightrip.svg":
+/*!*************************************!*\
+  !*** ./public/images/flightrip.svg ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/flightrip.svg?288e203b9b6e13b79d47253e1ae3a8b5");
+
+/***/ }),
+
 /***/ "./public/images/instagram.svg":
 /*!*************************************!*\
   !*** ./public/images/instagram.svg ***!
@@ -8691,6 +8817,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./public/images/roundtrip.svg":
+/*!*************************************!*\
+  !*** ./public/images/roundtrip.svg ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/roundtrip.svg?ce64994edae0ad0ba4118c318b1e1710");
+
+/***/ }),
+
 /***/ "./public/images/tokyo.jpg":
 /*!*********************************!*\
   !*** ./public/images/tokyo.jpg ***!
@@ -8711,7 +8849,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/airplane.svg?b76b1de097d26319de941e1f395eb7b1");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/airplane.svg?971c9f02adb0b4d373b16cf91df26fc4");
 
 /***/ }),
 

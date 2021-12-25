@@ -12,6 +12,8 @@ import {PageNotFound} from "./components/not-found/PageNotFound";
 import {ReservedTicketsNoRegistered} from "./components/ticket/ReservedTicketsNoRegistered";
 import {Heading2} from "./components/heading/Heading2";
 import {ResultItem} from "./components/result/ResultItem";
+import {NavigationDownImpl} from "./components/navigation/NavigationDownImpl";
+import useWindowSize from "./BasicUtils";
 
 
 interface RootProps {
@@ -79,96 +81,104 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
         setUser(JSON.parse(dataset.user));
     }, [dataset])
 
+    let [width] = useWindowSize();
+
     return (
-        <BasicImpl id={"main"} user={user} setUser={setUser}>
-            <Carousel>
-                <CarouselImageImpl setNo={setNo} setFlightsTo={setFlightTicketsTo} setFlightsFrom={setRoundTrips}
-                                   displayCarousel={"RIGHT" === displayCarousel}
-                                   setDisplayedSide={setDisplayCarousel}
-                                   side={"RIGHT"}
-                                   imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
-                <CarouselImageImpl setNo={setNo} setFlightsFrom={setFlightsFrom} setFlightsTo={setFlightTicketsTo}
-                                   displayCarousel={"LEFT" === displayCarousel}
-                                   setDisplayedSide={setDisplayCarousel}
-                                   side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
-            </Carousel>
-            <ListOfTickets id={"tickets"}>
-                {!showSecondWay && flightsFrom && flightsFrom.length !== 0 ?
-                    <>
-                        <Heading2>
-                            Found tickets
-                        </Heading2>
-                        {flightsFrom.map((element: any, index: number) =>
-                            <ResultItem
-                                selectedFirstWay={selectedFirstWay}
-                                showSecondWay={showSecondWay}
-                                setSelectedFirstWay={setSelectedFirstWay}
-                                setShowSecondWay={setShowSecondWay}
-                                flightsTo={flightsTicketsTo}
-                                no={no}
-                                companyClass={element && element.company && element.company.class}
-                                companyName={element && element.company && element.company.name}
-                                arrives={element && element.arrives}
-                                leaves={element && element.leaves}
-                                distance={element && element.distance}
-                                duration={element && element.duration}
-                                images={images} key={"result-item-flights" + index}
-                                imgSrc={element && element.arrival && element.arrival.image}
-                                price={element.price}
-                                description={element && element.arrival && element.arrival.info}
-                                altText={element.altText} arrival={element.arrival}
-                                departure={element.departure}
-                                element={element}
-                                user={user}
-                                setUser={setUser}
-                            />
-                        )}
-                    </> :
-                    !showSecondWay && flightsFrom ?
-                        <Paragraph>
-                            No flights were found. Please change your inputs.
-                        </Paragraph>
-                        : null
-                }
-                {showSecondWay && flightsTicketsTo && flightsTicketsTo.length !== 0 ?
-                    <>
-                        <Heading2>
-                            Found tickets from arrival to departure
-                        </Heading2>
-                        {flightsTicketsTo.map((element: any, index: number) =>
-                            <ResultItem
-                                selectedFirstWay={selectedFirstWay}
-                                showSecondWay={showSecondWay}
-                                setSelectedFirstWay={setSelectedFirstWay}
-                                setShowSecondWay={setShowSecondWay}
-                                flightsTo={flightsTicketsTo}
-                                no={no}
-                                companyClass={element && element.company && element.company.class}
-                                companyName={element && element.company && element.company.name}
-                                arrives={element && element.arrives}
-                                leaves={element && element.leaves}
-                                distance={element && element.distance}
-                                duration={element && element.duration}
-                                images={images} key={"result-item-flights-second-way" + index}
-                                imgSrc={element && element.arrival && element.arrival.image}
-                                price={element.price}
-                                description={element && element.arrival && element.arrival.info}
-                                altText={element.altText} arrival={element.arrival}
-                                departure={element.departure}
-                                element={element}
-                                user={user}
-                                setUser={setUser}
-                            />
-                        )}
-                    </> :
-                    showSecondWay && flightsTicketsTo ?
-                        <Paragraph>
-                            No flights were found. Please change your inputs.
-                        </Paragraph>
-                        : null
-                }
-            </ListOfTickets>
-        </BasicImpl>
+        <>
+            <BasicImpl id={"main"} user={user} setUser={setUser}>
+                <Carousel>
+                    <CarouselImageImpl setNo={setNo} setFlightsTo={setFlightTicketsTo} setFlightsFrom={setRoundTrips}
+                                       displayCarousel={"RIGHT" === displayCarousel}
+                                       setDisplayedSide={setDisplayCarousel}
+                                       side={"RIGHT"}
+                                       imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
+                    <CarouselImageImpl setNo={setNo} setFlightsFrom={setFlightsFrom} setFlightsTo={setFlightTicketsTo}
+                                       displayCarousel={"LEFT" === displayCarousel}
+                                       setDisplayedSide={setDisplayCarousel}
+                                       side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
+                </Carousel>
+                <ListOfTickets id={"tickets"}>
+                    {!showSecondWay && flightsFrom && flightsFrom.length !== 0 ?
+                        <>
+                            <Heading2>
+                                Found tickets
+                            </Heading2>
+                            {flightsFrom.map((element: any, index: number) =>
+                                <ResultItem
+                                    selectedFirstWay={selectedFirstWay}
+                                    showSecondWay={showSecondWay}
+                                    setSelectedFirstWay={setSelectedFirstWay}
+                                    setShowSecondWay={setShowSecondWay}
+                                    flightsTo={flightsTicketsTo}
+                                    no={no}
+                                    companyClass={element && element.company && element.company.class}
+                                    companyName={element && element.company && element.company.name}
+                                    arrives={element && element.arrives}
+                                    leaves={element && element.leaves}
+                                    distance={element && element.distance}
+                                    duration={element && element.duration}
+                                    images={images} key={"result-item-flights" + index}
+                                    imgSrc={element && element.arrival && element.arrival.image}
+                                    price={element.price}
+                                    description={element && element.arrival && element.arrival.info}
+                                    altText={element.altText} arrival={element.arrival}
+                                    departure={element.departure}
+                                    element={element}
+                                    user={user}
+                                    setUser={setUser}
+                                />
+                            )}
+                        </> :
+                        !showSecondWay && flightsFrom ?
+                            <Paragraph>
+                                No flights were found. Please change your inputs.
+                            </Paragraph>
+                            : null
+                    }
+                    {showSecondWay && flightsTicketsTo && flightsTicketsTo.length !== 0 ?
+                        <>
+                            <Heading2>
+                                Found tickets from arrival to departure
+                            </Heading2>
+                            {flightsTicketsTo.map((element: any, index: number) =>
+                                <ResultItem
+                                    selectedFirstWay={selectedFirstWay}
+                                    showSecondWay={showSecondWay}
+                                    setSelectedFirstWay={setSelectedFirstWay}
+                                    setShowSecondWay={setShowSecondWay}
+                                    flightsTo={flightsTicketsTo}
+                                    no={no}
+                                    companyClass={element && element.company && element.company.class}
+                                    companyName={element && element.company && element.company.name}
+                                    arrives={element && element.arrives}
+                                    leaves={element && element.leaves}
+                                    distance={element && element.distance}
+                                    duration={element && element.duration}
+                                    images={images} key={"result-item-flights-second-way" + index}
+                                    imgSrc={element && element.arrival && element.arrival.image}
+                                    price={element.price}
+                                    description={element && element.arrival && element.arrival.info}
+                                    altText={element.altText} arrival={element.arrival}
+                                    departure={element.departure}
+                                    element={element}
+                                    user={user}
+                                    setUser={setUser}
+                                />
+                            )}
+                        </> :
+                        showSecondWay && flightsTicketsTo ?
+                            <Paragraph>
+                                No flights were found. Please change your inputs.
+                            </Paragraph>
+                            : null
+                    }
+                </ListOfTickets>
+            </BasicImpl>
+            {width < 1060 ?
+                <NavigationDownImpl displayCarousel={displayCarousel} setDisplayCarousel={setDisplayCarousel}/> :
+                null
+            }
+        </>
     );
 }
 
