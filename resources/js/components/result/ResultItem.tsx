@@ -168,7 +168,8 @@ export const ResultItem: FunctionComponent<Props> = ({
                     </WrapperDetails>
                 </WrapperContentColDescription>
                 <WrapperContentCol>
-                    <ModularFormForBooking selectedFirstWay={selectedFirstWay} showSecondWay={showSecondWay} setShowSecondWay={setShowSecondWay}
+                    <ModularFormForBooking selectedFirstWay={selectedFirstWay} showSecondWay={showSecondWay}
+                                           setShowSecondWay={setShowSecondWay}
                                            setSelectedFirstWay={setSelectedFirstWay} flightsTo={flightsTo}
                                            images={images} no={no} withActivationButton={true}
                                            user={user}

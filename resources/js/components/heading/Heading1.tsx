@@ -2,7 +2,7 @@ import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 
 interface Props {
-    className?:string;
+    className?: string;
 }
 
 const Heading1H = styled.h1`

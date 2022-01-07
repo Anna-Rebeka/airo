@@ -59,7 +59,7 @@ export const ModularFormInputElement: FunctionComponent<Props> = ({
                               onChange={(e) => {
                                   setOnChangeValueMethod(e.target.value);
 
-                                  if(validatorMethodIsValid && setIsWrongParentMethod){
+                                  if (validatorMethodIsValid && setIsWrongParentMethod) {
                                       if (!validatorMethodIsValid(e.target.value)) {
                                           setIsWrongParentMethod(true);
                                       } else {

@@ -2,8 +2,8 @@ import React, {FunctionComponent, useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import ResultItemTickets from "../result/ResultItemTickets";
 import BasicImpl from "./BasicImpl";
-import { Heading1 } from "../heading/Heading1";
-import { Heading2 } from "../heading/Heading2";
+import {Heading1} from "../heading/Heading1";
+import {Heading2} from "../heading/Heading2";
 
 interface Props {
     dataset: any;

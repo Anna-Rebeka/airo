@@ -2,7 +2,6 @@ import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {NavigationLink} from "./NavigationLink";
 import {NavigationLogo} from "./NavigationLogo";
-import axios from "axios";
 
 interface Props {
     user: any;
