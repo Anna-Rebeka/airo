@@ -1,12 +1,16 @@
 import AutoCompleteInput from "../input/auto-complete/AutoCompleteInput";
-import React, {FunctionComponent, useEffect, useState} from "react";
+import React, {FunctionComponent, useState} from "react";
 import styled from "@emotion/styled";
 import {CarouselButton} from "../button/CarouselButton";
 import axios from "axios";
+import {Heading2} from "../heading/Heading2";
+import {Heading3} from "../heading/Heading3";
+import {Error} from "../input/auto-complete/Error";
 
 
 interface Props {
-
+    setNo: any;
+    setRoundTrips: any;
 }
 
 let Form = styled.form`
@@ -44,6 +48,7 @@ let Form = styled.form`
 let RowFlexBox = styled.ul`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 600px;
     margin: 0;
     padding: 0;
@@ -74,26 +79,14 @@ let RowFlexBoxDate = styled.ul`
 
 `
 
-let RowFlexBoxWays = styled.ul`
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-
-    @media (min-width: 476px) {
-
-    };
-`
-
 let WrapperInput = styled.div`
     display: flex;
     flex-direction: column;
     margin: 1em;
 `;
 
-let WrapperParagraph = styled.p`
-    color: white;
+let InputTitle = styled(Heading3)`
     text-shadow: 0 5px 8px black;
-    font-size: 1.4em;
     margin: 0 0 0.4em;
 
     @media (min-width: 476px) {
@@ -146,48 +139,36 @@ let DateInput = styled.input<{ isError: boolean }>`
     }
 `
 
-let Title = styled.p`
-    color: white;
+const Title = styled(Heading2)`
     text-align: center;
-    margin: 0;
 `
-export const CarouselInputRoundTrips: FunctionComponent<Props> = ({}) => {
+
+export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips, setNo}) => {
     const [numberOfPersons, setNumberOfPersons] = useState<number>(1);
-    const [isOneWay, setIsOneWay] = useState<boolean>(true);
-    const [activated, setActivated] = useState("ONE");
     const [dateFrom, setDateFrom] = useState<any>();
     const [dateTo, setDateTo] = useState<any>();
     const [price, setPrice] = useState<number>(100);
     const [from, setFrom] = useState<string>();
-    const [to, setTo] = useState<string>();
+    const [numberOfDestination, setNumberOfDestination] = useState<number>();
+    const [dateToBeforeDateFrom, setDateToBeforeDateFrom] = useState(false);
     const [inputsFilledWrongly, setInputsFilledWrongly] = useState({
         from: false,
-        to: false,
+        numberOfDestination: false,
         dateFrom: false,
         dateTo: false,
         maximumPrice: false,
         numberOfPersons: false
     });
 
-    let WhichActivated = (type: string) => {
-        if (activated === type) {
-            return;
-        }
-        setActivated(type === "ONE" ? "ONE" : "TWO");
-        setIsOneWay(type === "ONE");
-    }
-
-
     let checkInputs = () => {
         let inputsValues = {
             from: !from || from === "",
-            to: !to || to === "",
             dateFrom: !dateFrom || dateFrom === "",
-            dateTo: !isOneWay && (!dateTo || dateTo === ""),
-            numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 14,
-            maximumPrice: !price || price <= 0 || price > 9999
+            dateTo: (!dateTo || dateTo === "") || (dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo)),
+            numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 20,
+            numberOfDestination: !numberOfDestination || numberOfDestination <= 0 || numberOfDestination > 5,
+            maximumPrice: !price || price < 50 || price > 9999
         }
-
         setInputsFilledWrongly({...inputsValues});
         return inputsValues;
     }
@@ -196,39 +177,31 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({}) => {
     let getListOfFlights = () => {
         let inputsValues = checkInputs();
 
-        let searchFlights = Object.values(inputsValues).some((val) => {
+        console.log(inputsValues);
+        setDateToBeforeDateFrom(dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo));
+        let notSearchFlights = Object.values(inputsValues).some((val) => {
                 if (val) {
                     return true;
                 }
             }
         )
 
-        if (searchFlights) {
+        if (notSearchFlights) {
             return;
         }
 
-        let allFlights = [];
-
-        axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
+        axios.get('roundtrip/' + from + '/' + dateFrom + '/' + price
         )
             .then(res => {
-                console.log(res);
+                console.log(res.data);
+                setRoundTrips([...res.data]);
             })
 
-        if (!isOneWay) {
-            axios.get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price
-            )
-                .then(res => {
-                    console.log(res);
-                })
+        let element = document.getElementById('tickets');
+        if (element) {
+            element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
         }
     }
-
-    useEffect(() => {
-        if (isOneWay) {
-            setDateTo("");
-        }
-    }, [isOneWay])
 
     return (
         <Form onSubmit={e => e.preventDefault()}>
@@ -238,28 +211,29 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({}) => {
             <RowFlexBox>
                 <FlexBoxCol>
                     <WrapperInput>
-                        <WrapperParagraph>From</WrapperParagraph>
+                        <InputTitle>From</InputTitle>
                         <AutoCompleteInput isError={inputsFilledWrongly.from} setMethod={setFrom}
                                            placeholder={"Departure city"}/>
                     </WrapperInput>
                 </FlexBoxCol>
+            </RowFlexBox>
+            <RowFlexBox>
                 <FlexBoxCol>
                     <WrapperInput>
-                        <WrapperParagraph>No. of cities</WrapperParagraph>
-                        <IntegerInput isError={inputsFilledWrongly.numberOfPersons}
-                                      placeholder={"Select no. if cities (between 1 and 10)"} value={numberOfPersons}
+                        <InputTitle>No. of destinations</InputTitle>
+                        <IntegerInput isError={inputsFilledWrongly.numberOfDestination}
+                                      placeholder={"between 1 and 5"} value={numberOfDestination}
                                       onChange={(e: any) => {
-                                          setNumberOfPersons(e.target.value);
-                                      }} min={1} max={10}
+                                          setNumberOfDestination(e.target.value);
+                                      }} min={1} max={5}
                                       type={"number"}/>
                     </WrapperInput>
                 </FlexBoxCol>
             </RowFlexBox>
-
             <RowFlexBoxDate>
                 <FlexBoxCol>
                     <WrapperInput>
-                        <WrapperParagraph>Date From</WrapperParagraph>
+                        <InputTitle>Departure date</InputTitle>
                         <DateInput isError={inputsFilledWrongly.dateFrom} type={"date"} onChange={(e: any) => {
                             setDateFrom(e.target.value);
                             setInputsFilledWrongly({...inputsFilledWrongly, dateFrom: false})
@@ -267,39 +241,42 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({}) => {
                     </WrapperInput>
                 </FlexBoxCol>
                 <FlexBoxCol>
-                    {
-                        activated === "TWO" ?
-                            <WrapperInput>
-                                <WrapperParagraph>Date To</WrapperParagraph>
-                                <DateInput isError={inputsFilledWrongly.dateTo} type={"date"} onChange={(e: any) => {
-                                    setDateTo(e.target.value);
-                                    setInputsFilledWrongly({...inputsFilledWrongly, dateTo: false})
-                                }}/>
-                            </WrapperInput>
-                            : null
-                    }
+                    <WrapperInput>
+                        <InputTitle>Return date</InputTitle>
+                        <DateInput isError={inputsFilledWrongly.dateTo} type={"date"}
+                                   onChange={(e: any) => {
+                                       setDateTo(e.target.value);
+                                       setInputsFilledWrongly({...inputsFilledWrongly, dateTo: false})
+                                   }}/>
+                    </WrapperInput>
+                    {dateToBeforeDateFrom ?
+                        <Error>
+                            Return date is before departure date
+                        </Error> :
+                        null}
                 </FlexBoxCol>
             </RowFlexBoxDate>
             <RowFlexBoxDate>
                 <FlexBoxCol>
                     <WrapperInput>
-                        <WrapperParagraph>No. of persons</WrapperParagraph>
+                        <InputTitle>No. of persons</InputTitle>
                         <IntegerInput isError={inputsFilledWrongly.numberOfPersons}
-                                      placeholder={"Select no. of persons (between 1 and 20)"} value={numberOfPersons}
+                                      placeholder={"between 1 and 20"} value={numberOfPersons}
                                       onChange={(e: any) => {
                                           setNumberOfPersons(e.target.value);
+                                          setNo(e.target.value);
                                       }} min={1} max={20}
                                       type={"number"}/>
                     </WrapperInput>
                 </FlexBoxCol>
                 <FlexBoxCol>
                     <WrapperInput>
-                        <WrapperParagraph>Maximum price</WrapperParagraph>
+                        <InputTitle>Maximum price</InputTitle>
                         <IntegerInput isError={inputsFilledWrongly.maximumPrice}
-                                      placeholder={"Select maximum price (from 100 to 9999)"} value={price}
+                                      placeholder={"from 50 to 9999"} value={price}
                                       onChange={(e: any) => {
                                           setPrice(e.target.value);
-                                      }} min={100} max={9999}
+                                      }} min={50} max={9999}
                                       type={"number"}/>
                     </WrapperInput>
                 </FlexBoxCol>

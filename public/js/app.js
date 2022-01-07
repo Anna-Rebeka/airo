@@ -4157,6 +4157,16 @@ var __importStar = this && this.__importStar || function (mod) {
   return result;
 };
 
+var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
+  if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+    if (ar || !(i in from)) {
+      if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+      ar[i] = from[i];
+    }
+  }
+  return to.concat(ar || Array.prototype.slice.call(from));
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -4178,83 +4188,78 @@ var CarouselButton_1 = __webpack_require__(/*! ../button/CarouselButton */ "./re
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
+var Heading2_1 = __webpack_require__(/*! ../heading/Heading2 */ "./resources/js/components/heading/Heading2.tsx");
+
+var Heading3_1 = __webpack_require__(/*! ../heading/Heading3 */ "./resources/js/components/heading/Heading3.tsx");
+
+var Error_1 = __webpack_require__(/*! ../input/auto-complete/Error */ "./resources/js/components/input/auto-complete/Error.tsx");
+
 var Form = styled_1["default"].form(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    max-width: 100%;\n\n    @media (min-width: 476px) {\n        max-width: 400px;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n        min-width: 600px;\n    };\n\n    @media (min-width: 1060px) {\n        min-width: 800px;\n    };\n\n    @media (min-width: 1280px) {\n        min-width: 900px;\n    };\n\n    @media (min-width: 1600px) {\n        min-width: 1200px;\n    };\n\n"], ["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    max-width: 100%;\n\n    @media (min-width: 476px) {\n        max-width: 400px;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n        min-width: 600px;\n    };\n\n    @media (min-width: 1060px) {\n        min-width: 800px;\n    };\n\n    @media (min-width: 1280px) {\n        min-width: 900px;\n    };\n\n    @media (min-width: 1600px) {\n        min-width: 1200px;\n    };\n\n"])));
-var RowFlexBox = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"])));
+var RowFlexBox = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"])));
 var RowFlexBoxDate = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n\n"])));
-var RowFlexBoxWays = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    margin: 0;\n\n    @media (min-width: 476px) {\n\n    };\n"], ["\n    display: flex;\n    flex-direction: row;\n    margin: 0;\n\n    @media (min-width: 476px) {\n\n    };\n"])));
-var WrapperInput = styled_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"])));
-var WrapperParagraph = styled_1["default"].p(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    color: white;\n    text-shadow: 0 5px 8px black;\n    font-size: 1.4em;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"], ["\n    color: white;\n    text-shadow: 0 5px 8px black;\n    font-size: 1.4em;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"])));
-var FlexBoxCol = styled_1["default"].li(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"], ["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"])));
-var FlexBoxColButton = styled_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
-var IntegerInput = styled_1["default"].input(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
+var WrapperInput = styled_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"])));
+var InputTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"], ["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"])));
+var FlexBoxCol = styled_1["default"].li(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"], ["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"])));
+var FlexBoxColButton = styled_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
+var IntegerInput = styled_1["default"].input(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
   return p.isError ? "red" : "white";
 });
-var DateInput = styled_1["default"].input(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
+var DateInput = styled_1["default"].input(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
   return p.isError ? "red" : "white";
 });
-var Title = styled_1["default"].p(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    color: white;\n    text-align: center;\n    margin: 0;\n"], ["\n    color: white;\n    text-align: center;\n    margin: 0;\n"])));
+var Title = (0, styled_1["default"])(Heading2_1.Heading2)(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    text-align: center;\n"], ["\n    text-align: center;\n"])));
 
 var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
+  var setRoundTrips = _a.setRoundTrips,
+      setNo = _a.setNo;
+
   var _b = (0, react_1.useState)(1),
       numberOfPersons = _b[0],
       setNumberOfPersons = _b[1];
 
-  var _c = (0, react_1.useState)(true),
-      isOneWay = _c[0],
-      setIsOneWay = _c[1];
+  var _c = (0, react_1.useState)(),
+      dateFrom = _c[0],
+      setDateFrom = _c[1];
 
-  var _d = (0, react_1.useState)("ONE"),
-      activated = _d[0],
-      setActivated = _d[1];
+  var _d = (0, react_1.useState)(),
+      dateTo = _d[0],
+      setDateTo = _d[1];
 
-  var _e = (0, react_1.useState)(),
-      dateFrom = _e[0],
-      setDateFrom = _e[1];
+  var _e = (0, react_1.useState)(100),
+      price = _e[0],
+      setPrice = _e[1];
 
   var _f = (0, react_1.useState)(),
-      dateTo = _f[0],
-      setDateTo = _f[1];
+      from = _f[0],
+      setFrom = _f[1];
 
-  var _g = (0, react_1.useState)(100),
-      price = _g[0],
-      setPrice = _g[1];
+  var _g = (0, react_1.useState)(),
+      numberOfDestination = _g[0],
+      setNumberOfDestination = _g[1];
 
-  var _h = (0, react_1.useState)(),
-      from = _h[0],
-      setFrom = _h[1];
+  var _h = (0, react_1.useState)(false),
+      dateToBeforeDateFrom = _h[0],
+      setDateToBeforeDateFrom = _h[1];
 
-  var _j = (0, react_1.useState)(),
-      to = _j[0],
-      setTo = _j[1];
-
-  var _k = (0, react_1.useState)({
+  var _j = (0, react_1.useState)({
     from: false,
-    to: false,
+    numberOfDestination: false,
     dateFrom: false,
     dateTo: false,
     maximumPrice: false,
     numberOfPersons: false
   }),
-      inputsFilledWrongly = _k[0],
-      setInputsFilledWrongly = _k[1];
-
-  var WhichActivated = function WhichActivated(type) {
-    if (activated === type) {
-      return;
-    }
-
-    setActivated(type === "ONE" ? "ONE" : "TWO");
-    setIsOneWay(type === "ONE");
-  };
+      inputsFilledWrongly = _j[0],
+      setInputsFilledWrongly = _j[1];
 
   var checkInputs = function checkInputs() {
     var inputsValues = {
       from: !from || from === "",
-      to: !to || to === "",
       dateFrom: !dateFrom || dateFrom === "",
-      dateTo: !isOneWay && (!dateTo || dateTo === ""),
-      numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 14,
-      maximumPrice: !price || price <= 0 || price > 9999
+      dateTo: !dateTo || dateTo === "" || dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo),
+      numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 20,
+      numberOfDestination: !numberOfDestination || numberOfDestination <= 0 || numberOfDestination > 5,
+      maximumPrice: !price || price < 50 || price > 9999
     };
     setInputsFilledWrongly(__assign({}, inputsValues));
     return inputsValues;
@@ -4262,52 +4267,52 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
 
   var getListOfFlights = function getListOfFlights() {
     var inputsValues = checkInputs();
-    var searchFlights = Object.values(inputsValues).some(function (val) {
+    console.log(inputsValues);
+    setDateToBeforeDateFrom(dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo));
+    var notSearchFlights = Object.values(inputsValues).some(function (val) {
       if (val) {
         return true;
       }
     });
 
-    if (searchFlights) {
+    if (notSearchFlights) {
       return;
     }
 
-    var allFlights = [];
-    axios_1["default"].get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price).then(function (res) {
-      console.log(res);
+    axios_1["default"].get('roundtrip/' + from + '/' + dateFrom + '/' + price).then(function (res) {
+      console.log(res.data);
+      setRoundTrips(__spreadArray([], res.data, true));
     });
+    var element = document.getElementById('tickets');
 
-    if (!isOneWay) {
-      axios_1["default"].get('flights/' + from + '/' + to + '/' + dateFrom + '/' + price).then(function (res) {
-        console.log(res);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest"
       });
     }
   };
 
-  (0, react_1.useEffect)(function () {
-    if (isOneWay) {
-      setDateTo("");
-    }
-  }, [isOneWay]);
   return react_1["default"].createElement(Form, {
     onSubmit: function onSubmit(e) {
       return e.preventDefault();
     }
-  }, react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(Title, null, "Round trip")), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
+  }, react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(Title, null, "Round trip")), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
     isError: inputsFilledWrongly.from,
     setMethod: setFrom,
     placeholder: "Departure city"
-  }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "No. of cities"), react_1["default"].createElement(IntegerInput, {
-    isError: inputsFilledWrongly.numberOfPersons,
-    placeholder: "Select no. if cities (between 1 and 10)",
-    value: numberOfPersons,
+  })))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations"), react_1["default"].createElement(IntegerInput, {
+    isError: inputsFilledWrongly.numberOfDestination,
+    placeholder: "between 1 and 5",
+    value: numberOfDestination,
     onChange: function onChange(e) {
-      setNumberOfPersons(e.target.value);
+      setNumberOfDestination(e.target.value);
     },
     min: 1,
-    max: 10,
+    max: 5,
     type: "number"
-  })))), react_1["default"].createElement(RowFlexBoxDate, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "Date From"), react_1["default"].createElement(DateInput, {
+  })))), react_1["default"].createElement(RowFlexBoxDate, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Departure date"), react_1["default"].createElement(DateInput, {
     isError: inputsFilledWrongly.dateFrom,
     type: "date",
     onChange: function onChange(e) {
@@ -4316,7 +4321,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
         dateFrom: false
       }));
     }
-  }))), react_1["default"].createElement(FlexBoxCol, null, activated === "TWO" ? react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "Date To"), react_1["default"].createElement(DateInput, {
+  }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Return date"), react_1["default"].createElement(DateInput, {
     isError: inputsFilledWrongly.dateTo,
     type: "date",
     onChange: function onChange(e) {
@@ -4325,24 +4330,25 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
         dateTo: false
       }));
     }
-  })) : null)), react_1["default"].createElement(RowFlexBoxDate, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "No. of persons"), react_1["default"].createElement(IntegerInput, {
+  })), dateToBeforeDateFrom ? react_1["default"].createElement(Error_1.Error, null, "Return date is before departure date") : null)), react_1["default"].createElement(RowFlexBoxDate, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of persons"), react_1["default"].createElement(IntegerInput, {
     isError: inputsFilledWrongly.numberOfPersons,
-    placeholder: "Select no. of persons (between 1 and 20)",
+    placeholder: "between 1 and 20",
     value: numberOfPersons,
     onChange: function onChange(e) {
       setNumberOfPersons(e.target.value);
+      setNo(e.target.value);
     },
     min: 1,
     max: 20,
     type: "number"
-  }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(WrapperParagraph, null, "Maximum price"), react_1["default"].createElement(IntegerInput, {
+  }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Maximum price"), react_1["default"].createElement(IntegerInput, {
     isError: inputsFilledWrongly.maximumPrice,
-    placeholder: "Select maximum price (from 100 to 9999)",
+    placeholder: "from 50 to 9999",
     value: price,
     onChange: function onChange(e) {
       setPrice(e.target.value);
     },
-    min: 100,
+    min: 50,
     max: 9999,
     type: "number"
   })))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
@@ -4352,7 +4358,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
 };
 
 exports.CarouselInputRoundTrips = CarouselInputRoundTrips;
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10;
 
 /***/ }),
 
@@ -4462,7 +4468,8 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
       side = _a.side,
       setDisplayedSide = _a.setDisplayedSide,
       setFlightsFrom = _a.setFlightsFrom,
-      setFlightsTo = _a.setFlightsTo,
+      setRoundTrips = _a.setRoundTrips,
+      setFlightTrips = _a.setFlightTrips,
       setNo = _a.setNo;
   var leftText = {
     title: "Looking for a ticket?",
@@ -4507,9 +4514,12 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
     side: side
   }, text.description)) : null), side === "LEFT" ? react_1["default"].createElement(CarouselInputFlights_1.CarouselInputFlights, {
     setNo: setNo,
-    setFlightsTo: setFlightsTo,
+    setFlightsTo: setRoundTrips,
     setFlightsFrom: setFlightsFrom
-  }) : react_1["default"].createElement(CarouselInputRoundTrips_1.CarouselInputRoundTrips, null)) : width > 1059 && (showSideText || !displayCarousel) ? react_1["default"].createElement(SideText, {
+  }) : react_1["default"].createElement(CarouselInputRoundTrips_1.CarouselInputRoundTrips, {
+    setRoundTrips: setFlightTrips,
+    setNo: setNo
+  })) : width > 1059 && (showSideText || !displayCarousel) ? react_1["default"].createElement(SideText, {
     isHovered: isHovered,
     onMouseEnter: function onMouseEnter() {
       setIsHovered(true);
@@ -8439,17 +8449,19 @@ var Root = function Root(_a) {
     user: user,
     setUser: setUser
   }, react_1["default"].createElement(Carousel, null, react_1["default"].createElement(CarouselmgImpl_1.CarouselImageImpl, {
+    setFlightTrips: setRoundTrips,
     setNo: setNo,
-    setFlightsTo: setFlightTicketsTo,
+    setRoundTrips: setFlightTicketsTo,
     setFlightsFrom: setRoundTrips,
     displayCarousel: "RIGHT" === displayCarousel,
     setDisplayedSide: setDisplayCarousel,
     side: "RIGHT",
     imgSource: __webpack_require__(/*! ../../public/images/carousel_round_trip.jpg */ "./public/images/carousel_round_trip.jpg")
   }), react_1["default"].createElement(CarouselmgImpl_1.CarouselImageImpl, {
+    setFlightTrips: setRoundTrips,
     setNo: setNo,
     setFlightsFrom: setFlightsFrom,
-    setFlightsTo: setFlightTicketsTo,
+    setRoundTrips: setFlightTicketsTo,
     displayCarousel: "LEFT" === displayCarousel,
     setDisplayedSide: setDisplayCarousel,
     side: "LEFT",

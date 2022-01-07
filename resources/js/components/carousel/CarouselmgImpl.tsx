@@ -10,8 +10,9 @@ interface Props {
     imgSource: any;
     side: string;
     setDisplayedSide: any;
+    setFlightTrips: any;
     setFlightsFrom: any;
-    setFlightsTo?: any;
+    setRoundTrips?: any;
     setNo: any;
 }
 
@@ -133,7 +134,8 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                                                                 side,
                                                                 setDisplayedSide,
                                                                 setFlightsFrom,
-                                                                setFlightsTo,
+                                                                setRoundTrips,
+                                                                setFlightTrips,
                                                                 setNo
                                                             }) => {
 
@@ -186,9 +188,9 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                         }
                     </TextWrapper>
                     {side === "LEFT" ?
-                        <CarouselInputFlights setNo={setNo} setFlightsTo={setFlightsTo}
+                        <CarouselInputFlights setNo={setNo} setFlightsTo={setRoundTrips}
                                               setFlightsFrom={setFlightsFrom}/> :
-                        <CarouselInputRoundTrips/>
+                        <CarouselInputRoundTrips setRoundTrips={setFlightTrips} setNo={setNo}/>
                     }
                 </ContentWrapper> :
                 width > 1059 && (showSideText || !displayCarousel) ?
