@@ -50,22 +50,22 @@ let NavDownParagraph = styled.div`
 export const NavigationDownImpl: FunctionComponent<Props> = ({displayCarousel, setDisplayCarousel}) => {
 
     let chooseDisplay = (isFlightBtn: boolean) => {
-        if(isFlightBtn && displayCarousel === "RIGHT"){
+        if (isFlightBtn && displayCarousel === "RIGHT") {
             setDisplayCarousel("LEFT");
         }
-        if(!isFlightBtn && displayCarousel === "LEFT"){
+        if (!isFlightBtn && displayCarousel === "LEFT") {
             setDisplayCarousel("RIGHT");
         }
     }
 
     return (
         <NavigationImplNav>
-            <NavDownBtn>
-                <NavDownImg onClick={() => chooseDisplay(true)} src={require("../../../../public/images/flightrip.svg").default}/>
+            <NavDownBtn onClick={() => chooseDisplay(true)}>
+                <NavDownImg src={require("../../../../public/images/flightrip.svg").default}/>
                 <NavDownParagraph>Flight trip</NavDownParagraph>
             </NavDownBtn>
-            <NavDownBtn>
-                <NavDownImg onClick={() => chooseDisplay(false)} src={require("../../../../public/images/roundtrip.svg").default}/>
+            <NavDownBtn onClick={() => chooseDisplay(false)}>
+                <NavDownImg src={require("../../../../public/images/roundtrip.svg").default}/>
                 <NavDownParagraph>Round trip</NavDownParagraph>
             </NavDownBtn>
         </NavigationImplNav>

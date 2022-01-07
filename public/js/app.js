@@ -6846,15 +6846,17 @@ var NavigationDownImpl = function NavigationDownImpl(_a) {
     }
   };
 
-  return react_1["default"].createElement(NavigationImplNav, null, react_1["default"].createElement(NavDownBtn, null, react_1["default"].createElement(NavDownImg, {
+  return react_1["default"].createElement(NavigationImplNav, null, react_1["default"].createElement(NavDownBtn, {
     onClick: function onClick() {
       return chooseDisplay(true);
-    },
+    }
+  }, react_1["default"].createElement(NavDownImg, {
     src: (__webpack_require__(/*! ../../../../public/images/flightrip.svg */ "./public/images/flightrip.svg")["default"])
-  }), react_1["default"].createElement(NavDownParagraph, null, "Flight trip")), react_1["default"].createElement(NavDownBtn, null, react_1["default"].createElement(NavDownImg, {
+  }), react_1["default"].createElement(NavDownParagraph, null, "Flight trip")), react_1["default"].createElement(NavDownBtn, {
     onClick: function onClick() {
       return chooseDisplay(false);
-    },
+    }
+  }, react_1["default"].createElement(NavDownImg, {
     src: (__webpack_require__(/*! ../../../../public/images/roundtrip.svg */ "./public/images/roundtrip.svg")["default"])
   }), react_1["default"].createElement(NavDownParagraph, null, "Round trip")));
 };
