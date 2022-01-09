@@ -216,8 +216,6 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                                            placeholder={"Departure city"}/>
                     </WrapperInput>
                 </FlexBoxCol>
-            </RowFlexBox>
-            <RowFlexBox>
                 <FlexBoxCol>
                     <WrapperInput>
                         <InputTitle>No. of destinations</InputTitle>

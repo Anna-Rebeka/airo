@@ -4302,7 +4302,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     isError: inputsFilledWrongly.from,
     setMethod: setFrom,
     placeholder: "Departure city"
-  })))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations"), react_1["default"].createElement(IntegerInput, {
+  }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations"), react_1["default"].createElement(IntegerInput, {
     isError: inputsFilledWrongly.numberOfDestination,
     placeholder: "between 1 and 5",
     value: numberOfDestination,
