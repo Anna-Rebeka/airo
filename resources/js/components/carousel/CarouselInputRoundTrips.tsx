@@ -21,27 +21,10 @@ let Form = styled.form`
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 100%;
-
-    @media (min-width: 476px) {
-        max-width: 400px;
-    };
+    width: 100%;
 
     @media (min-width: 800px) {
         flex-direction: column;
-        min-width: 600px;
-    };
-
-    @media (min-width: 1060px) {
-        min-width: 800px;
-    };
-
-    @media (min-width: 1280px) {
-        min-width: 900px;
-    };
-
-    @media (min-width: 1600px) {
-        min-width: 1200px;
     };
 
 `
