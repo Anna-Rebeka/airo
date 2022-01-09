@@ -4194,20 +4194,25 @@ var Heading3_1 = __webpack_require__(/*! ../heading/Heading3 */ "./resources/js/
 
 var Error_1 = __webpack_require__(/*! ../input/auto-complete/Error */ "./resources/js/components/input/auto-complete/Error.tsx");
 
+var PreferencesCheckBox_1 = __importDefault(__webpack_require__(/*! ../checkbox/PreferencesCheckBox */ "./resources/js/components/checkbox/PreferencesCheckBox.tsx"));
+
 var Form = styled_1["default"].form(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    max-width: 100%;\n\n    @media (min-width: 476px) {\n        max-width: 400px;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n        min-width: 600px;\n    };\n\n    @media (min-width: 1060px) {\n        min-width: 800px;\n    };\n\n    @media (min-width: 1280px) {\n        min-width: 900px;\n    };\n\n    @media (min-width: 1600px) {\n        min-width: 1200px;\n    };\n\n"], ["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    max-width: 100%;\n\n    @media (min-width: 476px) {\n        max-width: 400px;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n        min-width: 600px;\n    };\n\n    @media (min-width: 1060px) {\n        min-width: 800px;\n    };\n\n    @media (min-width: 1280px) {\n        min-width: 900px;\n    };\n\n    @media (min-width: 1600px) {\n        min-width: 1200px;\n    };\n\n"])));
 var RowFlexBox = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"])));
-var RowFlexBoxDate = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n\n"])));
-var WrapperInput = styled_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"])));
-var InputTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"], ["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"])));
-var FlexBoxCol = styled_1["default"].li(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"], ["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"])));
-var FlexBoxColButton = styled_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
-var IntegerInput = styled_1["default"].input(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
+var RowFlexBoxPreferences = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"])));
+var RowFlexBoxDate = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"])));
+var WrapperInput = styled_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"])));
+var OuterWrapperPreferences = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
+var InnerWrapperPreferences = styled_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
+var InputTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"], ["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"])));
+var FlexBoxCol = styled_1["default"].li(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"], ["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"])));
+var FlexBoxColButton = styled_1["default"].div(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
+var IntegerInput = styled_1["default"].input(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
   return p.isError ? "red" : "white";
 });
-var DateInput = styled_1["default"].input(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
+var DateInput = styled_1["default"].input(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
   return p.isError ? "red" : "white";
 });
-var Title = (0, styled_1["default"])(Heading2_1.Heading2)(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    text-align: center;\n"], ["\n    text-align: center;\n"])));
+var Title = (0, styled_1["default"])(Heading2_1.Heading2)(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n    text-align: center;\n"], ["\n    text-align: center;\n"])));
 
 var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
   var setRoundTrips = _a.setRoundTrips,
@@ -4351,6 +4356,33 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     min: 50,
     max: 9999,
     type: "number"
+  })))), react_1["default"].createElement(RowFlexBoxPreferences, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperPreferences, null, react_1["default"].createElement(InnerWrapperPreferences, null, react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    label: "Culture",
+    id: "pref-check-0"
+  }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    label: "Relaxation",
+    id: "pref-check-1"
+  }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    label: "Culture",
+    id: "pref-check-2"
+  }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    label: "Luxury flights",
+    id: "pref-check-3"
+  }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    label: "Beach resort",
+    id: "pref-check-4"
+  })), react_1["default"].createElement(InnerWrapperPreferences, null, react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    label: "History",
+    id: "pref-check-5"
+  }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    label: "Social",
+    id: "pref-check-6"
+  }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    label: "Adventure",
+    id: "pref-check-7"
+  }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    label: "Premium services",
+    id: "pref-check-8"
   })))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
     onClick: getListOfFlights,
     text: "Search for a round trip"
@@ -4358,7 +4390,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
 };
 
 exports.CarouselInputRoundTrips = CarouselInputRoundTrips;
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13;
 
 /***/ }),
 
@@ -4559,6 +4591,64 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
 
 exports.CarouselImageImpl = CarouselImageImpl;
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11;
+
+/***/ }),
+
+/***/ "./resources/js/components/checkbox/PreferencesCheckBox.tsx":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/checkbox/PreferencesCheckBox.tsx ***!
+  \******************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.MyCheckbox = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var MyCBWrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    .myCheckbox {\n        appearance: none;\n        background-color: rgba(134, 134, 122, 0.25);\n        margin: 5px;\n        font-size: 18px;\n        width: 18px;\n        height: 18px;\n        color: currentColor;\n        border: 3px solid orange;\n        border-radius: 2px;\n        transform: translateY(-0.075em);\n        cursor: pointer;\n    }\n\n    .myLabel {\n        color: white;\n        margin-left: 5px;\n        position: relative;\n        top: -11px;\n        cursor: pointer;\n    }\n\n    .myCheckbox:hover {\n        background-color: orange;\n        border: none;\n    }\n\n    .myCheckbox:checked {\n        background-color: orange;\n    }\n\n    .myCheckbox:checked + .myLabel:after {\n        content: '\\2713';\n        text-align: left;\n        left: -27px;\n        top: -2px;\n        opacity: 1;\n        width: 100%;\n        height: 100%;\n        color: white;\n        border: none;\n        position: absolute;\n    }\n"], ["\n    .myCheckbox {\n        appearance: none;\n        background-color: rgba(134, 134, 122, 0.25);\n        margin: 5px;\n        font-size: 18px;\n        width: 18px;\n        height: 18px;\n        color: currentColor;\n        border: 3px solid orange;\n        border-radius: 2px;\n        transform: translateY(-0.075em);\n        cursor: pointer;\n    }\n\n    .myLabel {\n        color: white;\n        margin-left: 5px;\n        position: relative;\n        top: -11px;\n        cursor: pointer;\n    }\n\n    .myCheckbox:hover {\n        background-color: orange;\n        border: none;\n    }\n\n    .myCheckbox:checked {\n        background-color: orange;\n    }\n\n    .myCheckbox:checked + .myLabel:after {\n        content: '\\\\2713';\n        text-align: left;\n        left: -27px;\n        top: -2px;\n        opacity: 1;\n        width: 100%;\n        height: 100%;\n        color: white;\n        border: none;\n        position: absolute;\n    }\n"])));
+
+var MyCheckbox = function MyCheckbox(_a) {
+  var label = _a.label,
+      id = _a.id;
+  return react_1["default"].createElement(MyCBWrapper, null, react_1["default"].createElement("input", {
+    type: "checkbox",
+    className: "myCheckbox",
+    id: id,
+    name: id
+  }), react_1["default"].createElement("label", {
+    htmlFor: id,
+    className: "myLabel"
+  }, label));
+};
+
+exports.MyCheckbox = MyCheckbox;
+exports["default"] = exports.MyCheckbox;
+var templateObject_1;
 
 /***/ }),
 

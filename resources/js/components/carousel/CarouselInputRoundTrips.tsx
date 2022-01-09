@@ -6,6 +6,7 @@ import axios from "axios";
 import {Heading2} from "../heading/Heading2";
 import {Heading3} from "../heading/Heading3";
 import {Error} from "../input/auto-complete/Error";
+import PreferencesCheckBox from "../checkbox/PreferencesCheckBox";
 
 
 interface Props {
@@ -63,6 +64,25 @@ let RowFlexBox = styled.ul`
     };
 `
 
+let RowFlexBoxPreferences = styled.ul`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: 476px) {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    };
+
+    @media (min-width: 800px) {
+        flex-direction: row;
+    };
+`
+
 let RowFlexBoxDate = styled.ul`
     display: flex;
     flex-direction: row;
@@ -76,13 +96,22 @@ let RowFlexBoxDate = styled.ul`
         width: 600px;
         flex-direction: row;
     };
-
 `
 
 let WrapperInput = styled.div`
     display: flex;
     flex-direction: column;
     margin: 1em;
+`;
+
+let OuterWrapperPreferences = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
+let InnerWrapperPreferences = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
 
 let InputTitle = styled(Heading3)`
@@ -279,6 +308,26 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                     </WrapperInput>
                 </FlexBoxCol>
             </RowFlexBoxDate>
+            <RowFlexBoxPreferences>
+                <WrapperInput>
+                    <InputTitle>Preferences</InputTitle>
+                </WrapperInput>
+                <OuterWrapperPreferences>
+                    <InnerWrapperPreferences>
+                        <PreferencesCheckBox label={"Culture"} id={"pref-check-0"}/>
+                        <PreferencesCheckBox label={"Relaxation"} id={"pref-check-1"}/>
+                        <PreferencesCheckBox label={"Culture"} id={"pref-check-2"}/>
+                        <PreferencesCheckBox label={"Luxury flights"} id={"pref-check-3"}/>
+                        <PreferencesCheckBox label={"Beach resort"} id={"pref-check-4"}/>
+                    </InnerWrapperPreferences>
+                    <InnerWrapperPreferences>
+                        <PreferencesCheckBox label={"History"} id={"pref-check-5"}/>
+                        <PreferencesCheckBox label={"Social"} id={"pref-check-6"}/>
+                        <PreferencesCheckBox label={"Adventure"} id={"pref-check-7"}/>
+                        <PreferencesCheckBox label={"Premium services"} id={"pref-check-8"}/>
+                    </InnerWrapperPreferences>
+                </OuterWrapperPreferences>
+            </RowFlexBoxPreferences>
             <RowFlexBox>
                 <FlexBoxColButton>
                     <WrapperInput>

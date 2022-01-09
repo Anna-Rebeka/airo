@@ -45,11 +45,10 @@ let MyCBWrapper = styled.div`
         top: -2px;
         opacity: 1;
         width: 100%;
-        hegiht: 100%;
+        height: 100%;
         color: white;
         border: none;
         position: absolute;
-        font-family: 'Consolas';
     }
 `;
 
