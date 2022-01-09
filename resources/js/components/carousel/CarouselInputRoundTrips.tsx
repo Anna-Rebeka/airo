@@ -77,10 +77,6 @@ let RowFlexBoxPreferences = styled.ul`
         margin-top: 1em;
         margin-bottom: 1em;
     };
-
-    @media (min-width: 800px) {
-        flex-direction: row;
-    };
 `
 
 let RowFlexBoxDate = styled.ul`

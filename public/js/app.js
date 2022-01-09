@@ -4198,7 +4198,7 @@ var PreferencesCheckBox_1 = __importDefault(__webpack_require__(/*! ../checkbox/
 
 var Form = styled_1["default"].form(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    max-width: 100%;\n\n    @media (min-width: 476px) {\n        max-width: 400px;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n        min-width: 600px;\n    };\n\n    @media (min-width: 1060px) {\n        min-width: 800px;\n    };\n\n    @media (min-width: 1280px) {\n        min-width: 900px;\n    };\n\n    @media (min-width: 1600px) {\n        min-width: 1200px;\n    };\n\n"], ["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    max-width: 100%;\n\n    @media (min-width: 476px) {\n        max-width: 400px;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n        min-width: 600px;\n    };\n\n    @media (min-width: 1060px) {\n        min-width: 800px;\n    };\n\n    @media (min-width: 1280px) {\n        min-width: 900px;\n    };\n\n    @media (min-width: 1600px) {\n        min-width: 1200px;\n    };\n\n"])));
 var RowFlexBox = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"])));
-var RowFlexBoxPreferences = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"])));
+var RowFlexBoxPreferences = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"])));
 var RowFlexBoxDate = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"])));
 var WrapperInput = styled_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"])));
 var OuterWrapperPreferences = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
@@ -4490,7 +4490,7 @@ var CarouselImgOpacityImg = styled_1["default"].img(templateObject_7 || (templat
 var TextWrapper = styled_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 1em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 1em;\n"])));
 var SideTextInsideWrapper = styled_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
 var SideTextWrapper = styled_1["default"].div(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    width: 80%;\n    display: flex;\n    flex-direction: column;\n"], ["\n    width: 80%;\n    display: flex;\n    flex-direction: column;\n"])));
-var ContentWrapper = styled_1["default"].div(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    background-image: ", ";\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n\n    @media (min-width: 768px) {\n        top: 10%;\n    }\n"], ["\n    background-image: ", ";\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n\n    @media (min-width: 768px) {\n        top: 10%;\n    }\n"])), function (p) {
+var ContentWrapper = styled_1["default"].div(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    background-image: ", ";\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n"], ["\n    background-image: ", ";\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n"])), function (p) {
   return p.url;
 });
 
@@ -4501,8 +4501,11 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
       setDisplayedSide = _a.setDisplayedSide,
       setFlightsFrom = _a.setFlightsFrom,
       setRoundTrips = _a.setRoundTrips,
-      setFlightTrips = _a.setFlightTrips,
+      setFlightsTo = _a.setFlightsTo,
       setNo = _a.setNo;
+
+  var _ref;
+
   var leftText = {
     title: "Looking for a ticket?",
     description: "We offer tickets from multiple airline companies. You can choose a ticket which is tailored for your needs.",
@@ -4529,9 +4532,16 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
 
   var width = (0, BasicUtils_1["default"])()[0];
   (0, react_1.useEffect)(function () {
+    if (_ref) {
+      console.log(_ref.clientHeight);
+    }
+
     return function () {};
-  }, [displayCarousel]);
+  }, [_ref]);
   return react_1["default"].createElement(Wrapper, {
+    ref: function ref(r) {
+      return _ref = r;
+    },
     side: side,
     displayCarousel: displayCarousel,
     onTransitionEnd: function onTransitionEnd(e) {
@@ -4546,10 +4556,10 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
     side: side
   }, text.description)) : null), side === "LEFT" ? react_1["default"].createElement(CarouselInputFlights_1.CarouselInputFlights, {
     setNo: setNo,
-    setFlightsTo: setRoundTrips,
+    setFlightsTo: setFlightsTo,
     setFlightsFrom: setFlightsFrom
   }) : react_1["default"].createElement(CarouselInputRoundTrips_1.CarouselInputRoundTrips, {
-    setRoundTrips: setFlightTrips,
+    setRoundTrips: setRoundTrips,
     setNo: setNo
   })) : width > 1059 && (showSideText || !displayCarousel) ? react_1["default"].createElement(SideText, {
     isHovered: isHovered,
@@ -8442,7 +8452,7 @@ var NavigationDownImpl_1 = __webpack_require__(/*! ./components/navigation/Navig
 
 var BasicUtils_1 = __importDefault(__webpack_require__(/*! ./BasicUtils */ "./resources/js/BasicUtils.tsx"));
 
-var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 100%;\n    height: 800px;\n    position: relative;\n\n    @media (min-width: 576px) {\n        height: 1280px;\n    }\n"], ["\n    width: 100%;\n    height: 800px;\n    position: relative;\n\n    @media (min-width: 576px) {\n        height: 1280px;\n    }\n"])));
+var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 100%;\n    height: 880px;\n\n    @media (min-width: 476px) {\n        height: 1280px;\n    };\n\n    position: relative;\n"], ["\n    width: 100%;\n    height: 880px;\n\n    @media (min-width: 476px) {\n        height: 1280px;\n    };\n\n    position: relative;\n"])));
 var ListOfTickets = styled_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n\n    background-color: #000000;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n"], ["\n    display: flex;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n\n    background-color: #000000;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n"])));
 var Paragraph = styled_1["default"].p(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    margin: 2em;\n    font-size: 1.8em;\n    color: white;\n"], ["\n    margin: 2em;\n    font-size: 1.8em;\n    color: white;\n"])));
 var images = [{
@@ -8511,8 +8521,8 @@ var Root = function Root(_a) {
       setNo = _d[1];
 
   var _e = (0, react_1.useState)(),
-      flightsTicketsTo = _e[0],
-      setFlightTicketsTo = _e[1];
+      flightsTo = _e[0],
+      setFlightsTo = _e[1];
 
   var _f = (0, react_1.useState)(),
       roundTrips = _f[0],
@@ -8530,6 +8540,10 @@ var Root = function Root(_a) {
       selectedFirstWay = _j[0],
       setSelectedFirstWay = _j[1];
 
+  var _k = (0, react_1.useState)(),
+      widthOfChild = _k[0],
+      setWidthOfChild = _k[1];
+
   (0, react_1.useEffect)(function () {
     setUser(JSON.parse(dataset.user));
   }, [dataset]);
@@ -8539,19 +8553,16 @@ var Root = function Root(_a) {
     user: user,
     setUser: setUser
   }, react_1["default"].createElement(Carousel, null, react_1["default"].createElement(CarouselmgImpl_1.CarouselImageImpl, {
-    setFlightTrips: setRoundTrips,
+    setFlightsTo: setRoundTrips,
     setNo: setNo,
-    setRoundTrips: setFlightTicketsTo,
-    setFlightsFrom: setRoundTrips,
     displayCarousel: "RIGHT" === displayCarousel,
     setDisplayedSide: setDisplayCarousel,
     side: "RIGHT",
     imgSource: __webpack_require__(/*! ../../public/images/carousel_round_trip.jpg */ "./public/images/carousel_round_trip.jpg")
   }), react_1["default"].createElement(CarouselmgImpl_1.CarouselImageImpl, {
-    setFlightTrips: setRoundTrips,
+    setFlightsTo: setFlightsTo,
     setNo: setNo,
     setFlightsFrom: setFlightsFrom,
-    setRoundTrips: setFlightTicketsTo,
     displayCarousel: "LEFT" === displayCarousel,
     setDisplayedSide: setDisplayCarousel,
     side: "LEFT",
@@ -8564,7 +8575,7 @@ var Root = function Root(_a) {
       showSecondWay: showSecondWay,
       setSelectedFirstWay: setSelectedFirstWay,
       setShowSecondWay: setShowSecondWay,
-      flightsTo: flightsTicketsTo,
+      flightsTo: flightsTo,
       no: no,
       companyClass: element && element.company && element.company["class"],
       companyName: element && element.company && element.company.name,
@@ -8584,13 +8595,13 @@ var Root = function Root(_a) {
       user: user,
       setUser: setUser
     });
-  })) : !showSecondWay && flightsFrom ? react_1["default"].createElement(Paragraph, null, "No flights were found. Please change your inputs.") : null, showSecondWay && flightsTicketsTo && flightsTicketsTo.length !== 0 ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Heading2_1.Heading2, null, "Found tickets from arrival to departure"), flightsTicketsTo.map(function (element, index) {
+  })) : !showSecondWay && flightsFrom ? react_1["default"].createElement(Paragraph, null, "No flights were found. Please change your inputs.") : null, showSecondWay && flightsTo && flightsTo.length !== 0 ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Heading2_1.Heading2, null, "Found tickets from arrival to departure"), flightsTo.map(function (element, index) {
     return react_1["default"].createElement(ResultItem_1.ResultItem, {
       selectedFirstWay: selectedFirstWay,
       showSecondWay: showSecondWay,
       setSelectedFirstWay: setSelectedFirstWay,
       setShowSecondWay: setShowSecondWay,
-      flightsTo: flightsTicketsTo,
+      flightsTo: flightsTo,
       no: no,
       companyClass: element && element.company && element.company["class"],
       companyName: element && element.company && element.company.name,
@@ -8610,7 +8621,7 @@ var Root = function Root(_a) {
       user: user,
       setUser: setUser
     });
-  })) : showSecondWay && flightsTicketsTo ? react_1["default"].createElement(Paragraph, null, "No flights were found. Please change your inputs.") : null)), width < 1060 ? react_1["default"].createElement(NavigationDownImpl_1.NavigationDownImpl, {
+  })) : showSecondWay && flightsTo ? react_1["default"].createElement(Paragraph, null, "No flights were found. Please change your inputs.") : null)), width < 1060 ? react_1["default"].createElement(NavigationDownImpl_1.NavigationDownImpl, {
     displayCarousel: displayCarousel,
     setDisplayCarousel: setDisplayCarousel
   }) : null);

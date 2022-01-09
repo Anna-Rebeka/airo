@@ -10,8 +10,8 @@ interface Props {
     imgSource: any;
     side: string;
     setDisplayedSide: any;
-    setFlightTrips: any;
-    setFlightsFrom: any;
+    setFlightsTo?: any;
+    setFlightsFrom?: any;
     setRoundTrips?: any;
     setNo: any;
 }
@@ -117,14 +117,11 @@ let ContentWrapper = styled.div<{ url: string }>`
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    @media (min-width: 768px) {
-        top: 10%;
-    }
 `
 
 
@@ -135,9 +132,11 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                                                                 setDisplayedSide,
                                                                 setFlightsFrom,
                                                                 setRoundTrips,
-                                                                setFlightTrips,
+                                                                setFlightsTo,
                                                                 setNo
                                                             }) => {
+
+    let ref: any;
 
     let leftText = {
         title: "Looking for a ticket?",
@@ -162,12 +161,15 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
     let [width] = useWindowSize();
 
     useEffect(() => {
+        if(ref){
+            console.log(ref.clientHeight)
+        }
         return () => {
         }
-    }, [displayCarousel]);
+    }, [ref]);
 
     return (
-        <Wrapper side={side} displayCarousel={displayCarousel}
+        <Wrapper ref={(r) => ref = r} side={side} displayCarousel={displayCarousel}
                  onTransitionEnd={(e: any) => {
                      e && e.propertyName === "left" ? setShowSideText(true) : null
                  }}>
@@ -188,9 +190,9 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                         }
                     </TextWrapper>
                     {side === "LEFT" ?
-                        <CarouselInputFlights setNo={setNo} setFlightsTo={setRoundTrips}
+                        <CarouselInputFlights setNo={setNo} setFlightsTo={setFlightsTo}
                                               setFlightsFrom={setFlightsFrom}/> :
-                        <CarouselInputRoundTrips setRoundTrips={setFlightTrips} setNo={setNo}/>
+                        <CarouselInputRoundTrips setRoundTrips={setRoundTrips} setNo={setNo}/>
                     }
                 </ContentWrapper> :
                 width > 1059 && (showSideText || !displayCarousel) ?

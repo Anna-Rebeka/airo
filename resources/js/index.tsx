@@ -22,12 +22,13 @@ interface RootProps {
 
 let Carousel = styled.div`
     width: 100%;
-    height: 800px;
-    position: relative;
+    height: 880px;
 
-    @media (min-width: 576px) {
+    @media (min-width: 476px) {
         height: 1280px;
-    }
+    };
+
+    position: relative;
 `
 
 let ListOfTickets = styled.div`
@@ -71,11 +72,12 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     const [displayCarousel, setDisplayCarousel] = useState("LEFT");
     const [flightsFrom, setFlightsFrom] = useState<any>(null);
     const [no, setNo] = useState<number>(1);
-    const [flightsTicketsTo, setFlightTicketsTo] = useState<any>();
+    const [flightsTo, setFlightsTo] = useState<any>();
     const [roundTrips, setRoundTrips] = useState();
     const [user, setUser] = useState();
     const [showSecondWay, setShowSecondWay] = useState<any>();
     const [selectedFirstWay, setSelectedFirstWay] = useState();
+    const [widthOfChild, setWidthOfChild] = useState();
 
     useEffect(() => {
         setUser(JSON.parse(dataset.user));
@@ -87,14 +89,12 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
         <>
             <BasicImpl id={"main"} user={user} setUser={setUser}>
                 <Carousel>
-                    <CarouselImageImpl setFlightTrips={setRoundTrips} setNo={setNo} setRoundTrips={setFlightTicketsTo}
-                                       setFlightsFrom={setRoundTrips}
+                    <CarouselImageImpl setFlightsTo={setRoundTrips} setNo={setNo}
                                        displayCarousel={"RIGHT" === displayCarousel}
                                        setDisplayedSide={setDisplayCarousel}
                                        side={"RIGHT"}
                                        imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
-                    <CarouselImageImpl setFlightTrips={setRoundTrips} setNo={setNo} setFlightsFrom={setFlightsFrom}
-                                       setRoundTrips={setFlightTicketsTo}
+                    <CarouselImageImpl setFlightsTo={setFlightsTo} setNo={setNo} setFlightsFrom={setFlightsFrom}
                                        displayCarousel={"LEFT" === displayCarousel}
                                        setDisplayedSide={setDisplayCarousel}
                                        side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
@@ -111,7 +111,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                                     showSecondWay={showSecondWay}
                                     setSelectedFirstWay={setSelectedFirstWay}
                                     setShowSecondWay={setShowSecondWay}
-                                    flightsTo={flightsTicketsTo}
+                                    flightsTo={flightsTo}
                                     no={no}
                                     companyClass={element && element.company && element.company.class}
                                     companyName={element && element.company && element.company.name}
@@ -137,18 +137,18 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                             </Paragraph>
                             : null
                     }
-                    {showSecondWay && flightsTicketsTo && flightsTicketsTo.length !== 0 ?
+                    {showSecondWay && flightsTo && flightsTo.length !== 0 ?
                         <>
                             <Heading2>
                                 Found tickets from arrival to departure
                             </Heading2>
-                            {flightsTicketsTo.map((element: any, index: number) =>
+                            {flightsTo.map((element: any, index: number) =>
                                 <ResultItem
                                     selectedFirstWay={selectedFirstWay}
                                     showSecondWay={showSecondWay}
                                     setSelectedFirstWay={setSelectedFirstWay}
                                     setShowSecondWay={setShowSecondWay}
-                                    flightsTo={flightsTicketsTo}
+                                    flightsTo={flightsTo}
                                     no={no}
                                     companyClass={element && element.company && element.company.class}
                                     companyName={element && element.company && element.company.name}
@@ -168,7 +168,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                                 />
                             )}
                         </> :
-                        showSecondWay && flightsTicketsTo ?
+                        showSecondWay && flightsTo ?
                             <Paragraph>
                                 No flights were found. Please change your inputs.
                             </Paragraph>
