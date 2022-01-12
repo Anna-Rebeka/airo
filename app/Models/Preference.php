@@ -17,4 +17,8 @@ class Preference extends Model
     public function users(){
         return $this->hasMany(User::class);
     }
+
+    public function cities(){
+        return $this->hasMany(City::class);
+    }
 }

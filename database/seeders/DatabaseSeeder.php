@@ -29,5 +29,8 @@ class DatabaseSeeder extends Seeder
 
         $path4 = 'database/small_fixes.sql';
         DB::unprepared(file_get_contents($path4));
+
+        $path5 = 'database/city_preference.sql';
+        DB::unprepared(file_get_contents($path5));
     }
 }
