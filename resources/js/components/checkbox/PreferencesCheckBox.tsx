@@ -1,9 +1,11 @@
-import React, {FunctionComponent} from "react";
+import React, {FunctionComponent, useEffect, useState} from "react";
 import styled from "@emotion/styled";
 
 interface Props {
     label: string;
     id: string;
+    value: any;
+    setValue: any;
 }
 
 let Wrapper = styled.div`
@@ -51,10 +53,19 @@ let Wrapper = styled.div`
     }
 `;
 
-export const PreferencesCheckBox: FunctionComponent<Props> = ({label, id}) => {
+export const PreferencesCheckBox: FunctionComponent<Props> = ({label, id, value, setValue}) => {
+
+    useEffect(() => {
+        setVal(value);
+    }, [value])
+
+    const [val, setVal] = useState<boolean>();
+
     return (
         <Wrapper>
-            <input type="checkbox" className="myCheckbox" id={id} name={id}/>
+            <input onChange={(e) => {
+                setValue(!value);
+            }} type="checkbox" className="myCheckbox" id={id} name={id} checked={value}/>
             <label htmlFor={id} className="myLabel">{label}</label>
         </Wrapper>
     );

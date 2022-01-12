@@ -22,14 +22,14 @@ interface RootProps {
 
 let Carousel = styled.div`
     width: 100%;
-    height: 880px;
+    height: 960px;
 
     @media (min-width: 476px) {
-        height: 1080px;
+        height: 1120px;
     };
 
-    @media (min-width: 800px) {
-        height: 1280px;
+    @media (min-width: 1059px) {
+        height: 1320px;
     };
     position: relative;
 `
