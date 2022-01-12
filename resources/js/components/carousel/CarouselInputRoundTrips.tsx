@@ -159,6 +159,15 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
     const [from, setFrom] = useState<string>();
     const [numberOfDestination, setNumberOfDestination] = useState<number>();
     const [dateToBeforeDateFrom, setDateToBeforeDateFrom] = useState(false);
+    const [culture, setCulture] = useState<boolean>();
+    const [relaxation, setRelaxation] = useState<boolean>();
+    const [luxuryFlights, setLuxuryFlights] = useState<boolean>();
+    const [beachResort, setBeachResort] = useState<boolean>();
+    const [history, setHistory] = useState<boolean>();
+    const [adventure, setAdventure] = useState<boolean>();
+    const [premiumServices, setPremiumServices] = useState<boolean>();
+
+
     const [inputsFilledWrongly, setInputsFilledWrongly] = useState({
         from: false,
         numberOfDestination: false,
@@ -295,7 +304,6 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                     <InnerWrapperPreferences>
                         <PreferencesCheckBox label={"Culture"} id={"pref-check-0"}/>
                         <PreferencesCheckBox label={"Relaxation"} id={"pref-check-1"}/>
-                        <PreferencesCheckBox label={"Culture"} id={"pref-check-2"}/>
                         <PreferencesCheckBox label={"Luxury flights"} id={"pref-check-3"}/>
                         <PreferencesCheckBox label={"Beach resort"} id={"pref-check-4"}/>
                     </InnerWrapperPreferences>

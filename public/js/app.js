@@ -4246,7 +4246,35 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
       dateToBeforeDateFrom = _h[0],
       setDateToBeforeDateFrom = _h[1];
 
-  var _j = (0, react_1.useState)({
+  var _j = (0, react_1.useState)(),
+      culture = _j[0],
+      setCulture = _j[1];
+
+  var _k = (0, react_1.useState)(),
+      relaxation = _k[0],
+      setRelaxation = _k[1];
+
+  var _l = (0, react_1.useState)(),
+      luxuryFlights = _l[0],
+      setLuxuryFlights = _l[1];
+
+  var _m = (0, react_1.useState)(),
+      beachResort = _m[0],
+      setBeachResort = _m[1];
+
+  var _o = (0, react_1.useState)(),
+      history = _o[0],
+      setHistory = _o[1];
+
+  var _p = (0, react_1.useState)(),
+      adventure = _p[0],
+      setAdventure = _p[1];
+
+  var _q = (0, react_1.useState)(),
+      premiumServices = _q[0],
+      setPremiumServices = _q[1];
+
+  var _r = (0, react_1.useState)({
     from: false,
     numberOfDestination: false,
     dateFrom: false,
@@ -4254,8 +4282,8 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     maximumPrice: false,
     numberOfPersons: false
   }),
-      inputsFilledWrongly = _j[0],
-      setInputsFilledWrongly = _j[1];
+      inputsFilledWrongly = _r[0],
+      setInputsFilledWrongly = _r[1];
 
   var checkInputs = function checkInputs() {
     var inputsValues = {
@@ -4362,9 +4390,6 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
   }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
     label: "Relaxation",
     id: "pref-check-1"
-  }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
-    label: "Culture",
-    id: "pref-check-2"
   }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
     label: "Luxury flights",
     id: "pref-check-3"
@@ -4634,18 +4659,18 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.MyCheckbox = void 0;
+exports.PreferencesCheckBox = void 0;
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-var MyCBWrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    .myCheckbox {\n        appearance: none;\n        background-color: rgba(134, 134, 122, 0.25);\n        margin: 5px;\n        font-size: 18px;\n        width: 18px;\n        height: 18px;\n        color: currentColor;\n        border: 3px solid orange;\n        border-radius: 2px;\n        transform: translateY(-0.075em);\n        cursor: pointer;\n    }\n\n    .myLabel {\n        color: white;\n        margin-left: 5px;\n        position: relative;\n        top: -11px;\n        cursor: pointer;\n    }\n\n    .myCheckbox:hover {\n        background-color: orange;\n        border: none;\n    }\n\n    .myCheckbox:checked {\n        background-color: orange;\n    }\n\n    .myCheckbox:checked + .myLabel:after {\n        content: '\\2713';\n        text-align: left;\n        left: -27px;\n        top: -2px;\n        opacity: 1;\n        width: 100%;\n        height: 100%;\n        color: white;\n        border: none;\n        position: absolute;\n    }\n"], ["\n    .myCheckbox {\n        appearance: none;\n        background-color: rgba(134, 134, 122, 0.25);\n        margin: 5px;\n        font-size: 18px;\n        width: 18px;\n        height: 18px;\n        color: currentColor;\n        border: 3px solid orange;\n        border-radius: 2px;\n        transform: translateY(-0.075em);\n        cursor: pointer;\n    }\n\n    .myLabel {\n        color: white;\n        margin-left: 5px;\n        position: relative;\n        top: -11px;\n        cursor: pointer;\n    }\n\n    .myCheckbox:hover {\n        background-color: orange;\n        border: none;\n    }\n\n    .myCheckbox:checked {\n        background-color: orange;\n    }\n\n    .myCheckbox:checked + .myLabel:after {\n        content: '\\\\2713';\n        text-align: left;\n        left: -27px;\n        top: -2px;\n        opacity: 1;\n        width: 100%;\n        height: 100%;\n        color: white;\n        border: none;\n        position: absolute;\n    }\n"])));
+var Wrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    .myCheckbox {\n        appearance: none;\n        background-color: rgba(134, 134, 122, 0.25);\n        margin: 5px;\n        font-size: 18px;\n        width: 18px;\n        height: 18px;\n        border: 3px solid #FF7F2A;\n        border-radius: 2px;\n        transform: translateY(-0.075em);\n        cursor: pointer;\n    }\n\n    .myLabel {\n        color: white;\n        margin-left: 5px;\n        position: relative;\n        top: -11px;\n        cursor: pointer;\n    }\n\n    .myCheckbox:hover {\n        background-color: #FF7F2A;\n        border: none;\n    }\n\n    .myCheckbox:checked {\n        background-color: #FF7F2A;\n    }\n\n    .myCheckbox:checked + .myLabel:after {\n        content: '\\2713';\n        text-align: left;\n        left: -25px;\n        top: 0;\n        opacity: 1;\n        width: 100%;\n        height: 100%;\n        color: white;\n        border: none;\n        position: absolute;\n    }\n"], ["\n    .myCheckbox {\n        appearance: none;\n        background-color: rgba(134, 134, 122, 0.25);\n        margin: 5px;\n        font-size: 18px;\n        width: 18px;\n        height: 18px;\n        border: 3px solid #FF7F2A;\n        border-radius: 2px;\n        transform: translateY(-0.075em);\n        cursor: pointer;\n    }\n\n    .myLabel {\n        color: white;\n        margin-left: 5px;\n        position: relative;\n        top: -11px;\n        cursor: pointer;\n    }\n\n    .myCheckbox:hover {\n        background-color: #FF7F2A;\n        border: none;\n    }\n\n    .myCheckbox:checked {\n        background-color: #FF7F2A;\n    }\n\n    .myCheckbox:checked + .myLabel:after {\n        content: '\\\\2713';\n        text-align: left;\n        left: -25px;\n        top: 0;\n        opacity: 1;\n        width: 100%;\n        height: 100%;\n        color: white;\n        border: none;\n        position: absolute;\n    }\n"])));
 
-var MyCheckbox = function MyCheckbox(_a) {
+var PreferencesCheckBox = function PreferencesCheckBox(_a) {
   var label = _a.label,
       id = _a.id;
-  return react_1["default"].createElement(MyCBWrapper, null, react_1["default"].createElement("input", {
+  return react_1["default"].createElement(Wrapper, null, react_1["default"].createElement("input", {
     type: "checkbox",
     className: "myCheckbox",
     id: id,
@@ -4656,8 +4681,8 @@ var MyCheckbox = function MyCheckbox(_a) {
   }, label));
 };
 
-exports.MyCheckbox = MyCheckbox;
-exports["default"] = exports.MyCheckbox;
+exports.PreferencesCheckBox = PreferencesCheckBox;
+exports["default"] = exports.PreferencesCheckBox;
 var templateObject_1;
 
 /***/ }),

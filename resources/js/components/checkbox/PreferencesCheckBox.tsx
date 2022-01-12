@@ -6,7 +6,7 @@ interface Props {
     id: string;
 }
 
-let MyCBWrapper = styled.div`
+let Wrapper = styled.div`
     .myCheckbox {
         appearance: none;
         background-color: rgba(134, 134, 122, 0.25);
@@ -14,8 +14,7 @@ let MyCBWrapper = styled.div`
         font-size: 18px;
         width: 18px;
         height: 18px;
-        color: currentColor;
-        border: 3px solid orange;
+        border: 3px solid #FF7F2A;
         border-radius: 2px;
         transform: translateY(-0.075em);
         cursor: pointer;
@@ -30,19 +29,19 @@ let MyCBWrapper = styled.div`
     }
 
     .myCheckbox:hover {
-        background-color: orange;
+        background-color: #FF7F2A;
         border: none;
     }
 
     .myCheckbox:checked {
-        background-color: orange;
+        background-color: #FF7F2A;
     }
 
     .myCheckbox:checked + .myLabel:after {
         content: '\\2713';
         text-align: left;
-        left: -27px;
-        top: -2px;
+        left: -25px;
+        top: 0;
         opacity: 1;
         width: 100%;
         height: 100%;
@@ -52,13 +51,13 @@ let MyCBWrapper = styled.div`
     }
 `;
 
-export const MyCheckbox: FunctionComponent<Props> = ({label, id}) => {
+export const PreferencesCheckBox: FunctionComponent<Props> = ({label, id}) => {
     return (
-        <MyCBWrapper>
+        <Wrapper>
             <input type="checkbox" className="myCheckbox" id={id} name={id}/>
             <label htmlFor={id} className="myLabel">{label}</label>
-        </MyCBWrapper>
+        </Wrapper>
     );
 }
 
-export default MyCheckbox;
+export default PreferencesCheckBox;
