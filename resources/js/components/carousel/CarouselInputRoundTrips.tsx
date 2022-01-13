@@ -49,7 +49,7 @@ let RowFlexBox = styled.ul`
     };
 `
 
-let RowFlexBoxPreferences = styled.ul`
+let RowFlexBoxCentered = styled.ul`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,7 +85,7 @@ let WrapperInput = styled.div`
     margin: 1em;
 `;
 
-let OuterWrapperPreferences = styled.div`
+let OuterWrapperIconsPrefs = styled.div`
     display: flex;
     flex-direction: column;
 `;
@@ -95,7 +95,7 @@ let InnerWrapperPreferences = styled.div`
     flex-direction: column;
 `;
 
-let InnerWrapperIconPreferences = styled.div`
+let InnerWrapperIcons = styled.div`
     display: flex;
     flex-direction: row;
 `;
@@ -308,11 +308,11 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                             </WrapperInput>
                         </FlexBoxCol>
                     </RowFlexBoxDate>
-                    <RowFlexBoxPreferences>
+                    <RowFlexBoxCentered>
                         <WrapperInput>
                             <InputTitle>Preferences</InputTitle>
                         </WrapperInput>
-                        <OuterWrapperPreferences>
+                        <OuterWrapperIconsPrefs>
                             <InnerWrapperPreferences>
                                 <PreferencesCheckBox value={culture} setValue={setCulture} label={"Culture"}
                                                      id={"pref-check-0"}/>
@@ -333,13 +333,13 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                                 <PreferencesCheckBox value={premiumServices} setValue={setPremiumServices}
                                                      label={"Premium services"} id={"pref-check-8"}/>
                             </InnerWrapperPreferences>
-                        </OuterWrapperPreferences>
+                        </OuterWrapperIconsPrefs>
                         {inputsFilledWrongly.checkBoxes ?
                             <Error>
                                 At least one of the checkboxes must be checked.
                             </Error> :
                             null}
-                    </RowFlexBoxPreferences>
+                    </RowFlexBoxCentered>
                 </> :
                 <>
                     <RowFlexBox>
@@ -350,40 +350,90 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                                                    placeholder={"Departure city"}/>
                             </WrapperInput>
                         </FlexBoxCol>
-                        <FlexBoxCol>
+                        <RowFlexBoxCentered>
                             <WrapperInput>
                                 <InputTitle>No. of destinations</InputTitle>
-
                             </WrapperInput>
-                        </FlexBoxCol>
+                            <OuterWrapperIconsPrefs>
+                                <InnerWrapperIcons>
+                                    <IconCheckBox
+                                        icon={require("../../../../public/images/destinationNumber/two.png").default}
+                                        value={culture} setValue={setCulture} label={"Two"}
+                                        id={"destination-number-icon-0"}/>
+                                    <IconCheckBox
+                                        icon={require("../../../../public/images/destinationNumber/three.png").default}
+                                        value={culture} setValue={setCulture} label={"Three"}
+                                        id={"destination-number-icon-0"}/>
+                                    <IconCheckBox
+                                        icon={require("../../../../public/images/destinationNumber/four.png").default}
+                                        value={culture} setValue={setCulture} label={"Four"}
+                                        id={"destination-number-icon-0"}/>
+                                    <IconCheckBox
+                                        icon={require("../../../../public/images/destinationNumber/five.png").default}
+                                        value={culture} setValue={setCulture} label={"Five"}
+                                        id={"destination-number-icon-0"}/>
+                                </InnerWrapperIcons>
+                            </OuterWrapperIconsPrefs>
+                        </RowFlexBoxCentered>
                     </RowFlexBox>
-                    <RowFlexBoxPreferences>
+                    <RowFlexBoxCentered>
                         <WrapperInput>
                             <InputTitle>Preferences</InputTitle>
                         </WrapperInput>
-                        <OuterWrapperPreferences>
-                            <InnerWrapperIconPreferences>
-                                <IconCheckBox icon={require("../../../../public/images/preferences/culture.png").default} value={culture} setValue={setCulture} label={"Culture"}
-                                              id={"pref-check-icon-0"}/>
-                                <IconCheckBox icon={require("../../../../public/images/preferences/relax.png").default} value={relaxation} setValue={setRelaxation} label={"Relaxation"}
-                                                     id={"pref-check-icon-1"}/>
-                                <IconCheckBox icon={require("../../../../public/images/preferences/luxury.png").default} value={luxuryFlights} setValue={setLuxuryFlights}
-                                                     label={"Luxury flights"} id={"pref-check-icon-3"}/>
-                                <IconCheckBox icon={require("../../../../public/images/preferences/beach.png").default} value={beachResort} setValue={setBeachResort}
-                                                     label={"Beach resort"} id={"pref-check-icon-4"}/>
-                            </InnerWrapperIconPreferences>
-                            <InnerWrapperIconPreferences>
-                                <IconCheckBox icon={require("../../../../public/images/preferences/history.png").default} value={history} setValue={setHistory} label={"History"}
-                                                     id={"pref-check-icon-5"}/>
-                                <IconCheckBox icon={require("../../../../public/images/preferences/social.png").default} value={social} setValue={setSocial} label={"Social"}
-                                                     id={"pref-check-icon-6"}/>
-                                <IconCheckBox icon={require("../../../../public/images/preferences/adventure.png").default} value={adventure} setValue={setAdventure} label={"Adventure"}
-                                                     id={"pref-check-icon-7"}/>
-                                <IconCheckBox icon={require("../../../../public/images/preferences/crown.png").default} value={premiumServices} setValue={setPremiumServices}
-                                                     label={"Premium services"} id={"pref-check-icon-8"}/>
-                            </InnerWrapperIconPreferences>
-                        </OuterWrapperPreferences>
-                    </RowFlexBoxPreferences>
+                        <OuterWrapperIconsPrefs>
+                            <InnerWrapperIcons>
+                                <IconCheckBox
+                                    icon={require("../../../../public/images/preferences/culture.png").default}
+                                    value={culture} setValue={setCulture} label={"Culture"}
+                                    id={"pref-check-icon-0"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/relax.png").default}
+                                              value={relaxation} setValue={setRelaxation} label={"Relaxation"}
+                                              id={"pref-check-icon-1"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/luxury.png").default}
+                                              value={luxuryFlights} setValue={setLuxuryFlights}
+                                              label={"Luxury flights"} id={"pref-check-icon-3"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/beach.png").default}
+                                              value={beachResort} setValue={setBeachResort}
+                                              label={"Beach resort"} id={"pref-check-icon-4"}/>
+                            </InnerWrapperIcons>
+                            <InnerWrapperIcons>
+                                <IconCheckBox
+                                    icon={require("../../../../public/images/preferences/history.png").default}
+                                    value={history} setValue={setHistory} label={"History"}
+                                    id={"pref-check-icon-5"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/social.png").default}
+                                              value={social} setValue={setSocial} label={"Social"}
+                                              id={"pref-check-icon-6"}/>
+                                <IconCheckBox
+                                    icon={require("../../../../public/images/preferences/adventure.png").default}
+                                    value={adventure} setValue={setAdventure} label={"Adventure"}
+                                    id={"pref-check-icon-7"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/crown.png").default}
+                                              value={premiumServices} setValue={setPremiumServices}
+                                              label={"Premium services"} id={"pref-check-icon-8"}/>
+                            </InnerWrapperIcons>
+                        </OuterWrapperIconsPrefs>
+                    </RowFlexBoxCentered>
+                    <RowFlexBoxCentered>
+                        <WrapperInput>
+                            <InputTitle>Maximum price</InputTitle>
+                        </WrapperInput>
+                        <OuterWrapperIconsPrefs>
+                            <InnerWrapperIcons>
+                                <IconCheckBox
+                                    icon={require("../../../../public/images/price/cheap.png").default}
+                                    value={history} setValue={setHistory} label={"Cheap"}
+                                    id={"pref-check-icon-5"}/>
+                                <IconCheckBox icon={require("../../../../public/images/price/average.png").default}
+                                              value={social} setValue={setSocial} label={"Average"}
+                                              id={"pref-check-icon-6"}/>
+                                <IconCheckBox
+                                    icon={require("../../../../public/images/price/expensive.png").default}
+                                    value={adventure} setValue={setAdventure} label={"Expensive"}
+                                    id={"pref-check-icon-7"}/>
+                            </InnerWrapperIcons>
+                        </OuterWrapperIconsPrefs>
+                    </RowFlexBoxCentered>
                 </>
             }
             <RowFlexBox>

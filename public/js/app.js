@@ -4200,12 +4200,12 @@ var IconCheckBox_1 = __importDefault(__webpack_require__(/*! ../checkbox/IconChe
 
 var Form = styled_1["default"].form(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 100%;\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n\n"], ["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 100%;\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n\n"])));
 var RowFlexBox = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"])));
-var RowFlexBoxPreferences = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"])));
+var RowFlexBoxCentered = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"])));
 var RowFlexBoxDate = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"])));
 var WrapperInput = styled_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"])));
-var OuterWrapperPreferences = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
+var OuterWrapperIconsPrefs = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
 var InnerWrapperPreferences = styled_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
-var InnerWrapperIconPreferences = styled_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
+var InnerWrapperIcons = styled_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
 var InputTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"], ["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"])));
 var FlexBoxCol = styled_1["default"].li(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"], ["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"])));
 var FlexBoxColButton = styled_1["default"].div(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
@@ -4393,7 +4393,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     min: 50,
     max: 9999,
     type: "number"
-  })))), react_1["default"].createElement(RowFlexBoxPreferences, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperPreferences, null, react_1["default"].createElement(InnerWrapperPreferences, null, react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperIconsPrefs, null, react_1["default"].createElement(InnerWrapperPreferences, null, react_1["default"].createElement(PreferencesCheckBox_1["default"], {
     value: culture,
     setValue: setCulture,
     label: "Culture",
@@ -4437,7 +4437,31 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     isError: inputsFilledWrongly.from,
     setMethod: setFrom,
     placeholder: "Departure city"
-  }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations")))), react_1["default"].createElement(RowFlexBoxPreferences, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperPreferences, null, react_1["default"].createElement(InnerWrapperIconPreferences, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+  }))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations")), react_1["default"].createElement(OuterWrapperIconsPrefs, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/destinationNumber/two.png */ "./public/images/destinationNumber/two.png")["default"]),
+    value: culture,
+    setValue: setCulture,
+    label: "Two",
+    id: "destination-number-icon-0"
+  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/destinationNumber/three.png */ "./public/images/destinationNumber/three.png")["default"]),
+    value: culture,
+    setValue: setCulture,
+    label: "Three",
+    id: "destination-number-icon-0"
+  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/destinationNumber/four.png */ "./public/images/destinationNumber/four.png")["default"]),
+    value: culture,
+    setValue: setCulture,
+    label: "Four",
+    id: "destination-number-icon-0"
+  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/destinationNumber/five.png */ "./public/images/destinationNumber/five.png")["default"]),
+    value: culture,
+    setValue: setCulture,
+    label: "Five",
+    id: "destination-number-icon-0"
+  }))))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperIconsPrefs, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
     icon: (__webpack_require__(/*! ../../../../public/images/preferences/culture.png */ "./public/images/preferences/culture.png")["default"]),
     value: culture,
     setValue: setCulture,
@@ -4461,7 +4485,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     setValue: setBeachResort,
     label: "Beach resort",
     id: "pref-check-icon-4"
-  })), react_1["default"].createElement(InnerWrapperIconPreferences, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+  })), react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
     icon: (__webpack_require__(/*! ../../../../public/images/preferences/history.png */ "./public/images/preferences/history.png")["default"]),
     value: history,
     setValue: setHistory,
@@ -4485,6 +4509,24 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     setValue: setPremiumServices,
     label: "Premium services",
     id: "pref-check-icon-8"
+  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Maximum price")), react_1["default"].createElement(OuterWrapperIconsPrefs, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/price/cheap.png */ "./public/images/price/cheap.png")["default"]),
+    value: history,
+    setValue: setHistory,
+    label: "Cheap",
+    id: "pref-check-icon-5"
+  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/price/average.png */ "./public/images/price/average.png")["default"]),
+    value: social,
+    setValue: setSocial,
+    label: "Average",
+    id: "pref-check-icon-6"
+  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/price/expensive.png */ "./public/images/price/expensive.png")["default"]),
+    value: adventure,
+    setValue: setAdventure,
+    label: "Expensive",
+    id: "pref-check-icon-7"
   }))))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
     onClick: getListOfFlights,
     text: "Search for a round trip"
@@ -9105,6 +9147,54 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./public/images/destinationNumber/five.png":
+/*!**************************************************!*\
+  !*** ./public/images/destinationNumber/five.png ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/five.png?55a8c6b6b19ca4c8e152b949ffcdf0d1");
+
+/***/ }),
+
+/***/ "./public/images/destinationNumber/four.png":
+/*!**************************************************!*\
+  !*** ./public/images/destinationNumber/four.png ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/four.png?f41229796ac1640b9375200b250d6886");
+
+/***/ }),
+
+/***/ "./public/images/destinationNumber/three.png":
+/*!***************************************************!*\
+  !*** ./public/images/destinationNumber/three.png ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/three.png?470ab1dc811240a4efd1a08b107d5bb9");
+
+/***/ }),
+
+/***/ "./public/images/destinationNumber/two.png":
+/*!*************************************************!*\
+  !*** ./public/images/destinationNumber/two.png ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/two.png?309ffdf1269d1aea43563029270bcd13");
+
+/***/ }),
+
 /***/ "./public/images/facebook.svg":
 /*!************************************!*\
   !*** ./public/images/facebook.svg ***!
@@ -9270,6 +9360,42 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("/images/social.png?eb568d626824de52ab3ac251e3b91031");
+
+/***/ }),
+
+/***/ "./public/images/price/average.png":
+/*!*****************************************!*\
+  !*** ./public/images/price/average.png ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/average.png?e4c90ad560157b6aa203b13287284c73");
+
+/***/ }),
+
+/***/ "./public/images/price/cheap.png":
+/*!***************************************!*\
+  !*** ./public/images/price/cheap.png ***!
+  \***************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/cheap.png?2a9858a82cf740cf72b310db4b365f44");
+
+/***/ }),
+
+/***/ "./public/images/price/expensive.png":
+/*!*******************************************!*\
+  !*** ./public/images/price/expensive.png ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/expensive.png?2b2115a2c69ba0a29b2b96b955475985");
 
 /***/ }),
 
