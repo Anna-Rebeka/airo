@@ -4196,26 +4196,30 @@ var Error_1 = __webpack_require__(/*! ../input/auto-complete/Error */ "./resourc
 
 var PreferencesCheckBox_1 = __importDefault(__webpack_require__(/*! ../checkbox/PreferencesCheckBox */ "./resources/js/components/checkbox/PreferencesCheckBox.tsx"));
 
+var IconCheckBox_1 = __importDefault(__webpack_require__(/*! ../checkbox/IconCheckBox */ "./resources/js/components/checkbox/IconCheckBox.tsx"));
+
 var Form = styled_1["default"].form(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 100%;\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n\n"], ["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 100%;\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n\n"])));
 var RowFlexBox = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"])));
 var RowFlexBoxPreferences = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"])));
 var RowFlexBoxDate = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"])));
 var WrapperInput = styled_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"])));
-var OuterWrapperPreferences = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
+var OuterWrapperPreferences = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
 var InnerWrapperPreferences = styled_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
-var InputTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"], ["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"])));
-var FlexBoxCol = styled_1["default"].li(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"], ["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"])));
-var FlexBoxColButton = styled_1["default"].div(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
-var IntegerInput = styled_1["default"].input(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
+var InnerWrapperIconPreferences = styled_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
+var InputTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"], ["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"])));
+var FlexBoxCol = styled_1["default"].li(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"], ["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"])));
+var FlexBoxColButton = styled_1["default"].div(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
+var IntegerInput = styled_1["default"].input(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
   return p.isError ? "red" : "white";
 });
-var DateInput = styled_1["default"].input(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
+var DateInput = styled_1["default"].input(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
   return p.isError ? "red" : "white";
 });
-var Title = (0, styled_1["default"])(Heading2_1.Heading2)(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n    text-align: center;\n"], ["\n    text-align: center;\n"])));
+var Title = (0, styled_1["default"])(Heading2_1.Heading2)(templateObject_14 || (templateObject_14 = __makeTemplateObject(["\n    text-align: center;\n"], ["\n    text-align: center;\n"])));
 
 var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
   var setRoundTrips = _a.setRoundTrips,
+      currentSide = _a.currentSide,
       setNo = _a.setNo;
 
   var _b = (0, react_1.useState)(1),
@@ -4336,7 +4340,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     onSubmit: function onSubmit(e) {
       return e.preventDefault();
     }
-  }, react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(Title, null, "Round trip")), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
+  }, react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(Title, null, "Round trip")), currentSide === "RIGHT" ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
     isError: inputsFilledWrongly.from,
     setMethod: setFrom,
     placeholder: "Departure city"
@@ -4429,14 +4433,66 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     setValue: setPremiumServices,
     label: "Premium services",
     id: "pref-check-8"
-  }))), inputsFilledWrongly.checkBoxes ? react_1["default"].createElement(Error_1.Error, null, "At least one of the checkboxes must be checked.") : null), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
+  }))), inputsFilledWrongly.checkBoxes ? react_1["default"].createElement(Error_1.Error, null, "At least one of the checkboxes must be checked.") : null)) : react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
+    isError: inputsFilledWrongly.from,
+    setMethod: setFrom,
+    placeholder: "Departure city"
+  }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations")))), react_1["default"].createElement(RowFlexBoxPreferences, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperPreferences, null, react_1["default"].createElement(InnerWrapperIconPreferences, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/preferences/culture.png */ "./public/images/preferences/culture.png")["default"]),
+    value: culture,
+    setValue: setCulture,
+    label: "Culture",
+    id: "pref-check-icon-0"
+  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/preferences/relax.png */ "./public/images/preferences/relax.png")["default"]),
+    value: relaxation,
+    setValue: setRelaxation,
+    label: "Relaxation",
+    id: "pref-check-icon-1"
+  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/preferences/luxury.png */ "./public/images/preferences/luxury.png")["default"]),
+    value: luxuryFlights,
+    setValue: setLuxuryFlights,
+    label: "Luxury flights",
+    id: "pref-check-icon-3"
+  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/preferences/beach.png */ "./public/images/preferences/beach.png")["default"]),
+    value: beachResort,
+    setValue: setBeachResort,
+    label: "Beach resort",
+    id: "pref-check-icon-4"
+  })), react_1["default"].createElement(InnerWrapperIconPreferences, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/preferences/history.png */ "./public/images/preferences/history.png")["default"]),
+    value: history,
+    setValue: setHistory,
+    label: "History",
+    id: "pref-check-icon-5"
+  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/preferences/social.png */ "./public/images/preferences/social.png")["default"]),
+    value: social,
+    setValue: setSocial,
+    label: "Social",
+    id: "pref-check-icon-6"
+  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/preferences/adventure.png */ "./public/images/preferences/adventure.png")["default"]),
+    value: adventure,
+    setValue: setAdventure,
+    label: "Adventure",
+    id: "pref-check-icon-7"
+  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    icon: (__webpack_require__(/*! ../../../../public/images/preferences/crown.png */ "./public/images/preferences/crown.png")["default"]),
+    value: premiumServices,
+    setValue: setPremiumServices,
+    label: "Premium services",
+    id: "pref-check-icon-8"
+  }))))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
     onClick: getListOfFlights,
     text: "Search for a round trip"
   })))));
 };
 
 exports.CarouselInputRoundTrips = CarouselInputRoundTrips;
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14;
 
 /***/ }),
 
@@ -4548,7 +4604,8 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
       setFlightsFrom = _a.setFlightsFrom,
       setRoundTrips = _a.setRoundTrips,
       setFlightsTo = _a.setFlightsTo,
-      setNo = _a.setNo;
+      setNo = _a.setNo,
+      currentSide = _a.currentSide;
 
   var _ref;
 
@@ -4605,6 +4662,7 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
     setFlightsTo: setFlightsTo,
     setFlightsFrom: setFlightsFrom
   }) : react_1["default"].createElement(CarouselInputRoundTrips_1.CarouselInputRoundTrips, {
+    currentSide: currentSide,
     setRoundTrips: setRoundTrips,
     setNo: setNo
   })) : width > 1059 && (showSideText || !displayCarousel) ? react_1["default"].createElement(SideText, {
@@ -4647,6 +4705,109 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
 
 exports.CarouselImageImpl = CarouselImageImpl;
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11;
+
+/***/ }),
+
+/***/ "./resources/js/components/checkbox/IconCheckBox.tsx":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/checkbox/IconCheckBox.tsx ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.IconCheckBox = void 0;
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var Wrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: white;\n    cursor: pointer;\n    width: 82px;\n    height: 82px;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n"], ["\n    background-color: white;\n    cursor: pointer;\n    width: 82px;\n    height: 82px;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n"])));
+var Label = styled_1["default"].span(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: black;\n    text-align: center;\n"], ["\n    color: black;\n    text-align: center;\n"])));
+var Img = styled_1["default"].img(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 32px;\n    height: 32px;\n"], ["\n    width: 32px;\n    height: 32px;\n"])));
+
+var IconCheckBox = function IconCheckBox(_a) {
+  var label = _a.label,
+      id = _a.id,
+      value = _a.value,
+      setValue = _a.setValue,
+      icon = _a.icon;
+  (0, react_1.useEffect)(function () {
+    setVal(value);
+  }, [value]);
+
+  var _b = (0, react_1.useState)(),
+      val = _b[0],
+      setVal = _b[1];
+
+  return react_1["default"].createElement(Wrapper, {
+    onClick: function onClick(e) {
+      setValue(!value);
+    }
+  }, react_1["default"].createElement(Img, {
+    src: icon
+  }), react_1["default"].createElement(Label, null, label));
+};
+
+exports.IconCheckBox = IconCheckBox;
+exports["default"] = exports.IconCheckBox;
+var templateObject_1, templateObject_2, templateObject_3;
 
 /***/ }),
 
@@ -7040,29 +7201,29 @@ var NavigationDownImpl = function NavigationDownImpl(_a) {
   var displayCarousel = _a.displayCarousel,
       setDisplayCarousel = _a.setDisplayCarousel;
 
-  var chooseDisplay = function chooseDisplay(isFlightBtn) {
-    if (isFlightBtn && displayCarousel === "RIGHT") {
-      setDisplayCarousel("LEFT");
-    }
-
-    if (!isFlightBtn && displayCarousel === "LEFT") {
-      setDisplayCarousel("RIGHT");
-    }
+  var chooseDisplay = function chooseDisplay(side) {
+    setDisplayCarousel(side);
   };
 
   return react_1["default"].createElement(NavigationImplNav, null, react_1["default"].createElement(NavDownBtn, {
     onClick: function onClick() {
-      return chooseDisplay(true);
+      return chooseDisplay("LEFT");
     }
   }, react_1["default"].createElement(NavDownImg, {
     src: (__webpack_require__(/*! ../../../../public/images/flightrip.svg */ "./public/images/flightrip.svg")["default"])
   }), react_1["default"].createElement(NavDownParagraph, null, "Flight trip")), react_1["default"].createElement(NavDownBtn, {
     onClick: function onClick() {
-      return chooseDisplay(false);
+      return chooseDisplay("RIGHT");
     }
   }, react_1["default"].createElement(NavDownImg, {
     src: (__webpack_require__(/*! ../../../../public/images/roundtrip.svg */ "./public/images/roundtrip.svg")["default"])
-  }), react_1["default"].createElement(NavDownParagraph, null, "Round trip")));
+  }), react_1["default"].createElement(NavDownParagraph, null, "Round trip")), react_1["default"].createElement(NavDownBtn, {
+    onClick: function onClick() {
+      return chooseDisplay("RIGHT_ALT");
+    }
+  }, react_1["default"].createElement(NavDownImg, {
+    src: (__webpack_require__(/*! ../../../../public/images/roundtrip_alt.svg */ "./public/images/roundtrip_alt.svg")["default"])
+  }), react_1["default"].createElement(NavDownParagraph, null, "Round trip alt")));
 };
 
 exports.NavigationDownImpl = NavigationDownImpl;
@@ -8647,13 +8808,15 @@ var Root = function Root(_a) {
     user: user,
     setUser: setUser
   }, react_1["default"].createElement(Carousel, null, react_1["default"].createElement(CarouselmgImpl_1.CarouselImageImpl, {
+    currentSide: displayCarousel,
     setFlightsTo: setRoundTrips,
     setNo: setNo,
-    displayCarousel: "RIGHT" === displayCarousel,
+    displayCarousel: "RIGHT" === displayCarousel || "RIGHT_ALT" === displayCarousel,
     setDisplayedSide: setDisplayCarousel,
     side: "RIGHT",
     imgSource: __webpack_require__(/*! ../../public/images/carousel_round_trip.jpg */ "./public/images/carousel_round_trip.jpg")
   }), react_1["default"].createElement(CarouselmgImpl_1.CarouselImageImpl, {
+    currentSide: displayCarousel,
     setFlightsTo: setFlightsTo,
     setNo: setNo,
     setFlightsFrom: setFlightsFrom,
@@ -8782,7 +8945,7 @@ __webpack_require__(/*! ./index.tsx */ "./resources/js/index.tsx");
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/arrow_up.svg?5809b531052121c848c62edd0041f1dc");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/arrow_up.svg?9c8f8f29eb8916981395774e70d5b8a9");
 
 /***/ }),
 
@@ -8950,7 +9113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/facebook.svg?75f0a9aed39e4ff4d7e14ac23f23cba1");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/facebook.svg?d3466f327c8507bfe461ebd8804901c2");
 
 /***/ }),
 
@@ -8974,7 +9137,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/instagram.svg?8551b878c4879d64ecd07eeb61f74a01");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/instagram.svg?b8e1bdb7eab687d08cf6c3fd5056c84b");
 
 /***/ }),
 
@@ -9014,6 +9177,102 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./public/images/preferences/adventure.png":
+/*!*************************************************!*\
+  !*** ./public/images/preferences/adventure.png ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/adventure.png?2a3d5146e2e238c1f4032e5aab93ad2d");
+
+/***/ }),
+
+/***/ "./public/images/preferences/beach.png":
+/*!*********************************************!*\
+  !*** ./public/images/preferences/beach.png ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/beach.png?3e3fff70a59fd9389fdee6ded577eec1");
+
+/***/ }),
+
+/***/ "./public/images/preferences/crown.png":
+/*!*********************************************!*\
+  !*** ./public/images/preferences/crown.png ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/crown.png?6b3a1e078f1e1cf8f3de8b90707a8035");
+
+/***/ }),
+
+/***/ "./public/images/preferences/culture.png":
+/*!***********************************************!*\
+  !*** ./public/images/preferences/culture.png ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/culture.png?075895b4f03eb227c1f14f3c92240abe");
+
+/***/ }),
+
+/***/ "./public/images/preferences/history.png":
+/*!***********************************************!*\
+  !*** ./public/images/preferences/history.png ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/history.png?079b911068b80ee720d22c12f8d21e8d");
+
+/***/ }),
+
+/***/ "./public/images/preferences/luxury.png":
+/*!**********************************************!*\
+  !*** ./public/images/preferences/luxury.png ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/luxury.png?36aac3acde6ae456e1b6688e2e18e17d");
+
+/***/ }),
+
+/***/ "./public/images/preferences/relax.png":
+/*!*********************************************!*\
+  !*** ./public/images/preferences/relax.png ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/relax.png?14d69b74dfff60b04c5b9c8a10a623c5");
+
+/***/ }),
+
+/***/ "./public/images/preferences/social.png":
+/*!**********************************************!*\
+  !*** ./public/images/preferences/social.png ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/social.png?eb568d626824de52ab3ac251e3b91031");
+
+/***/ }),
+
 /***/ "./public/images/rome.jpg":
 /*!********************************!*\
   !*** ./public/images/rome.jpg ***!
@@ -9038,6 +9297,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./public/images/roundtrip_alt.svg":
+/*!*****************************************!*\
+  !*** ./public/images/roundtrip_alt.svg ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/roundtrip_alt.svg?413d2af56edb507f26e61ef9387165a4");
+
+/***/ }),
+
 /***/ "./public/images/tokyo.jpg":
 /*!*********************************!*\
   !*** ./public/images/tokyo.jpg ***!
@@ -9058,7 +9329,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/airplane.svg?b76b1de097d26319de941e1f395eb7b1");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/airplane.svg?971c9f02adb0b4d373b16cf91df26fc4");
 
 /***/ }),
 

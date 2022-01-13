@@ -7,11 +7,13 @@ import {Heading2} from "../heading/Heading2";
 import {Heading3} from "../heading/Heading3";
 import {Error} from "../input/auto-complete/Error";
 import PreferencesCheckBox from "../checkbox/PreferencesCheckBox";
+import IconCheckBox from "../checkbox/IconCheckBox";
 
 
 interface Props {
     setNo: any;
     setRoundTrips: any;
+    currentSide: string;
 }
 
 let Form = styled.form`
@@ -85,12 +87,17 @@ let WrapperInput = styled.div`
 
 let OuterWrapperPreferences = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 `;
 
 let InnerWrapperPreferences = styled.div`
     display: flex;
     flex-direction: column;
+`;
+
+let InnerWrapperIconPreferences = styled.div`
+    display: flex;
+    flex-direction: row;
 `;
 
 let InputTitle = styled(Heading3)`
@@ -151,7 +158,7 @@ const Title = styled(Heading2)`
     text-align: center;
 `
 
-export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips, setNo}) => {
+export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips, currentSide, setNo}) => {
     const [numberOfPersons, setNumberOfPersons] = useState<number>(1);
     const [dateFrom, setDateFrom] = useState<any>();
     const [dateTo, setDateTo] = useState<any>();
@@ -187,7 +194,7 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
             numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 20,
             numberOfDestination: !numberOfDestination || numberOfDestination <= 0 || numberOfDestination > 5,
             maximumPrice: !price || price < 50 || price > 9999,
-            checkBoxes: !culture && !relaxation && !luxuryFlights && !beachResort  && !history && !social && !adventure && !premiumServices
+            checkBoxes: !culture && !relaxation && !luxuryFlights && !beachResort && !history && !social && !adventure && !premiumServices
         }
         setInputsFilledWrongly({...inputsValues});
         return inputsValues;
@@ -228,101 +235,157 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
             <RowFlexBox>
                 <Title>Round trip</Title>
             </RowFlexBox>
-            <RowFlexBox>
-                <FlexBoxCol>
-                    <WrapperInput>
-                        <InputTitle>From</InputTitle>
-                        <AutoCompleteInput isError={inputsFilledWrongly.from} setMethod={setFrom}
-                                           placeholder={"Departure city"}/>
-                    </WrapperInput>
-                </FlexBoxCol>
-                <FlexBoxCol>
-                    <WrapperInput>
-                        <InputTitle>No. of destinations</InputTitle>
-                        <IntegerInput isError={inputsFilledWrongly.numberOfDestination}
-                                      placeholder={"between 1 and 5"} value={numberOfDestination}
-                                      onChange={(e: any) => {
-                                          setNumberOfDestination(e.target.value);
-                                      }} min={1} max={5}
-                                      type={"number"}/>
-                    </WrapperInput>
-                </FlexBoxCol>
-            </RowFlexBox>
-            <RowFlexBoxDate>
-                <FlexBoxCol>
-                    <WrapperInput>
-                        <InputTitle>Departure date</InputTitle>
-                        <DateInput isError={inputsFilledWrongly.dateFrom} type={"date"} onChange={(e: any) => {
-                            setDateFrom(e.target.value);
-                            setInputsFilledWrongly({...inputsFilledWrongly, dateFrom: false})
-                        }}/>
-                    </WrapperInput>
-                </FlexBoxCol>
-                <FlexBoxCol>
-                    <WrapperInput>
-                        <InputTitle>Return date</InputTitle>
-                        <DateInput isError={inputsFilledWrongly.dateTo} type={"date"}
-                                   onChange={(e: any) => {
-                                       setDateTo(e.target.value);
-                                       setInputsFilledWrongly({...inputsFilledWrongly, dateTo: false})
-                                   }}/>
-                    </WrapperInput>
-                    {dateToBeforeDateFrom ?
-                        <Error>
-                            Return date is before departure date
-                        </Error> :
-                        null}
-                </FlexBoxCol>
-            </RowFlexBoxDate>
-            <RowFlexBoxDate>
-                <FlexBoxCol>
-                    <WrapperInput>
-                        <InputTitle>No. of persons</InputTitle>
-                        <IntegerInput isError={inputsFilledWrongly.numberOfPersons}
-                                      placeholder={"between 1 and 20"} value={numberOfPersons}
-                                      onChange={(e: any) => {
-                                          setNumberOfPersons(e.target.value);
-                                          setNo(e.target.value);
-                                      }} min={1} max={20}
-                                      type={"number"}/>
-                    </WrapperInput>
-                </FlexBoxCol>
-                <FlexBoxCol>
-                    <WrapperInput>
-                        <InputTitle>Maximum price</InputTitle>
-                        <IntegerInput isError={inputsFilledWrongly.maximumPrice}
-                                      placeholder={"from 50 to 9999"} value={price}
-                                      onChange={(e: any) => {
-                                          setPrice(e.target.value);
-                                      }} min={50} max={9999}
-                                      type={"number"}/>
-                    </WrapperInput>
-                </FlexBoxCol>
-            </RowFlexBoxDate>
-            <RowFlexBoxPreferences>
-                <WrapperInput>
-                    <InputTitle>Preferences</InputTitle>
-                </WrapperInput>
-                <OuterWrapperPreferences>
-                    <InnerWrapperPreferences>
-                        <PreferencesCheckBox value={culture} setValue={setCulture} label={"Culture"} id={"pref-check-0"}/>
-                        <PreferencesCheckBox value={relaxation} setValue={setRelaxation} label={"Relaxation"} id={"pref-check-1"}/>
-                        <PreferencesCheckBox value={luxuryFlights} setValue={setLuxuryFlights} label={"Luxury flights"} id={"pref-check-3"}/>
-                        <PreferencesCheckBox value={beachResort} setValue={setBeachResort} label={"Beach resort"} id={"pref-check-4"}/>
-                    </InnerWrapperPreferences>
-                    <InnerWrapperPreferences>
-                        <PreferencesCheckBox value={history} setValue={setHistory} label={"History"} id={"pref-check-5"}/>
-                        <PreferencesCheckBox value={social} setValue={setSocial} label={"Social"} id={"pref-check-6"}/>
-                        <PreferencesCheckBox value={adventure} setValue={setAdventure} label={"Adventure"} id={"pref-check-7"}/>
-                        <PreferencesCheckBox value={premiumServices} setValue={setPremiumServices} label={"Premium services"} id={"pref-check-8"}/>
-                    </InnerWrapperPreferences>
-                </OuterWrapperPreferences>
-                {inputsFilledWrongly.checkBoxes ?
-                    <Error>
-                        At least one of the checkboxes must be checked.
-                    </Error> :
-                    null}
-            </RowFlexBoxPreferences>
+            {currentSide === "RIGHT" ?
+                <>
+                    <RowFlexBox>
+                        <FlexBoxCol>
+                            <WrapperInput>
+                                <InputTitle>From</InputTitle>
+                                <AutoCompleteInput isError={inputsFilledWrongly.from} setMethod={setFrom}
+                                                   placeholder={"Departure city"}/>
+                            </WrapperInput>
+                        </FlexBoxCol>
+                        <FlexBoxCol>
+                            <WrapperInput>
+                                <InputTitle>No. of destinations</InputTitle>
+                                <IntegerInput isError={inputsFilledWrongly.numberOfDestination}
+                                              placeholder={"between 1 and 5"} value={numberOfDestination}
+                                              onChange={(e: any) => {
+                                                  setNumberOfDestination(e.target.value);
+                                              }} min={1} max={5}
+                                              type={"number"}/>
+                            </WrapperInput>
+                        </FlexBoxCol>
+                    </RowFlexBox>
+                    <RowFlexBoxDate>
+                        <FlexBoxCol>
+                            <WrapperInput>
+                                <InputTitle>Departure date</InputTitle>
+                                <DateInput isError={inputsFilledWrongly.dateFrom} type={"date"} onChange={(e: any) => {
+                                    setDateFrom(e.target.value);
+                                    setInputsFilledWrongly({...inputsFilledWrongly, dateFrom: false})
+                                }}/>
+                            </WrapperInput>
+                        </FlexBoxCol>
+                        <FlexBoxCol>
+                            <WrapperInput>
+                                <InputTitle>Return date</InputTitle>
+                                <DateInput isError={inputsFilledWrongly.dateTo} type={"date"}
+                                           onChange={(e: any) => {
+                                               setDateTo(e.target.value);
+                                               setInputsFilledWrongly({...inputsFilledWrongly, dateTo: false})
+                                           }}/>
+                            </WrapperInput>
+                            {dateToBeforeDateFrom ?
+                                <Error>
+                                    Return date is before departure date
+                                </Error> :
+                                null}
+                        </FlexBoxCol>
+                    </RowFlexBoxDate>
+                    <RowFlexBoxDate>
+                        <FlexBoxCol>
+                            <WrapperInput>
+                                <InputTitle>No. of persons</InputTitle>
+                                <IntegerInput isError={inputsFilledWrongly.numberOfPersons}
+                                              placeholder={"between 1 and 20"} value={numberOfPersons}
+                                              onChange={(e: any) => {
+                                                  setNumberOfPersons(e.target.value);
+                                                  setNo(e.target.value);
+                                              }} min={1} max={20}
+                                              type={"number"}/>
+                            </WrapperInput>
+                        </FlexBoxCol>
+                        <FlexBoxCol>
+                            <WrapperInput>
+                                <InputTitle>Maximum price</InputTitle>
+                                <IntegerInput isError={inputsFilledWrongly.maximumPrice}
+                                              placeholder={"from 50 to 9999"} value={price}
+                                              onChange={(e: any) => {
+                                                  setPrice(e.target.value);
+                                              }} min={50} max={9999}
+                                              type={"number"}/>
+                            </WrapperInput>
+                        </FlexBoxCol>
+                    </RowFlexBoxDate>
+                    <RowFlexBoxPreferences>
+                        <WrapperInput>
+                            <InputTitle>Preferences</InputTitle>
+                        </WrapperInput>
+                        <OuterWrapperPreferences>
+                            <InnerWrapperPreferences>
+                                <PreferencesCheckBox value={culture} setValue={setCulture} label={"Culture"}
+                                                     id={"pref-check-0"}/>
+                                <PreferencesCheckBox value={relaxation} setValue={setRelaxation} label={"Relaxation"}
+                                                     id={"pref-check-1"}/>
+                                <PreferencesCheckBox value={luxuryFlights} setValue={setLuxuryFlights}
+                                                     label={"Luxury flights"} id={"pref-check-3"}/>
+                                <PreferencesCheckBox value={beachResort} setValue={setBeachResort}
+                                                     label={"Beach resort"} id={"pref-check-4"}/>
+                            </InnerWrapperPreferences>
+                            <InnerWrapperPreferences>
+                                <PreferencesCheckBox value={history} setValue={setHistory} label={"History"}
+                                                     id={"pref-check-5"}/>
+                                <PreferencesCheckBox value={social} setValue={setSocial} label={"Social"}
+                                                     id={"pref-check-6"}/>
+                                <PreferencesCheckBox value={adventure} setValue={setAdventure} label={"Adventure"}
+                                                     id={"pref-check-7"}/>
+                                <PreferencesCheckBox value={premiumServices} setValue={setPremiumServices}
+                                                     label={"Premium services"} id={"pref-check-8"}/>
+                            </InnerWrapperPreferences>
+                        </OuterWrapperPreferences>
+                        {inputsFilledWrongly.checkBoxes ?
+                            <Error>
+                                At least one of the checkboxes must be checked.
+                            </Error> :
+                            null}
+                    </RowFlexBoxPreferences>
+                </> :
+                <>
+                    <RowFlexBox>
+                        <FlexBoxCol>
+                            <WrapperInput>
+                                <InputTitle>From</InputTitle>
+                                <AutoCompleteInput isError={inputsFilledWrongly.from} setMethod={setFrom}
+                                                   placeholder={"Departure city"}/>
+                            </WrapperInput>
+                        </FlexBoxCol>
+                        <FlexBoxCol>
+                            <WrapperInput>
+                                <InputTitle>No. of destinations</InputTitle>
+
+                            </WrapperInput>
+                        </FlexBoxCol>
+                    </RowFlexBox>
+                    <RowFlexBoxPreferences>
+                        <WrapperInput>
+                            <InputTitle>Preferences</InputTitle>
+                        </WrapperInput>
+                        <OuterWrapperPreferences>
+                            <InnerWrapperIconPreferences>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/culture.png").default} value={culture} setValue={setCulture} label={"Culture"}
+                                              id={"pref-check-icon-0"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/relax.png").default} value={relaxation} setValue={setRelaxation} label={"Relaxation"}
+                                                     id={"pref-check-icon-1"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/luxury.png").default} value={luxuryFlights} setValue={setLuxuryFlights}
+                                                     label={"Luxury flights"} id={"pref-check-icon-3"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/beach.png").default} value={beachResort} setValue={setBeachResort}
+                                                     label={"Beach resort"} id={"pref-check-icon-4"}/>
+                            </InnerWrapperIconPreferences>
+                            <InnerWrapperIconPreferences>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/history.png").default} value={history} setValue={setHistory} label={"History"}
+                                                     id={"pref-check-icon-5"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/social.png").default} value={social} setValue={setSocial} label={"Social"}
+                                                     id={"pref-check-icon-6"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/adventure.png").default} value={adventure} setValue={setAdventure} label={"Adventure"}
+                                                     id={"pref-check-icon-7"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/crown.png").default} value={premiumServices} setValue={setPremiumServices}
+                                                     label={"Premium services"} id={"pref-check-icon-8"}/>
+                            </InnerWrapperIconPreferences>
+                        </OuterWrapperPreferences>
+                    </RowFlexBoxPreferences>
+                </>
+            }
             <RowFlexBox>
                 <FlexBoxColButton>
                     <WrapperInput>
