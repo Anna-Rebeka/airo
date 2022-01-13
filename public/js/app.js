@@ -4246,16 +4246,49 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
       dateToBeforeDateFrom = _h[0],
       setDateToBeforeDateFrom = _h[1];
 
-  var _j = (0, react_1.useState)({
+  var _j = (0, react_1.useState)(true),
+      culture = _j[0],
+      setCulture = _j[1];
+
+  var _k = (0, react_1.useState)(true),
+      relaxation = _k[0],
+      setRelaxation = _k[1];
+
+  var _l = (0, react_1.useState)(false),
+      luxuryFlights = _l[0],
+      setLuxuryFlights = _l[1];
+
+  var _m = (0, react_1.useState)(false),
+      beachResort = _m[0],
+      setBeachResort = _m[1];
+
+  var _o = (0, react_1.useState)(true),
+      history = _o[0],
+      setHistory = _o[1];
+
+  var _p = (0, react_1.useState)(false),
+      social = _p[0],
+      setSocial = _p[1];
+
+  var _q = (0, react_1.useState)(true),
+      adventure = _q[0],
+      setAdventure = _q[1];
+
+  var _r = (0, react_1.useState)(false),
+      premiumServices = _r[0],
+      setPremiumServices = _r[1];
+
+  var _s = (0, react_1.useState)({
     from: false,
     numberOfDestination: false,
     dateFrom: false,
     dateTo: false,
     maximumPrice: false,
-    numberOfPersons: false
+    numberOfPersons: false,
+    checkBoxes: false
   }),
-      inputsFilledWrongly = _j[0],
-      setInputsFilledWrongly = _j[1];
+      inputsFilledWrongly = _s[0],
+      setInputsFilledWrongly = _s[1];
 
   var checkInputs = function checkInputs() {
     var inputsValues = {
@@ -4264,7 +4297,8 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
       dateTo: !dateTo || dateTo === "" || dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo),
       numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 20,
       numberOfDestination: !numberOfDestination || numberOfDestination <= 0 || numberOfDestination > 5,
-      maximumPrice: !price || price < 50 || price > 9999
+      maximumPrice: !price || price < 50 || price > 9999,
+      checkBoxes: !culture && !relaxation && !luxuryFlights && !beachResort && !history && !social && !adventure && !premiumServices
     };
     setInputsFilledWrongly(__assign({}, inputsValues));
     return inputsValues;
@@ -4272,7 +4306,6 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
 
   var getListOfFlights = function getListOfFlights() {
     var inputsValues = checkInputs();
-    console.log(inputsValues);
     setDateToBeforeDateFrom(dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo));
     var notSearchFlights = Object.values(inputsValues).some(function (val) {
       if (val) {
@@ -4284,7 +4317,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
       return;
     }
 
-    axios_1["default"].get('roundtrip/' + from + '/' + dateFrom + '/' + price).then(function (res) {
+    axios_1["default"].get('roundtrips/' + from + '/' + dateFrom + '/' + dateTo + '/' + numberOfDestination + '/' + price + '/' + culture + '/' + relaxation + '/' + luxuryFlights + '/' + beachResort + '/' + history + '/' + history + '/' + social + '/' + adventure + '/' + premiumServices).then(function (res) {
       console.log(res.data);
       setRoundTrips(__spreadArray([], res.data, true));
     });
@@ -4357,33 +4390,46 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     max: 9999,
     type: "number"
   })))), react_1["default"].createElement(RowFlexBoxPreferences, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperPreferences, null, react_1["default"].createElement(InnerWrapperPreferences, null, react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    value: culture,
+    setValue: setCulture,
     label: "Culture",
     id: "pref-check-0"
   }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    value: relaxation,
+    setValue: setRelaxation,
     label: "Relaxation",
     id: "pref-check-1"
   }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
-    label: "Culture",
-    id: "pref-check-2"
-  }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    value: luxuryFlights,
+    setValue: setLuxuryFlights,
     label: "Luxury flights",
     id: "pref-check-3"
   }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    value: beachResort,
+    setValue: setBeachResort,
     label: "Beach resort",
     id: "pref-check-4"
   })), react_1["default"].createElement(InnerWrapperPreferences, null, react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    value: history,
+    setValue: setHistory,
     label: "History",
     id: "pref-check-5"
   }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    value: social,
+    setValue: setSocial,
     label: "Social",
     id: "pref-check-6"
   }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    value: adventure,
+    setValue: setAdventure,
     label: "Adventure",
     id: "pref-check-7"
   }), react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+    value: premiumServices,
+    setValue: setPremiumServices,
     label: "Premium services",
     id: "pref-check-8"
-  })))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
+  }))), inputsFilledWrongly.checkBoxes ? react_1["default"].createElement(Error_1.Error, null, "At least one of the checkboxes must be checked.") : null), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
     onClick: getListOfFlights,
     text: "Search for a round trip"
   })))));
@@ -4625,6 +4671,40 @@ var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked
   return cooked;
 };
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -4634,30 +4714,44 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.MyCheckbox = void 0;
+exports.PreferencesCheckBox = void 0;
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-var MyCBWrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    .myCheckbox {\n        appearance: none;\n        background-color: rgba(134, 134, 122, 0.25);\n        margin: 5px;\n        font-size: 18px;\n        width: 18px;\n        height: 18px;\n        color: currentColor;\n        border: 3px solid orange;\n        border-radius: 2px;\n        transform: translateY(-0.075em);\n        cursor: pointer;\n    }\n\n    .myLabel {\n        color: white;\n        margin-left: 5px;\n        position: relative;\n        top: -11px;\n        cursor: pointer;\n    }\n\n    .myCheckbox:hover {\n        background-color: orange;\n        border: none;\n    }\n\n    .myCheckbox:checked {\n        background-color: orange;\n    }\n\n    .myCheckbox:checked + .myLabel:after {\n        content: '\\2713';\n        text-align: left;\n        left: -27px;\n        top: -2px;\n        opacity: 1;\n        width: 100%;\n        height: 100%;\n        color: white;\n        border: none;\n        position: absolute;\n    }\n"], ["\n    .myCheckbox {\n        appearance: none;\n        background-color: rgba(134, 134, 122, 0.25);\n        margin: 5px;\n        font-size: 18px;\n        width: 18px;\n        height: 18px;\n        color: currentColor;\n        border: 3px solid orange;\n        border-radius: 2px;\n        transform: translateY(-0.075em);\n        cursor: pointer;\n    }\n\n    .myLabel {\n        color: white;\n        margin-left: 5px;\n        position: relative;\n        top: -11px;\n        cursor: pointer;\n    }\n\n    .myCheckbox:hover {\n        background-color: orange;\n        border: none;\n    }\n\n    .myCheckbox:checked {\n        background-color: orange;\n    }\n\n    .myCheckbox:checked + .myLabel:after {\n        content: '\\\\2713';\n        text-align: left;\n        left: -27px;\n        top: -2px;\n        opacity: 1;\n        width: 100%;\n        height: 100%;\n        color: white;\n        border: none;\n        position: absolute;\n    }\n"])));
+var Wrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    .myCheckbox {\n        appearance: none;\n        background-color: rgba(134, 134, 122, 0.25);\n        margin: 5px;\n        font-size: 18px;\n        width: 18px;\n        height: 18px;\n        border: 3px solid #FF7F2A;\n        border-radius: 2px;\n        transform: translateY(-0.075em);\n        cursor: pointer;\n    }\n\n    .myLabel {\n        color: white;\n        margin-left: 5px;\n        position: relative;\n        top: -11px;\n        cursor: pointer;\n    }\n\n    .myCheckbox:hover {\n        background-color: #FF7F2A;\n        border: none;\n    }\n\n    .myCheckbox:checked {\n        background-color: #FF7F2A;\n    }\n\n    .myCheckbox:checked + .myLabel:after {\n        content: '\\2713';\n        text-align: left;\n        left: -25px;\n        top: 0;\n        opacity: 1;\n        width: 100%;\n        height: 100%;\n        color: white;\n        border: none;\n        position: absolute;\n    }\n"], ["\n    .myCheckbox {\n        appearance: none;\n        background-color: rgba(134, 134, 122, 0.25);\n        margin: 5px;\n        font-size: 18px;\n        width: 18px;\n        height: 18px;\n        border: 3px solid #FF7F2A;\n        border-radius: 2px;\n        transform: translateY(-0.075em);\n        cursor: pointer;\n    }\n\n    .myLabel {\n        color: white;\n        margin-left: 5px;\n        position: relative;\n        top: -11px;\n        cursor: pointer;\n    }\n\n    .myCheckbox:hover {\n        background-color: #FF7F2A;\n        border: none;\n    }\n\n    .myCheckbox:checked {\n        background-color: #FF7F2A;\n    }\n\n    .myCheckbox:checked + .myLabel:after {\n        content: '\\\\2713';\n        text-align: left;\n        left: -25px;\n        top: 0;\n        opacity: 1;\n        width: 100%;\n        height: 100%;\n        color: white;\n        border: none;\n        position: absolute;\n    }\n"])));
 
-var MyCheckbox = function MyCheckbox(_a) {
+var PreferencesCheckBox = function PreferencesCheckBox(_a) {
   var label = _a.label,
-      id = _a.id;
-  return react_1["default"].createElement(MyCBWrapper, null, react_1["default"].createElement("input", {
+      id = _a.id,
+      value = _a.value,
+      setValue = _a.setValue;
+  (0, react_1.useEffect)(function () {
+    setVal(value);
+  }, [value]);
+
+  var _b = (0, react_1.useState)(),
+      val = _b[0],
+      setVal = _b[1];
+
+  return react_1["default"].createElement(Wrapper, null, react_1["default"].createElement("input", {
+    onChange: function onChange(e) {
+      setValue(!value);
+    },
     type: "checkbox",
     className: "myCheckbox",
     id: id,
-    name: id
+    name: id,
+    checked: value
   }), react_1["default"].createElement("label", {
     htmlFor: id,
     className: "myLabel"
   }, label));
 };
 
-exports.MyCheckbox = MyCheckbox;
-exports["default"] = exports.MyCheckbox;
+exports.PreferencesCheckBox = PreferencesCheckBox;
+exports["default"] = exports.PreferencesCheckBox;
 var templateObject_1;
 
 /***/ }),
@@ -8452,7 +8546,7 @@ var NavigationDownImpl_1 = __webpack_require__(/*! ./components/navigation/Navig
 
 var BasicUtils_1 = __importDefault(__webpack_require__(/*! ./BasicUtils */ "./resources/js/BasicUtils.tsx"));
 
-var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 100%;\n    height: 880px;\n\n    @media (min-width: 476px) {\n        height: 1080px;\n    };\n\n    @media (min-width: 800px) {\n        height: 1280px;\n    };\n    position: relative;\n"], ["\n    width: 100%;\n    height: 880px;\n\n    @media (min-width: 476px) {\n        height: 1080px;\n    };\n\n    @media (min-width: 800px) {\n        height: 1280px;\n    };\n    position: relative;\n"])));
+var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 100%;\n    height: 960px;\n\n    @media (min-width: 476px) {\n        height: 1120px;\n    };\n\n    @media (min-width: 1059px) {\n        height: 1320px;\n    };\n    position: relative;\n"], ["\n    width: 100%;\n    height: 960px;\n\n    @media (min-width: 476px) {\n        height: 1120px;\n    };\n\n    @media (min-width: 1059px) {\n        height: 1320px;\n    };\n    position: relative;\n"])));
 var ListOfTickets = styled_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n\n    background-color: #000000;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n"], ["\n    display: flex;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n\n    background-color: #000000;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n"])));
 var Paragraph = styled_1["default"].p(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    margin: 2em;\n    font-size: 1.8em;\n    color: white;\n"], ["\n    margin: 2em;\n    font-size: 1.8em;\n    color: white;\n"])));
 var images = [{

@@ -159,13 +159,24 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
     const [from, setFrom] = useState<string>();
     const [numberOfDestination, setNumberOfDestination] = useState<number>();
     const [dateToBeforeDateFrom, setDateToBeforeDateFrom] = useState(false);
+    const [culture, setCulture] = useState<boolean>(true);
+    const [relaxation, setRelaxation] = useState<boolean>(true);
+    const [luxuryFlights, setLuxuryFlights] = useState<boolean>(false);
+    const [beachResort, setBeachResort] = useState<boolean>(false);
+    const [history, setHistory] = useState<boolean>(true);
+    const [social, setSocial] = useState<boolean>(false);
+    const [adventure, setAdventure] = useState<boolean>(true);
+    const [premiumServices, setPremiumServices] = useState<boolean>(false);
+
+
     const [inputsFilledWrongly, setInputsFilledWrongly] = useState({
         from: false,
         numberOfDestination: false,
         dateFrom: false,
         dateTo: false,
         maximumPrice: false,
-        numberOfPersons: false
+        numberOfPersons: false,
+        checkBoxes: false
     });
 
     let checkInputs = () => {
@@ -175,7 +186,8 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
             dateTo: (!dateTo || dateTo === "") || (dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo)),
             numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 20,
             numberOfDestination: !numberOfDestination || numberOfDestination <= 0 || numberOfDestination > 5,
-            maximumPrice: !price || price < 50 || price > 9999
+            maximumPrice: !price || price < 50 || price > 9999,
+            checkBoxes: !culture && !relaxation && !luxuryFlights && !beachResort  && !history && !social && !adventure && !premiumServices
         }
         setInputsFilledWrongly({...inputsValues});
         return inputsValues;
@@ -185,7 +197,6 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
     let getListOfFlights = () => {
         let inputsValues = checkInputs();
 
-        console.log(inputsValues);
         setDateToBeforeDateFrom(dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo));
         let notSearchFlights = Object.values(inputsValues).some((val) => {
                 if (val) {
@@ -198,7 +209,8 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
             return;
         }
 
-        axios.get('roundtrip/' + from + '/' + dateFrom + '/' + price
+        axios.get('roundtrips/' + from + '/' + dateFrom + '/' + dateTo + '/' + numberOfDestination + '/' + price + '/' + culture + '/' +
+            relaxation + '/' + luxuryFlights + '/' + beachResort + '/' + history + '/' + history + '/' + social + '/' + adventure + '/' + premiumServices
         )
             .then(res => {
                 console.log(res.data);
@@ -293,19 +305,23 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                 </WrapperInput>
                 <OuterWrapperPreferences>
                     <InnerWrapperPreferences>
-                        <PreferencesCheckBox label={"Culture"} id={"pref-check-0"}/>
-                        <PreferencesCheckBox label={"Relaxation"} id={"pref-check-1"}/>
-                        <PreferencesCheckBox label={"Culture"} id={"pref-check-2"}/>
-                        <PreferencesCheckBox label={"Luxury flights"} id={"pref-check-3"}/>
-                        <PreferencesCheckBox label={"Beach resort"} id={"pref-check-4"}/>
+                        <PreferencesCheckBox value={culture} setValue={setCulture} label={"Culture"} id={"pref-check-0"}/>
+                        <PreferencesCheckBox value={relaxation} setValue={setRelaxation} label={"Relaxation"} id={"pref-check-1"}/>
+                        <PreferencesCheckBox value={luxuryFlights} setValue={setLuxuryFlights} label={"Luxury flights"} id={"pref-check-3"}/>
+                        <PreferencesCheckBox value={beachResort} setValue={setBeachResort} label={"Beach resort"} id={"pref-check-4"}/>
                     </InnerWrapperPreferences>
                     <InnerWrapperPreferences>
-                        <PreferencesCheckBox label={"History"} id={"pref-check-5"}/>
-                        <PreferencesCheckBox label={"Social"} id={"pref-check-6"}/>
-                        <PreferencesCheckBox label={"Adventure"} id={"pref-check-7"}/>
-                        <PreferencesCheckBox label={"Premium services"} id={"pref-check-8"}/>
+                        <PreferencesCheckBox value={history} setValue={setHistory} label={"History"} id={"pref-check-5"}/>
+                        <PreferencesCheckBox value={social} setValue={setSocial} label={"Social"} id={"pref-check-6"}/>
+                        <PreferencesCheckBox value={adventure} setValue={setAdventure} label={"Adventure"} id={"pref-check-7"}/>
+                        <PreferencesCheckBox value={premiumServices} setValue={setPremiumServices} label={"Premium services"} id={"pref-check-8"}/>
                     </InnerWrapperPreferences>
                 </OuterWrapperPreferences>
+                {inputsFilledWrongly.checkBoxes ?
+                    <Error>
+                        At least one of the checkboxes must be checked.
+                    </Error> :
+                    null}
             </RowFlexBoxPreferences>
             <RowFlexBox>
                 <FlexBoxColButton>
