@@ -4203,19 +4203,20 @@ var RowFlexBox = styled_1["default"].ul(templateObject_2 || (templateObject_2 = 
 var RowFlexBoxCentered = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"])));
 var RowFlexBoxDate = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"])));
 var WrapperInput = styled_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"])));
-var OuterWrapperIconsPrefs = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
-var InnerWrapperPreferences = styled_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
-var InnerWrapperIcons = styled_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
-var InputTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"], ["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"])));
-var FlexBoxCol = styled_1["default"].li(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"], ["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"])));
-var FlexBoxColButton = styled_1["default"].div(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
-var IntegerInput = styled_1["default"].input(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
+var OuterWrapperIcons = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
+var OuterWrapperPreferences = styled_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
+var InnerWrapperPreferences = styled_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
+var InnerWrapperIcons = styled_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
+var InputTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"], ["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"])));
+var FlexBoxCol = styled_1["default"].li(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"], ["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"])));
+var FlexBoxColButton = styled_1["default"].div(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
+var IntegerInput = styled_1["default"].input(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
   return p.isError ? "red" : "white";
 });
-var DateInput = styled_1["default"].input(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
+var DateInput = styled_1["default"].input(templateObject_14 || (templateObject_14 = __makeTemplateObject(["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
   return p.isError ? "red" : "white";
 });
-var Title = (0, styled_1["default"])(Heading2_1.Heading2)(templateObject_14 || (templateObject_14 = __makeTemplateObject(["\n    text-align: center;\n"], ["\n    text-align: center;\n"])));
+var Title = (0, styled_1["default"])(Heading2_1.Heading2)(templateObject_15 || (templateObject_15 = __makeTemplateObject(["\n    text-align: center;\n"], ["\n    text-align: center;\n"])));
 
 var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
   var setRoundTrips = _a.setRoundTrips,
@@ -4393,7 +4394,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     min: 50,
     max: 9999,
     type: "number"
-  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperIconsPrefs, null, react_1["default"].createElement(InnerWrapperPreferences, null, react_1["default"].createElement(PreferencesCheckBox_1["default"], {
+  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperPreferences, null, react_1["default"].createElement(InnerWrapperPreferences, null, react_1["default"].createElement(PreferencesCheckBox_1["default"], {
     value: culture,
     setValue: setCulture,
     label: "Culture",
@@ -4437,7 +4438,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     isError: inputsFilledWrongly.from,
     setMethod: setFrom,
     placeholder: "Departure city"
-  }))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations")), react_1["default"].createElement(OuterWrapperIconsPrefs, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+  }))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
     icon: (__webpack_require__(/*! ../../../../public/images/destinationNumber/two.png */ "./public/images/destinationNumber/two.png")["default"]),
     value: culture,
     setValue: setCulture,
@@ -4461,7 +4462,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     setValue: setCulture,
     label: "Five",
     id: "destination-number-icon-0"
-  }))))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperIconsPrefs, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+  }))))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
     icon: (__webpack_require__(/*! ../../../../public/images/preferences/culture.png */ "./public/images/preferences/culture.png")["default"]),
     value: culture,
     setValue: setCulture,
@@ -4509,7 +4510,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     setValue: setPremiumServices,
     label: "Premium services",
     id: "pref-check-icon-8"
-  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Maximum price")), react_1["default"].createElement(OuterWrapperIconsPrefs, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Maximum price")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
     icon: (__webpack_require__(/*! ../../../../public/images/price/cheap.png */ "./public/images/price/cheap.png")["default"]),
     value: history,
     setValue: setHistory,
@@ -4534,7 +4535,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
 };
 
 exports.CarouselInputRoundTrips = CarouselInputRoundTrips;
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15;
 
 /***/ }),
 

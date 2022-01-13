@@ -85,9 +85,14 @@ let WrapperInput = styled.div`
     margin: 1em;
 `;
 
-let OuterWrapperIconsPrefs = styled.div`
+let OuterWrapperIcons = styled.div`
     display: flex;
     flex-direction: column;
+`;
+
+let OuterWrapperPreferences = styled.div`
+    display: flex;
+    flex-direction: row;
 `;
 
 let InnerWrapperPreferences = styled.div`
@@ -312,7 +317,7 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                         <WrapperInput>
                             <InputTitle>Preferences</InputTitle>
                         </WrapperInput>
-                        <OuterWrapperIconsPrefs>
+                        <OuterWrapperPreferences>
                             <InnerWrapperPreferences>
                                 <PreferencesCheckBox value={culture} setValue={setCulture} label={"Culture"}
                                                      id={"pref-check-0"}/>
@@ -333,7 +338,7 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                                 <PreferencesCheckBox value={premiumServices} setValue={setPremiumServices}
                                                      label={"Premium services"} id={"pref-check-8"}/>
                             </InnerWrapperPreferences>
-                        </OuterWrapperIconsPrefs>
+                        </OuterWrapperPreferences>
                         {inputsFilledWrongly.checkBoxes ?
                             <Error>
                                 At least one of the checkboxes must be checked.
@@ -354,7 +359,7 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                             <WrapperInput>
                                 <InputTitle>No. of destinations</InputTitle>
                             </WrapperInput>
-                            <OuterWrapperIconsPrefs>
+                            <OuterWrapperIcons>
                                 <InnerWrapperIcons>
                                     <IconCheckBox
                                         icon={require("../../../../public/images/destinationNumber/two.png").default}
@@ -373,14 +378,14 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                                         value={culture} setValue={setCulture} label={"Five"}
                                         id={"destination-number-icon-0"}/>
                                 </InnerWrapperIcons>
-                            </OuterWrapperIconsPrefs>
+                            </OuterWrapperIcons>
                         </RowFlexBoxCentered>
                     </RowFlexBox>
                     <RowFlexBoxCentered>
                         <WrapperInput>
                             <InputTitle>Preferences</InputTitle>
                         </WrapperInput>
-                        <OuterWrapperIconsPrefs>
+                        <OuterWrapperIcons>
                             <InnerWrapperIcons>
                                 <IconCheckBox
                                     icon={require("../../../../public/images/preferences/culture.png").default}
@@ -412,13 +417,13 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                                               value={premiumServices} setValue={setPremiumServices}
                                               label={"Premium services"} id={"pref-check-icon-8"}/>
                             </InnerWrapperIcons>
-                        </OuterWrapperIconsPrefs>
+                        </OuterWrapperIcons>
                     </RowFlexBoxCentered>
                     <RowFlexBoxCentered>
                         <WrapperInput>
                             <InputTitle>Maximum price</InputTitle>
                         </WrapperInput>
-                        <OuterWrapperIconsPrefs>
+                        <OuterWrapperIcons>
                             <InnerWrapperIcons>
                                 <IconCheckBox
                                     icon={require("../../../../public/images/price/cheap.png").default}
@@ -432,7 +437,7 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                                     value={adventure} setValue={setAdventure} label={"Expensive"}
                                     id={"pref-check-icon-7"}/>
                             </InnerWrapperIcons>
-                        </OuterWrapperIconsPrefs>
+                        </OuterWrapperIcons>
                     </RowFlexBoxCentered>
                 </>
             }
