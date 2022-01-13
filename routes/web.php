@@ -39,7 +39,7 @@ Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])
 
 Route::get('/search', [App\Http\Controllers\FlightController::class, 'index']);
 Route::get('/flights/{from}/{to}/{when}/{price}', [App\Http\Controllers\FlightController::class, 'getFlights']);
-Route::get('/roundtrips/{from}/{dateFrom}/{dateTo}/{numberOfDestination}/{price}/{culture}/{relaxation}/{luxuryFlights}/{beachResort}/{history}/{history}/{social}/{adventure}/{premiumServices}', [App\Http\Controllers\FlightController::class, 'getRoundtrips']);
+Route::get('/roundtrips/{from}/{dateFrom}/{dateTo}/{numberOfDestination}/{price}/{culture}/{relaxation}/{luxuryFlights}/{beachResort}/{history}/{social}/{adventure}/{premiumServices}', [App\Http\Controllers\FlightController::class, 'getRoundtrips']);
 Route::get('/myflights', [App\Http\Controllers\TicketController::class, 'getTicketsRegistered']);
 Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store']);
 Route::delete('/ticket/{id}', [App\Http\Controllers\TicketController::class, 'destroy']);
