@@ -4216,6 +4216,7 @@ var Title = (0, styled_1["default"])(Heading2_1.Heading2)(templateObject_13 || (
 
 var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
   var setRoundTrips = _a.setRoundTrips,
+      currentSide = _a.currentSide,
       setNo = _a.setNo;
 
   var _b = (0, react_1.useState)(1),
@@ -4336,7 +4337,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     onSubmit: function onSubmit(e) {
       return e.preventDefault();
     }
-  }, react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(Title, null, "Round trip")), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
+  }, react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(Title, null, "Round trip")), currentSide === "RIGHT" ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
     isError: inputsFilledWrongly.from,
     setMethod: setFrom,
     placeholder: "Departure city"
@@ -4429,7 +4430,11 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     setValue: setPremiumServices,
     label: "Premium services",
     id: "pref-check-8"
-  }))), inputsFilledWrongly.checkBoxes ? react_1["default"].createElement(Error_1.Error, null, "At least one of the checkboxes must be checked.") : null), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
+  }))), inputsFilledWrongly.checkBoxes ? react_1["default"].createElement(Error_1.Error, null, "At least one of the checkboxes must be checked.") : null)) : react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
+    isError: inputsFilledWrongly.from,
+    setMethod: setFrom,
+    placeholder: "Departure city"
+  }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations"))))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
     onClick: getListOfFlights,
     text: "Search for a round trip"
   })))));
@@ -4548,7 +4553,8 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
       setFlightsFrom = _a.setFlightsFrom,
       setRoundTrips = _a.setRoundTrips,
       setFlightsTo = _a.setFlightsTo,
-      setNo = _a.setNo;
+      setNo = _a.setNo,
+      currentSide = _a.currentSide;
 
   var _ref;
 
@@ -4605,6 +4611,7 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
     setFlightsTo: setFlightsTo,
     setFlightsFrom: setFlightsFrom
   }) : react_1["default"].createElement(CarouselInputRoundTrips_1.CarouselInputRoundTrips, {
+    currentSide: currentSide,
     setRoundTrips: setRoundTrips,
     setNo: setNo
   })) : width > 1059 && (showSideText || !displayCarousel) ? react_1["default"].createElement(SideText, {
@@ -7040,29 +7047,29 @@ var NavigationDownImpl = function NavigationDownImpl(_a) {
   var displayCarousel = _a.displayCarousel,
       setDisplayCarousel = _a.setDisplayCarousel;
 
-  var chooseDisplay = function chooseDisplay(isFlightBtn) {
-    if (isFlightBtn && displayCarousel === "RIGHT") {
-      setDisplayCarousel("LEFT");
-    }
-
-    if (!isFlightBtn && displayCarousel === "LEFT") {
-      setDisplayCarousel("RIGHT");
-    }
+  var chooseDisplay = function chooseDisplay(side) {
+    setDisplayCarousel(side);
   };
 
   return react_1["default"].createElement(NavigationImplNav, null, react_1["default"].createElement(NavDownBtn, {
     onClick: function onClick() {
-      return chooseDisplay(true);
+      return chooseDisplay("LEFT");
     }
   }, react_1["default"].createElement(NavDownImg, {
     src: (__webpack_require__(/*! ../../../../public/images/flightrip.svg */ "./public/images/flightrip.svg")["default"])
   }), react_1["default"].createElement(NavDownParagraph, null, "Flight trip")), react_1["default"].createElement(NavDownBtn, {
     onClick: function onClick() {
-      return chooseDisplay(false);
+      return chooseDisplay("RIGHT");
     }
   }, react_1["default"].createElement(NavDownImg, {
     src: (__webpack_require__(/*! ../../../../public/images/roundtrip.svg */ "./public/images/roundtrip.svg")["default"])
-  }), react_1["default"].createElement(NavDownParagraph, null, "Round trip")));
+  }), react_1["default"].createElement(NavDownParagraph, null, "Round trip")), react_1["default"].createElement(NavDownBtn, {
+    onClick: function onClick() {
+      return chooseDisplay("RIGHT_ALT");
+    }
+  }, react_1["default"].createElement(NavDownImg, {
+    src: (__webpack_require__(/*! ../../../../public/images/roundtrip_alt.svg */ "./public/images/roundtrip_alt.svg")["default"])
+  }), react_1["default"].createElement(NavDownParagraph, null, "Round trip alt")));
 };
 
 exports.NavigationDownImpl = NavigationDownImpl;
@@ -8647,13 +8654,15 @@ var Root = function Root(_a) {
     user: user,
     setUser: setUser
   }, react_1["default"].createElement(Carousel, null, react_1["default"].createElement(CarouselmgImpl_1.CarouselImageImpl, {
+    currentSide: displayCarousel,
     setFlightsTo: setRoundTrips,
     setNo: setNo,
-    displayCarousel: "RIGHT" === displayCarousel,
+    displayCarousel: "RIGHT" === displayCarousel || "RIGHT_ALT" === displayCarousel,
     setDisplayedSide: setDisplayCarousel,
     side: "RIGHT",
     imgSource: __webpack_require__(/*! ../../public/images/carousel_round_trip.jpg */ "./public/images/carousel_round_trip.jpg")
   }), react_1["default"].createElement(CarouselmgImpl_1.CarouselImageImpl, {
+    currentSide: displayCarousel,
     setFlightsTo: setFlightsTo,
     setNo: setNo,
     setFlightsFrom: setFlightsFrom,
@@ -8782,7 +8791,7 @@ __webpack_require__(/*! ./index.tsx */ "./resources/js/index.tsx");
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/arrow_up.svg?5809b531052121c848c62edd0041f1dc");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/arrow_up.svg?9c8f8f29eb8916981395774e70d5b8a9");
 
 /***/ }),
 
@@ -8950,7 +8959,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/facebook.svg?75f0a9aed39e4ff4d7e14ac23f23cba1");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/facebook.svg?d3466f327c8507bfe461ebd8804901c2");
 
 /***/ }),
 
@@ -8974,7 +8983,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/instagram.svg?8551b878c4879d64ecd07eeb61f74a01");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/instagram.svg?b8e1bdb7eab687d08cf6c3fd5056c84b");
 
 /***/ }),
 
@@ -9038,6 +9047,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./public/images/roundtrip_alt.svg":
+/*!*****************************************!*\
+  !*** ./public/images/roundtrip_alt.svg ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/roundtrip_alt.svg?413d2af56edb507f26e61ef9387165a4");
+
+/***/ }),
+
 /***/ "./public/images/tokyo.jpg":
 /*!*********************************!*\
   !*** ./public/images/tokyo.jpg ***!
@@ -9058,7 +9079,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/airplane.svg?b76b1de097d26319de941e1f395eb7b1");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/airplane.svg?971c9f02adb0b4d373b16cf91df26fc4");
 
 /***/ }),
 

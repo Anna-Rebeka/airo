@@ -92,12 +92,12 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
         <>
             <BasicImpl id={"main"} user={user} setUser={setUser}>
                 <Carousel>
-                    <CarouselImageImpl setFlightsTo={setRoundTrips} setNo={setNo}
-                                       displayCarousel={"RIGHT" === displayCarousel}
+                    <CarouselImageImpl currentSide={displayCarousel} setFlightsTo={setRoundTrips} setNo={setNo}
+                                       displayCarousel={"RIGHT" === displayCarousel || "RIGHT_ALT" === displayCarousel}
                                        setDisplayedSide={setDisplayCarousel}
                                        side={"RIGHT"}
                                        imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
-                    <CarouselImageImpl setFlightsTo={setFlightsTo} setNo={setNo} setFlightsFrom={setFlightsFrom}
+                    <CarouselImageImpl currentSide={displayCarousel} setFlightsTo={setFlightsTo} setNo={setNo} setFlightsFrom={setFlightsFrom}
                                        displayCarousel={"LEFT" === displayCarousel}
                                        setDisplayedSide={setDisplayCarousel}
                                        side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>

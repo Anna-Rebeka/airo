@@ -14,6 +14,7 @@ interface Props {
     setFlightsFrom?: any;
     setRoundTrips?: any;
     setNo: any;
+    currentSide: string;
 }
 
 
@@ -133,7 +134,8 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                                                                 setFlightsFrom,
                                                                 setRoundTrips,
                                                                 setFlightsTo,
-                                                                setNo
+                                                                setNo,
+                                                                currentSide
                                                             }) => {
 
     let ref: any;
@@ -161,7 +163,7 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
     let [width] = useWindowSize();
 
     useEffect(() => {
-        if(ref){
+        if (ref) {
             console.log(ref.clientHeight)
         }
         return () => {
@@ -192,7 +194,7 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                     {side === "LEFT" ?
                         <CarouselInputFlights setNo={setNo} setFlightsTo={setFlightsTo}
                                               setFlightsFrom={setFlightsFrom}/> :
-                        <CarouselInputRoundTrips setRoundTrips={setRoundTrips} setNo={setNo}/>
+                        <CarouselInputRoundTrips currentSide={currentSide} setRoundTrips={setRoundTrips} setNo={setNo}/>
                     }
                 </ContentWrapper> :
                 width > 1059 && (showSideText || !displayCarousel) ?
