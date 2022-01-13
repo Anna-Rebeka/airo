@@ -7,6 +7,7 @@ import {Heading2} from "../heading/Heading2";
 import {Heading3} from "../heading/Heading3";
 import {Error} from "../input/auto-complete/Error";
 import PreferencesCheckBox from "../checkbox/PreferencesCheckBox";
+import IconCheckBox from "../checkbox/IconCheckBox";
 
 
 interface Props {
@@ -86,12 +87,17 @@ let WrapperInput = styled.div`
 
 let OuterWrapperPreferences = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 `;
 
 let InnerWrapperPreferences = styled.div`
     display: flex;
     flex-direction: column;
+`;
+
+let InnerWrapperIconPreferences = styled.div`
+    display: flex;
+    flex-direction: row;
 `;
 
 let InputTitle = styled(Heading3)`
@@ -351,6 +357,33 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                             </WrapperInput>
                         </FlexBoxCol>
                     </RowFlexBox>
+                    <RowFlexBoxPreferences>
+                        <WrapperInput>
+                            <InputTitle>Preferences</InputTitle>
+                        </WrapperInput>
+                        <OuterWrapperPreferences>
+                            <InnerWrapperIconPreferences>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/culture.png").default} value={culture} setValue={setCulture} label={"Culture"}
+                                              id={"pref-check-icon-0"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/relax.png").default} value={relaxation} setValue={setRelaxation} label={"Relaxation"}
+                                                     id={"pref-check-icon-1"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/luxury.png").default} value={luxuryFlights} setValue={setLuxuryFlights}
+                                                     label={"Luxury flights"} id={"pref-check-icon-3"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/beach.png").default} value={beachResort} setValue={setBeachResort}
+                                                     label={"Beach resort"} id={"pref-check-icon-4"}/>
+                            </InnerWrapperIconPreferences>
+                            <InnerWrapperIconPreferences>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/history.png").default} value={history} setValue={setHistory} label={"History"}
+                                                     id={"pref-check-icon-5"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/social.png").default} value={social} setValue={setSocial} label={"Social"}
+                                                     id={"pref-check-icon-6"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/adventure.png").default} value={adventure} setValue={setAdventure} label={"Adventure"}
+                                                     id={"pref-check-icon-7"}/>
+                                <IconCheckBox icon={require("../../../../public/images/preferences/crown.png").default} value={premiumServices} setValue={setPremiumServices}
+                                                     label={"Premium services"} id={"pref-check-icon-8"}/>
+                            </InnerWrapperIconPreferences>
+                        </OuterWrapperPreferences>
+                    </RowFlexBoxPreferences>
                 </>
             }
             <RowFlexBox>
