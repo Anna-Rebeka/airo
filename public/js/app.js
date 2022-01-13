@@ -4306,7 +4306,6 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
 
   var getListOfFlights = function getListOfFlights() {
     var inputsValues = checkInputs();
-    console.log(inputsValues);
     setDateToBeforeDateFrom(dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo));
     var notSearchFlights = Object.values(inputsValues).some(function (val) {
       if (val) {
@@ -4318,7 +4317,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
       return;
     }
 
-    axios_1["default"].get('roundtrip/' + from + '/' + dateFrom + '/' + price).then(function (res) {
+    axios_1["default"].get('roundtrips/' + from + '/' + dateFrom + '/' + dateTo + '/' + numberOfDestination + '/' + price + '/' + culture + '/' + relaxation + '/' + luxuryFlights + '/' + beachResort + '/' + history + '/' + history + '/' + social + '/' + adventure + '/' + premiumServices).then(function (res) {
       console.log(res.data);
       setRoundTrips(__spreadArray([], res.data, true));
     });

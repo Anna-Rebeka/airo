@@ -197,7 +197,6 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
     let getListOfFlights = () => {
         let inputsValues = checkInputs();
 
-        console.log(inputsValues);
         setDateToBeforeDateFrom(dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo));
         let notSearchFlights = Object.values(inputsValues).some((val) => {
                 if (val) {
@@ -210,7 +209,8 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
             return;
         }
 
-        axios.get('roundtrip/' + from + '/' + dateFrom + '/' + price
+        axios.get('roundtrips/' + from + '/' + dateFrom + '/' + dateTo + '/' + numberOfDestination + '/' + price + '/' + culture + '/' +
+            relaxation + '/' + luxuryFlights + '/' + beachResort + '/' + history + '/' + history + '/' + social + '/' + adventure + '/' + premiumServices
         )
             .then(res => {
                 console.log(res.data);
