@@ -21,7 +21,8 @@ class Flight extends Model
         'departure_id',
         'arrival_id',
         'company_id',
-        'price'
+        'price',
+        'distance'
     ];
 
     public function tickets(){

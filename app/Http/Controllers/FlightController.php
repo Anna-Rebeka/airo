@@ -47,4 +47,73 @@ class FlightController extends Controller
         
         return $flights;
     }
+
+    public function getFlight($from, $fromDate, $price)
+    {
+
+        $flights = Flight::where('departure_id', $from->id)
+            ->where('leaves', '>=', $fromDate)
+            ->where('price', '<=', $price)
+            ->with('departure')
+            ->with('arrival')
+            ->with('company')
+            ->orderBy('distance', 'ASC')
+            ->orderBy('leaves', 'ASC')
+            ->get()->first();
+        
+        return $flights;
+    }
+
+    public function getLastFlight($from, $to, $fromDate, $price)
+    {
+
+        $flights = Flight::where('departure_id', $from->id)
+            ->where('arrival_id', $to->id)
+            ->where('leaves', '>=', $fromDate)
+            ->where('price', '<=', $price)
+            ->with('departure')
+            ->with('arrival')
+            ->with('company')
+            ->orderBy('distance', 'ASC')
+            ->orderBy('leaves', 'ASC')
+            ->get()->first();
+        
+        return $flights;
+    }
+
+    public function getRoundtrips($from, $noDst, $fromDate, $toDate, $price, $prefferences)
+    {
+        $city = City::where('name', $from)->get()->first();
+
+        $theDate = new DateTime($fromDate);
+        
+        $start = new DateTime($fromDate);
+
+        $end = new DateTime($toDate);
+        $end->add(new DateInterval('PT' . 1439 . 'M'));
+    
+        $diff = $end->diff($start);
+        $hours = $diff->h;
+        $hours = $hours + ($diff->days*24);
+        $interval =  floor($hours / $noDst);
+
+        $midTime = new DateTime($fromDate);
+        $midTime->add(new DateInterval('PT' . $interval . 'H'));
+        $midTime->format('Y-m-d H:i:s');
+        $midPrice = $price / $noDst;
+        $totalPrice = 0;
+        $roundtrips = = new \Ds\Set();
+        $midCity = City::where('name', $from)->get()->first();
+        for ($i = 1; $i <= $noDst; $i++) {
+                $flight = getFlight($midCity, $start, $midTime, $midPrice);
+                $roundtrips->add($flight);
+                $midCity = City::where('id', $flight->'id')->get()->first();    
+                $midTime->add(new DateInterval('PT' . $interval . 'H')); 
+            }
+
+            $flight = getLastFlight($midCity, $city, $midTime, $midPrice);
+            $roundtrips->add($flight);
+
+        return $roundtrips;
+    }
 }
