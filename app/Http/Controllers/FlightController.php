@@ -102,12 +102,12 @@ class FlightController extends Controller
         $midTime->format('Y-m-d H:i:s');
         $midPrice = $price / $noDst;
         $totalPrice = 0;
-        $roundtrips = = new \Ds\Set();
+        $roundtrips = new Set();
         $midCity = City::where('name', $from)->get()->first();
         for ($i = 1; $i <= $noDst; $i++) {
                 $flight = getFlight($midCity, $start, $midTime, $midPrice);
                 $roundtrips->add($flight);
-                $midCity = City::where('id', $flight->'id')->get()->first();    
+                $midCity = City::where('id', $flight->id)->get()->first();    
                 $midTime->add(new DateInterval('PT' . $interval . 'H')); 
             }
 
