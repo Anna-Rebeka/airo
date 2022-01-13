@@ -222,7 +222,7 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
         }
 
         axios.get('roundtrips/' + from + '/' + dateFrom + '/' + dateTo + '/' + numberOfDestination + '/' + price + '/' + culture + '/' +
-            relaxation + '/' + luxuryFlights + '/' + beachResort + '/' + history + '/' + history + '/' + social + '/' + adventure + '/' + premiumServices
+            relaxation + '/' + luxuryFlights + '/' + beachResort + '/' + history + '/' + social + '/' + adventure + '/' + premiumServices
         )
             .then(res => {
                 console.log(res.data);
