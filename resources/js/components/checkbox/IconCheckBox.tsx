@@ -23,17 +23,17 @@ export const IconWrapper = styled.div<{ isChecked: boolean }>`
     justify-content: center;
 
     @media (min-width: 476px) {
-        width: 82px;
-        height: 82px;
+        width: 76px;
+        height: 76px;
         margin: 0.5em;
-        font-size: 1em;
+        font-size: 0.8em;
     };
 
     @media (min-width: 800px) {
-        width: 92px;
-        height: 92px;
+        width: 84px;
+        height: 84px;
         margin: 0.6em;
-        font-size: 1.2em;
+        font-size: 0.9em;
     };
 `;
 
@@ -47,13 +47,13 @@ export const IconImg = styled.img`
     height: 26px;
 
     @media (min-width: 476px) {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
     };
 
     @media (min-width: 800px) {
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
     };
 `;
 

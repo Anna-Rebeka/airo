@@ -4202,23 +4202,25 @@ var UniqueIconCheckBox_1 = __importDefault(__webpack_require__(/*! ../checkbox/U
 
 var Form = styled_1["default"].form(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 100%;\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n\n"], ["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 100%;\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n\n"])));
 var RowFlexBox = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"])));
-var RowFlexBoxCentered = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"])));
-var RowFlexBoxDate = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"])));
-var WrapperInput = styled_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"])));
-var OuterWrapperIcons = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
-var OuterWrapperPreferences = styled_1["default"].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
-var InnerWrapperPreferences = styled_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
-var InnerWrapperIcons = styled_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
-var InputTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"], ["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"])));
-var FlexBoxCol = styled_1["default"].li(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"], ["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"])));
-var FlexBoxColButton = styled_1["default"].div(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
-var IntegerInput = styled_1["default"].input(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
+var RowFlexBoxWithoutChange = (0, styled_1["default"])(RowFlexBox)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n"], ["\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n"])));
+var RowFlexBoxCentered = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"])));
+var RowFlexBoxDate = styled_1["default"].ul(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 1060px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n        width: 600px;\n        flex-direction: row;\n    };\n"])));
+var WrapperInput = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n"])));
+var WrapperInputIcons = (0, styled_1["default"])(WrapperInput)(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 0.6em 1em;\n\n    @media (min-width: 476px) {\n        margin: 0 1em;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 0.6em 1em;\n\n    @media (min-width: 476px) {\n        margin: 0 1em;\n    };\n"])));
+var OuterWrapperIcons = styled_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
+var OuterWrapperPreferences = styled_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
+var InnerWrapperPreferences = styled_1["default"].div(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
+var InnerWrapperIcons = styled_1["default"].div(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
+var InputTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"], ["\n    text-shadow: 0 5px 8px black;\n    margin: 0 0 0.4em;\n\n    @media (min-width: 476px) {\n        margin: 0 0 0.8em;\n    };\n"])));
+var FlexBoxCol = styled_1["default"].li(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"], ["\n    width: 90%;\n    list-style: none;\n\n    @media (min-width: 800px) {\n        width: 50%;\n    };\n"])));
+var FlexBoxColButton = styled_1["default"].div(templateObject_14 || (templateObject_14 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
+var IntegerInput = styled_1["default"].input(templateObject_15 || (templateObject_15 = __makeTemplateObject(["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    width: 100%;\n    height: 40px;\n    box-shadow: 2px 3px 8px 1px black;\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
   return p.isError ? "red" : "white";
 });
-var DateInput = styled_1["default"].input(templateObject_14 || (templateObject_14 = __makeTemplateObject(["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
+var DateInput = styled_1["default"].input(templateObject_16 || (templateObject_16 = __makeTemplateObject(["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"], ["\n    box-sizing: border-box;\n    width: 100%;\n    height: 40px;\n    font-size: 1.12em;\n    border: white solid 1px;\n\n    margin: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    :not(:focus) {\n        border: ", " solid 1px;\n    }\n"])), function (p) {
   return p.isError ? "red" : "white";
 });
-var Title = (0, styled_1["default"])(Heading2_1.Heading2)(templateObject_15 || (templateObject_15 = __makeTemplateObject(["\n    text-align: center;\n"], ["\n    text-align: center;\n"])));
+var Title = (0, styled_1["default"])(Heading2_1.Heading2)(templateObject_17 || (templateObject_17 = __makeTemplateObject(["\n    text-align: center;\n"], ["\n    text-align: center;\n"])));
 
 var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
   var setRoundTrips = _a.setRoundTrips,
@@ -4436,11 +4438,11 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     setValue: setPremiumServices,
     label: "Premium services",
     id: "pref-check-8"
-  }))), inputsFilledWrongly.checkBoxes ? react_1["default"].createElement(Error_1.Error, null, "At least one of the checkboxes must be checked.") : null)) : react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
+  }))), inputsFilledWrongly.checkBoxes ? react_1["default"].createElement(Error_1.Error, null, "At least one of the checkboxes must be checked.") : null)) : react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(RowFlexBoxWithoutChange, null, react_1["default"].createElement(WrapperInputIcons, null, react_1["default"].createElement(InputTitle, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
     isError: inputsFilledWrongly.from,
     setMethod: setFrom,
     placeholder: "Departure city"
-  }))), react_1["default"].createElement(RowFlexBoxDate, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Departure date"), react_1["default"].createElement(DateInput, {
+  }))), react_1["default"].createElement(RowFlexBoxDate, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInputIcons, null, react_1["default"].createElement(InputTitle, null, "Departure date"), react_1["default"].createElement(DateInput, {
     isError: inputsFilledWrongly.dateFrom,
     type: "date",
     onChange: function onChange(e) {
@@ -4449,7 +4451,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
         dateFrom: false
       }));
     }
-  }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Return date"), react_1["default"].createElement(DateInput, {
+  }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInputIcons, null, react_1["default"].createElement(InputTitle, null, "Return date"), react_1["default"].createElement(DateInput, {
     isError: inputsFilledWrongly.dateTo,
     type: "date",
     onChange: function onChange(e) {
@@ -4458,7 +4460,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
         dateTo: false
       }));
     }
-  })), dateToBeforeDateFrom ? react_1["default"].createElement(Error_1.Error, null, "Return date is before departure date") : null)), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+  })), dateToBeforeDateFrom ? react_1["default"].createElement(Error_1.Error, null, "Return date is before departure date") : null)), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInputIcons, null, react_1["default"].createElement(InputTitle, null, "No. of destinations")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
     isChecked: numberOfDestination === 2,
     icon: (__webpack_require__(/*! ../../../../public/images/destinationNumber/two.png */ "./public/images/destinationNumber/two.png")["default"]),
     value: numberOfDestination,
@@ -4494,7 +4496,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     },
     label: "Five",
     id: "destination-number-icon-3"
-  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInputIcons, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
     icon: (__webpack_require__(/*! ../../../../public/images/preferences/culture.png */ "./public/images/preferences/culture.png")["default"]),
     value: culture,
     setValue: setCulture,
@@ -4542,7 +4544,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     setValue: setPremiumServices,
     label: "Premium services",
     id: "pref-check-icon-8"
-  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Maximum price")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInputIcons, null, react_1["default"].createElement(InputTitle, null, "Maximum price")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
     isChecked: price > 0 && price < 350,
     icon: (__webpack_require__(/*! ../../../../public/images/price/cheap.png */ "./public/images/price/cheap.png")["default"]),
     value: price,
@@ -4569,7 +4571,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     },
     label: "Expensive (No limit)",
     id: "pref-check-icon-7"
-  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of persons")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInputIcons, null, react_1["default"].createElement(InputTitle, null, "No. of persons")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
     isChecked: numberOfPersons === 1,
     icon: (__webpack_require__(/*! ../../../../public/images/personNumber/single.png */ "./public/images/personNumber/single.png")["default"]),
     value: numberOfPersons,
@@ -4596,14 +4598,14 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     },
     label: "Big group (5 - 7)",
     id: "pref-check-icon-7"
-  }))))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
+  }))))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInputIcons, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
     onClick: getListOfFlights,
     text: "Search for a round trip"
   })))));
 };
 
 exports.CarouselInputRoundTrips = CarouselInputRoundTrips;
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15, templateObject_16, templateObject_17;
 
 /***/ }),
 
@@ -4889,11 +4891,11 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-exports.IconWrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: ", ";\n    cursor: pointer;\n    width: 68px;\n    height: 68px;\n    font-size: 0.8em;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n\n    @media (min-width: 476px) {\n        width: 82px;\n        height: 82px;\n        margin: 0.5em;\n        font-size: 1em;\n    };\n\n    @media (min-width: 800px) {\n        width: 92px;\n        height: 92px;\n        margin: 0.6em;\n        font-size: 1.2em;\n    };\n"], ["\n    background-color: ", ";\n    cursor: pointer;\n    width: 68px;\n    height: 68px;\n    font-size: 0.8em;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n\n    @media (min-width: 476px) {\n        width: 82px;\n        height: 82px;\n        margin: 0.5em;\n        font-size: 1em;\n    };\n\n    @media (min-width: 800px) {\n        width: 92px;\n        height: 92px;\n        margin: 0.6em;\n        font-size: 1.2em;\n    };\n"])), function (p) {
+exports.IconWrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: ", ";\n    cursor: pointer;\n    width: 68px;\n    height: 68px;\n    font-size: 0.8em;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n\n    @media (min-width: 476px) {\n        width: 76px;\n        height: 76px;\n        margin: 0.5em;\n        font-size: 0.8em;\n    };\n\n    @media (min-width: 800px) {\n        width: 84px;\n        height: 84px;\n        margin: 0.6em;\n        font-size: 0.9em;\n    };\n"], ["\n    background-color: ", ";\n    cursor: pointer;\n    width: 68px;\n    height: 68px;\n    font-size: 0.8em;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n\n    @media (min-width: 476px) {\n        width: 76px;\n        height: 76px;\n        margin: 0.5em;\n        font-size: 0.8em;\n    };\n\n    @media (min-width: 800px) {\n        width: 84px;\n        height: 84px;\n        margin: 0.6em;\n        font-size: 0.9em;\n    };\n"])), function (p) {
   return p.isChecked ? "white" : "grey";
 });
 exports.IconLabel = styled_1["default"].span(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: black;\n    text-align: center;\n"], ["\n    color: black;\n    text-align: center;\n"])));
-exports.IconImg = styled_1["default"].img(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 26px;\n    height: 26px;\n\n    @media (min-width: 476px) {\n        width: 32px;\n        height: 32px;\n    };\n\n    @media (min-width: 800px) {\n        width: 36px;\n        height: 36px;\n    };\n"], ["\n    width: 26px;\n    height: 26px;\n\n    @media (min-width: 476px) {\n        width: 32px;\n        height: 32px;\n    };\n\n    @media (min-width: 800px) {\n        width: 36px;\n        height: 36px;\n    };\n"])));
+exports.IconImg = styled_1["default"].img(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 26px;\n    height: 26px;\n\n    @media (min-width: 476px) {\n        width: 30px;\n        height: 30px;\n    };\n\n    @media (min-width: 800px) {\n        width: 34px;\n        height: 34px;\n    };\n"], ["\n    width: 26px;\n    height: 26px;\n\n    @media (min-width: 476px) {\n        width: 30px;\n        height: 30px;\n    };\n\n    @media (min-width: 800px) {\n        width: 34px;\n        height: 34px;\n    };\n"])));
 
 var IconCheckBox = function IconCheckBox(_a) {
   var label = _a.label,
@@ -8907,7 +8909,7 @@ var NavigationDownImpl_1 = __webpack_require__(/*! ./components/navigation/Navig
 
 var BasicUtils_1 = __importDefault(__webpack_require__(/*! ./BasicUtils */ "./resources/js/BasicUtils.tsx"));
 
-var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 100%;\n    height: 960px;\n\n    @media (min-width: 476px) {\n        height: 1120px;\n    };\n\n    @media (min-width: 1059px) {\n        height: 1320px;\n    };\n    position: relative;\n"], ["\n    width: 100%;\n    height: 960px;\n\n    @media (min-width: 476px) {\n        height: 1120px;\n    };\n\n    @media (min-width: 1059px) {\n        height: 1320px;\n    };\n    position: relative;\n"])));
+var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 100%;\n    height: 960px;\n\n    @media (min-width: 476px) {\n        height: 1220px;\n    };\n\n    @media (min-width: 800px) {\n        height: 1320px;\n    };\n\n    @media (min-width: 1059px) {\n        height: 1620px;\n    };\n    position: relative;\n"], ["\n    width: 100%;\n    height: 960px;\n\n    @media (min-width: 476px) {\n        height: 1220px;\n    };\n\n    @media (min-width: 800px) {\n        height: 1320px;\n    };\n\n    @media (min-width: 1059px) {\n        height: 1620px;\n    };\n    position: relative;\n"])));
 var ListOfTickets = styled_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n\n    background-color: #000000;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n"], ["\n    display: flex;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n\n    background-color: #000000;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n"])));
 var Paragraph = styled_1["default"].p(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    margin: 2em;\n    font-size: 1.8em;\n    color: white;\n"], ["\n    margin: 2em;\n    font-size: 1.8em;\n    color: white;\n"])));
 var images = [{

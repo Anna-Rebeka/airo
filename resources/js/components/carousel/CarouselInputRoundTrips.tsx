@@ -50,6 +50,12 @@ let RowFlexBox = styled.ul`
     };
 `
 
+let RowFlexBoxWithoutChange = styled(RowFlexBox)`
+    @media (min-width: 800px) {
+        flex-direction: column;
+    };
+`
+
 let RowFlexBoxCentered = styled.ul`
     display: flex;
     flex-direction: column;
@@ -84,6 +90,16 @@ let WrapperInput = styled.div`
     display: flex;
     flex-direction: column;
     margin: 1em;
+`;
+
+let WrapperInputIcons = styled(WrapperInput)`
+    display: flex;
+    flex-direction: column;
+    margin: 0.6em 1em;
+
+    @media (min-width: 476px) {
+        margin: 0 1em;
+    };
 `;
 
 let OuterWrapperIcons = styled.div`
@@ -348,32 +364,32 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                     </RowFlexBoxCentered>
                 </> :
                 <>
-                    <RowFlexBoxCentered>
-                        <WrapperInput>
+                    <RowFlexBoxWithoutChange>
+                        <WrapperInputIcons>
                             <InputTitle>From</InputTitle>
                             <AutoCompleteInput isError={inputsFilledWrongly.from} setMethod={setFrom}
                                                placeholder={"Departure city"}/>
-                        </WrapperInput>
-                    </RowFlexBoxCentered>
+                        </WrapperInputIcons>
+                    </RowFlexBoxWithoutChange>
                     <RowFlexBoxDate>
                         <FlexBoxCol>
-                            <WrapperInput>
+                            <WrapperInputIcons>
                                 <InputTitle>Departure date</InputTitle>
                                 <DateInput isError={inputsFilledWrongly.dateFrom} type={"date"} onChange={(e: any) => {
                                     setDateFrom(e.target.value);
                                     setInputsFilledWrongly({...inputsFilledWrongly, dateFrom: false})
                                 }}/>
-                            </WrapperInput>
+                            </WrapperInputIcons>
                         </FlexBoxCol>
                         <FlexBoxCol>
-                            <WrapperInput>
+                            <WrapperInputIcons>
                                 <InputTitle>Return date</InputTitle>
                                 <DateInput isError={inputsFilledWrongly.dateTo} type={"date"}
                                            onChange={(e: any) => {
                                                setDateTo(e.target.value);
                                                setInputsFilledWrongly({...inputsFilledWrongly, dateTo: false})
                                            }}/>
-                            </WrapperInput>
+                            </WrapperInputIcons>
                             {dateToBeforeDateFrom ?
                                 <Error>
                                     Return date is before departure date
@@ -382,9 +398,9 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                         </FlexBoxCol>
                     </RowFlexBoxDate>
                     <RowFlexBoxCentered>
-                        <WrapperInput>
+                        <WrapperInputIcons>
                             <InputTitle>No. of destinations</InputTitle>
-                        </WrapperInput>
+                        </WrapperInputIcons>
                         <OuterWrapperIcons>
                             <InnerWrapperIcons>
                                 <UniqueIconCheckBox
@@ -414,9 +430,9 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                         </OuterWrapperIcons>
                     </RowFlexBoxCentered>
                     <RowFlexBoxCentered>
-                        <WrapperInput>
+                        <WrapperInputIcons>
                             <InputTitle>Preferences</InputTitle>
-                        </WrapperInput>
+                        </WrapperInputIcons>
                         <OuterWrapperIcons>
                             <InnerWrapperIcons>
                                 <IconCheckBox
@@ -452,9 +468,9 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                         </OuterWrapperIcons>
                     </RowFlexBoxCentered>
                     <RowFlexBoxCentered>
-                        <WrapperInput>
+                        <WrapperInputIcons>
                             <InputTitle>Maximum price</InputTitle>
-                        </WrapperInput>
+                        </WrapperInputIcons>
                         <OuterWrapperIcons>
                             <InnerWrapperIcons>
                                 <UniqueIconCheckBox
@@ -476,9 +492,9 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                         </OuterWrapperIcons>
                     </RowFlexBoxCentered>
                     <RowFlexBoxCentered>
-                        <WrapperInput>
+                        <WrapperInputIcons>
                             <InputTitle>No. of persons</InputTitle>
-                        </WrapperInput>
+                        </WrapperInputIcons>
                         <OuterWrapperIcons>
                             <InnerWrapperIcons>
                                 <UniqueIconCheckBox isChecked={numberOfPersons === 1}
@@ -504,9 +520,9 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
             }
             <RowFlexBox>
                 <FlexBoxColButton>
-                    <WrapperInput>
+                    <WrapperInputIcons>
                         <CarouselButton onClick={getListOfFlights} text={"Search for a round trip"}/>
-                    </WrapperInput>
+                    </WrapperInputIcons>
                 </FlexBoxColButton>
             </RowFlexBox>
         </Form>

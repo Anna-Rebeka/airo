@@ -25,11 +25,15 @@ let Carousel = styled.div`
     height: 960px;
 
     @media (min-width: 476px) {
-        height: 1120px;
+        height: 1220px;
+    };
+
+    @media (min-width: 800px) {
+        height: 1320px;
     };
 
     @media (min-width: 1059px) {
-        height: 1320px;
+        height: 1620px;
     };
     position: relative;
 `
