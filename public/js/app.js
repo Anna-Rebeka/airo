@@ -4719,9 +4719,6 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
       setFlightsTo = _a.setFlightsTo,
       setNo = _a.setNo,
       currentSide = _a.currentSide;
-
-  var _ref;
-
   var leftText = {
     title: "Looking for a ticket?",
     description: "We offer tickets from multiple airline companies. You can choose a ticket which is tailored for your needs.",
@@ -4747,17 +4744,7 @@ var CarouselImageImpl = function CarouselImageImpl(_a) {
       setShowSideText = _c[1];
 
   var width = (0, BasicUtils_1["default"])()[0];
-  (0, react_1.useEffect)(function () {
-    if (_ref) {
-      console.log(_ref.clientHeight);
-    }
-
-    return function () {};
-  }, [_ref]);
   return react_1["default"].createElement(Wrapper, {
-    ref: function ref(r) {
-      return _ref = r;
-    },
     side: side,
     displayCarousel: displayCarousel,
     onTransitionEnd: function onTransitionEnd(e) {

@@ -138,8 +138,6 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
                                                                 currentSide
                                                             }) => {
 
-    let ref: any;
-
     let leftText = {
         title: "Looking for a ticket?",
         description: "We offer tickets from multiple airline companies. You can choose a ticket which is tailored for your needs.",
@@ -161,17 +159,8 @@ export const CarouselImageImpl: FunctionComponent<Props> = ({
     let [showSideText, setShowSideText] = useState(false);
 
     let [width] = useWindowSize();
-
-    useEffect(() => {
-        if (ref) {
-            console.log(ref.clientHeight)
-        }
-        return () => {
-        }
-    }, [ref]);
-
     return (
-        <Wrapper ref={(r) => ref = r} side={side} displayCarousel={displayCarousel}
+        <Wrapper side={side} displayCarousel={displayCarousel}
                  onTransitionEnd={(e: any) => {
                      e && e.propertyName === "left" ? setShowSideText(true) : null
                  }}>
