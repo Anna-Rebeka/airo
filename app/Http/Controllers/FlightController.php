@@ -66,7 +66,6 @@ class FlightController extends Controller
 
     public function getLastFlight($from, $to, $fromDate, $price)
     {
-
         $flights = Flight::where('departure_id', $from->id)
             ->where('arrival_id', $to->id)
             ->where('leaves', '>=', $fromDate)
@@ -105,7 +104,7 @@ class FlightController extends Controller
         $roundtrips = array();
         $midCity = City::where('name', $from)->get()->first();
         for ($i = 1; $i <= $noDst; $i++) {
-                $flight = getFlight($midCity, $midTime, $midPrice);
+                $flight = $this->getFlight($midCity, $midTime, $midPrice);
                 $roundtrips[] = $flight;
                 $midCity = City::where('id', $flight->id)->get()->first();    
                 $midTime->add(new DateInterval('PT' . $interval . 'H')); 
