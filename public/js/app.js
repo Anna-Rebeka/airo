@@ -4235,7 +4235,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
       dateTo = _d[0],
       setDateTo = _d[1];
 
-  var _e = (0, react_1.useState)(100),
+  var _e = (0, react_1.useState)(350),
       price = _e[0],
       setPrice = _e[1];
 
@@ -4243,7 +4243,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
       from = _f[0],
       setFrom = _f[1];
 
-  var _g = (0, react_1.useState)(),
+  var _g = (0, react_1.useState)(3),
       numberOfDestination = _g[0],
       setNumberOfDestination = _g[1];
 
@@ -4386,12 +4386,12 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     type: "number"
   }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Maximum price"), react_1["default"].createElement(IntegerInput, {
     isError: inputsFilledWrongly.maximumPrice,
-    placeholder: "from 50 to 9999",
+    placeholder: "from 125 to 9999",
     value: price,
     onChange: function onChange(e) {
       setPrice(e.target.value);
     },
-    min: 50,
+    min: 125,
     max: 9999,
     type: "number"
   })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperPreferences, null, react_1["default"].createElement(InnerWrapperPreferences, null, react_1["default"].createElement(PreferencesCheckBox_1["default"], {
@@ -4434,7 +4434,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     setValue: setPremiumServices,
     label: "Premium services",
     id: "pref-check-8"
-  }))), inputsFilledWrongly.checkBoxes ? react_1["default"].createElement(Error_1.Error, null, "At least one of the checkboxes must be checked.") : null)) : react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
+  }))), inputsFilledWrongly.checkBoxes ? react_1["default"].createElement(Error_1.Error, null, "At least one of the checkboxes must be checked.") : null)) : react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "From"), react_1["default"].createElement(AutoCompleteInput_1["default"], {
     isError: inputsFilledWrongly.from,
     setMethod: setFrom,
     placeholder: "Departure city"
@@ -4462,7 +4462,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     setValue: setCulture,
     label: "Five",
     id: "destination-number-icon-0"
-  }))))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
     icon: (__webpack_require__(/*! ../../../../public/images/preferences/culture.png */ "./public/images/preferences/culture.png")["default"]),
     value: culture,
     setValue: setCulture,
@@ -4514,19 +4514,19 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     icon: (__webpack_require__(/*! ../../../../public/images/price/cheap.png */ "./public/images/price/cheap.png")["default"]),
     value: history,
     setValue: setHistory,
-    label: "Cheap",
+    label: "Cheap (<350€)",
     id: "pref-check-icon-5"
   }), react_1["default"].createElement(IconCheckBox_1["default"], {
     icon: (__webpack_require__(/*! ../../../../public/images/price/average.png */ "./public/images/price/average.png")["default"]),
     value: social,
     setValue: setSocial,
-    label: "Average",
+    label: "Average (<850€)",
     id: "pref-check-icon-6"
   }), react_1["default"].createElement(IconCheckBox_1["default"], {
     icon: (__webpack_require__(/*! ../../../../public/images/price/expensive.png */ "./public/images/price/expensive.png")["default"]),
     value: adventure,
     setValue: setAdventure,
-    label: "Expensive",
+    label: "Expensive (No limit)",
     id: "pref-check-icon-7"
   }))))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
     onClick: getListOfFlights,
@@ -4821,9 +4821,9 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-var Wrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: white;\n    cursor: pointer;\n    width: 82px;\n    height: 82px;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n"], ["\n    background-color: white;\n    cursor: pointer;\n    width: 82px;\n    height: 82px;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n"])));
+var Wrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: white;\n    cursor: pointer;\n    width: 72px;\n    height: 72px;\n    font-size: 0.8em;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n\n    @media (min-width: 476px) {\n        width: 82px;\n        height: 82px;\n        margin: 0.5em;\n        font-size: 1em;\n    };\n\n    @media (min-width: 800px) {\n        width: 92px;\n        height: 92px;\n        margin: 0.6em;\n        font-size: 1.2em;\n    };\n"], ["\n    background-color: white;\n    cursor: pointer;\n    width: 72px;\n    height: 72px;\n    font-size: 0.8em;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n\n    @media (min-width: 476px) {\n        width: 82px;\n        height: 82px;\n        margin: 0.5em;\n        font-size: 1em;\n    };\n\n    @media (min-width: 800px) {\n        width: 92px;\n        height: 92px;\n        margin: 0.6em;\n        font-size: 1.2em;\n    };\n"])));
 var Label = styled_1["default"].span(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: black;\n    text-align: center;\n"], ["\n    color: black;\n    text-align: center;\n"])));
-var Img = styled_1["default"].img(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 32px;\n    height: 32px;\n"], ["\n    width: 32px;\n    height: 32px;\n"])));
+var Img = styled_1["default"].img(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 26px;\n    height: 26px;\n\n    @media (min-width: 476px) {\n        width: 32px;\n        height: 32px;\n    };\n\n    @media (min-width: 800px) {\n        width: 36px;\n        height: 36px;\n    };\n"], ["\n    width: 26px;\n    height: 26px;\n\n    @media (min-width: 476px) {\n        width: 32px;\n        height: 32px;\n    };\n\n    @media (min-width: 800px) {\n        width: 36px;\n        height: 36px;\n    };\n"])));
 
 var IconCheckBox = function IconCheckBox(_a) {
   var label = _a.label,
@@ -8988,7 +8988,7 @@ __webpack_require__(/*! ./index.tsx */ "./resources/js/index.tsx");
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/arrow_up.svg?5809b531052121c848c62edd0041f1dc");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/arrow_up.svg?9c8f8f29eb8916981395774e70d5b8a9");
 
 /***/ }),
 
@@ -9204,7 +9204,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/facebook.svg?75f0a9aed39e4ff4d7e14ac23f23cba1");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/facebook.svg?d3466f327c8507bfe461ebd8804901c2");
 
 /***/ }),
 
@@ -9228,7 +9228,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/instagram.svg?8551b878c4879d64ecd07eeb61f74a01");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/instagram.svg?b8e1bdb7eab687d08cf6c3fd5056c84b");
 
 /***/ }),
 
@@ -9432,7 +9432,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/roundtrip_alt.svg?413d2af56edb507f26e61ef9387165a4");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/roundtrip_alt.svg?f4f5eab291713f78a82b5916b98989d6");
 
 /***/ }),
 
@@ -9456,7 +9456,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/airplane.svg?b76b1de097d26319de941e1f395eb7b1");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/airplane.svg?971c9f02adb0b4d373b16cf91df26fc4");
 
 /***/ }),
 

@@ -167,9 +167,9 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
     const [numberOfPersons, setNumberOfPersons] = useState<number>(1);
     const [dateFrom, setDateFrom] = useState<any>();
     const [dateTo, setDateTo] = useState<any>();
-    const [price, setPrice] = useState<number>(100);
+    const [price, setPrice] = useState<number>(350);
     const [from, setFrom] = useState<string>();
-    const [numberOfDestination, setNumberOfDestination] = useState<number>();
+    const [numberOfDestination, setNumberOfDestination] = useState<number>(3);
     const [dateToBeforeDateFrom, setDateToBeforeDateFrom] = useState(false);
     const [culture, setCulture] = useState<boolean>(true);
     const [relaxation, setRelaxation] = useState<boolean>(true);
@@ -305,10 +305,10 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                             <WrapperInput>
                                 <InputTitle>Maximum price</InputTitle>
                                 <IntegerInput isError={inputsFilledWrongly.maximumPrice}
-                                              placeholder={"from 50 to 9999"} value={price}
+                                              placeholder={"from 125 to 9999"} value={price}
                                               onChange={(e: any) => {
                                                   setPrice(e.target.value);
-                                              }} min={50} max={9999}
+                                              }} min={125} max={9999}
                                               type={"number"}/>
                             </WrapperInput>
                         </FlexBoxCol>
@@ -347,40 +347,38 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                     </RowFlexBoxCentered>
                 </> :
                 <>
-                    <RowFlexBox>
-                        <FlexBoxCol>
-                            <WrapperInput>
-                                <InputTitle>From</InputTitle>
-                                <AutoCompleteInput isError={inputsFilledWrongly.from} setMethod={setFrom}
-                                                   placeholder={"Departure city"}/>
-                            </WrapperInput>
-                        </FlexBoxCol>
-                        <RowFlexBoxCentered>
-                            <WrapperInput>
-                                <InputTitle>No. of destinations</InputTitle>
-                            </WrapperInput>
-                            <OuterWrapperIcons>
-                                <InnerWrapperIcons>
-                                    <IconCheckBox
-                                        icon={require("../../../../public/images/destinationNumber/two.png").default}
-                                        value={culture} setValue={setCulture} label={"Two"}
-                                        id={"destination-number-icon-0"}/>
-                                    <IconCheckBox
-                                        icon={require("../../../../public/images/destinationNumber/three.png").default}
-                                        value={culture} setValue={setCulture} label={"Three"}
-                                        id={"destination-number-icon-0"}/>
-                                    <IconCheckBox
-                                        icon={require("../../../../public/images/destinationNumber/four.png").default}
-                                        value={culture} setValue={setCulture} label={"Four"}
-                                        id={"destination-number-icon-0"}/>
-                                    <IconCheckBox
-                                        icon={require("../../../../public/images/destinationNumber/five.png").default}
-                                        value={culture} setValue={setCulture} label={"Five"}
-                                        id={"destination-number-icon-0"}/>
-                                </InnerWrapperIcons>
-                            </OuterWrapperIcons>
-                        </RowFlexBoxCentered>
-                    </RowFlexBox>
+                    <RowFlexBoxCentered>
+                        <WrapperInput>
+                            <InputTitle>From</InputTitle>
+                            <AutoCompleteInput isError={inputsFilledWrongly.from} setMethod={setFrom}
+                                               placeholder={"Departure city"}/>
+                        </WrapperInput>
+                    </RowFlexBoxCentered>
+                    <RowFlexBoxCentered>
+                        <WrapperInput>
+                            <InputTitle>No. of destinations</InputTitle>
+                        </WrapperInput>
+                        <OuterWrapperIcons>
+                            <InnerWrapperIcons>
+                                <IconCheckBox
+                                    icon={require("../../../../public/images/destinationNumber/two.png").default}
+                                    value={culture} setValue={setCulture} label={"Two"}
+                                    id={"destination-number-icon-0"}/>
+                                <IconCheckBox
+                                    icon={require("../../../../public/images/destinationNumber/three.png").default}
+                                    value={culture} setValue={setCulture} label={"Three"}
+                                    id={"destination-number-icon-0"}/>
+                                <IconCheckBox
+                                    icon={require("../../../../public/images/destinationNumber/four.png").default}
+                                    value={culture} setValue={setCulture} label={"Four"}
+                                    id={"destination-number-icon-0"}/>
+                                <IconCheckBox
+                                    icon={require("../../../../public/images/destinationNumber/five.png").default}
+                                    value={culture} setValue={setCulture} label={"Five"}
+                                    id={"destination-number-icon-0"}/>
+                            </InnerWrapperIcons>
+                        </OuterWrapperIcons>
+                    </RowFlexBoxCentered>
                     <RowFlexBoxCentered>
                         <WrapperInput>
                             <InputTitle>Preferences</InputTitle>
@@ -427,14 +425,14 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                             <InnerWrapperIcons>
                                 <IconCheckBox
                                     icon={require("../../../../public/images/price/cheap.png").default}
-                                    value={history} setValue={setHistory} label={"Cheap"}
+                                    value={history} setValue={setHistory} label={"Cheap (<350€)"}
                                     id={"pref-check-icon-5"}/>
                                 <IconCheckBox icon={require("../../../../public/images/price/average.png").default}
-                                              value={social} setValue={setSocial} label={"Average"}
+                                              value={social} setValue={setSocial} label={"Average (<850€)"}
                                               id={"pref-check-icon-6"}/>
                                 <IconCheckBox
                                     icon={require("../../../../public/images/price/expensive.png").default}
-                                    value={adventure} setValue={setAdventure} label={"Expensive"}
+                                    value={adventure} setValue={setAdventure} label={"Expensive (No limit)"}
                                     id={"pref-check-icon-7"}/>
                             </InnerWrapperIcons>
                         </OuterWrapperIcons>
