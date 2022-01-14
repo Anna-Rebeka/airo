@@ -8,6 +8,7 @@ import {Heading3} from "../heading/Heading3";
 import {Error} from "../input/auto-complete/Error";
 import PreferencesCheckBox from "../checkbox/PreferencesCheckBox";
 import IconCheckBox from "../checkbox/IconCheckBox";
+import UniqueIconCheckBox from "../checkbox/UniqueIconCheckBox";
 
 
 interface Props {
@@ -196,9 +197,9 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
             from: !from || from === "",
             dateFrom: !dateFrom || dateFrom === "",
             dateTo: (!dateTo || dateTo === "") || (dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo)),
-            numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 20,
+            numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 7,
             numberOfDestination: !numberOfDestination || numberOfDestination <= 0 || numberOfDestination > 5,
-            maximumPrice: !price || price < 50 || price > 9999,
+            maximumPrice: !price || price < 125 || price > 9999,
             checkBoxes: !culture && !relaxation && !luxuryFlights && !beachResort && !history && !social && !adventure && !premiumServices
         }
         setInputsFilledWrongly({...inputsValues});
@@ -354,28 +355,61 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                                                placeholder={"Departure city"}/>
                         </WrapperInput>
                     </RowFlexBoxCentered>
+                    <RowFlexBoxDate>
+                        <FlexBoxCol>
+                            <WrapperInput>
+                                <InputTitle>Departure date</InputTitle>
+                                <DateInput isError={inputsFilledWrongly.dateFrom} type={"date"} onChange={(e: any) => {
+                                    setDateFrom(e.target.value);
+                                    setInputsFilledWrongly({...inputsFilledWrongly, dateFrom: false})
+                                }}/>
+                            </WrapperInput>
+                        </FlexBoxCol>
+                        <FlexBoxCol>
+                            <WrapperInput>
+                                <InputTitle>Return date</InputTitle>
+                                <DateInput isError={inputsFilledWrongly.dateTo} type={"date"}
+                                           onChange={(e: any) => {
+                                               setDateTo(e.target.value);
+                                               setInputsFilledWrongly({...inputsFilledWrongly, dateTo: false})
+                                           }}/>
+                            </WrapperInput>
+                            {dateToBeforeDateFrom ?
+                                <Error>
+                                    Return date is before departure date
+                                </Error> :
+                                null}
+                        </FlexBoxCol>
+                    </RowFlexBoxDate>
                     <RowFlexBoxCentered>
                         <WrapperInput>
                             <InputTitle>No. of destinations</InputTitle>
                         </WrapperInput>
                         <OuterWrapperIcons>
                             <InnerWrapperIcons>
-                                <IconCheckBox
+                                <UniqueIconCheckBox
+                                    isChecked={numberOfDestination === 2}
                                     icon={require("../../../../public/images/destinationNumber/two.png").default}
-                                    value={culture} setValue={setCulture} label={"Two"}
+                                    value={numberOfDestination} setValue={() => setNumberOfDestination(2)} label={"Two"}
                                     id={"destination-number-icon-0"}/>
-                                <IconCheckBox
+                                <UniqueIconCheckBox
+                                    isChecked={numberOfDestination === 3}
                                     icon={require("../../../../public/images/destinationNumber/three.png").default}
-                                    value={culture} setValue={setCulture} label={"Three"}
-                                    id={"destination-number-icon-0"}/>
-                                <IconCheckBox
+                                    value={numberOfDestination} setValue={() => setNumberOfDestination(3)}
+                                    label={"Three"}
+                                    id={"destination-number-icon-1"}/>
+                                <UniqueIconCheckBox
+                                    isChecked={numberOfDestination === 4}
                                     icon={require("../../../../public/images/destinationNumber/four.png").default}
-                                    value={culture} setValue={setCulture} label={"Four"}
-                                    id={"destination-number-icon-0"}/>
-                                <IconCheckBox
+                                    value={numberOfDestination} setValue={() => setNumberOfDestination(4)}
+                                    label={"Four"}
+                                    id={"destination-number-icon-2"}/>
+                                <UniqueIconCheckBox
+                                    isChecked={numberOfDestination === 5}
                                     icon={require("../../../../public/images/destinationNumber/five.png").default}
-                                    value={culture} setValue={setCulture} label={"Five"}
-                                    id={"destination-number-icon-0"}/>
+                                    value={numberOfDestination} setValue={() => setNumberOfDestination(5)}
+                                    label={"Five"}
+                                    id={"destination-number-icon-3"}/>
                             </InnerWrapperIcons>
                         </OuterWrapperIcons>
                     </RowFlexBoxCentered>
@@ -423,16 +457,45 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
                         </WrapperInput>
                         <OuterWrapperIcons>
                             <InnerWrapperIcons>
-                                <IconCheckBox
+                                <UniqueIconCheckBox
+                                    isChecked={price > 0 && price < 350}
                                     icon={require("../../../../public/images/price/cheap.png").default}
-                                    value={history} setValue={setHistory} label={"Cheap (<350€)"}
+                                    value={price} setValue={() => setPrice(349)} label={"Cheap (<350€)"}
                                     id={"pref-check-icon-5"}/>
-                                <IconCheckBox icon={require("../../../../public/images/price/average.png").default}
-                                              value={social} setValue={setSocial} label={"Average (<850€)"}
-                                              id={"pref-check-icon-6"}/>
-                                <IconCheckBox
+                                <UniqueIconCheckBox isChecked={price > 349 && price < 850}
+                                                    icon={require("../../../../public/images/price/average.png").default}
+                                                    value={price} setValue={() => setPrice(849)}
+                                                    label={"Average (<850€)"}
+                                                    id={"pref-check-icon-6"}/>
+                                <UniqueIconCheckBox
+                                    isChecked={price > 849 && price < 10000}
                                     icon={require("../../../../public/images/price/expensive.png").default}
-                                    value={adventure} setValue={setAdventure} label={"Expensive (No limit)"}
+                                    value={price} setValue={() => setPrice(9999)} label={"Expensive (No limit)"}
+                                    id={"pref-check-icon-7"}/>
+                            </InnerWrapperIcons>
+                        </OuterWrapperIcons>
+                    </RowFlexBoxCentered>
+                    <RowFlexBoxCentered>
+                        <WrapperInput>
+                            <InputTitle>No. of persons</InputTitle>
+                        </WrapperInput>
+                        <OuterWrapperIcons>
+                            <InnerWrapperIcons>
+                                <UniqueIconCheckBox isChecked={numberOfPersons === 1}
+                                                    icon={require("../../../../public/images/personNumber/single.png").default}
+                                                    value={numberOfPersons} setValue={() => setNumberOfPersons(1)}
+                                                    label={"Single (1)"}
+                                                    id={"pref-check-icon-5"}/>
+                                <UniqueIconCheckBox isChecked={numberOfPersons > 1 && numberOfPersons < 5}
+                                                    icon={require("../../../../public/images/personNumber/smallGroup.png").default}
+                                                    value={numberOfPersons} setValue={() => setNumberOfPersons(4)}
+                                                    label={"Small group (2 - 4)"}
+                                                    id={"pref-check-icon-6"}/>
+                                <UniqueIconCheckBox
+                                    isChecked={numberOfPersons > 4 && numberOfPersons < 8}
+                                    icon={require("../../../../public/images/personNumber/bigGroup.png").default}
+                                    value={numberOfPersons} setValue={() => setNumberOfPersons(7)}
+                                    label={"Big group (5 - 7)"}
                                     id={"pref-check-icon-7"}/>
                             </InnerWrapperIcons>
                         </OuterWrapperIcons>

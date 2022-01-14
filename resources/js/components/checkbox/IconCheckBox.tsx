@@ -7,13 +7,14 @@ interface Props {
     value: any;
     setValue: any;
     icon: any;
+    className?: string;
 }
 
-let Wrapper = styled.div`
-    background-color: white;
+export const IconWrapper = styled.div<{ isChecked: boolean }>`
+    background-color: ${p => p.isChecked? "white" : "grey"};
     cursor: pointer;
-    width: 72px;
-    height: 72px;
+    width: 68px;
+    height: 68px;
     font-size: 0.8em;
     margin: 0.4em;
     display: flex;
@@ -36,12 +37,12 @@ let Wrapper = styled.div`
     };
 `;
 
-let Label = styled.span`
+export const IconLabel = styled.span`
     color: black;
     text-align: center;
 `;
 
-let Img = styled.img`
+export const IconImg = styled.img`
     width: 26px;
     height: 26px;
 
@@ -56,21 +57,21 @@ let Img = styled.img`
     };
 `;
 
-export const IconCheckBox: FunctionComponent<Props> = ({label, id, value, setValue, icon}) => {
+export const IconCheckBox: FunctionComponent<Props> = ({label, id, value, setValue, icon, className}) => {
 
     useEffect(() => {
         setVal(value);
     }, [value])
 
-    const [val, setVal] = useState<boolean>();
+    const [val, setVal] = useState<boolean>(value);
 
     return (
-            <Wrapper onClick={(e) => {
-                setValue(!value);
-            }}>
-                <Img src={icon}/>
-                <Label>{label}</Label>
-            </Wrapper>
+        <IconWrapper isChecked={val} className={className} onClick={(e) => {
+            setValue(!value);
+        }}>
+            <IconImg src={icon}/>
+            <IconLabel>{label}</IconLabel>
+        </IconWrapper>
     );
 }
 

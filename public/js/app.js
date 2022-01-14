@@ -4198,6 +4198,8 @@ var PreferencesCheckBox_1 = __importDefault(__webpack_require__(/*! ../checkbox/
 
 var IconCheckBox_1 = __importDefault(__webpack_require__(/*! ../checkbox/IconCheckBox */ "./resources/js/components/checkbox/IconCheckBox.tsx"));
 
+var UniqueIconCheckBox_1 = __importDefault(__webpack_require__(/*! ../checkbox/UniqueIconCheckBox */ "./resources/js/components/checkbox/UniqueIconCheckBox.tsx"));
+
 var Form = styled_1["default"].form(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 100%;\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n\n"], ["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 100%;\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n\n"])));
 var RowFlexBox = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"])));
 var RowFlexBoxCentered = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n"])));
@@ -4300,9 +4302,9 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
       from: !from || from === "",
       dateFrom: !dateFrom || dateFrom === "",
       dateTo: !dateTo || dateTo === "" || dateTo && dateFrom && dateFrom !== "" && dateTo !== "" && new Date(dateFrom) > new Date(dateTo),
-      numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 20,
+      numberOfPersons: !numberOfPersons || numberOfPersons <= 0 || numberOfPersons > 7,
       numberOfDestination: !numberOfDestination || numberOfDestination <= 0 || numberOfDestination > 5,
-      maximumPrice: !price || price < 50 || price > 9999,
+      maximumPrice: !price || price < 125 || price > 9999,
       checkBoxes: !culture && !relaxation && !luxuryFlights && !beachResort && !history && !social && !adventure && !premiumServices
     };
     setInputsFilledWrongly(__assign({}, inputsValues));
@@ -4438,30 +4440,60 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     isError: inputsFilledWrongly.from,
     setMethod: setFrom,
     placeholder: "Departure city"
-  }))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+  }))), react_1["default"].createElement(RowFlexBoxDate, null, react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Departure date"), react_1["default"].createElement(DateInput, {
+    isError: inputsFilledWrongly.dateFrom,
+    type: "date",
+    onChange: function onChange(e) {
+      setDateFrom(e.target.value);
+      setInputsFilledWrongly(__assign(__assign({}, inputsFilledWrongly), {
+        dateFrom: false
+      }));
+    }
+  }))), react_1["default"].createElement(FlexBoxCol, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Return date"), react_1["default"].createElement(DateInput, {
+    isError: inputsFilledWrongly.dateTo,
+    type: "date",
+    onChange: function onChange(e) {
+      setDateTo(e.target.value);
+      setInputsFilledWrongly(__assign(__assign({}, inputsFilledWrongly), {
+        dateTo: false
+      }));
+    }
+  })), dateToBeforeDateFrom ? react_1["default"].createElement(Error_1.Error, null, "Return date is before departure date") : null)), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of destinations")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+    isChecked: numberOfDestination === 2,
     icon: (__webpack_require__(/*! ../../../../public/images/destinationNumber/two.png */ "./public/images/destinationNumber/two.png")["default"]),
-    value: culture,
-    setValue: setCulture,
+    value: numberOfDestination,
+    setValue: function setValue() {
+      return setNumberOfDestination(2);
+    },
     label: "Two",
     id: "destination-number-icon-0"
-  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+  }), react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+    isChecked: numberOfDestination === 3,
     icon: (__webpack_require__(/*! ../../../../public/images/destinationNumber/three.png */ "./public/images/destinationNumber/three.png")["default"]),
-    value: culture,
-    setValue: setCulture,
+    value: numberOfDestination,
+    setValue: function setValue() {
+      return setNumberOfDestination(3);
+    },
     label: "Three",
-    id: "destination-number-icon-0"
-  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    id: "destination-number-icon-1"
+  }), react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+    isChecked: numberOfDestination === 4,
     icon: (__webpack_require__(/*! ../../../../public/images/destinationNumber/four.png */ "./public/images/destinationNumber/four.png")["default"]),
-    value: culture,
-    setValue: setCulture,
+    value: numberOfDestination,
+    setValue: function setValue() {
+      return setNumberOfDestination(4);
+    },
     label: "Four",
-    id: "destination-number-icon-0"
-  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+    id: "destination-number-icon-2"
+  }), react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+    isChecked: numberOfDestination === 5,
     icon: (__webpack_require__(/*! ../../../../public/images/destinationNumber/five.png */ "./public/images/destinationNumber/five.png")["default"]),
-    value: culture,
-    setValue: setCulture,
+    value: numberOfDestination,
+    setValue: function setValue() {
+      return setNumberOfDestination(5);
+    },
     label: "Five",
-    id: "destination-number-icon-0"
+    id: "destination-number-icon-3"
   })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Preferences")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
     icon: (__webpack_require__(/*! ../../../../public/images/preferences/culture.png */ "./public/images/preferences/culture.png")["default"]),
     value: culture,
@@ -4510,23 +4542,59 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     setValue: setPremiumServices,
     label: "Premium services",
     id: "pref-check-icon-8"
-  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Maximum price")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(IconCheckBox_1["default"], {
+  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "Maximum price")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+    isChecked: price > 0 && price < 350,
     icon: (__webpack_require__(/*! ../../../../public/images/price/cheap.png */ "./public/images/price/cheap.png")["default"]),
-    value: history,
-    setValue: setHistory,
+    value: price,
+    setValue: function setValue() {
+      return setPrice(349);
+    },
     label: "Cheap (<350€)",
     id: "pref-check-icon-5"
-  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+  }), react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+    isChecked: price > 349 && price < 850,
     icon: (__webpack_require__(/*! ../../../../public/images/price/average.png */ "./public/images/price/average.png")["default"]),
-    value: social,
-    setValue: setSocial,
+    value: price,
+    setValue: function setValue() {
+      return setPrice(849);
+    },
     label: "Average (<850€)",
     id: "pref-check-icon-6"
-  }), react_1["default"].createElement(IconCheckBox_1["default"], {
+  }), react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+    isChecked: price > 849 && price < 10000,
     icon: (__webpack_require__(/*! ../../../../public/images/price/expensive.png */ "./public/images/price/expensive.png")["default"]),
-    value: adventure,
-    setValue: setAdventure,
+    value: price,
+    setValue: function setValue() {
+      return setPrice(9999);
+    },
     label: "Expensive (No limit)",
+    id: "pref-check-icon-7"
+  })))), react_1["default"].createElement(RowFlexBoxCentered, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(InputTitle, null, "No. of persons")), react_1["default"].createElement(OuterWrapperIcons, null, react_1["default"].createElement(InnerWrapperIcons, null, react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+    isChecked: numberOfPersons === 1,
+    icon: (__webpack_require__(/*! ../../../../public/images/personNumber/single.png */ "./public/images/personNumber/single.png")["default"]),
+    value: numberOfPersons,
+    setValue: function setValue() {
+      return setNumberOfPersons(1);
+    },
+    label: "Single (1)",
+    id: "pref-check-icon-5"
+  }), react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+    isChecked: numberOfPersons > 1 && numberOfPersons < 5,
+    icon: (__webpack_require__(/*! ../../../../public/images/personNumber/smallGroup.png */ "./public/images/personNumber/smallGroup.png")["default"]),
+    value: numberOfPersons,
+    setValue: function setValue() {
+      return setNumberOfPersons(4);
+    },
+    label: "Small group (2 - 4)",
+    id: "pref-check-icon-6"
+  }), react_1["default"].createElement(UniqueIconCheckBox_1["default"], {
+    isChecked: numberOfPersons > 4 && numberOfPersons < 8,
+    icon: (__webpack_require__(/*! ../../../../public/images/personNumber/bigGroup.png */ "./public/images/personNumber/bigGroup.png")["default"]),
+    value: numberOfPersons,
+    setValue: function setValue() {
+      return setNumberOfPersons(7);
+    },
+    label: "Big group (5 - 7)",
     id: "pref-check-icon-7"
   }))))), react_1["default"].createElement(RowFlexBox, null, react_1["default"].createElement(FlexBoxColButton, null, react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(CarouselButton_1.CarouselButton, {
     onClick: getListOfFlights,
@@ -4815,37 +4883,42 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.IconCheckBox = void 0;
+exports.IconCheckBox = exports.IconImg = exports.IconLabel = exports.IconWrapper = void 0;
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-var Wrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: white;\n    cursor: pointer;\n    width: 72px;\n    height: 72px;\n    font-size: 0.8em;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n\n    @media (min-width: 476px) {\n        width: 82px;\n        height: 82px;\n        margin: 0.5em;\n        font-size: 1em;\n    };\n\n    @media (min-width: 800px) {\n        width: 92px;\n        height: 92px;\n        margin: 0.6em;\n        font-size: 1.2em;\n    };\n"], ["\n    background-color: white;\n    cursor: pointer;\n    width: 72px;\n    height: 72px;\n    font-size: 0.8em;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n\n    @media (min-width: 476px) {\n        width: 82px;\n        height: 82px;\n        margin: 0.5em;\n        font-size: 1em;\n    };\n\n    @media (min-width: 800px) {\n        width: 92px;\n        height: 92px;\n        margin: 0.6em;\n        font-size: 1.2em;\n    };\n"])));
-var Label = styled_1["default"].span(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: black;\n    text-align: center;\n"], ["\n    color: black;\n    text-align: center;\n"])));
-var Img = styled_1["default"].img(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 26px;\n    height: 26px;\n\n    @media (min-width: 476px) {\n        width: 32px;\n        height: 32px;\n    };\n\n    @media (min-width: 800px) {\n        width: 36px;\n        height: 36px;\n    };\n"], ["\n    width: 26px;\n    height: 26px;\n\n    @media (min-width: 476px) {\n        width: 32px;\n        height: 32px;\n    };\n\n    @media (min-width: 800px) {\n        width: 36px;\n        height: 36px;\n    };\n"])));
+exports.IconWrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: ", ";\n    cursor: pointer;\n    width: 68px;\n    height: 68px;\n    font-size: 0.8em;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n\n    @media (min-width: 476px) {\n        width: 82px;\n        height: 82px;\n        margin: 0.5em;\n        font-size: 1em;\n    };\n\n    @media (min-width: 800px) {\n        width: 92px;\n        height: 92px;\n        margin: 0.6em;\n        font-size: 1.2em;\n    };\n"], ["\n    background-color: ", ";\n    cursor: pointer;\n    width: 68px;\n    height: 68px;\n    font-size: 0.8em;\n    margin: 0.4em;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n\n    @media (min-width: 476px) {\n        width: 82px;\n        height: 82px;\n        margin: 0.5em;\n        font-size: 1em;\n    };\n\n    @media (min-width: 800px) {\n        width: 92px;\n        height: 92px;\n        margin: 0.6em;\n        font-size: 1.2em;\n    };\n"])), function (p) {
+  return p.isChecked ? "white" : "grey";
+});
+exports.IconLabel = styled_1["default"].span(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: black;\n    text-align: center;\n"], ["\n    color: black;\n    text-align: center;\n"])));
+exports.IconImg = styled_1["default"].img(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    width: 26px;\n    height: 26px;\n\n    @media (min-width: 476px) {\n        width: 32px;\n        height: 32px;\n    };\n\n    @media (min-width: 800px) {\n        width: 36px;\n        height: 36px;\n    };\n"], ["\n    width: 26px;\n    height: 26px;\n\n    @media (min-width: 476px) {\n        width: 32px;\n        height: 32px;\n    };\n\n    @media (min-width: 800px) {\n        width: 36px;\n        height: 36px;\n    };\n"])));
 
 var IconCheckBox = function IconCheckBox(_a) {
   var label = _a.label,
       id = _a.id,
       value = _a.value,
       setValue = _a.setValue,
-      icon = _a.icon;
+      icon = _a.icon,
+      className = _a.className;
   (0, react_1.useEffect)(function () {
     setVal(value);
   }, [value]);
 
-  var _b = (0, react_1.useState)(),
+  var _b = (0, react_1.useState)(value),
       val = _b[0],
       setVal = _b[1];
 
-  return react_1["default"].createElement(Wrapper, {
+  return react_1["default"].createElement(exports.IconWrapper, {
+    isChecked: val,
+    className: className,
     onClick: function onClick(e) {
       setValue(!value);
     }
-  }, react_1["default"].createElement(Img, {
+  }, react_1["default"].createElement(exports.IconImg, {
     src: icon
-  }), react_1["default"].createElement(Label, null, label));
+  }), react_1["default"].createElement(exports.IconLabel, null, label));
 };
 
 exports.IconCheckBox = IconCheckBox;
@@ -4957,6 +5030,90 @@ var PreferencesCheckBox = function PreferencesCheckBox(_a) {
 exports.PreferencesCheckBox = PreferencesCheckBox;
 exports["default"] = exports.PreferencesCheckBox;
 var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/js/components/checkbox/UniqueIconCheckBox.tsx":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/checkbox/UniqueIconCheckBox.tsx ***!
+  \*****************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.IconCheckBox = void 0;
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var IconCheckBox_1 = __webpack_require__(/*! ./IconCheckBox */ "./resources/js/components/checkbox/IconCheckBox.tsx");
+
+var IconCheckBox = function IconCheckBox(_a) {
+  var isChecked = _a.isChecked,
+      label = _a.label,
+      id = _a.id,
+      value = _a.value,
+      setValue = _a.setValue,
+      icon = _a.icon,
+      className = _a.className;
+  (0, react_1.useEffect)(function () {
+    setVal(value);
+  }, [value]);
+
+  var _b = (0, react_1.useState)(),
+      val = _b[0],
+      setVal = _b[1];
+
+  return react_1["default"].createElement(IconCheckBox_1.IconWrapper, {
+    isChecked: isChecked,
+    className: className,
+    onClick: function onClick(e) {
+      setValue(!value);
+    }
+  }, react_1["default"].createElement(IconCheckBox_1.IconImg, {
+    src: icon
+  }), react_1["default"].createElement(IconCheckBox_1.IconLabel, null, label));
+};
+
+exports.IconCheckBox = IconCheckBox;
+exports["default"] = exports.IconCheckBox;
 
 /***/ }),
 
@@ -9253,6 +9410,42 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("/images/paris.jpg?271f6f013569ae874ae77731cb9b4393");
+
+/***/ }),
+
+/***/ "./public/images/personNumber/bigGroup.png":
+/*!*************************************************!*\
+  !*** ./public/images/personNumber/bigGroup.png ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/bigGroup.png?2ae0529fa58170658f8927e185a28200");
+
+/***/ }),
+
+/***/ "./public/images/personNumber/single.png":
+/*!***********************************************!*\
+  !*** ./public/images/personNumber/single.png ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/single.png?e9702921df7c3d577a0f0b397364208c");
+
+/***/ }),
+
+/***/ "./public/images/personNumber/smallGroup.png":
+/*!***************************************************!*\
+  !*** ./public/images/personNumber/smallGroup.png ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/smallGroup.png?672b0ead7c34eb8b657d5403dacd8ca5");
 
 /***/ }),
 
