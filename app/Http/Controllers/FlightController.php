@@ -102,12 +102,14 @@ class FlightController extends Controller
         //$midTime->format('Y-m-d H:i:s');
         $midPrice = $price / $noDst;
         $totalPrice = 0;
+        $dst['totalDistance'] = 0;
         $roundtrips = array();
         $midCity = City::where('name', $from)->get()->first();
         for ($i = 1; $i <= $noDst; $i++) {
             $flight = $this->getFlight($midCity, $midTime->format('Y-m-d H:i:s'), $midPrice);
             $roundtrips[] = $flight;
             $totalPrice += $flight->price;
+            $dst['totalDistance'] +=  $flight->distance;
             $midCity = City::where('id', $flight->arrival_id)->get()->first();    
             $midTime = $midTime->add(new DateInterval('PT' . $interval . 'M')); 
             //$roundtrips[] = $midTime->format('Y-m-d H:i:s');
@@ -115,8 +117,11 @@ class FlightController extends Controller
 
             $flight = $this->getLastFlight($midCity, $city, $midTime->format('Y-m-d H:i:s'), $midPrice);
             $totalPrice += $flight->price;
+            $dst['totalDistance'] +=  $flight->distance;
             $roundtrips[] = $flight;
-            $roundtrips[] = $totalPrice;
+            $tp['totalPrice'] = $totalPrice;
+            $roundtrips[] = $tp;
+            $roundtrips[] = $dst;
             //$roundtrips[] = $midCity->name;
             //$roundtrips[] = $city->name;
             //$roundtrips[] = $midTime;
