@@ -35,7 +35,7 @@ class City extends Model
     }
 
     public function preferences(){
-        return $this->hasMany(Preference::class);
+        return $this->belongsToMany(Preference::class);
     }
 
 

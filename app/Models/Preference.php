@@ -15,10 +15,10 @@ class Preference extends Model
     ];
 
     public function users(){
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class);
     }
 
     public function cities(){
-        return $this->hasMany(City::class);
+        return $this->belongsToMany(City::class);
     }
 }

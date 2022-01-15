@@ -138,6 +138,8 @@ class FlightController extends Controller
             ->get()->first();
         
         if ($flights) { 
+            $flights->departure->preferences;
+            $flights->arrival->preferences;
             return $flights;
         }
         return $this->store($from, $to, $fromDate);
@@ -145,7 +147,7 @@ class FlightController extends Controller
 
     public function getRoundtrips($from, $fromDate, $toDate, $noDst, $price, $prefferences)
     {
-        $city = City::where('name', $from)->get()->first();
+        $city = City::where('name', $from)->with('preferences')->get()->first();
 
         $theDate = new DateTime($fromDate);
         
@@ -165,31 +167,33 @@ class FlightController extends Controller
         //$midTime->format('Y-m-d H:i:s');
         $midPrice = $price / $noDst;
         $totalPrice = 0;
-        $dst['totalDistance'] = 0;
+        $totalDistance = 0;
         $roundtrips = array();
-        $midCity = City::where('name', $from)->get()->first();
+        $midCity = City::where('name', $from)->with('preferences')->get()->first();
         for ($i = 1; $i <= $noDst; $i++) {
             $flight = $this->getFlight($midCity, $midTime->format('Y-m-d H:i:s'), $midPrice);
+            $flight->arrival->preferences;
+            $flight->departure->preferences;
             $roundtrips[] = $flight;
             $totalPrice += $flight->price;
-            $dst['totalDistance'] +=  $flight->distance;
-            $midCity = City::where('id', $flight->arrival_id)->get()->first();    
+            $totalDistance +=  $flight->distance;
+            $midCity = City::where('id', $flight->arrival_id)->with('preferences')->get()->first();    
             $midTime = $midTime->add(new DateInterval('PT' . $interval . 'M')); 
             //$roundtrips[] = $midTime->format('Y-m-d H:i:s');
         }
 
             $flight = $this->getLastFlight($midCity, $city, $midTime->format('Y-m-d H:i:s'), $midPrice);
             $totalPrice += $flight->price;
-            $dst['totalDistance'] +=  $flight->distance;
+            $totalDistance +=  $flight->distance;
             $roundtrips[] = $flight;
-            $tp['totalPrice'] = $totalPrice;
-            $roundtrips[] = $tp;
-            $roundtrips[] = $dst;
+        
             //$roundtrips[] = $midCity->name;
             //$roundtrips[] = $city->name;
             //$roundtrips[] = $midTime;
-            $roundtrips[] = $prefferences;
 
+            $result = array("flights"=>$roundtrips, "price"=>$totalPrice, "distance"=>$totalDistance);
+            
+            return json_encode($result);
 
         return $roundtrips;
     }
