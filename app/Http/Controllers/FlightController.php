@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Flight;
 use App\Models\City;
+use App\Models\Company;
 use DateTime;
 use DateInterval;
 
@@ -20,6 +21,17 @@ class FlightController extends Controller
         return view('flights.index', [
             'user' => auth()->user()
         ]);
+    }
+    function faker() {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = '';
+      
+        for ($i = 0; $i < 8; $i++) {
+            $index = rand(0, strlen($characters) - 1);
+            $randomString .= $characters[$index];
+        }
+      
+        return $randomString;
     }
 
     /**
@@ -44,16 +56,18 @@ class FlightController extends Controller
         $company = Company::all()->random(1)->first();
         $price =  $distance * (0.05 + 0.001 * $company->class +  0.001 * rand(1,10));
         
-        $time = new DateTime($leaves->format('Y-m-d H:i'));
+        $time = new DateTime($leaves);
+        $minutes = round(($distance / 830) * 60);
         $arrives = $time->add(new DateInterval('PT' . $minutes . 'M'));
-
+        $arrives = $arrives->format('Y-m-d H:i');
         $flight = Flight::create([
-            'name' => $this->faker->bothify('?###??##'),
+            'name' => $this->faker(),
             'departure_id' => $city1->id,
             'arrival_id' => $city2->id,
             'company_id' => $company->id,
             'leaves' => $leaves,
             'arrives' => $arrives,
+            'duration' => $minutes,
             'price' => $price,
             'distance' => $distance
         ]);
@@ -119,7 +133,10 @@ class FlightController extends Controller
             ->orderBy('leaves', 'ASC')
             ->get()->first();
         
-        return $flights;
+        if ($flights) { 
+            return $flights;
+        }
+        return $this->store($from, $to, $fromDate);
     }
 
     public function getRoundtrips($from, $fromDate, $toDate, $noDst, $price, $prefferences)
