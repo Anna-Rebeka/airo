@@ -72,8 +72,8 @@ class FlightController extends Controller
             'distance' => $distance
         ]);
         
-        $flight->departure;
-        $flight->arrival;
+        //$flight->departure;
+        //$flight->arrival;
 
         return $flight;
     }
@@ -117,7 +117,11 @@ class FlightController extends Controller
             ->orderBy('leaves', 'ASC')
             ->get()->first();
         
-        return $flights;
+         if ($flights) { 
+                return $flights;
+            }
+            $to = City::where('name', '!=', $from)->get()->first();
+            return $this->store($from, $to, $fromDate);
     }
 
     public function getLastFlight($from, $to, $fromDate, $price)
@@ -184,7 +188,7 @@ class FlightController extends Controller
             //$roundtrips[] = $midCity->name;
             //$roundtrips[] = $city->name;
             //$roundtrips[] = $midTime;
-            //$roundtrips[] = $interval;
+            $roundtrips[] = $prefferences;
 
 
         return $roundtrips;
