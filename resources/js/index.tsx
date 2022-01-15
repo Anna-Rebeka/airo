@@ -96,7 +96,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
         <>
             <BasicImpl id={"main"} user={user} setUser={setUser}>
                 <Carousel>
-                    <CarouselImageImpl currentSide={displayCarousel} setFlightsTo={setRoundTrips} setNo={setNo}
+                    <CarouselImageImpl currentSide={displayCarousel} setRoundTrips={setRoundTrips} setNo={setNo}
                                        displayCarousel={"RIGHT" === displayCarousel || "RIGHT_ALT" === displayCarousel}
                                        setDisplayedSide={setDisplayCarousel}
                                        side={"RIGHT"}
