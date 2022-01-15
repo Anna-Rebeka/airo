@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const IconWrapper = styled.div<{ isChecked: boolean }>`
-    background-color: ${p => p.isChecked? "white" : "grey"};
+    background-color: ${p => p.isChecked ? "white" : "grey"};
     cursor: pointer;
     width: 68px;
     height: 68px;

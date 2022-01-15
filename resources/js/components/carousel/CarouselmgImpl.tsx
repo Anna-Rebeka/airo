@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useEffect, useState} from "react";
+import React, {FunctionComponent, useState} from "react";
 import styled from "@emotion/styled";
 import {CarouselInputFlights} from "./CarouselInputFlights";
 import useWindowSize from "../../BasicUtils";

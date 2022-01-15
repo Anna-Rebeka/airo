@@ -50,7 +50,7 @@ let NavDownParagraph = styled.div`
 export const NavigationDownImpl: FunctionComponent<Props> = ({displayCarousel, setDisplayCarousel}) => {
 
     let chooseDisplay = (side: string) => {
-       setDisplayCarousel(side);
+        setDisplayCarousel(side);
     }
 
     return (

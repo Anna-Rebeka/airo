@@ -28,9 +28,9 @@ let AttributeValue = styled.span`
 
 
 export const FlightTripAttributeCityName: FunctionComponent<Props> = ({
-                                                                  icon,
-                                                                  label
-                                                              }) => {
+                                                                          icon,
+                                                                          label
+                                                                      }) => {
     return (
         <Attribute>
             <AttributeIcon src={icon.default}/>

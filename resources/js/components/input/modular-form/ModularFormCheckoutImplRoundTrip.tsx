@@ -59,11 +59,11 @@ let WrapperInput = styled.div`
 
 
 export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
-                                                                      element,
-                                                                      setDisplay,
-                                                                      state,
-                                                                      no
-                                                                  }) => {
+                                                                               element,
+                                                                               setDisplay,
+                                                                               state,
+                                                                               no
+                                                                           }) => {
 
     let [successfulBooking, setSuccessfulBooking] = useState(false);
     let [emailAddress, setEmailAddress] = useState("");
