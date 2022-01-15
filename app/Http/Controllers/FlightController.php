@@ -115,6 +115,8 @@ class FlightController extends Controller
             ->with('company')
             //->orderBy('distance', 'ASC')
             ->orderBy('leaves', 'ASC')
+            ->limit(5)
+            ->random(1)
             ->get()->first();
         
          if ($flights) { 
