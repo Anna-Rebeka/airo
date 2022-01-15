@@ -118,7 +118,9 @@ class FlightController extends Controller
             ->get()->first();
         
          if ($flights) { 
-                return $flights;
+            $flights->departure->preferences;
+            $flights->arrival->preferences;
+            return $flights;
             }
             $to = City::where('name', '!=', $from)->get()->first();
             return $this->store($from, $to, $fromDate);
