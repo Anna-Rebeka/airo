@@ -3,12 +3,13 @@ import styled from "@emotion/styled";
 
 interface Props {
     icon: any;
-    label: string;
+    label: any;
 }
 
 let Attribute = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
 `
 
 let AttributeIcon = styled.img`

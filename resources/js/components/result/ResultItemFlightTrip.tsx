@@ -1,12 +1,11 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import {Heading3} from "../heading/Heading3";
 import {FlightTripItem} from "./FlightTripItem";
 
 interface Props {
     price: number;
     distance: number;
-    places: any;
+    flights: any;
 }
 
 let ResultWrapper = styled.article`
@@ -35,51 +34,10 @@ let ResultWrapper = styled.article`
     };
 `;
 
-let ResultImg = styled.img`
-    width: 180px;
-    height: auto;
-    float: left;
-    margin-right: 15px;
-
-    @media (min-width: 772px) {
-        width: 200px;
-    };
-
-    @media (min-width: 1060px) {
-        width: 220px;
-    };
-
-    @media (min-width: 1280px) {
-        width: 240px;
-    };
-`
-
-let ElementTitle = styled(Heading3)`
-    text-decoration: underline;
-    margin: 0.2em 0;
-`
-
-let Element = styled.li`
-    color: white;
-    margin: 0;
+let RowItem = styled.li`
     list-style: none;
-`
-
-let WrapperContentCol = styled.li`
     display: flex;
-    flex-direction: column;
-    list-style: none;
-`
-
-let WrapperContentColDescription = styled.li`
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    width: 100%;
-
-    @media (min-width: 476px) {
-        width: 70%;
-    };
+    flex-direction: row;
 `
 
 let RowWrapper = styled.ul`
@@ -93,39 +51,23 @@ let RowWrapper = styled.ul`
     };
 `
 
-let WrapperDetails = styled.ul`
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0.5em;
-`
-
-
 export const ResultItemFlightTrip: FunctionComponent<Props> = ({
-                                                                   places,
+                                                                   flights,
                                                                    price,
                                                                    distance
                                                                }) => {
+    console.log("place", flights);
     return (
         <ResultWrapper>
             <RowWrapper>
-                <WrapperContentCol>
-                </WrapperContentCol>
-                {places && places.map((place: any) => (
-                    <FlightTripItem arrives={place.arrives} leaves={place.leaves} distance={place.distance}
-                                    price={place.price} arrival={place.arrival} departure={place.departure}
-                                    company={place.company}>
-                    </FlightTripItem>
-                ))}
-                <WrapperContentCol>
-                    {/*<ModularFormForBooking selectedFirstWay={selectedFirstWay} showSecondWay={showSecondWay}
-                                            setShowSecondWay={setShowSecondWay}
-                                            setSelectedFirstWay={setSelectedFirstWay} flightsTo={flightsTo}
-                                            images={images} no={no} withActivationButton={true}
-                                            user={user}
-                                            setUser={setUser}
-                                            element={element}/>
-                    */}</WrapperContentCol>
+                <RowItem>
+                    {flights && flights.map((place: any) => (
+                        <FlightTripItem time={place.duration} arrives={place.arrives} leaves={place.leaves} distance={place.distance}
+                                        price={place.price} arrival={place.arrival} departure={place.departure}
+                                        company={place.company}>
+                        </FlightTripItem>
+                    ))}
+                </RowItem>
             </RowWrapper>
         </ResultWrapper>
     );

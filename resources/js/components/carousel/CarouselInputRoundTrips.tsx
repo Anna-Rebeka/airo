@@ -242,6 +242,7 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
             relaxation + '/' + luxuryFlights + '/' + beachResort + '/' + history + '/' + social + '/' + adventure + '/' + premiumServices
         )
             .then(res => {
+                console.log([res.data]);
                 setRoundTrips([res.data]);
             })
 

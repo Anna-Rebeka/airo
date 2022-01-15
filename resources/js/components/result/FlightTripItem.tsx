@@ -2,7 +2,7 @@ import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {Heading3} from "../heading/Heading3";
 import {FlightTripAttribute} from "./FlightTripAttribute";
-import {ARRIVES, LEAVES} from "../images";
+import {ARRIVES, COMPANY, DISTANCE, LEAVES, TIME} from "../images";
 
 interface Props {
     departure: any;
@@ -12,26 +12,8 @@ interface Props {
     company: any;
     price: number;
     distance: number;
+    time: any;
 }
-
-let HashTagIcon = styled.img`
-    width: 180px;
-    height: auto;
-    float: left;
-    margin-right: 15px;
-
-    @media (min-width: 772px) {
-        width: 200px;
-    };
-
-    @media (min-width: 1060px) {
-        width: 220px;
-    };
-
-    @media (min-width: 1280px) {
-        width: 240px;
-    };
-`
 
 let ElementTitle = styled(Heading3)`
     text-decoration: underline;
@@ -49,10 +31,6 @@ let WrapperContentColDescription = styled.li`
     flex-direction: column;
     list-style: none;
     width: 100%;
-
-    @media (min-width: 476px) {
-        width: 70%;
-    };
 `
 
 let WrapperDetails = styled.ul`
@@ -62,31 +40,13 @@ let WrapperDetails = styled.ul`
     margin: 0.5em;
 `
 
-let Attribute = styled.div`
-    display: flex;
-    flex-direction: row;
-`
-
-let AttributeIcon = styled.img`
-    margin: 0.3em;
-    width: 24px;
-    height: 24px;
-    background-color: transparent;
-`
-
-let AttributeValue = styled.span`
-    color: white;
-    font-size: 0.7em;
-`
-
-
 export const FlightTripItem: FunctionComponent<Props> = ({
                                                              departure,
                                                              arrival,
                                                              leaves,
                                                              arrives,
                                                              company,
-                                                             price,
+                                                             time,
                                                              distance
                                                          }) => {
     return (
@@ -100,6 +60,15 @@ export const FlightTripItem: FunctionComponent<Props> = ({
                 </Element>
                 <Element>
                     <FlightTripAttribute icon={ARRIVES} label={arrives}/>
+                </Element>
+                <Element>
+                    <FlightTripAttribute icon={TIME} label={time + " mins"}/>
+                </Element>
+                <Element>
+                    <FlightTripAttribute icon={DISTANCE} label={distance + " km"}/>
+                </Element>
+                <Element>
+                    <FlightTripAttribute icon={COMPANY} label={company.name + " " + "*".repeat(company.class)}/>
                 </Element>
             </WrapperDetails>
         </WrapperContentColDescription>
