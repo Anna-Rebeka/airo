@@ -14,6 +14,7 @@ import {Heading2} from "./components/heading/Heading2";
 import {ResultItem} from "./components/result/ResultItem";
 import {NavigationDownImpl} from "./components/navigation/NavigationDownImpl";
 import useWindowSize from "./BasicUtils";
+import {ResultItemFlightTrip} from "./components/result/ResultItemFlightTrip";
 
 
 interface RootProps {
@@ -80,15 +81,20 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
     const [flightsFrom, setFlightsFrom] = useState<any>(null);
     const [no, setNo] = useState<number>(1);
     const [flightsTo, setFlightsTo] = useState<any>();
-    const [roundTrips, setRoundTrips] = useState();
+    const [roundTrips, setRoundTrips] = useState<any>();
     const [user, setUser] = useState();
     const [showSecondWay, setShowSecondWay] = useState<any>();
     const [selectedFirstWay, setSelectedFirstWay] = useState();
-    const [widthOfChild, setWidthOfChild] = useState();
 
     useEffect(() => {
         setUser(JSON.parse(dataset.user));
     }, [dataset])
+
+    useEffect(() => {
+        setFlightsFrom(undefined);
+        setFlightsTo(undefined);
+        setRoundTrips(undefined)
+    }, [displayCarousel])
 
     let [width] = useWindowSize();
 
@@ -96,12 +102,15 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
         <>
             <BasicImpl id={"main"} user={user} setUser={setUser}>
                 <Carousel>
-                    <CarouselImageImpl currentSide={displayCarousel} setRoundTrips={setRoundTrips} setNo={setNo}
+                    <CarouselImageImpl setFlightsFrom={setFlightsFrom} setFlightsTo={setFlightsTo}
+                                       currentSide={displayCarousel} setRoundTrips={setRoundTrips} setNo={setNo}
                                        displayCarousel={"RIGHT" === displayCarousel || "RIGHT_ALT" === displayCarousel}
                                        setDisplayedSide={setDisplayCarousel}
                                        side={"RIGHT"}
                                        imgSource={require("../../public/images/carousel_round_trip.jpg")}/>
-                    <CarouselImageImpl currentSide={displayCarousel} setFlightsTo={setFlightsTo} setNo={setNo} setFlightsFrom={setFlightsFrom}
+                    <CarouselImageImpl currentSide={displayCarousel} setRoundTrips={setRoundTrips}
+                                       setFlightsTo={setFlightsTo} setNo={setNo}
+                                       setFlightsFrom={setFlightsFrom}
                                        displayCarousel={"LEFT" === displayCarousel}
                                        setDisplayedSide={setDisplayCarousel}
                                        side={"LEFT"} imgSource={require("../../public/images/carousel_plane.jpg")}/>
@@ -178,6 +187,17 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                         showSecondWay && flightsTo ?
                             <Paragraph>
                                 No flights were found. Please change your inputs.
+                            </Paragraph>
+                            : null
+                    }
+                    {roundTrips && roundTrips.length !== 0 ?
+                        roundTrips.map((roundTrip: any) => (
+                            <ResultItemFlightTrip price={roundTrips.price} distance={roundTrips.distance}
+                                                  places={roundTrips.places}/>))
+                        :
+                        roundTrips ?
+                            <Paragraph>
+                                No round trips were found. Please change your inputs.
                             </Paragraph>
                             : null
                     }

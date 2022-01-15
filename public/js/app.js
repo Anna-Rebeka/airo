@@ -4157,16 +4157,6 @@ var __importStar = this && this.__importStar || function (mod) {
   return result;
 };
 
-var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
-  if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-    if (ar || !(i in from)) {
-      if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-      ar[i] = from[i];
-    }
-  }
-  return to.concat(ar || Array.prototype.slice.call(from));
-};
-
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -4327,8 +4317,7 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     }
 
     axios_1["default"].get('roundtrips/' + from + '/' + dateFrom + '/' + dateTo + '/' + numberOfDestination + '/' + price + '/' + culture + '/' + relaxation + '/' + luxuryFlights + '/' + beachResort + '/' + history + '/' + social + '/' + adventure + '/' + premiumServices).then(function (res) {
-      console.log(res.data);
-      setRoundTrips(__spreadArray([], res.data, true));
+      setRoundTrips([res.data]);
     });
     var element = document.getElementById('tickets');
 
@@ -5646,6 +5635,36 @@ var Heading3 = function Heading3(_a) {
 
 exports.Heading3 = Heading3;
 var templateObject_1;
+
+/***/ }),
+
+/***/ "./resources/js/components/images.ts":
+/*!*******************************************!*\
+  !*** ./resources/js/components/images.ts ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.HISTORY = exports.CULTURE = exports.SOCIAL = exports.RELAX = exports.LUXURY = exports.CROWN = exports.BEACH = exports.ADVENTURE = exports.COMPANY = exports.FROM = exports.DISTANCE = exports.DESTINATION = exports.LEAVES = exports.ARRIVES = void 0;
+exports.ARRIVES = __webpack_require__(/*! ../../../public/images/flightTripItems/arrives.svg */ "./public/images/flightTripItems/arrives.svg");
+exports.LEAVES = __webpack_require__(/*! ../../../public/images/flightTripItems/leaves.svg */ "./public/images/flightTripItems/leaves.svg");
+exports.DESTINATION = __webpack_require__(/*! ../../../public/images/flightTripItems/destination.svg */ "./public/images/flightTripItems/destination.svg");
+exports.DISTANCE = __webpack_require__(/*! ../../../public/images/flightTripItems/distance.svg */ "./public/images/flightTripItems/distance.svg");
+exports.FROM = __webpack_require__(/*! ../../../public/images/flightTripItems/from.svg */ "./public/images/flightTripItems/from.svg");
+exports.COMPANY = __webpack_require__(/*! ../../../public/images/flightTripItems/destination.svg */ "./public/images/flightTripItems/destination.svg");
+exports.ADVENTURE = __webpack_require__(/*! ../../../public/images/preferences/adventure.png */ "./public/images/preferences/adventure.png");
+exports.BEACH = __webpack_require__(/*! ../../../public/images/preferences/beach.png */ "./public/images/preferences/beach.png");
+exports.CROWN = __webpack_require__(/*! ../../../public/images/preferences/crown.png */ "./public/images/preferences/crown.png");
+exports.LUXURY = __webpack_require__(/*! ../../../public/images/preferences/luxury.png */ "./public/images/preferences/luxury.png");
+exports.RELAX = __webpack_require__(/*! ../../../public/images/preferences/relax.png */ "./public/images/preferences/relax.png");
+exports.SOCIAL = __webpack_require__(/*! ../../../public/images/preferences/social.png */ "./public/images/preferences/social.png");
+exports.CULTURE = __webpack_require__(/*! ../../../public/images/preferences/culture.png */ "./public/images/preferences/culture.png");
+exports.HISTORY = __webpack_require__(/*! ../../../public/images/preferences/history.png */ "./public/images/preferences/history.png");
 
 /***/ }),
 
@@ -7867,6 +7886,132 @@ var templateObject_1, templateObject_2, templateObject_3;
 
 /***/ }),
 
+/***/ "./resources/js/components/result/FlightTripAttribute.tsx":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/result/FlightTripAttribute.tsx ***!
+  \****************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FlightTripAttribute = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var Attribute = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
+var AttributeIcon = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    margin: 0.3em;\n    width: 24px;\n    height: 24px;\n    background-color: transparent;\n"], ["\n    margin: 0.3em;\n    width: 24px;\n    height: 24px;\n    background-color: transparent;\n"])));
+var AttributeValue = styled_1["default"].span(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    color: white;\n    font-size: 0.7em;\n"], ["\n    color: white;\n    font-size: 0.7em;\n"])));
+
+var FlightTripAttribute = function FlightTripAttribute(_a) {
+  var icon = _a.icon,
+      label = _a.label;
+  return react_1["default"].createElement(Attribute, null, react_1["default"].createElement(AttributeIcon, {
+    src: icon["default"]
+  }), react_1["default"].createElement(AttributeValue, null, label));
+};
+
+exports.FlightTripAttribute = FlightTripAttribute;
+var templateObject_1, templateObject_2, templateObject_3;
+
+/***/ }),
+
+/***/ "./resources/js/components/result/FlightTripItem.tsx":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/result/FlightTripItem.tsx ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FlightTripItem = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var Heading3_1 = __webpack_require__(/*! ../heading/Heading3 */ "./resources/js/components/heading/Heading3.tsx");
+
+var FlightTripAttribute_1 = __webpack_require__(/*! ./FlightTripAttribute */ "./resources/js/components/result/FlightTripAttribute.tsx");
+
+var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/images.ts");
+
+var HashTagIcon = styled_1["default"].img(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 180px;\n    height: auto;\n    float: left;\n    margin-right: 15px;\n\n    @media (min-width: 772px) {\n        width: 200px;\n    };\n\n    @media (min-width: 1060px) {\n        width: 220px;\n    };\n\n    @media (min-width: 1280px) {\n        width: 240px;\n    };\n"], ["\n    width: 180px;\n    height: auto;\n    float: left;\n    margin-right: 15px;\n\n    @media (min-width: 772px) {\n        width: 200px;\n    };\n\n    @media (min-width: 1060px) {\n        width: 220px;\n    };\n\n    @media (min-width: 1280px) {\n        width: 240px;\n    };\n"])));
+var ElementTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"], ["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"])));
+var Element = styled_1["default"].li(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    color: white;\n    margin: 0;\n    list-style: none;\n"], ["\n    color: white;\n    margin: 0;\n    list-style: none;\n"])));
+var WrapperContentColDescription = styled_1["default"].li(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n\n    @media (min-width: 476px) {\n        width: 70%;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n\n    @media (min-width: 476px) {\n        width: 70%;\n    };\n"])));
+var WrapperDetails = styled_1["default"].ul(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"])));
+var Attribute = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
+var AttributeIcon = styled_1["default"].img(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    margin: 0.3em;\n    width: 24px;\n    height: 24px;\n    background-color: transparent;\n"], ["\n    margin: 0.3em;\n    width: 24px;\n    height: 24px;\n    background-color: transparent;\n"])));
+var AttributeValue = styled_1["default"].span(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    color: white;\n    font-size: 0.7em;\n"], ["\n    color: white;\n    font-size: 0.7em;\n"])));
+
+var FlightTripItem = function FlightTripItem(_a) {
+  var departure = _a.departure,
+      arrival = _a.arrival,
+      leaves = _a.leaves,
+      arrives = _a.arrives,
+      company = _a.company,
+      price = _a.price,
+      distance = _a.distance;
+  return react_1["default"].createElement(WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(Element, null, react_1["default"].createElement(ElementTitle, null, departure && departure.name)), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
+    icon: images_1.LEAVES,
+    label: leaves
+  })), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
+    icon: images_1.ARRIVES,
+    label: arrives
+  }))));
+};
+
+exports.FlightTripItem = FlightTripItem;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8;
+
+/***/ }),
+
 /***/ "./resources/js/components/result/ResultItem.tsx":
 /*!*******************************************************!*\
   !*** ./resources/js/components/result/ResultItem.tsx ***!
@@ -7897,7 +8042,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.FlightTripItem = void 0;
+exports.ResultItem = void 0;
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -7962,7 +8107,7 @@ var ResultItem = function ResultItem(_a) {
   }))));
 };
 
-exports.FlightTripItem = ResultItem;
+exports.ResultItem = ResultItem;
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8;
 
 /***/ }),
@@ -8040,6 +8185,77 @@ var ResultItemDetails = function ResultItemDetails(_a) {
 };
 
 exports.ResultItemDetails = ResultItemDetails;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8;
+
+/***/ }),
+
+/***/ "./resources/js/components/result/ResultItemFlightTrip.tsx":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/result/ResultItemFlightTrip.tsx ***!
+  \*****************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.ResultItemFlightTrip = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var Heading3_1 = __webpack_require__(/*! ../heading/Heading3 */ "./resources/js/components/heading/Heading3.tsx");
+
+var FlightTripItem_1 = __webpack_require__(/*! ./FlightTripItem */ "./resources/js/components/result/FlightTripItem.tsx");
+
+var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"])));
+var ResultImg = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 180px;\n    height: auto;\n    float: left;\n    margin-right: 15px;\n\n    @media (min-width: 772px) {\n        width: 200px;\n    };\n\n    @media (min-width: 1060px) {\n        width: 220px;\n    };\n\n    @media (min-width: 1280px) {\n        width: 240px;\n    };\n"], ["\n    width: 180px;\n    height: auto;\n    float: left;\n    margin-right: 15px;\n\n    @media (min-width: 772px) {\n        width: 200px;\n    };\n\n    @media (min-width: 1060px) {\n        width: 220px;\n    };\n\n    @media (min-width: 1280px) {\n        width: 240px;\n    };\n"])));
+var ElementTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"], ["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"])));
+var Element = styled_1["default"].li(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    color: white;\n    margin: 0;\n    list-style: none;\n"], ["\n    color: white;\n    margin: 0;\n    list-style: none;\n"])));
+var WrapperContentCol = styled_1["default"].li(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"])));
+var WrapperContentColDescription = styled_1["default"].li(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n\n    @media (min-width: 476px) {\n        width: 70%;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n\n    @media (min-width: 476px) {\n        width: 70%;\n    };\n"])));
+var RowWrapper = styled_1["default"].ul(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"])));
+var WrapperDetails = styled_1["default"].ul(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"])));
+
+var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
+  var places = _a.places,
+      price = _a.price,
+      distance = _a.distance;
+  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, react_1["default"].createElement(WrapperContentCol, null), places && places.map(function (place) {
+    return react_1["default"].createElement(FlightTripItem_1.FlightTripItem, {
+      arrives: place.arrives,
+      leaves: place.leaves,
+      distance: place.distance,
+      price: place.price,
+      arrival: place.arrival,
+      departure: place.departure,
+      company: place.company
+    });
+  }), react_1["default"].createElement(WrapperContentCol, null)));
+};
+
+exports.ResultItemFlightTrip = ResultItemFlightTrip;
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8;
 
 /***/ }),
@@ -8896,6 +9112,8 @@ var NavigationDownImpl_1 = __webpack_require__(/*! ./components/navigation/Navig
 
 var BasicUtils_1 = __importDefault(__webpack_require__(/*! ./BasicUtils */ "./resources/js/BasicUtils.tsx"));
 
+var ResultItemFlightTrip_1 = __webpack_require__(/*! ./components/result/ResultItemFlightTrip */ "./resources/js/components/result/ResultItemFlightTrip.tsx");
+
 var Carousel = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    width: 100%;\n    height: 960px;\n\n    @media (min-width: 476px) {\n        height: 1220px;\n    };\n\n    @media (min-width: 800px) {\n        height: 1320px;\n    };\n\n    @media (min-width: 1059px) {\n        height: 1620px;\n    };\n    position: relative;\n"], ["\n    width: 100%;\n    height: 960px;\n\n    @media (min-width: 476px) {\n        height: 1220px;\n    };\n\n    @media (min-width: 800px) {\n        height: 1320px;\n    };\n\n    @media (min-width: 1059px) {\n        height: 1620px;\n    };\n    position: relative;\n"])));
 var ListOfTickets = styled_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n\n    background-color: #000000;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n"], ["\n    display: flex;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n\n    background-color: #000000;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n"])));
 var Paragraph = styled_1["default"].p(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    margin: 2em;\n    font-size: 1.8em;\n    color: white;\n"], ["\n    margin: 2em;\n    font-size: 1.8em;\n    color: white;\n"])));
@@ -8984,19 +9202,22 @@ var Root = function Root(_a) {
       selectedFirstWay = _j[0],
       setSelectedFirstWay = _j[1];
 
-  var _k = (0, react_1.useState)(),
-      widthOfChild = _k[0],
-      setWidthOfChild = _k[1];
-
   (0, react_1.useEffect)(function () {
     setUser(JSON.parse(dataset.user));
   }, [dataset]);
+  (0, react_1.useEffect)(function () {
+    setFlightsFrom(undefined);
+    setFlightsTo(undefined);
+    setRoundTrips(undefined);
+  }, [displayCarousel]);
   var width = (0, BasicUtils_1["default"])()[0];
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(BasicImpl_1["default"], {
     id: "main",
     user: user,
     setUser: setUser
   }, react_1["default"].createElement(Carousel, null, react_1["default"].createElement(CarouselmgImpl_1.CarouselImageImpl, {
+    setFlightsFrom: setFlightsFrom,
+    setFlightsTo: setFlightsTo,
     currentSide: displayCarousel,
     setRoundTrips: setRoundTrips,
     setNo: setNo,
@@ -9006,6 +9227,7 @@ var Root = function Root(_a) {
     imgSource: __webpack_require__(/*! ../../public/images/carousel_round_trip.jpg */ "./public/images/carousel_round_trip.jpg")
   }), react_1["default"].createElement(CarouselmgImpl_1.CarouselImageImpl, {
     currentSide: displayCarousel,
+    setRoundTrips: setRoundTrips,
     setFlightsTo: setFlightsTo,
     setNo: setNo,
     setFlightsFrom: setFlightsFrom,
@@ -9067,7 +9289,13 @@ var Root = function Root(_a) {
       user: user,
       setUser: setUser
     });
-  })) : showSecondWay && flightsTo ? react_1["default"].createElement(Paragraph, null, "No flights were found. Please change your inputs.") : null)), width < 1060 ? react_1["default"].createElement(NavigationDownImpl_1.NavigationDownImpl, {
+  })) : showSecondWay && flightsTo ? react_1["default"].createElement(Paragraph, null, "No flights were found. Please change your inputs.") : null, roundTrips && roundTrips.length !== 0 ? roundTrips.map(function (roundTrip) {
+    return react_1["default"].createElement(ResultItemFlightTrip_1.ResultItemFlightTrip, {
+      price: roundTrips.price,
+      distance: roundTrips.distance,
+      places: roundTrips.places
+    });
+  }) : roundTrips ? react_1["default"].createElement(Paragraph, null, "No round trips were found. Please change your inputs.") : null)), width < 1060 ? react_1["default"].createElement(NavigationDownImpl_1.NavigationDownImpl, {
     displayCarousel: displayCarousel,
     setDisplayCarousel: setDisplayCarousel
   }) : null);
@@ -9351,6 +9579,66 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("/images/facebook.svg?d3466f327c8507bfe461ebd8804901c2");
+
+/***/ }),
+
+/***/ "./public/images/flightTripItems/arrives.svg":
+/*!***************************************************!*\
+  !*** ./public/images/flightTripItems/arrives.svg ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/arrives.svg?3472413b1a4ebe908b54a531d9056074");
+
+/***/ }),
+
+/***/ "./public/images/flightTripItems/destination.svg":
+/*!*******************************************************!*\
+  !*** ./public/images/flightTripItems/destination.svg ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/destination.svg?f5a0282e073c1839526a6984256e3d21");
+
+/***/ }),
+
+/***/ "./public/images/flightTripItems/distance.svg":
+/*!****************************************************!*\
+  !*** ./public/images/flightTripItems/distance.svg ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/distance.svg?d90a946718fdc7054ad145a5777247e0");
+
+/***/ }),
+
+/***/ "./public/images/flightTripItems/from.svg":
+/*!************************************************!*\
+  !*** ./public/images/flightTripItems/from.svg ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/from.svg?1955fac875fb61f229fd1b00919e0fb0");
+
+/***/ }),
+
+/***/ "./public/images/flightTripItems/leaves.svg":
+/*!**************************************************!*\
+  !*** ./public/images/flightTripItems/leaves.svg ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/leaves.svg?9eee707db5e9cf968547f3a027d3347a");
 
 /***/ }),
 
@@ -36099,7 +36387,7 @@ function injectIntoDevTools(devToolsConfig) {
     scheduleRoot:  scheduleRoot ,
     setRefreshHandler:  setRefreshHandler ,
     // Enables DevTools to append owner stacks to error messages in DEV mode.
-    getCurrentFiber:  getCurrentFiberForDevTools
+    getCurrentFiber:  getCurrentFiberForDevTools 
   });
 }
 
@@ -41033,7 +41321,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -41047,17 +41335,17 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	!function() {
@@ -41092,7 +41380,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return result;
 /******/ 		};
 /******/ 	}();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	!function() {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -41104,7 +41392,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return getter;
 /******/ 		};
 /******/ 	}();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
@@ -41116,12 +41404,12 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 		};
 /******/ 	}();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	!function() {
 /******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
 /******/ 	}();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	!function() {
 /******/ 		// define __esModule on exports
@@ -41132,11 +41420,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	}();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	!function() {
 /******/ 		// no baseURI
-/******/
+/******/ 		
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
@@ -41144,19 +41432,19 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0
 /******/ 		};
-/******/
+/******/ 		
 /******/ 		// no chunk on demand loading
-/******/
+/******/ 		
 /******/ 		// no prefetching
-/******/
+/******/ 		
 /******/ 		// no preloaded
-/******/
+/******/ 		
 /******/ 		// no HMR
-/******/
+/******/ 		
 /******/ 		// no HMR manifest
-/******/
+/******/ 		
 /******/ 		__webpack_require__.O.j = function(chunkId) { return installedChunks[chunkId] === 0; };
-/******/
+/******/ 		
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = function(parentChunkLoadingFunction, data) {
 /******/ 			var chunkIds = data[0];
@@ -41183,14 +41471,14 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
-/******/
+/******/ 		
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	}();
-/******/
+/******/ 	
 /************************************************************************/
-/******/
+/******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
@@ -41198,6 +41486,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	__webpack_require__.O(undefined, ["css/app"], function() { return __webpack_require__("./resources/js/app.tsx"); })
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], function() { return __webpack_require__("./resources/sass/app.scss"); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/
+/******/ 	
 /******/ })()
 ;

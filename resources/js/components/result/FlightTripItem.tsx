@@ -1,6 +1,8 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {Heading3} from "../heading/Heading3";
+import {FlightTripAttribute} from "./FlightTripAttribute";
+import {ARRIVES, LEAVES} from "../images";
 
 interface Props {
     departure: any;
@@ -60,6 +62,23 @@ let WrapperDetails = styled.ul`
     margin: 0.5em;
 `
 
+let Attribute = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
+let AttributeIcon = styled.img`
+    margin: 0.3em;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+`
+
+let AttributeValue = styled.span`
+    color: white;
+    font-size: 0.7em;
+`
+
 
 export const FlightTripItem: FunctionComponent<Props> = ({
                                                              departure,
@@ -74,11 +93,14 @@ export const FlightTripItem: FunctionComponent<Props> = ({
         <WrapperContentColDescription>
             <WrapperDetails>
                 <Element>
-                    <ElementTitle>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ElementTitle>
+                    <ElementTitle>{(departure && departure.name)}</ElementTitle>
                 </Element>
-                <Element>{"Departure time: " + leaves}</Element>
-                <Element>{"Estimated arrival time: " + arrives}</Element>
-                <Element>{"Flight company: " + company.companyName + "*".repeat(company.companyClass)}</Element>
+                <Element>
+                    <FlightTripAttribute icon={LEAVES} label={leaves}/>
+                </Element>
+                <Element>
+                    <FlightTripAttribute icon={ARRIVES} label={arrives}/>
+                </Element>
             </WrapperDetails>
         </WrapperContentColDescription>
 
