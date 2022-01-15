@@ -7,8 +7,7 @@ interface Props {
     arrival: any;
     leaves: any;
     arrives: any;
-    companyName: string;
-    companyClass: number;
+    company: any;
     price: number;
     distance: number;
 }
@@ -63,15 +62,14 @@ let WrapperDetails = styled.ul`
 
 
 export const FlightTripItem: FunctionComponent<Props> = ({
-                                                                   departure,
-                                                                   arrival,
-                                                                   leaves,
-                                                                   arrives,
-                                                                   companyName,
-                                                                   companyClass,
-                                                                   price,
-                                                                   distance
-                                                               }) => {
+                                                             departure,
+                                                             arrival,
+                                                             leaves,
+                                                             arrives,
+                                                             company,
+                                                             price,
+                                                             distance
+                                                         }) => {
     return (
         <WrapperContentColDescription>
             <WrapperDetails>
@@ -80,7 +78,7 @@ export const FlightTripItem: FunctionComponent<Props> = ({
                 </Element>
                 <Element>{"Departure time: " + leaves}</Element>
                 <Element>{"Estimated arrival time: " + arrives}</Element>
-                <Element>{"Flight company: " + companyName + "*".repeat(companyClass)}</Element>
+                <Element>{"Flight company: " + company.companyName + "*".repeat(company.companyClass)}</Element>
             </WrapperDetails>
         </WrapperContentColDescription>
 

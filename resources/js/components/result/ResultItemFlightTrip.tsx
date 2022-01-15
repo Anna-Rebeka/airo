@@ -112,7 +112,9 @@ export const ResultItemFlightTrip: FunctionComponent<Props> = ({
                 <WrapperContentCol>
                 </WrapperContentCol>
                 {places && places.map((place: any) => (
-                    <FlightTripItem >
+                    <FlightTripItem arrives={place.arrives} leaves={place.leaves} distance={place.distance}
+                                    price={place.price} arrival={place.arrival} departure={place.departure}
+                                    company={place.company}>
                     </FlightTripItem>
                 ))}
                 <WrapperContentCol>
