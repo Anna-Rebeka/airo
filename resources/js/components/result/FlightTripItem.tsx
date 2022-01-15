@@ -2,7 +2,8 @@ import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {Heading3} from "../heading/Heading3";
 import {FlightTripAttribute} from "./FlightTripAttribute";
-import {ARRIVES, COMPANY, DISTANCE, LEAVES, TIME} from "../images";
+import {ARRIVES, COMPANY, DESTINATION, DISTANCE, FROM, LEAVES, TIME} from "../images";
+import {FlightTripAttributeCityName} from "./FlightTripAttributeCityName";
 
 interface Props {
     departure: any;
@@ -53,7 +54,10 @@ export const FlightTripItem: FunctionComponent<Props> = ({
         <WrapperContentColDescription>
             <WrapperDetails>
                 <Element>
-                    <ElementTitle>{(departure && departure.name)}</ElementTitle>
+                    <FlightTripAttributeCityName icon={FROM} label={departure.name}/>
+                </Element>
+                <Element>
+                    <FlightTripAttributeCityName icon={DESTINATION} label={arrival.name}/>
                 </Element>
                 <Element>
                     <FlightTripAttribute icon={LEAVES} label={leaves}/>

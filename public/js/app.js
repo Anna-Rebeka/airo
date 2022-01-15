@@ -6321,6 +6321,173 @@ var templateObject_1, templateObject_2, templateObject_3, templateObject_4, temp
 
 /***/ }),
 
+/***/ "./resources/js/components/input/modular-form/ModularFormCheckoutImplRoundTrip.tsx":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/input/modular-form/ModularFormCheckoutImplRoundTrip.tsx ***!
+  \*****************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.ModularFormCheckoutImplRoundTrip = void 0;
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var ModularFormRoot_1 = __webpack_require__(/*! ./ModularFormRoot */ "./resources/js/components/input/modular-form/ModularFormRoot.tsx");
+
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var ModularButton_1 = __webpack_require__(/*! ./ModularButton */ "./resources/js/components/input/modular-form/ModularButton.tsx");
+
+var ModularFormInputElement_1 = __webpack_require__(/*! ./ModularFormInputElement */ "./resources/js/components/input/modular-form/ModularFormInputElement.tsx");
+
+var useValidators_1 = __webpack_require__(/*! ../../../hooks/useValidators */ "./resources/js/hooks/useValidators.tsx");
+
+var Text = styled_1["default"].p(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    color: white;\n    text-align: center;\n"], ["\n    color: white;\n    text-align: center;\n"])));
+var TextTitle = styled_1["default"].p(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: white;\n    text-align: center;\n    text-decoration: underline;\n    margin: 0.5em;\n"], ["\n    color: white;\n    text-align: center;\n    text-decoration: underline;\n    margin: 0.5em;\n"])));
+var FlexboxInputsCheckout = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0;\n    max-width: 70%;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0;\n    max-width: 70%;\n"])));
+var TextCheckout = styled_1["default"].li(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    color: white;\n    text-align: left;\n    margin: 0;\n    padding: 0;\n    list-style: none;\n"], ["\n    color: white;\n    text-align: left;\n    margin: 0;\n    padding: 0;\n    list-style: none;\n"])));
+var FlexboxInputs = styled_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n"])));
+var WrapperInput = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
+
+var ModularFormCheckoutImplRoundTrip = function ModularFormCheckoutImplRoundTrip(_a) {
+  var element = _a.element,
+      setDisplay = _a.setDisplay,
+      state = _a.state,
+      no = _a.no;
+
+  var _b = (0, react_1.useState)(false),
+      successfulBooking = _b[0],
+      setSuccessfulBooking = _b[1];
+
+  var _c = (0, react_1.useState)(""),
+      emailAddress = _c[0],
+      setEmailAddress = _c[1];
+
+  var _d = (0, react_1.useState)(false),
+      isWrongEmail = _d[0],
+      setIsWrongEmail = _d[1];
+
+  return react_1["default"].createElement(ModularFormRoot_1.ModularFormRoot, {
+    setDisplay: setDisplay,
+    title: successfulBooking ? "Ticket bought" : "Check your purchase"
+  }, !successfulBooking ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Text, null, "You are about to buy your selected ticket. Please check details below about the ticket."), react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(FlexboxInputsCheckout, null, react_1["default"].createElement(TextTitle, null, "Round trip ticket"), react_1["default"].createElement(TextCheckout, null, "Departure and arrival city: ", (element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name), " "), react_1["default"].createElement(TextCheckout, null, "Date and time of departure: ", element && element.leaves), react_1["default"].createElement(TextCheckout, null, "Date and time of arrival: ", element && element.arrives), react_1["default"].createElement(TextCheckout, null, "Price: ", element ? element.price * no + " € " + (no > 1 ? "(" + element.price + "€/each)" : "") : ""), react_1["default"].createElement(TextCheckout, null, "Number of persons: ", no), react_1["default"].createElement(TextCheckout, null, "Company: ", element && element.company && element.company.name + "*".repeat(element && element.company && element.company["class"])), react_1["default"].createElement(TextCheckout, null, "Duration and distance: ", element && element.duration + "mins " + element && element.distance + "km"))), react_1["default"].createElement(Text, null, "Do you want to book?"), state === "CHECKOUT_NOT_REGISTERED" ? react_1["default"].createElement(ModularFormInputElement_1.ModularFormInputElement, {
+    isWrongFromParent: isWrongEmail,
+    setIsWrongParentMethod: setIsWrongEmail,
+    validatorMethodIsValid: useValidators_1.ValidateEmail,
+    errorMessage: "Email address is not in a correct format.",
+    type: "text",
+    id: "emailAddressRegisterInput",
+    name: "emailAddress",
+    placeholder: "Email address",
+    value: emailAddress,
+    setOnChangeValueMethod: setEmailAddress
+  }) : null, react_1["default"].createElement(FlexboxInputs, null, react_1["default"].createElement(ModularButton_1.ModularButton, {
+    text: "Cancel",
+    type: "submit",
+    id: "cancel input",
+    name: "cancel checkout button",
+    value: "cancel checkout",
+    setOnClickValueMethod: function setOnClickValueMethod() {
+      setDisplay(false);
+    }
+  }), react_1["default"].createElement(ModularButton_1.ModularButton, {
+    text: "Book",
+    type: "submit",
+    id: "book",
+    name: "book checkout button",
+    value: "book checkout",
+    setOnClickValueMethod: function setOnClickValueMethod() {
+      if (state !== "LOGGED" && (!emailAddress || emailAddress === "")) {
+        setIsWrongEmail(true);
+        return;
+      }
+
+      if (!isWrongEmail || state === "LOGGED") {
+        axios_1["default"].post('/ticket', {
+          flight_id: element.id,
+          no: no,
+          email: emailAddress
+        }).then(function (res) {
+          setSuccessfulBooking(true);
+        });
+      }
+    }
+  }))) : react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Text, null, "Your ticket was successfully bought. Thank you for your purchase!"), react_1["default"].createElement(ModularButton_1.ModularButton, {
+    text: "Home",
+    type: "submit",
+    id: "backToHomeSuccessfulBook",
+    name: "backToHomeSuccessfulBookName",
+    value: "backToHomeSuccessfulBookValue",
+    setOnClickValueMethod: function setOnClickValueMethod() {
+      return window.location.href = "/";
+    }
+  })));
+};
+
+exports.ModularFormCheckoutImplRoundTrip = ModularFormCheckoutImplRoundTrip;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
+
+/***/ }),
+
 /***/ "./resources/js/components/input/modular-form/ModularFormCityDetails.tsx":
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/input/modular-form/ModularFormCityDetails.tsx ***!
@@ -6588,6 +6755,127 @@ var ModularFormForBooking = function ModularFormForBooking(_a) {
 
 exports.ModularFormForBooking = ModularFormForBooking;
 exports["default"] = exports.ModularFormForBooking;
+
+/***/ }),
+
+/***/ "./resources/js/components/input/modular-form/ModularFormForBookingRoundTrip.tsx":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/input/modular-form/ModularFormForBookingRoundTrip.tsx ***!
+  \***************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.ModularFormForBookingRoundTrip = void 0;
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var ModularFormRegisterImpl_1 = __webpack_require__(/*! ./ModularFormRegisterImpl */ "./resources/js/components/input/modular-form/ModularFormRegisterImpl.tsx");
+
+var ModularFormLoginImpl_1 = __webpack_require__(/*! ./ModularFormLoginImpl */ "./resources/js/components/input/modular-form/ModularFormLoginImpl.tsx");
+
+var ModularButton_1 = __webpack_require__(/*! ./ModularButton */ "./resources/js/components/input/modular-form/ModularButton.tsx");
+
+var ModularFormCheckoutImplRoundTrip_1 = __webpack_require__(/*! ./ModularFormCheckoutImplRoundTrip */ "./resources/js/components/input/modular-form/ModularFormCheckoutImplRoundTrip.tsx");
+
+var ModularFormForBookingRoundTrip = function ModularFormForBookingRoundTrip(_a) {
+  var setUser = _a.setUser,
+      shouldBeActivated = _a.shouldBeActivated,
+      user = _a.user,
+      withActivationButton = _a.withActivationButton,
+      no = _a.no,
+      flights = _a.flights,
+      price = _a.price,
+      distance = _a.distance;
+
+  var _b = (0, react_1.useState)(shouldBeActivated),
+      display = _b[0],
+      setDisplay = _b[1];
+
+  var _c = (0, react_1.useState)(user ? "LOGGED" : "REGISTER"),
+      state = _c[0],
+      setState = _c[1];
+
+  return react_1["default"].createElement(react_1["default"].Fragment, null, display ? !user && state === "REGISTER" ? react_1["default"].createElement(ModularFormRegisterImpl_1.ModularFormRegisterImpl, {
+    bookingWithoutRegistration: true,
+    setState: setState,
+    displayForm: display,
+    setDisplay: setDisplay
+  }) : state === "CHECKOUT" || state === "LOGGED" || state === "CHECKOUT_NOT_REGISTERED" ? react_1["default"].createElement(ModularFormCheckoutImplRoundTrip_1.ModularFormCheckoutImplRoundTrip, {
+    state: state,
+    no: no,
+    user: user,
+    displayForm: display,
+    setDisplay: setDisplay,
+    element: {
+      flights: flights,
+      distance: distance,
+      price: price
+    },
+    setState: setState
+  }) : state === "LOGIN" ? react_1["default"].createElement(ModularFormLoginImpl_1.ModularFormLoginImpl, {
+    bookingWithoutRegistration: true,
+    setUser: setUser,
+    setState: setState,
+    setDisplay: setDisplay
+  }) : null : null, withActivationButton ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(ModularButton_1.ModularButton, {
+    type: "submit",
+    name: "book",
+    value: "book",
+    text: "Book",
+    id: "bookATicket",
+    setOnClickValueMethod: function setOnClickValueMethod() {
+      if (user) {
+        setState("LOGGED");
+      } else {
+        setState("REGISTER");
+      }
+
+      setDisplay(true);
+    }
+  })) : null);
+};
+
+exports.ModularFormForBookingRoundTrip = ModularFormForBookingRoundTrip;
+exports["default"] = exports.ModularFormForBookingRoundTrip;
 
 /***/ }),
 
@@ -7941,6 +8229,59 @@ var templateObject_1, templateObject_2, templateObject_3;
 
 /***/ }),
 
+/***/ "./resources/js/components/result/FlightTripAttributeCityName.tsx":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/result/FlightTripAttributeCityName.tsx ***!
+  \************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FlightTripAttributeCityName = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var Attribute = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"])));
+var AttributeIcon = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    margin: 0.3em;\n    width: 28px;\n    height: 28px;\n    background-color: transparent;\n"], ["\n    margin: 0.3em;\n    width: 28px;\n    height: 28px;\n    background-color: transparent;\n"])));
+var AttributeValue = styled_1["default"].span(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    color: white;\n    font-size: 1.2em;\n    font-weight: bold;\n    text-decoration: underline;\n"], ["\n    color: white;\n    font-size: 1.2em;\n    font-weight: bold;\n    text-decoration: underline;\n"])));
+
+var FlightTripAttributeCityName = function FlightTripAttributeCityName(_a) {
+  var icon = _a.icon,
+      label = _a.label;
+  return react_1["default"].createElement(Attribute, null, react_1["default"].createElement(AttributeIcon, {
+    src: icon["default"]
+  }), react_1["default"].createElement(AttributeValue, null, label));
+};
+
+exports.FlightTripAttributeCityName = FlightTripAttributeCityName;
+var templateObject_1, templateObject_2, templateObject_3;
+
+/***/ }),
+
 /***/ "./resources/js/components/result/FlightTripItem.tsx":
 /*!***********************************************************!*\
   !*** ./resources/js/components/result/FlightTripItem.tsx ***!
@@ -7983,6 +8324,8 @@ var FlightTripAttribute_1 = __webpack_require__(/*! ./FlightTripAttribute */ "./
 
 var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/images.ts");
 
+var FlightTripAttributeCityName_1 = __webpack_require__(/*! ./FlightTripAttributeCityName */ "./resources/js/components/result/FlightTripAttributeCityName.tsx");
+
 var ElementTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"], ["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"])));
 var Element = styled_1["default"].li(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: white;\n    margin: 0;\n    list-style: none;\n"], ["\n    color: white;\n    margin: 0;\n    list-style: none;\n"])));
 var WrapperContentColDescription = styled_1["default"].li(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n"])));
@@ -7996,7 +8339,13 @@ var FlightTripItem = function FlightTripItem(_a) {
       company = _a.company,
       time = _a.time,
       distance = _a.distance;
-  return react_1["default"].createElement(WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(Element, null, react_1["default"].createElement(ElementTitle, null, departure && departure.name)), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
+  return react_1["default"].createElement(WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttributeCityName_1.FlightTripAttributeCityName, {
+    icon: images_1.FROM,
+    label: departure.name
+  })), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttributeCityName_1.FlightTripAttributeCityName, {
+    icon: images_1.DESTINATION,
+    label: arrival.name
+  })), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
     icon: images_1.LEAVES,
     label: leaves
   })), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
@@ -8234,6 +8583,8 @@ var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./nod
 
 var FlightTripItem_1 = __webpack_require__(/*! ./FlightTripItem */ "./resources/js/components/result/FlightTripItem.tsx");
 
+var ModularFormForBookingRoundTrip_1 = __importDefault(__webpack_require__(/*! ../input/modular-form/ModularFormForBookingRoundTrip */ "./resources/js/components/input/modular-form/ModularFormForBookingRoundTrip.tsx"));
+
 var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"])));
 var RowItem = styled_1["default"].li(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    list-style: none;\n    display: flex;\n    flex-direction: row;\n"], ["\n    list-style: none;\n    display: flex;\n    flex-direction: row;\n"])));
 var RowWrapper = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"])));
@@ -8241,8 +8592,10 @@ var RowWrapper = styled_1["default"].ul(templateObject_3 || (templateObject_3 = 
 var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
   var flights = _a.flights,
       price = _a.price,
-      distance = _a.distance;
-  console.log("place", flights);
+      distance = _a.distance,
+      no = _a.no,
+      user = _a.user,
+      setUser = _a.setUser;
   return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, react_1["default"].createElement(RowItem, null, flights && flights.map(function (place) {
     return react_1["default"].createElement(FlightTripItem_1.FlightTripItem, {
       time: place.duration,
@@ -8254,6 +8607,14 @@ var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
       departure: place.departure,
       company: place.company
     });
+  }), react_1["default"].createElement(ModularFormForBookingRoundTrip_1["default"], {
+    flights: flights,
+    price: price,
+    distance: distance,
+    no: no,
+    withActivationButton: true,
+    user: user,
+    setUser: setUser
   }))));
 };
 
@@ -9617,7 +9978,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/destination.svg?f5a0282e073c1839526a6984256e3d21");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/destination.svg?7a6b2dddbc5cdc4d0fecd9692efd4caa");
 
 /***/ }),
 

@@ -1,11 +1,15 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {FlightTripItem} from "./FlightTripItem";
+import ModularFormForBookingRoundTrip from "../input/modular-form/ModularFormForBookingRoundTrip";
 
 interface Props {
     price: number;
     distance: number;
     flights: any;
+    no: number;
+    user: any;
+    setUser: any;
 }
 
 let ResultWrapper = styled.article`
@@ -54,19 +58,30 @@ let RowWrapper = styled.ul`
 export const ResultItemFlightTrip: FunctionComponent<Props> = ({
                                                                    flights,
                                                                    price,
-                                                                   distance
+                                                                   distance,
+                                                                   no,
+                                                                   user,
+                                                                   setUser
                                                                }) => {
-    console.log("place", flights);
     return (
         <ResultWrapper>
             <RowWrapper>
                 <RowItem>
                     {flights && flights.map((place: any) => (
-                        <FlightTripItem time={place.duration} arrives={place.arrives} leaves={place.leaves} distance={place.distance}
+                        <FlightTripItem time={place.duration} arrives={place.arrives} leaves={place.leaves}
+                                        distance={place.distance}
                                         price={place.price} arrival={place.arrival} departure={place.departure}
                                         company={place.company}>
                         </FlightTripItem>
                     ))}
+                    <ModularFormForBookingRoundTrip flights={flights}
+                                                    price={price}
+                                                    distance={distance}
+                                                    no={no}
+                                                    withActivationButton={true}
+                                                    user={user}
+                                                    setUser={setUser}
+                    />
                 </RowItem>
             </RowWrapper>
         </ResultWrapper>
