@@ -26,9 +26,12 @@ class TicketController extends Controller
             $flight->ticket_id = $ticket->id;
         }
 
+        $roundtrips = $this->getRoundtripsRegistered();
+
         return view('flights.index', [
             'user' => auth()->user(),
-            'tickets' => $tickets
+            'tickets' => $tickets,
+            'roundtrips' => $roundtrips
         ]);
     }
 
@@ -77,9 +80,6 @@ class TicketController extends Controller
 
 
     public function getRoundtripsRegistered(){
-        if(!auth()->user()){
-            return redirect('/');
-        }
         $tickets = auth()->user()->tickets()->where('roundtrip_code', '!=' , NULL)->orderBy('roundtrip_code')->get();
 
         $code = NULL;
@@ -100,7 +100,7 @@ class TicketController extends Controller
             array_push($tmp, $ticket);
         }
 
-        return json_encode($result);
+        return $result;
     }
 
 
@@ -140,7 +140,7 @@ class TicketController extends Controller
 
             array_push($result, $ticket);
         }
-        
+
         return json_encode($result);
     }
 
