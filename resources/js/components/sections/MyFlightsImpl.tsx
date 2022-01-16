@@ -4,6 +4,7 @@ import ResultItemTickets from "../result/ResultItemTickets";
 import BasicImpl from "./BasicImpl";
 import {Heading1} from "../heading/Heading1";
 import {Heading2} from "../heading/Heading2";
+import {ResultItemFlightTripMyFlights} from "../result/ResultItemFlightTripMyFlights";
 
 interface Props {
     dataset: any;
@@ -27,10 +28,12 @@ export const MyFlightsImpl: FunctionComponent<Props> = ({
                                                         }) => {
     const [user, setUser] = useState<any>();
     const [flights, setFlights] = useState<any>();
+    const [roundTrips, setRoundTrips] = useState<any>();
 
     useEffect(() => {
         setUser(JSON.parse(dataset.user));
         setFlights(JSON.parse(dataset.flights));
+        setRoundTrips(JSON.parse(dataset.roundTrips));
     }, [dataset])
 
     return (
@@ -39,15 +42,31 @@ export const MyFlightsImpl: FunctionComponent<Props> = ({
                 <Heading1>Your tickets</Heading1>
                 <Heading2>Welcome {user && user.first_name} {user && user.last_name}</Heading2>
 
-                {flights && Object.keys(flights).length > 0 ?
-                    flights.map((element: any, index: number) => (
-                        <ResultItemTickets key={"result-item-tickets-" + index}
-                                           element={element && element.flight}
-                        />)) :
+
+                {(!flights || Object.keys(flights).length === 0) && (!roundTrips || Object.keys(roundTrips).length === 0) ?
                     <Paragraph>
                         You don't have any flights or round trip tickets.
-                    </Paragraph>
+                    </Paragraph> :
+                    null
+                }
 
+                {flights && Object.keys(flights).length > 0 ?
+                    flights.map((flightTicket: any, index: number) => (
+                        <ResultItemTickets key={"result-item-flight-ticket-" + index}
+                                           element={flightTicket && flightTicket.flight}
+                        />)) :
+                    null
+                }
+
+                {roundTrips && Object.keys(roundTrips).length > 0 ?
+                    roundTrips.map((roundTripTicket: any, index: number) => (
+                        <ResultItemFlightTripMyFlights key={"result-item-round-trip-ticket-" + index}
+                                                       flights={roundTripTicket.flights}
+                                                       no={roundTripTicket.no}
+                                                       totalPrice={roundTripTicket.totalPrice}
+                                                       totalDistance={roundTripTicket.totalDistance}
+                        />)) :
+                    null
                 }
             </Wrapper>
         </BasicImpl>

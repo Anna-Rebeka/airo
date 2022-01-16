@@ -124,8 +124,7 @@ export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
                                     }
                                 );
 
-                                console.log(array);
-                                axios.post('/roundticket', array).then((res) => {
+                                axios.post('/roundticket', {ids: array, no: no}).then((res) => {
                                     setSuccessfulBooking(true);
                                 })
                             }

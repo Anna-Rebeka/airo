@@ -244,12 +244,12 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
         )
             .then(res => {
                 console.log([res.data]);
-                setRoundTrips([res.data]);
+                setRoundTrips(res.data);
             })
 
             .catch(() => {
-                setRoundTrips(TestingRoundTrip);
                 console.log(TestingRoundTrip);
+                setRoundTrips(TestingRoundTrip);
             })
 
         let element = document.getElementById('tickets');

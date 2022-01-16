@@ -1,16 +1,15 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {FlightTripItem, WrapperContentColDescription} from "./FlightTripItem";
-import ModularFormForBookingRoundTrip from "../input/modular-form/ModularFormForBookingRoundTrip";
 import {useRoundNumber} from "../../BasicUtils";
+import {ModularButton} from "../input/modular-form/ModularButton";
+import axios from "axios";
 
 interface Props {
     totalPrice: number;
     totalDistance: number;
     flights: any;
     no: number;
-    user: any;
-    setUser: any;
 }
 
 let ResultWrapper = styled.article`
@@ -44,14 +43,12 @@ let WrapperButton = styled(WrapperContentColDescription)`
     align-self: flex-start;
 `
 
-export const ResultItemFlightTrip: FunctionComponent<Props> = ({
-                                                                   flights,
-                                                                   totalPrice,
-                                                                   totalDistance,
-                                                                   no,
-                                                                   user,
-                                                                   setUser
-                                                               }) => {
+export const ResultItemFlightTripMyFlights: FunctionComponent<Props> = ({
+                                                                            flights,
+                                                                            totalPrice,
+                                                                            totalDistance,
+                                                                            no
+                                                                        }) => {
     return (
         <ResultWrapper>
             <RowWrapper>
@@ -65,17 +62,21 @@ export const ResultItemFlightTrip: FunctionComponent<Props> = ({
                                     company={place.company}>
                     </FlightTripItem>
                 ))}
-                <WrapperButton>
-                    <ModularFormForBookingRoundTrip flights={flights}
-                                                    totalPrice={totalPrice}
-                                                    totalDistance={totalDistance}
-                                                    no={no}
-                                                    withActivationButton={true}
-                                                    user={user}
-                                                    setUser={setUser}
-                    />
-                </WrapperButton>
             </RowWrapper>
+            <ModularButton type={"submit"} name={"cancel"} value={"cancel"}
+                           text={"Cancel"} id="cancelTicket"
+                           setOnClickValueMethod={() => {
+                               let array: any = [];
+
+                               flights.map((place: any) => {
+                                       array.push(place.id);
+                                   }
+                               );
+                               axios.delete('/roundticket/' + {ids: [array], no: no}).then((response) => {
+                                   window.location.href = "/myflights";
+                               });
+
+                           }}/>
         </ResultWrapper>
     );
 }

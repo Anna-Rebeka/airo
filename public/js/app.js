@@ -4473,10 +4473,10 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
 
     axios_1["default"].get('roundtrips/' + from + '/' + dateFrom + '/' + dateTo + '/' + numberOfDestination + '/' + price + '/' + culture + '/' + relaxation + '/' + luxuryFlights + '/' + beachResort + '/' + history + '/' + social + '/' + adventure + '/' + premiumServices).then(function (res) {
       console.log([res.data]);
-      setRoundTrips([res.data]);
+      setRoundTrips(res.data);
     })["catch"](function () {
-      setRoundTrips(TestingRoundTrip_1.TestingRoundTrip);
       console.log(TestingRoundTrip_1.TestingRoundTrip);
+      setRoundTrips(TestingRoundTrip_1.TestingRoundTrip);
     });
     var element = document.getElementById('tickets');
 
@@ -6646,8 +6646,10 @@ var ModularFormCheckoutImplRoundTrip = function ModularFormCheckoutImplRoundTrip
         roundTrip.flights && roundTrip.flights.map(function (place) {
           array_1.push(place.id);
         });
-        console.log(array_1);
-        axios_1["default"].post('/roundticket', array_1).then(function (res) {
+        axios_1["default"].post('/roundticket', {
+          ids: array_1,
+          no: no
+        }).then(function (res) {
           setSuccessfulBooking(true);
         });
       }
@@ -8959,7 +8961,6 @@ var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
       no = _a.no,
       user = _a.user,
       setUser = _a.setUser;
-  console.log(flights);
   return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, flights && flights.map(function (place, index) {
     return react_1["default"].createElement(FlightTripItem_1.FlightTripItem, {
       key: "flight-trip-item-" + index,
@@ -8984,6 +8985,97 @@ var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
 };
 
 exports.ResultItemFlightTrip = ResultItemFlightTrip;
+var templateObject_1, templateObject_2, templateObject_3;
+
+/***/ }),
+
+/***/ "./resources/js/components/result/ResultItemFlightTripMyFlights.tsx":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/result/ResultItemFlightTripMyFlights.tsx ***!
+  \**************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.ResultItemFlightTripMyFlights = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var FlightTripItem_1 = __webpack_require__(/*! ./FlightTripItem */ "./resources/js/components/result/FlightTripItem.tsx");
+
+var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
+
+var ModularButton_1 = __webpack_require__(/*! ../input/modular-form/ModularButton */ "./resources/js/components/input/modular-form/ModularButton.tsx");
+
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+
+var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"])));
+var RowWrapper = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"], ["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"])));
+var WrapperButton = (0, styled_1["default"])(FlightTripItem_1.WrapperContentColDescription)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    align-self: flex-start;\n"], ["\n    align-self: flex-start;\n"])));
+
+var ResultItemFlightTripMyFlights = function ResultItemFlightTripMyFlights(_a) {
+  var flights = _a.flights,
+      totalPrice = _a.totalPrice,
+      totalDistance = _a.totalDistance,
+      no = _a.no;
+  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, flights && flights.map(function (place, index) {
+    return react_1["default"].createElement(FlightTripItem_1.FlightTripItem, {
+      key: "flight-trip-item-" + index,
+      time: (0, BasicUtils_1.useRoundNumber)(place.duration),
+      arrives: place.arrives,
+      leaves: place.leaves,
+      distance: (0, BasicUtils_1.useRoundNumber)(place.distance),
+      price: (0, BasicUtils_1.useRoundNumber)(place.price),
+      arrival: place.arrival,
+      departure: place.departure,
+      company: place.company
+    });
+  })), react_1["default"].createElement(ModularButton_1.ModularButton, {
+    type: "submit",
+    name: "cancel",
+    value: "cancel",
+    text: "Cancel",
+    id: "cancelTicket",
+    setOnClickValueMethod: function setOnClickValueMethod() {
+      var array = [];
+      flights.map(function (place) {
+        array.push(place.id);
+      });
+      axios_1["default"]["delete"]('/roundticket/' + {
+        ids: [array],
+        no: no
+      }).then(function (response) {
+        window.location.href = "/myflights";
+      });
+    }
+  }));
+};
+
+exports.ResultItemFlightTripMyFlights = ResultItemFlightTripMyFlights;
 var templateObject_1, templateObject_2, templateObject_3;
 
 /***/ }),
@@ -9458,6 +9550,8 @@ var Heading1_1 = __webpack_require__(/*! ../heading/Heading1 */ "./resources/js/
 
 var Heading2_1 = __webpack_require__(/*! ../heading/Heading2 */ "./resources/js/components/heading/Heading2.tsx");
 
+var ResultItemFlightTripMyFlights_1 = __webpack_require__(/*! ../result/ResultItemFlightTripMyFlights */ "./resources/js/components/result/ResultItemFlightTripMyFlights.tsx");
+
 var Paragraph = styled_1["default"].p(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    color: white;\n"], ["\n    color: white;\n"])));
 var Wrapper = styled_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 100%;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n    min-height: 100vh;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n"], ["\n    width: 100%;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n    min-height: 100vh;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n"])));
 
@@ -9472,20 +9566,33 @@ var MyFlightsImpl = function MyFlightsImpl(_a) {
       flights = _c[0],
       setFlights = _c[1];
 
+  var _d = (0, react_1.useState)(),
+      roundTrips = _d[0],
+      setRoundTrips = _d[1];
+
   (0, react_1.useEffect)(function () {
     setUser(JSON.parse(dataset.user));
     setFlights(JSON.parse(dataset.flights));
+    setRoundTrips(JSON.parse(dataset.roundTrips));
   }, [dataset]);
   return react_1["default"].createElement(BasicImpl_1["default"], {
     user: user,
     setUser: setUser,
     id: "myflights"
-  }, react_1["default"].createElement(Wrapper, null, react_1["default"].createElement(Heading1_1.Heading1, null, "Your tickets"), react_1["default"].createElement(Heading2_1.Heading2, null, "Welcome ", user && user.first_name, " ", user && user.last_name), flights && Object.keys(flights).length > 0 ? flights.map(function (element, index) {
+  }, react_1["default"].createElement(Wrapper, null, react_1["default"].createElement(Heading1_1.Heading1, null, "Your tickets"), react_1["default"].createElement(Heading2_1.Heading2, null, "Welcome ", user && user.first_name, " ", user && user.last_name), (!flights || Object.keys(flights).length === 0) && (!roundTrips || Object.keys(roundTrips).length === 0) ? react_1["default"].createElement(Paragraph, null, "You don't have any flights or round trip tickets.") : null, flights && Object.keys(flights).length > 0 ? flights.map(function (flightTicket, index) {
     return react_1["default"].createElement(ResultItemTickets_1["default"], {
-      key: "result-item-tickets-" + index,
-      element: element && element.flight
+      key: "result-item-flight-ticket-" + index,
+      element: flightTicket && flightTicket.flight
     });
-  }) : react_1["default"].createElement(Paragraph, null, "You don't have any flights or round trip tickets.")));
+  }) : null, roundTrips && Object.keys(roundTrips).length > 0 ? roundTrips.map(function (roundTripTicket, index) {
+    return react_1["default"].createElement(ResultItemFlightTripMyFlights_1.ResultItemFlightTripMyFlights, {
+      key: "result-item-round-trip-ticket-" + index,
+      flights: roundTripTicket.flights,
+      no: roundTripTicket.no,
+      totalPrice: roundTripTicket.totalPrice,
+      totalDistance: roundTripTicket.totalDistance
+    });
+  }) : null));
 };
 
 exports.MyFlightsImpl = MyFlightsImpl;
@@ -42081,7 +42188,7 @@ function combine (array, callback) {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Rebeka\\\\skola\\\\WEB\\\\airo"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\Rebeka\\\\skola\\\\WEB\\\\airo","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 
