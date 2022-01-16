@@ -6,6 +6,7 @@ export const DISTANCE = require("../../../public/images/flightTripItems/distance
 export const FROM = require("../../../public/images/flightTripItems/from.svg");
 export const COMPANY = require("../../../public/images/flightTripItems/company.svg");
 export const TIME = require("../../../public/images/flightTripItems/time.svg");
+export const PERSONS = require("../../../public/images/flightTripItems/persons.svg");
 export const ADVENTURE = require("../../../public/images/preferences/adventure.png");
 export const BEACH = require("../../../public/images/preferences/beach.png");
 export const CROWN = require("../../../public/images/preferences/crown.png");
