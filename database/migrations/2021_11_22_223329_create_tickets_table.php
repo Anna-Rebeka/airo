@@ -17,7 +17,7 @@ class CreateTicketsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('flight_id')->nullable();
-            $table->string('roundtrip_code')->unique()->nullable();
+            $table->string('roundtrip_code')->nullable();
             $table->integer('no');
             $table->string('token')->nullable();
             $table->timestamps();

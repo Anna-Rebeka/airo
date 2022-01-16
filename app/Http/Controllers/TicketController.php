@@ -107,8 +107,8 @@ class TicketController extends Controller
     public function storeRoundtrip(Request $fields)
     {
 
-        $ids = $fields['id'];
-        $nos = $fields['no'];
+        $ids = $fields['ids'];
+        $no = $fields['no'];
 
         $result = [];
         $roundtrip_code = null;
@@ -132,9 +132,9 @@ class TicketController extends Controller
         for($i = 0; $i < count($ids); $i++) {
             $ticket = Ticket::create([
                 'user_id' => $user_id,
-                'flight_id' => $flight_id,
+                'flight_id' => $ids[$i],
                 'roundtrip_code' => $roundtrip_code,
-                'no' => $nos[$i],
+                'no' => $no,
                 'token' => $token,
             ]);
 
