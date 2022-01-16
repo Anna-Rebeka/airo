@@ -27,6 +27,14 @@ class DatabaseSeeder extends Seeder
             FlightSeeder::class
         ]);
 
+        $this->call([
+            FlightSeeder::class
+        ]);
+
+        $this->call([
+            FlightSeeder::class
+        ]);
+
         $path4 = 'database/small_fixes.sql';
         DB::unprepared(file_get_contents($path4));
 
