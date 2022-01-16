@@ -5,7 +5,6 @@ import ModularFormForBookingRoundTrip from "../input/modular-form/ModularFormFor
 import {useRoundNumber} from "../../BasicUtils";
 import {RoundTripAttribute} from "./RoundTripAttribute";
 import {DISTANCE, MONEY, PERSONS} from "../images";
-import {Heading2} from "../heading/Heading2";
 import {Heading3} from "../heading/Heading3";
 
 interface Props {
@@ -45,7 +44,7 @@ let RowWrapper = styled.ul`
     }
 `
 
-let ColWrapper = styled(RowWrapper)`
+export const ColWrapper = styled(RowWrapper)`
     flex-direction: column;
 `
 
@@ -53,7 +52,7 @@ let WrapperButton = styled(WrapperContentColDescription)`
     align-self: flex-start;
 `
 
-let HeadTitle = styled(Heading3)`
+export const HeadTitle = styled(Heading3)`
     margin: 0;
 
 `
@@ -75,7 +74,7 @@ export const ResultItemRoundTrip: FunctionComponent<Props> = ({
                                    arrives={place.arrives}
                                    leaves={place.leaves}
                                    distance={useRoundNumber(place.distance)}
-                                   price={useRoundNumber(place.price)} arrival={place.arrival}
+                                   arrival={place.arrival}
                                    departure={place.departure}
                                    company={place.company}>
                     </RoundTripItem>
@@ -84,7 +83,8 @@ export const ResultItemRoundTrip: FunctionComponent<Props> = ({
                     <HeadTitle>Total</HeadTitle>
                     <RoundTripAttribute icon={DISTANCE} label={useRoundNumber(totalDistance) + " km"}/>
                     <RoundTripAttribute icon={PERSONS} label={no}/>
-                    <RoundTripAttribute icon={MONEY} label={useRoundNumber(totalPrice * no) + " € (" + useRoundNumber(totalPrice) + "€/person)"}/>
+                    <RoundTripAttribute icon={MONEY}
+                                        label={useRoundNumber(totalPrice * no) + " € (" + useRoundNumber(totalPrice) + "€/person)"}/>
                 </ColWrapper>
                 <WrapperButton>
                     <ModularFormForBookingRoundTrip flights={flights}
