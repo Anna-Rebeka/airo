@@ -7883,8 +7883,7 @@ var NavDownImg = styled_1["default"].img(templateObject_3 || (templateObject_3 =
 var NavDownParagraph = styled_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    margin: 0.4em 0;\n"], ["\n    margin: 0.4em 0;\n"])));
 
 var NavigationDownImpl = function NavigationDownImpl(_a) {
-  var displayCarousel = _a.displayCarousel,
-      setDisplayCarousel = _a.setDisplayCarousel;
+  var setDisplayCarousel = _a.setDisplayCarousel;
 
   var chooseDisplay = function chooseDisplay(side) {
     setDisplayCarousel(side);
@@ -9595,9 +9594,10 @@ var MyFlightsImpl = function MyFlightsImpl(_a) {
       setRoundTrips = _d[1];
 
   (0, react_1.useEffect)(function () {
+    console.log(dataset);
     setUser(JSON.parse(dataset.user));
     setFlights(JSON.parse(dataset.flights));
-    setRoundTrips(JSON.parse(dataset.roundTrips));
+    setRoundTrips(JSON.parse(dataset.roundtrips));
   }, [dataset]);
   return react_1["default"].createElement(BasicImpl_1["default"], {
     user: user,
@@ -10159,7 +10159,6 @@ var Root = function Root(_a) {
       flights: roundTrip.flights
     });
   }) : roundTrips ? react_1["default"].createElement(Paragraph, null, "No round trips were found. Please change your inputs.") : null)), width < 1060 ? react_1["default"].createElement(NavigationDownImpl_1.NavigationDownImpl, {
-    displayCarousel: displayCarousel,
     setDisplayCarousel: setDisplayCarousel
   }) : null);
 };

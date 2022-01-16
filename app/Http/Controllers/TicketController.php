@@ -86,20 +86,28 @@ class TicketController extends Controller
         $result = [];
         $tmp = [];
 
+        $price = 0;
+        $distance = 0;
+
         foreach ($tickets as $ticket){
             if ($code != null && $code != $ticket->roundtrip_code){
                 $result[$code] = $tmp;
+                $result['price'] = $price;
+                $result['distance'] = $distance;
                 $tmp = [];
+                $price = 0;
+                $distance = 0;
             }
             $flight = $ticket->flight;
             $flight->arrival;
             $flight->departure;
             $flight->ticket_id = $ticket->id;
+            $price += $flight->price;
+            $distance += $flight->distance;
 
             $code = $ticket->roundtrip_code;
             array_push($tmp, $ticket);
         }
-
         return $result;
     }
 
