@@ -20,7 +20,7 @@ let ModularFormInput = styled.input`
     border: white 1px solid;
     padding: 0;
     width: 200px;
-    height: 50px;
+    height: 40px;
     opacity: 1;
     background: white;
     margin: 10px;

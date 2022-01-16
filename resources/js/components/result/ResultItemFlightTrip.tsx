@@ -2,10 +2,11 @@ import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {FlightTripItem, WrapperContentColDescription} from "./FlightTripItem";
 import ModularFormForBookingRoundTrip from "../input/modular-form/ModularFormForBookingRoundTrip";
+import {useRoundNumber} from "../../BasicUtils";
 
 interface Props {
-    price: number;
-    distance: number;
+    totalPrice: number;
+    totalDistance: number;
     flights: any;
     no: number;
     user: any;
@@ -45,8 +46,8 @@ let WrapperButton = styled(WrapperContentColDescription)`
 
 export const ResultItemFlightTrip: FunctionComponent<Props> = ({
                                                                    flights,
-                                                                   price,
-                                                                   distance,
+                                                                   totalPrice,
+                                                                   totalDistance,
                                                                    no,
                                                                    user,
                                                                    setUser
@@ -55,17 +56,19 @@ export const ResultItemFlightTrip: FunctionComponent<Props> = ({
         <ResultWrapper>
             <RowWrapper>
                 {flights && flights.map((place: any, index: number) => (
-                    <FlightTripItem key={"flight-trip-item-" + index} time={place.duration} arrives={place.arrives}
+                    <FlightTripItem key={"flight-trip-item-" + index} time={useRoundNumber(place.duration)}
+                                    arrives={place.arrives}
                                     leaves={place.leaves}
-                                    distance={place.distance}
-                                    price={place.price} arrival={place.arrival} departure={place.departure}
+                                    distance={useRoundNumber(place.distance)}
+                                    price={useRoundNumber(place.price)} arrival={place.arrival}
+                                    departure={place.departure}
                                     company={place.company}>
                     </FlightTripItem>
                 ))}
                 <WrapperButton>
                     <ModularFormForBookingRoundTrip flights={flights}
-                                                    price={price}
-                                                    distance={distance}
+                                                    totalPrice={totalPrice}
+                                                    totalDistance={totalDistance}
                                                     no={no}
                                                     withActivationButton={true}
                                                     user={user}

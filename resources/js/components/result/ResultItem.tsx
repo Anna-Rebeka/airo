@@ -2,6 +2,7 @@ import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import ModularFormForBooking from "../input/modular-form/ModularFormForBooking";
 import {Heading3} from "../heading/Heading3";
+import {useRoundNumber} from "../../BasicUtils";
 
 interface Props {
     element: any;
@@ -160,7 +161,7 @@ export const ResultItem: FunctionComponent<Props> = ({
                 <WrapperContentColDescription>
                     <WrapperDetails>
                         <Element>
-                            <ElementTitle>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ElementTitle>
+                            <ElementTitle>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (useRoundNumber(price)) + " €"}</ElementTitle>
                         </Element>
                         <Element>{"Departure time: " + leaves}</Element>
                         <Element>{"Estimated arrival time: " + arrives}</Element>

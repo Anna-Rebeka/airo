@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Heading1H = styled.h1`
-    font-size: 2em;
+    font-size: 1.8em;
     color: white;
 
     @media (min-width: 476px) {

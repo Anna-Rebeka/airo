@@ -6,8 +6,8 @@ import {ModularFormCheckoutImplRoundTrip} from "./ModularFormCheckoutImplRoundTr
 
 interface Props {
     flights: any;
-    price: number;
-    distance: number;
+    totalPrice: number;
+    totalDistance: number;
     shouldBeActivated?: boolean;
     user: any;
     setUser: any;
@@ -22,8 +22,8 @@ export const ModularFormForBookingRoundTrip: FunctionComponent<Props> = ({
                                                                              withActivationButton,
                                                                              no,
                                                                              flights,
-                                                                             price,
-                                                                             distance
+                                                                             totalPrice,
+                                                                             totalDistance
                                                                          }) => {
     let [display, setDisplay] = useState(shouldBeActivated);
     let [state, setState] = useState<string>(user ? "LOGGED" : "REGISTER");
@@ -39,7 +39,11 @@ export const ModularFormForBookingRoundTrip: FunctionComponent<Props> = ({
                                                           no={no} user={user}
                                                           displayForm={display}
                                                           setDisplay={setDisplay}
-                                                          element={{flights: flights, distance: distance, price: price}}
+                                                          roundTrip={{
+                                                              flights: flights,
+                                                              totalDistance: totalDistance,
+                                                              totalPrice: totalPrice
+                                                          }}
                                                           setState={setState}/> :
                         state === "LOGIN" ?
                             <ModularFormLoginImpl bookingWithoutRegistration={true} setUser={setUser}
