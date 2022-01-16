@@ -9575,7 +9575,7 @@ var ReservedTicketsNoRegistered = function ReservedTicketsNoRegistered(_a) {
     distance: element && element.flight.distance,
     duration: element && element.flight.duration,
     images: images,
-    key: "result-item-flights" + element.flight.arrival.image,
+    key: "result-item-flights-" + element.flight.arrival.image,
     imgSrc: element && element.flight.arrival && element.flight.arrival.image,
     price: element.flight.price,
     description: element && element.flight.arrival && element.flight.arrival.info,
