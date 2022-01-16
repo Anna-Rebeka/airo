@@ -31,10 +31,9 @@ export const MyFlightsImpl: FunctionComponent<Props> = ({
     const [roundTrips, setRoundTrips] = useState<any>();
 
     useEffect(() => {
-        console.log(dataset);
         setUser(JSON.parse(dataset.user));
         setFlights(JSON.parse(dataset.flights));
-        setRoundTrips(JSON.parse(dataset.roundtrips));
+        setRoundTrips(Object.values(JSON.parse(dataset.roundtrips)));
     }, [dataset])
 
     return (
