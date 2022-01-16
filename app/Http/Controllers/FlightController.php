@@ -113,8 +113,6 @@ class FlightController extends Controller
             ->with('departure')
             ->with('arrival')
             ->with('company')
-            //->orderBy('distance', 'ASC')
-            //->orderBy('leaves', 'ASC')
             ->inRandomOrder()
             ->get()->first();
         
@@ -186,10 +184,9 @@ class FlightController extends Controller
         $midCity = City::where('name', $from)->with('preferences')->get()->first();
         for ($i = 1; $i <= $noDst; $i++) {
             $flight = $this->getFlight($midCity, $midTime->format('Y-m-d H:i:s'), $midPrice);
-            $flight->arrival;
             $flight->arrival->preferences;
-            $flight->departure;
             $flight->departure->preferences;
+            $flight->company;
             $roundtrips[] = $flight;
             $totalPrice += $flight->price;
             $totalDistance +=  $flight->distance;
@@ -199,6 +196,7 @@ class FlightController extends Controller
         }
 
             $flight = $this->getLastFlight($midCity, $city, $midTime->format('Y-m-d H:i:s'), $midPrice);
+            $flight->company;
             $totalPrice += $flight->price;
             $totalDistance +=  $flight->distance;
             $roundtrips[] = $flight;
