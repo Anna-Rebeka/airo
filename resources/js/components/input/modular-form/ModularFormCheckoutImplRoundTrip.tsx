@@ -87,12 +87,12 @@ export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
                                 />
                             ))}
                             <RowCenter>
-                                <RoundTripAttribute icon={MONEY}
-                                                    label={useRoundNumber(roundTrip.totalPrice * no) + " € (" + useRoundNumber(roundTrip.totalPrice) + "€/person)"}/>
                                 <RoundTripAttribute icon={DISTANCE}
                                                     label={useRoundNumber(roundTrip.totalDistance) + " km"}/>
                                 <RoundTripAttribute icon={PERSONS}
                                                     label={no}/>
+                                <RoundTripAttribute icon={MONEY}
+                                                    label={useRoundNumber(roundTrip.totalPrice * no) + " € (" + useRoundNumber(roundTrip.totalPrice) + "€/person)"}/>
                             </RowCenter>
                         </FlexboxInputsCheckout>
                     </WrapperInput>
