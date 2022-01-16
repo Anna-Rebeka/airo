@@ -7,7 +7,7 @@ import {ModularFormInputElement} from "./ModularFormInputElement";
 import {ValidateEmail} from "../../../hooks/useValidators";
 import {RoundTripItemCheckoutSimplified, RowCenter} from "../../result/RoundTripItemCheckoutSimplified";
 import {RoundTripAttribute} from "../../result/RoundTripAttribute";
-import {DISTANCE, MONEY} from "../../images";
+import {DISTANCE, MONEY, PERSONS} from "../../images";
 import {useRoundNumber} from "../../../BasicUtils";
 
 interface Props {
@@ -87,9 +87,12 @@ export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
                                 />
                             ))}
                             <RowCenter>
-                                <RoundTripAttribute icon={MONEY} label={useRoundNumber(roundTrip.totalPrice) + " €"}/>
+                                <RoundTripAttribute icon={MONEY}
+                                                    label={useRoundNumber(roundTrip.totalPrice * no) + " € (" + useRoundNumber(roundTrip.totalPrice) + "€/person)"}/>
                                 <RoundTripAttribute icon={DISTANCE}
                                                     label={useRoundNumber(roundTrip.totalDistance) + " km"}/>
+                                <RoundTripAttribute icon={PERSONS}
+                                                    label={no}/>
                             </RowCenter>
                         </FlexboxInputsCheckout>
                     </WrapperInput>

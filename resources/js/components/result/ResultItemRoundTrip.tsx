@@ -4,7 +4,7 @@ import {RoundTripItem, WrapperContentColDescription} from "./RoundTripItem";
 import ModularFormForBookingRoundTrip from "../input/modular-form/ModularFormForBookingRoundTrip";
 import {useRoundNumber} from "../../BasicUtils";
 import {RoundTripAttribute} from "./RoundTripAttribute";
-import {DISTANCE, MONEY} from "../images";
+import {DISTANCE, MONEY, PERSONS} from "../images";
 import {Heading2} from "../heading/Heading2";
 import {Heading3} from "../heading/Heading3";
 
@@ -83,7 +83,8 @@ export const ResultItemRoundTrip: FunctionComponent<Props> = ({
                 <ColWrapper>
                     <HeadTitle>Total</HeadTitle>
                     <RoundTripAttribute icon={DISTANCE} label={useRoundNumber(totalDistance) + " km"}/>
-                    <RoundTripAttribute icon={MONEY} label={useRoundNumber(totalPrice * no) + " €"}/>
+                    <RoundTripAttribute icon={PERSONS} label={no}/>
+                    <RoundTripAttribute icon={MONEY} label={useRoundNumber(totalPrice * no) + " € (" + useRoundNumber(totalPrice) + "€/person)"}/>
                 </ColWrapper>
                 <WrapperButton>
                     <ModularFormForBookingRoundTrip flights={flights}
