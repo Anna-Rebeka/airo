@@ -54,7 +54,7 @@ WHERE name = 'Paris';
 
 
 UPDATE cities
-SET image = CONCAT('default', floor(rand() * 10)),
+SET image = CONCAT('default', floor(random() * 10)),
 	info = 'A city is a large human settlement. It can be defined as a permanent and densely settled place with administratively defined boundaries
 			whose members work primarily on non-agricultural tasks. Cities generally have extensive systems for housing, transportation, sanitation,
 			utilities, land use, production of goods, and communication. Their density facilitates interaction between people, government organisations
