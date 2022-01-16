@@ -8,6 +8,7 @@ export const COMPANY = require("../../../public/images/flightTripItems/company.s
 export const TIME = require("../../../public/images/flightTripItems/time.svg");
 export const PERSONS = require("../../../public/images/flightTripItems/persons.svg");
 export const ADVENTURE = require("../../../public/images/preferences/adventure.png");
+
 export const BEACH = require("../../../public/images/preferences/beach.png");
 export const CROWN = require("../../../public/images/preferences/crown.png");
 export const LUXURY = require("../../../public/images/preferences/luxury.png");
