@@ -1,6 +1,7 @@
 export const ARRIVES = require("../../../public/images/flightTripItems/arrives.svg");
 export const LEAVES = require("../../../public/images/flightTripItems/leaves.svg");
 export const DESTINATION = require("../../../public/images/flightTripItems/destination.svg");
+export const MONEY = require("../../../public/images/flightTripItems/money.svg");
 export const DISTANCE = require("../../../public/images/flightTripItems/distance.svg");
 export const FROM = require("../../../public/images/flightTripItems/from.svg");
 export const COMPANY = require("../../../public/images/flightTripItems/company.svg");

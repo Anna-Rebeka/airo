@@ -5,10 +5,13 @@ import styled from "@emotion/styled";
 import {ModularButton} from "./ModularButton";
 import {ModularFormInputElement} from "./ModularFormInputElement";
 import {ValidateEmail} from "../../../hooks/useValidators";
+import {FlightTripItemCheckoutSimplified, RowCenter} from "../../result/FlightTripItemCheckoutSimplified";
+import {FlightTripAttribute} from "../../result/FlightTripAttribute";
+import {DISTANCE, MONEY} from "../../images";
 
 interface Props {
     user: any;
-    element: any;
+    roundTrip: any;
     state: string;
     setState: any;
     setDisplay: any;
@@ -19,13 +22,14 @@ interface Props {
 let Text = styled.p`
     color: white;
     text-align: center;
+    margin: 0.2em;
 `
 
 let TextTitle = styled.p`
     color: white;
     text-align: center;
     text-decoration: underline;
-    margin: 0.5em;
+    margin: 0;
 `
 
 let FlexboxInputsCheckout = styled.ul`
@@ -33,16 +37,9 @@ let FlexboxInputsCheckout = styled.ul`
     flex-direction: column;
     padding: 0;
     margin: 0;
-    max-width: 70%;
+    max-width: 95%;
 `
 
-let TextCheckout = styled.li`
-    color: white;
-    text-align: left;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-`
 let FlexboxInputs = styled.div`
     display: flex;
     flex-direction: row;
@@ -59,7 +56,7 @@ let WrapperInput = styled.div`
 
 
 export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
-                                                                               element,
+                                                                               roundTrip,
                                                                                setDisplay,
                                                                                state,
                                                                                no
@@ -69,23 +66,31 @@ export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
     let [emailAddress, setEmailAddress] = useState("");
     let [isWrongEmail, setIsWrongEmail] = useState(false);
 
+    console.log(roundTrip);
+
     return (
-        <ModularFormRoot setDisplay={setDisplay} title={successfulBooking ? "Round trip bought" : "Check your purchase"}>
+        <ModularFormRoot setDisplay={setDisplay}
+                         title={successfulBooking ? "Round trip bought" : "Check your purchase"}>
             {!successfulBooking ?
                 <>
-                    <Text>You are about to buy your selected round trip ticket. Please check details below about the ticket.</Text>
+                    <Text>You are about to buy your selected ticket. Please check details below about the
+                        ticket.</Text>
                     <WrapperInput>
                         <FlexboxInputsCheckout>
                             <TextTitle>{"Round trip ticket"}</TextTitle>
-                            <TextCheckout>Departure and arrival
-                                city: {(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)} </TextCheckout>
-                            <TextCheckout>Date and time of departure: {element && element.leaves}</TextCheckout>
-                            <TextCheckout>Date and time of arrival: {element && element.arrives}</TextCheckout>
-                            <TextCheckout>Price: {element ? (element.price * no) + " € " + ((no > 1) ? ("(" + (element.price) + "€/each)") : "") : ""}</TextCheckout>
-                            <TextCheckout>Number of persons: {no}</TextCheckout>
-                            <TextCheckout>Company: {element && element.company && element.company.name + "*".repeat(element && element.company && element.company.class)}</TextCheckout>
-                            <TextCheckout>Duration and
-                                distance: {element && element.duration + "mins " + element && element.distance + "km"}</TextCheckout>
+                            {roundTrip.flights && roundTrip.flights.map((place: any, index: number) => (
+                                <FlightTripItemCheckoutSimplified distance={place.distance}
+                                                                  key={"flight-trip-item-" + index}
+                                                                  arrives={place.arrives}
+                                                                  leaves={place.leaves}
+                                                                  price={place.price} arrival={place.arrival}
+                                                                  departure={place.departure}
+                                />
+                            ))}
+                            <RowCenter>
+                                <FlightTripAttribute icon={MONEY} label={(Math.round(roundTrip.totalPrice * 100) / 100) + " €"}/>
+                                <FlightTripAttribute icon={DISTANCE} label={(Math.round(roundTrip.totalDistance * 100) / 100) + " km"}/>
+                            </RowCenter>
                         </FlexboxInputsCheckout>
                     </WrapperInput>
                     <Text>Do you want to book?</Text>
@@ -113,7 +118,7 @@ export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
                             }
                             if (!isWrongEmail || state === "LOGGED") {
                                 axios.post('/ticket', {
-                                    flight_id: element.id,
+                                    flight_id: roundTrip.id,
                                     no: no,
                                     email: emailAddress
                                 }).then((res) => {

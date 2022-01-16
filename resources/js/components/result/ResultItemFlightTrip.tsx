@@ -4,8 +4,8 @@ import {FlightTripItem, WrapperContentColDescription} from "./FlightTripItem";
 import ModularFormForBookingRoundTrip from "../input/modular-form/ModularFormForBookingRoundTrip";
 
 interface Props {
-    price: number;
-    distance: number;
+    totalPrice: number;
+    totalDistance: number;
     flights: any;
     no: number;
     user: any;
@@ -45,8 +45,8 @@ let WrapperButton = styled(WrapperContentColDescription)`
 
 export const ResultItemFlightTrip: FunctionComponent<Props> = ({
                                                                    flights,
-                                                                   price,
-                                                                   distance,
+                                                                   totalPrice,
+                                                                   totalDistance,
                                                                    no,
                                                                    user,
                                                                    setUser
@@ -64,8 +64,8 @@ export const ResultItemFlightTrip: FunctionComponent<Props> = ({
                 ))}
                 <WrapperButton>
                     <ModularFormForBookingRoundTrip flights={flights}
-                                                    price={price}
-                                                    distance={distance}
+                                                    totalPrice={totalPrice}
+                                                    totalDistance={totalDistance}
                                                     no={no}
                                                     withActivationButton={true}
                                                     user={user}

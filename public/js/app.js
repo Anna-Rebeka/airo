@@ -5674,7 +5674,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-var Heading1H = styled_1["default"].h1(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    font-size: 2em;\n    color: white;\n\n    @media (min-width: 476px) {\n        font-size: 2.1em;\n    }\n\n    @media (min-width: 772px) {\n        font-size: 2.2em;\n    }\n\n    @media (min-width: 992px) {\n        font-size: 2.3em;\n    }\n\n    @media (min-width: 1280px) {\n        font-size: 2.4em;\n    }\n"], ["\n    font-size: 2em;\n    color: white;\n\n    @media (min-width: 476px) {\n        font-size: 2.1em;\n    }\n\n    @media (min-width: 772px) {\n        font-size: 2.2em;\n    }\n\n    @media (min-width: 992px) {\n        font-size: 2.3em;\n    }\n\n    @media (min-width: 1280px) {\n        font-size: 2.4em;\n    }\n"])));
+var Heading1H = styled_1["default"].h1(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    font-size: 1.8em;\n    color: white;\n\n    @media (min-width: 476px) {\n        font-size: 2.1em;\n    }\n\n    @media (min-width: 772px) {\n        font-size: 2.2em;\n    }\n\n    @media (min-width: 992px) {\n        font-size: 2.3em;\n    }\n\n    @media (min-width: 1280px) {\n        font-size: 2.4em;\n    }\n"], ["\n    font-size: 1.8em;\n    color: white;\n\n    @media (min-width: 476px) {\n        font-size: 2.1em;\n    }\n\n    @media (min-width: 772px) {\n        font-size: 2.2em;\n    }\n\n    @media (min-width: 992px) {\n        font-size: 2.3em;\n    }\n\n    @media (min-width: 1280px) {\n        font-size: 2.4em;\n    }\n"])));
 
 var Heading1 = function Heading1(_a) {
   var className = _a.className,
@@ -5803,10 +5803,11 @@ var templateObject_1;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.HISTORY = exports.CULTURE = exports.SOCIAL = exports.RELAX = exports.LUXURY = exports.CROWN = exports.BEACH = exports.ADVENTURE = exports.TIME = exports.COMPANY = exports.FROM = exports.DISTANCE = exports.DESTINATION = exports.LEAVES = exports.ARRIVES = void 0;
+exports.HISTORY = exports.CULTURE = exports.SOCIAL = exports.RELAX = exports.LUXURY = exports.CROWN = exports.BEACH = exports.ADVENTURE = exports.TIME = exports.COMPANY = exports.FROM = exports.DISTANCE = exports.MONEY = exports.DESTINATION = exports.LEAVES = exports.ARRIVES = void 0;
 exports.ARRIVES = __webpack_require__(/*! ../../../public/images/flightTripItems/arrives.svg */ "./public/images/flightTripItems/arrives.svg");
 exports.LEAVES = __webpack_require__(/*! ../../../public/images/flightTripItems/leaves.svg */ "./public/images/flightTripItems/leaves.svg");
 exports.DESTINATION = __webpack_require__(/*! ../../../public/images/flightTripItems/destination.svg */ "./public/images/flightTripItems/destination.svg");
+exports.MONEY = __webpack_require__(/*! ../../../public/images/flightTripItems/money.svg */ "./public/images/flightTripItems/money.svg");
 exports.DISTANCE = __webpack_require__(/*! ../../../public/images/flightTripItems/distance.svg */ "./public/images/flightTripItems/distance.svg");
 exports.FROM = __webpack_require__(/*! ../../../public/images/flightTripItems/from.svg */ "./public/images/flightTripItems/from.svg");
 exports.COMPANY = __webpack_require__(/*! ../../../public/images/flightTripItems/company.svg */ "./public/images/flightTripItems/company.svg");
@@ -6553,15 +6554,20 @@ var ModularFormInputElement_1 = __webpack_require__(/*! ./ModularFormInputElemen
 
 var useValidators_1 = __webpack_require__(/*! ../../../hooks/useValidators */ "./resources/js/hooks/useValidators.tsx");
 
-var Text = styled_1["default"].p(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    color: white;\n    text-align: center;\n"], ["\n    color: white;\n    text-align: center;\n"])));
-var TextTitle = styled_1["default"].p(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: white;\n    text-align: center;\n    text-decoration: underline;\n    margin: 0.5em;\n"], ["\n    color: white;\n    text-align: center;\n    text-decoration: underline;\n    margin: 0.5em;\n"])));
-var FlexboxInputsCheckout = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0;\n    max-width: 70%;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0;\n    max-width: 70%;\n"])));
-var TextCheckout = styled_1["default"].li(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    color: white;\n    text-align: left;\n    margin: 0;\n    padding: 0;\n    list-style: none;\n"], ["\n    color: white;\n    text-align: left;\n    margin: 0;\n    padding: 0;\n    list-style: none;\n"])));
-var FlexboxInputs = styled_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n"])));
-var WrapperInput = styled_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
+var FlightTripItemCheckoutSimplified_1 = __webpack_require__(/*! ../../result/FlightTripItemCheckoutSimplified */ "./resources/js/components/result/FlightTripItemCheckoutSimplified.tsx");
+
+var FlightTripAttribute_1 = __webpack_require__(/*! ../../result/FlightTripAttribute */ "./resources/js/components/result/FlightTripAttribute.tsx");
+
+var images_1 = __webpack_require__(/*! ../../images */ "./resources/js/components/images.ts");
+
+var Text = styled_1["default"].p(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    color: white;\n    text-align: center;\n    margin: 0.2em;\n"], ["\n    color: white;\n    text-align: center;\n    margin: 0.2em;\n"])));
+var TextTitle = styled_1["default"].p(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: white;\n    text-align: center;\n    text-decoration: underline;\n    margin: 0;\n"], ["\n    color: white;\n    text-align: center;\n    text-decoration: underline;\n    margin: 0;\n"])));
+var FlexboxInputsCheckout = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0;\n    max-width: 95%;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0;\n    max-width: 95%;\n"])));
+var FlexboxInputs = styled_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n"])));
+var WrapperInput = styled_1["default"].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"], ["\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
 
 var ModularFormCheckoutImplRoundTrip = function ModularFormCheckoutImplRoundTrip(_a) {
-  var element = _a.element,
+  var roundTrip = _a.roundTrip,
       setDisplay = _a.setDisplay,
       state = _a.state,
       no = _a.no;
@@ -6578,10 +6584,27 @@ var ModularFormCheckoutImplRoundTrip = function ModularFormCheckoutImplRoundTrip
       isWrongEmail = _d[0],
       setIsWrongEmail = _d[1];
 
+  console.log(roundTrip);
   return react_1["default"].createElement(ModularFormRoot_1.ModularFormRoot, {
     setDisplay: setDisplay,
     title: successfulBooking ? "Round trip bought" : "Check your purchase"
-  }, !successfulBooking ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Text, null, "You are about to buy your selected round trip ticket. Please check details below about the ticket."), react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(FlexboxInputsCheckout, null, react_1["default"].createElement(TextTitle, null, "Round trip ticket"), react_1["default"].createElement(TextCheckout, null, "Departure and arrival city: ", (element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name), " "), react_1["default"].createElement(TextCheckout, null, "Date and time of departure: ", element && element.leaves), react_1["default"].createElement(TextCheckout, null, "Date and time of arrival: ", element && element.arrives), react_1["default"].createElement(TextCheckout, null, "Price: ", element ? element.price * no + " € " + (no > 1 ? "(" + element.price + "€/each)" : "") : ""), react_1["default"].createElement(TextCheckout, null, "Number of persons: ", no), react_1["default"].createElement(TextCheckout, null, "Company: ", element && element.company && element.company.name + "*".repeat(element && element.company && element.company["class"])), react_1["default"].createElement(TextCheckout, null, "Duration and distance: ", element && element.duration + "mins " + element && element.distance + "km"))), react_1["default"].createElement(Text, null, "Do you want to book?"), state === "CHECKOUT_NOT_REGISTERED" ? react_1["default"].createElement(ModularFormInputElement_1.ModularFormInputElement, {
+  }, !successfulBooking ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Text, null, "You are about to buy your selected ticket. Please check details below about the ticket."), react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(FlexboxInputsCheckout, null, react_1["default"].createElement(TextTitle, null, "Round trip ticket"), roundTrip.flights && roundTrip.flights.map(function (place, index) {
+    return react_1["default"].createElement(FlightTripItemCheckoutSimplified_1.FlightTripItemCheckoutSimplified, {
+      distance: place.distance,
+      key: "flight-trip-item-" + index,
+      arrives: place.arrives,
+      leaves: place.leaves,
+      price: place.price,
+      arrival: place.arrival,
+      departure: place.departure
+    });
+  }), react_1["default"].createElement(FlightTripItemCheckoutSimplified_1.RowCenter, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
+    icon: images_1.MONEY,
+    label: Math.round(roundTrip.totalPrice * 100) / 100 + " €"
+  }), react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
+    icon: images_1.DISTANCE,
+    label: Math.round(roundTrip.totalDistance * 100) / 100 + " km"
+  })))), react_1["default"].createElement(Text, null, "Do you want to book?"), state === "CHECKOUT_NOT_REGISTERED" ? react_1["default"].createElement(ModularFormInputElement_1.ModularFormInputElement, {
     isWrongFromParent: isWrongEmail,
     setIsWrongParentMethod: setIsWrongEmail,
     validatorMethodIsValid: useValidators_1.ValidateEmail,
@@ -6615,7 +6638,7 @@ var ModularFormCheckoutImplRoundTrip = function ModularFormCheckoutImplRoundTrip
 
       if (!isWrongEmail || state === "LOGGED") {
         axios_1["default"].post('/ticket', {
-          flight_id: element.id,
+          flight_id: roundTrip.id,
           no: no,
           email: emailAddress
         }).then(function (res) {
@@ -6636,7 +6659,7 @@ var ModularFormCheckoutImplRoundTrip = function ModularFormCheckoutImplRoundTrip
 };
 
 exports.ModularFormCheckoutImplRoundTrip = ModularFormCheckoutImplRoundTrip;
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
 /***/ }),
 
@@ -6975,8 +6998,8 @@ var ModularFormForBookingRoundTrip = function ModularFormForBookingRoundTrip(_a)
       withActivationButton = _a.withActivationButton,
       no = _a.no,
       flights = _a.flights,
-      price = _a.price,
-      distance = _a.distance;
+      totalPrice = _a.totalPrice,
+      totalDistance = _a.totalDistance;
 
   var _b = (0, react_1.useState)(shouldBeActivated),
       display = _b[0],
@@ -6997,10 +7020,10 @@ var ModularFormForBookingRoundTrip = function ModularFormForBookingRoundTrip(_a)
     user: user,
     displayForm: display,
     setDisplay: setDisplay,
-    element: {
+    roundTrip: {
       flights: flights,
-      distance: distance,
-      price: price
+      totalDistance: totalDistance,
+      totalPrice: totalPrice
     },
     setState: setState
   }) : state === "LOGIN" ? react_1["default"].createElement(ModularFormLoginImpl_1.ModularFormLoginImpl, {
@@ -7103,7 +7126,7 @@ var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./nod
 
 var Error_1 = __webpack_require__(/*! ../auto-complete/Error */ "./resources/js/components/input/auto-complete/Error.tsx");
 
-var ModularFormInput = styled_1["default"].input(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    border: white 1px solid;\n    padding: 0;\n    width: 200px;\n    height: 50px;\n    opacity: 1;\n    background: white;\n    margin: 10px;\n    display: inline-block;\n    box-sizing: border-box;\n"], ["\n    text-align: center;\n    border: white 1px solid;\n    padding: 0;\n    width: 200px;\n    height: 50px;\n    opacity: 1;\n    background: white;\n    margin: 10px;\n    display: inline-block;\n    box-sizing: border-box;\n"])));
+var ModularFormInput = styled_1["default"].input(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-align: center;\n    border: white 1px solid;\n    padding: 0;\n    width: 200px;\n    height: 40px;\n    opacity: 1;\n    background: white;\n    margin: 10px;\n    display: inline-block;\n    box-sizing: border-box;\n"], ["\n    text-align: center;\n    border: white 1px solid;\n    padding: 0;\n    width: 200px;\n    height: 40px;\n    opacity: 1;\n    background: white;\n    margin: 10px;\n    display: inline-block;\n    box-sizing: border-box;\n"])));
 
 var ModularFormInputElement = function ModularFormInputElement(_a) {
   var type = _a.type,
@@ -8434,6 +8457,112 @@ var templateObject_1, templateObject_2, templateObject_3;
 
 /***/ }),
 
+/***/ "./resources/js/components/result/FlightTripAttributeCityNameSimplified.tsx":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/result/FlightTripAttributeCityNameSimplified.tsx ***!
+  \**********************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FlightTripAttributeCityNameSimplified = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var Attribute = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"])));
+var AttributeIcon = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    margin: 0.1em;\n    width: 18px;\n    height: 18px;\n    background-color: transparent;\n"], ["\n    margin: 0.1em;\n    width: 18px;\n    height: 18px;\n    background-color: transparent;\n"])));
+var AttributeValue = styled_1["default"].span(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    color: white;\n    font-size: 0.9em;\n    font-weight: bold;\n    text-decoration: underline;\n"], ["\n    color: white;\n    font-size: 0.9em;\n    font-weight: bold;\n    text-decoration: underline;\n"])));
+
+var FlightTripAttributeCityNameSimplified = function FlightTripAttributeCityNameSimplified(_a) {
+  var icon = _a.icon,
+      label = _a.label;
+  return react_1["default"].createElement(Attribute, null, react_1["default"].createElement(AttributeIcon, {
+    src: icon["default"]
+  }), react_1["default"].createElement(AttributeValue, null, label));
+};
+
+exports.FlightTripAttributeCityNameSimplified = FlightTripAttributeCityNameSimplified;
+var templateObject_1, templateObject_2, templateObject_3;
+
+/***/ }),
+
+/***/ "./resources/js/components/result/FlightTripAttributeSimplified.tsx":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/result/FlightTripAttributeSimplified.tsx ***!
+  \**************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FlightTripAttributeSimplified = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var Attribute = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"])));
+var AttributeIcon = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    margin: 0.1em;\n    width: 14px;\n    height: 14px;\n    background-color: transparent;\n"], ["\n    margin: 0.1em;\n    width: 14px;\n    height: 14px;\n    background-color: transparent;\n"])));
+var AttributeValue = styled_1["default"].span(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    color: white;\n    font-size: 0.7em;\n"], ["\n    color: white;\n    font-size: 0.7em;\n"])));
+
+var FlightTripAttributeSimplified = function FlightTripAttributeSimplified(_a) {
+  var icon = _a.icon,
+      label = _a.label;
+  return react_1["default"].createElement(Attribute, null, react_1["default"].createElement(AttributeIcon, {
+    src: icon["default"]
+  }), react_1["default"].createElement(AttributeValue, null, label));
+};
+
+exports.FlightTripAttributeSimplified = FlightTripAttributeSimplified;
+var templateObject_1, templateObject_2, templateObject_3;
+
+/***/ }),
+
 /***/ "./resources/js/components/result/FlightTripItem.tsx":
 /*!***********************************************************!*\
   !*** ./resources/js/components/result/FlightTripItem.tsx ***!
@@ -8513,6 +8642,80 @@ var FlightTripItem = function FlightTripItem(_a) {
 
 exports.FlightTripItem = FlightTripItem;
 var templateObject_1, templateObject_2;
+
+/***/ }),
+
+/***/ "./resources/js/components/result/FlightTripItemCheckoutSimplified.tsx":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/result/FlightTripItemCheckoutSimplified.tsx ***!
+  \*****************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FlightTripItemCheckoutSimplified = exports.RowCenter = exports.WrapperContentColDescription = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/images.ts");
+
+var FlightTripAttributeCityNameSimplified_1 = __webpack_require__(/*! ./FlightTripAttributeCityNameSimplified */ "./resources/js/components/result/FlightTripAttributeCityNameSimplified.tsx");
+
+var FlightTripAttributeSimplified_1 = __webpack_require__(/*! ./FlightTripAttributeSimplified */ "./resources/js/components/result/FlightTripAttributeSimplified.tsx");
+
+exports.WrapperContentColDescription = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"])));
+var WrapperDetails = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"])));
+var Row = styled_1["default"].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n"], ["\n    display: flex;\n    flex-direction: row;\n"])));
+exports.RowCenter = (0, styled_1["default"])(Row)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    align-items: center;\n    justify-content: center;\n"], ["\n    align-items: center;\n    justify-content: center;\n"])));
+
+var FlightTripItemCheckoutSimplified = function FlightTripItemCheckoutSimplified(_a) {
+  var departure = _a.departure,
+      arrival = _a.arrival,
+      leaves = _a.leaves,
+      arrives = _a.arrives,
+      price = _a.price,
+      distance = _a.distance;
+  return react_1["default"].createElement(exports.WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(Row, null, react_1["default"].createElement(FlightTripAttributeCityNameSimplified_1.FlightTripAttributeCityNameSimplified, {
+    icon: images_1.FROM,
+    label: departure.name
+  }), react_1["default"].createElement(FlightTripAttributeCityNameSimplified_1.FlightTripAttributeCityNameSimplified, {
+    icon: images_1.DESTINATION,
+    label: arrival.name
+  })), react_1["default"].createElement(Row, null, react_1["default"].createElement(FlightTripAttributeSimplified_1.FlightTripAttributeSimplified, {
+    icon: images_1.LEAVES,
+    label: leaves
+  }), react_1["default"].createElement(FlightTripAttributeSimplified_1.FlightTripAttributeSimplified, {
+    icon: images_1.ARRIVES,
+    label: arrives
+  }))));
+};
+
+exports.FlightTripItemCheckoutSimplified = FlightTripItemCheckoutSimplified;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
 
 /***/ }),
 
@@ -8739,8 +8942,8 @@ var WrapperButton = (0, styled_1["default"])(FlightTripItem_1.WrapperContentColD
 
 var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
   var flights = _a.flights,
-      price = _a.price,
-      distance = _a.distance,
+      totalPrice = _a.totalPrice,
+      totalDistance = _a.totalDistance,
       no = _a.no,
       user = _a.user,
       setUser = _a.setUser;
@@ -8758,8 +8961,8 @@ var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
     });
   }), react_1["default"].createElement(WrapperButton, null, react_1["default"].createElement(ModularFormForBookingRoundTrip_1["default"], {
     flights: flights,
-    price: price,
-    distance: distance,
+    totalPrice: totalPrice,
+    totalDistance: totalDistance,
     no: no,
     withActivationButton: true,
     user: user,
@@ -9807,8 +10010,8 @@ var Root = function Root(_a) {
       user: user,
       setUser: setUser,
       key: "result-item-flight-trip" + index,
-      price: roundTrip.price,
-      distance: roundTrip.distance,
+      totalPrice: roundTrip.totalPrice,
+      totalDistance: roundTrip.totalDistance,
       flights: roundTrip.flights
     });
   }) : roundTrips ? react_1["default"].createElement(Paragraph, null, "No round trips were found. Please change your inputs.") : null)), width < 1060 ? react_1["default"].createElement(NavigationDownImpl_1.NavigationDownImpl, {
@@ -10167,6 +10370,18 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("/images/leaves.svg?9eee707db5e9cf968547f3a027d3347a");
+
+/***/ }),
+
+/***/ "./public/images/flightTripItems/money.svg":
+/*!*************************************************!*\
+  !*** ./public/images/flightTripItems/money.svg ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/images/money.svg?4749b5bfc994cf7196c8a312d6675d46");
 
 /***/ }),
 
