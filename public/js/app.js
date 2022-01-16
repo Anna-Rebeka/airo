@@ -6605,14 +6605,14 @@ var ModularFormCheckoutImplRoundTrip = function ModularFormCheckoutImplRoundTrip
       departure: place.departure
     });
   }), react_1["default"].createElement(RoundTripItemCheckoutSimplified_1.RowCenter, null, react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
-    icon: images_1.MONEY,
-    label: (0, BasicUtils_1.useRoundNumber)(roundTrip.totalPrice * no) + " € (" + (0, BasicUtils_1.useRoundNumber)(roundTrip.totalPrice) + "€/person)"
-  }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
     icon: images_1.DISTANCE,
     label: (0, BasicUtils_1.useRoundNumber)(roundTrip.totalDistance) + " km"
   }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
     icon: images_1.PERSONS,
     label: no
+  }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
+    icon: images_1.MONEY,
+    label: (0, BasicUtils_1.useRoundNumber)(roundTrip.totalPrice * no) + " € (" + (0, BasicUtils_1.useRoundNumber)(roundTrip.totalPrice) + "€/person)"
   })))), react_1["default"].createElement(Text, null, "Do you want to book?"), state === "CHECKOUT_NOT_REGISTERED" ? react_1["default"].createElement(ModularFormInputElement_1.ModularFormInputElement, {
     isWrongFromParent: isWrongEmail,
     setIsWrongParentMethod: setIsWrongEmail,
@@ -9594,10 +9594,9 @@ var MyFlightsImpl = function MyFlightsImpl(_a) {
       setRoundTrips = _d[1];
 
   (0, react_1.useEffect)(function () {
-    console.log(dataset);
     setUser(JSON.parse(dataset.user));
     setFlights(JSON.parse(dataset.flights));
-    setRoundTrips(JSON.parse(dataset.roundtrips));
+    setRoundTrips(Object.values(JSON.parse(dataset.roundtrips)));
   }, [dataset]);
   return react_1["default"].createElement(BasicImpl_1["default"], {
     user: user,
