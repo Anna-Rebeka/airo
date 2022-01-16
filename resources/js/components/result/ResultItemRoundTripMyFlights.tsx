@@ -66,21 +66,24 @@ export const ResultItemRoundTripMyFlights: FunctionComponent<Props> = ({
                     <RoundTripAttribute icon={MONEY}
                                         label={useRoundNumber(totalPrice * no) + " € (" + useRoundNumber(totalPrice) + "€/person)"}/>
                 </ColWrapper>
+                <div>
+                    <ModularButton type={"submit"} name={"cancel"} value={"cancel"}
+                                   text={"Cancel"} id="cancelTicket"
+                                   setOnClickValueMethod={() => {
+                                       let array: any = [];
+
+                                       tickets.map((place: any) => {
+                                               array.push(place.id);
+                                           }
+                                       );
+                                       axios.delete('/roundticket/' + {ids: [array], no: no}).then((response) => {
+                                           window.location.href = "/myflights";
+                                       });
+
+                                   }}/>
+                </div>
+
             </RowWrapper>
-            <ModularButton type={"submit"} name={"cancel"} value={"cancel"}
-                           text={"Cancel"} id="cancelTicket"
-                           setOnClickValueMethod={() => {
-                               let array: any = [];
-
-                               tickets.map((place: any) => {
-                                       array.push(place.id);
-                                   }
-                               );
-                               axios.delete('/roundticket/' + {ids: [array], no: no}).then((response) => {
-                                   window.location.href = "/myflights";
-                               });
-
-                           }}/>
         </ResultWrapper>
     );
 }

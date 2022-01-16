@@ -8718,7 +8718,7 @@ var ResultItemRoundTripMyFlights = function ResultItemRoundTripMyFlights(_a) {
   }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
     icon: images_1.MONEY,
     label: (0, BasicUtils_1.useRoundNumber)(totalPrice * no) + " € (" + (0, BasicUtils_1.useRoundNumber)(totalPrice) + "€/person)"
-  }))), react_1["default"].createElement(ModularButton_1.ModularButton, {
+  })), react_1["default"].createElement("div", null, react_1["default"].createElement(ModularButton_1.ModularButton, {
     type: "submit",
     name: "cancel",
     value: "cancel",
@@ -8736,7 +8736,7 @@ var ResultItemRoundTripMyFlights = function ResultItemRoundTripMyFlights(_a) {
         window.location.href = "/myflights";
       });
     }
-  }));
+  }))));
 };
 
 exports.ResultItemRoundTripMyFlights = ResultItemRoundTripMyFlights;
