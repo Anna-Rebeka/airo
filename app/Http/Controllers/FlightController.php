@@ -115,10 +115,14 @@ class FlightController extends Controller
             ->with('company')
             //->orderBy('distance', 'ASC')
             ->orderBy('leaves', 'ASC')
+            ->limit(5)
+            ->random(1)
             ->get()->first();
         
          if ($flights) { 
-                return $flights;
+            $flights->departure->preferences;
+            $flights->arrival->preferences;
+            return $flights;
             }
             $to = City::where('name', '!=', $from)->get()->first();
             return $this->store($from, $to, $fromDate);
