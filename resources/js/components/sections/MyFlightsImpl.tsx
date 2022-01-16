@@ -66,6 +66,7 @@ export const MyFlightsImpl: FunctionComponent<Props> = ({
                                                       no={roundTripTicket.no}
                                                       totalPrice={roundTripTicket.price}
                                                       totalDistance={roundTripTicket.distance}
+                                                      roundTripCode={roundTripTicket.roundtrip_code}
                         />)) :
                     null
                 }

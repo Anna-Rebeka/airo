@@ -8700,7 +8700,8 @@ var ResultItemRoundTripMyFlights = function ResultItemRoundTripMyFlights(_a) {
   var tickets = _a.tickets,
       totalPrice = _a.totalPrice,
       totalDistance = _a.totalDistance,
-      no = _a.no;
+      no = _a.no,
+      roundTripCode = _a.roundTripCode;
   return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, tickets && tickets.map(function (ticket, index) {
     return react_1["default"].createElement(RoundTripItemMyFlights_1.RoundTripItemMyFlights, {
       key: "flight-trip-item-" + index,
@@ -8725,14 +8726,7 @@ var ResultItemRoundTripMyFlights = function ResultItemRoundTripMyFlights(_a) {
     text: "Cancel",
     id: "cancelTicket",
     setOnClickValueMethod: function setOnClickValueMethod() {
-      var array = [];
-      tickets.map(function (place) {
-        array.push(place.id);
-      });
-      axios_1["default"]["delete"]('/roundticket/' + {
-        ids: [array],
-        no: no
-      }).then(function (response) {
+      axios_1["default"]["delete"]('/roundticket/' + roundTripCode).then(function () {
         window.location.href = "/myflights";
       });
     }
@@ -9693,7 +9687,8 @@ var MyFlightsImpl = function MyFlightsImpl(_a) {
       tickets: roundTripTicket.tickets,
       no: roundTripTicket.no,
       totalPrice: roundTripTicket.price,
-      totalDistance: roundTripTicket.distance
+      totalDistance: roundTripTicket.distance,
+      roundTripCode: roundTripTicket.roundtrip_code
     });
   }) : null));
 };

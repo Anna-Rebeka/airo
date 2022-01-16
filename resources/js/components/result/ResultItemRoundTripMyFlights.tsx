@@ -13,6 +13,7 @@ interface Props {
     totalDistance: number;
     tickets: any;
     no: number;
+    roundTripCode: any;
 }
 
 let ResultWrapper = styled.div`
@@ -46,7 +47,8 @@ export const ResultItemRoundTripMyFlights: FunctionComponent<Props> = ({
                                                                            tickets,
                                                                            totalPrice,
                                                                            totalDistance,
-                                                                           no
+                                                                           no,
+                                                                           roundTripCode
                                                                        }) => {
     return (
         <ResultWrapper>
@@ -70,13 +72,7 @@ export const ResultItemRoundTripMyFlights: FunctionComponent<Props> = ({
                     <ModularButton type={"submit"} name={"cancel"} value={"cancel"}
                                    text={"Cancel"} id="cancelTicket"
                                    setOnClickValueMethod={() => {
-                                       let array: any = [];
-
-                                       tickets.map((place: any) => {
-                                               array.push(place.id);
-                                           }
-                                       );
-                                       axios.delete('/roundticket/' + {ids: [array], no: no}).then((response) => {
+                                       axios.delete('/roundticket/' + roundTripCode).then(() => {
                                            window.location.href = "/myflights";
                                        });
 
