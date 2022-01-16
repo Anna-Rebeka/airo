@@ -34,6 +34,7 @@ export const MyFlightsImpl: FunctionComponent<Props> = ({
         setUser(JSON.parse(dataset.user));
         setFlights(JSON.parse(dataset.flights));
         setRoundTrips(Object.values(JSON.parse(dataset.roundtrips)));
+        console.log(Object.values(JSON.parse(dataset.roundtrips)));
     }, [dataset])
 
     return (
@@ -61,10 +62,10 @@ export const MyFlightsImpl: FunctionComponent<Props> = ({
                 {roundTrips && Object.keys(roundTrips).length > 0 ?
                     roundTrips.map((roundTripTicket: any, index: number) => (
                         <ResultItemFlightTripMyFlights key={"result-item-round-trip-ticket-" + index}
-                                                       flights={roundTripTicket.flights}
+                                                       tickets={roundTripTicket.tickets}
                                                        no={roundTripTicket.no}
-                                                       totalPrice={roundTripTicket.totalPrice}
-                                                       totalDistance={roundTripTicket.totalDistance}
+                                                       totalPrice={roundTripTicket.price}
+                                                       totalDistance={roundTripTicket.distance}
                         />)) :
                     null
                 }

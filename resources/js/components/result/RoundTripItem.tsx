@@ -11,7 +11,6 @@ interface Props {
     leaves: any;
     arrives: any;
     company: any;
-    price: number;
     distance: number;
     time: any;
 }

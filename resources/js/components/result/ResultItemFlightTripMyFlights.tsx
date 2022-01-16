@@ -8,7 +8,7 @@ import axios from "axios";
 interface Props {
     totalPrice: number;
     totalDistance: number;
-    flights: any;
+    tickets: any;
     no: number;
 }
 
@@ -44,22 +44,23 @@ let WrapperButton = styled(WrapperContentColDescription)`
 `
 
 export const ResultItemFlightTripMyFlights: FunctionComponent<Props> = ({
-                                                                            flights,
+                                                                            tickets,
                                                                             totalPrice,
                                                                             totalDistance,
                                                                             no
                                                                         }) => {
+    console.log(tickets);
     return (
         <ResultWrapper>
             <RowWrapper>
-                {flights && flights.map((place: any, index: number) => (
-                    <RoundTripItem key={"flight-trip-item-" + index} time={useRoundNumber(place.duration)}
-                                   arrives={place.arrives}
-                                   leaves={place.leaves}
-                                   distance={useRoundNumber(place.distance)}
-                                   price={useRoundNumber(place.price)} arrival={place.arrival}
-                                   departure={place.departure}
-                                   company={place.company}>
+                {tickets && tickets.map((ticket: any, index: number) => (
+                    <RoundTripItem key={"flight-trip-item-" + index} time={useRoundNumber(ticket.duration)}
+                                   arrives={ticket.flight.arrives}
+                                   leaves={ticket.flight.leaves}
+                                   distance={useRoundNumber(ticket.flight.distance)}
+                                   arrival={ticket.flight.arrival}
+                                   departure={ticket.flight.departure}
+                                   company={ticket.flight.company}>
                     </RoundTripItem>
                 ))}
             </RowWrapper>
@@ -68,7 +69,7 @@ export const ResultItemFlightTripMyFlights: FunctionComponent<Props> = ({
                            setOnClickValueMethod={() => {
                                let array: any = [];
 
-                               flights.map((place: any) => {
+                               tickets.map((place: any) => {
                                        array.push(place.id);
                                    }
                                );
