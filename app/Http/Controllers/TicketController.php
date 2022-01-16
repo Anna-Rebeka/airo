@@ -97,6 +97,7 @@ class TicketController extends Controller
                 $roundtrip['price'] = $price;
                 $roundtrip['distance'] = $distance;
                 $roundtrip['no'] = $no;
+                $roundtrip['roundtrip_code'] = $code;
 
                 $result[$code] = $roundtrip;
                 
@@ -227,6 +228,18 @@ class TicketController extends Controller
         DB::transaction(function () use(&$ticket) {
             $ticket->delete();
         });
+    }
+
+    public function destroyRoundtrip($code)
+    {
+        $tickets = Ticket::where('roundtrip_code', $code)->get();
+        if(!$tickest){
+            return null;
+        }
+
+        foreach ($tickets as $ticket) {
+            $ticket->delete();
+        }
     }
 
     public function getTicketsByUserId($id){
