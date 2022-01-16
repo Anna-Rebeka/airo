@@ -24,17 +24,6 @@ let ResultWrapper = styled.div`
         background-color: rgb(100, 100, 100);
         padding: 5px;
     }
-
-    @media (min-width: 772px) {
-        width: 50%;
-    };
-
-    @media (min-width: 1060px) {
-        width: 75%;
-    };
-
-    @media (min-width: 1280px) {
-    };
 `;
 
 let ResultH3 = styled.h3`

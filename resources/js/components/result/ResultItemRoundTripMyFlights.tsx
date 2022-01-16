@@ -1,9 +1,8 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import {RoundTripItem, WrapperContentColDescription} from "./RoundTripItem";
-import {useRoundNumber} from "../../BasicUtils";
 import {ModularButton} from "../input/modular-form/ModularButton";
 import axios from "axios";
+import {RoundTripItemMyFlights} from "./RoundTripItemMyFlights";
 
 interface Props {
     totalPrice: number;
@@ -12,7 +11,7 @@ interface Props {
     no: number;
 }
 
-let ResultWrapper = styled.article`
+let ResultWrapper = styled.div`
     position: relative;
     overflow: hidden;
     width: 80%;
@@ -39,29 +38,23 @@ let RowWrapper = styled.ul`
     }
 `
 
-let WrapperButton = styled(WrapperContentColDescription)`
-    align-self: flex-start;
-`
-
-export const ResultItemFlightTripMyFlights: FunctionComponent<Props> = ({
+export const ResultItemRoundTripMyFlights: FunctionComponent<Props> = ({
                                                                             tickets,
                                                                             totalPrice,
                                                                             totalDistance,
                                                                             no
                                                                         }) => {
-    console.log(tickets);
+    console.log("tickets", tickets);
     return (
         <ResultWrapper>
             <RowWrapper>
                 {tickets && tickets.map((ticket: any, index: number) => (
-                    <RoundTripItem key={"flight-trip-item-" + index} time={useRoundNumber(ticket.duration)}
-                                   arrives={ticket.flight.arrives}
-                                   leaves={ticket.flight.leaves}
-                                   distance={useRoundNumber(ticket.flight.distance)}
-                                   arrival={ticket.flight.arrival}
-                                   departure={ticket.flight.departure}
-                                   company={ticket.flight.company}>
-                    </RoundTripItem>
+                    <RoundTripItemMyFlights key={"flight-trip-item-" + index}
+                                            arrives={ticket.flight.arrives}
+                                            leaves={ticket.flight.leaves}
+                                            arrival={ticket.flight.arrival}
+                                            departure={ticket.flight.departure}
+                    />
                 ))}
             </RowWrapper>
             <ModularButton type={"submit"} name={"cancel"} value={"cancel"}

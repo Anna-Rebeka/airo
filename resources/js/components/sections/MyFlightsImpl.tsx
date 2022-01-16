@@ -4,7 +4,7 @@ import ResultItemTickets from "../result/ResultItemTickets";
 import BasicImpl from "./BasicImpl";
 import {Heading1} from "../heading/Heading1";
 import {Heading2} from "../heading/Heading2";
-import {ResultItemFlightTripMyFlights} from "../result/ResultItemFlightTripMyFlights";
+import {ResultItemRoundTripMyFlights} from "../result/ResultItemRoundTripMyFlights";
 
 interface Props {
     dataset: any;
@@ -61,11 +61,11 @@ export const MyFlightsImpl: FunctionComponent<Props> = ({
 
                 {roundTrips && Object.keys(roundTrips).length > 0 ?
                     roundTrips.map((roundTripTicket: any, index: number) => (
-                        <ResultItemFlightTripMyFlights key={"result-item-round-trip-ticket-" + index}
-                                                       tickets={roundTripTicket.tickets}
-                                                       no={roundTripTicket.no}
-                                                       totalPrice={roundTripTicket.price}
-                                                       totalDistance={roundTripTicket.distance}
+                        <ResultItemRoundTripMyFlights key={"result-item-round-trip-ticket-" + index}
+                                                      tickets={roundTripTicket.tickets}
+                                                      no={roundTripTicket.no}
+                                                      totalPrice={roundTripTicket.price}
+                                                      totalDistance={roundTripTicket.distance}
                         />)) :
                     null
                 }

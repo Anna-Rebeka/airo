@@ -8543,97 +8543,6 @@ var templateObject_1, templateObject_2, templateObject_3, templateObject_4, temp
 
 /***/ }),
 
-/***/ "./resources/js/components/result/ResultItemFlightTripMyFlights.tsx":
-/*!**************************************************************************!*\
-  !*** ./resources/js/components/result/ResultItemFlightTripMyFlights.tsx ***!
-  \**************************************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-};
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.ResultItemFlightTripMyFlights = void 0;
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
-
-var RoundTripItem_1 = __webpack_require__(/*! ./RoundTripItem */ "./resources/js/components/result/RoundTripItem.tsx");
-
-var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
-
-var ModularButton_1 = __webpack_require__(/*! ../input/modular-form/ModularButton */ "./resources/js/components/input/modular-form/ModularButton.tsx");
-
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
-
-var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"])));
-var RowWrapper = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"], ["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"])));
-var WrapperButton = (0, styled_1["default"])(RoundTripItem_1.WrapperContentColDescription)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    align-self: flex-start;\n"], ["\n    align-self: flex-start;\n"])));
-
-var ResultItemFlightTripMyFlights = function ResultItemFlightTripMyFlights(_a) {
-  var flights = _a.flights,
-      totalPrice = _a.totalPrice,
-      totalDistance = _a.totalDistance,
-      no = _a.no;
-  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, flights && flights.map(function (place, index) {
-    return react_1["default"].createElement(RoundTripItem_1.RoundTripItem, {
-      key: "flight-trip-item-" + index,
-      time: (0, BasicUtils_1.useRoundNumber)(place.duration),
-      arrives: place.arrives,
-      leaves: place.leaves,
-      distance: (0, BasicUtils_1.useRoundNumber)(place.distance),
-      price: (0, BasicUtils_1.useRoundNumber)(place.price),
-      arrival: place.arrival,
-      departure: place.departure,
-      company: place.company
-    });
-  })), react_1["default"].createElement(ModularButton_1.ModularButton, {
-    type: "submit",
-    name: "cancel",
-    value: "cancel",
-    text: "Cancel",
-    id: "cancelTicket",
-    setOnClickValueMethod: function setOnClickValueMethod() {
-      var array = [];
-      flights.map(function (place) {
-        array.push(place.id);
-      });
-      axios_1["default"]["delete"]('/roundticket/' + {
-        ids: [array],
-        no: no
-      }).then(function (response) {
-        window.location.href = "/myflights";
-      });
-    }
-  }));
-};
-
-exports.ResultItemFlightTripMyFlights = ResultItemFlightTripMyFlights;
-var templateObject_1, templateObject_2, templateObject_3;
-
-/***/ }),
-
 /***/ "./resources/js/components/result/ResultItemRoundTrip.tsx":
 /*!****************************************************************!*\
   !*** ./resources/js/components/result/ResultItemRoundTrip.tsx ***!
@@ -8735,6 +8644,91 @@ var templateObject_1, templateObject_2, templateObject_3, templateObject_4, temp
 
 /***/ }),
 
+/***/ "./resources/js/components/result/ResultItemRoundTripMyFlights.tsx":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/result/ResultItemRoundTripMyFlights.tsx ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.ResultItemRoundTripMyFlights = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var ModularButton_1 = __webpack_require__(/*! ../input/modular-form/ModularButton */ "./resources/js/components/input/modular-form/ModularButton.tsx");
+
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+
+var RoundTripItemMyFlights_1 = __webpack_require__(/*! ./RoundTripItemMyFlights */ "./resources/js/components/result/RoundTripItemMyFlights.tsx");
+
+var ResultWrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"])));
+var RowWrapper = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"], ["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"])));
+
+var ResultItemRoundTripMyFlights = function ResultItemRoundTripMyFlights(_a) {
+  var tickets = _a.tickets,
+      totalPrice = _a.totalPrice,
+      totalDistance = _a.totalDistance,
+      no = _a.no;
+  console.log("tickets", tickets);
+  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, tickets && tickets.map(function (ticket, index) {
+    return react_1["default"].createElement(RoundTripItemMyFlights_1.RoundTripItemMyFlights, {
+      key: "flight-trip-item-" + index,
+      arrives: ticket.flight.arrives,
+      leaves: ticket.flight.leaves,
+      arrival: ticket.flight.arrival,
+      departure: ticket.flight.departure
+    });
+  })), react_1["default"].createElement(ModularButton_1.ModularButton, {
+    type: "submit",
+    name: "cancel",
+    value: "cancel",
+    text: "Cancel",
+    id: "cancelTicket",
+    setOnClickValueMethod: function setOnClickValueMethod() {
+      var array = [];
+      tickets.map(function (place) {
+        array.push(place.id);
+      });
+      axios_1["default"]["delete"]('/roundticket/' + {
+        ids: [array],
+        no: no
+      }).then(function (response) {
+        window.location.href = "/myflights";
+      });
+    }
+  }));
+};
+
+exports.ResultItemRoundTripMyFlights = ResultItemRoundTripMyFlights;
+var templateObject_1, templateObject_2;
+
+/***/ }),
+
 /***/ "./resources/js/components/result/ResultItemTickets.tsx":
 /*!**************************************************************!*\
   !*** ./resources/js/components/result/ResultItemTickets.tsx ***!
@@ -8777,7 +8771,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
 
-var ResultWrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n    background-color: black;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n        padding: 5px;\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n    background-color: black;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n        padding: 5px;\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"])));
+var ResultWrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n    background-color: black;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n        padding: 5px;\n    }\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n    background-color: black;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n        padding: 5px;\n    }\n"])));
 var ResultH3 = styled_1["default"].h3(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: white;\n    position: relative;\n    margin: 0;\n    float: left;\n    text-decoration: underline;\n"], ["\n    color: white;\n    position: relative;\n    margin: 0;\n    float: left;\n    text-decoration: underline;\n"])));
 var ResultDescription = styled_1["default"].p(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    color: white;\n    position: relative;\n    float: left;\n    margin: 0.2em 0;\n    width: 100%;\n    overflow: hidden;\n    text-decoration: none;\n    text-align: left;\n"], ["\n    color: white;\n    position: relative;\n    float: left;\n    margin: 0.2em 0;\n    width: 100%;\n    overflow: hidden;\n    text-decoration: none;\n    text-align: left;\n"])));
 var MainWrapperContent = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"])));
@@ -9182,6 +9176,76 @@ var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
 
 /***/ }),
 
+/***/ "./resources/js/components/result/RoundTripItemMyFlights.tsx":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/result/RoundTripItemMyFlights.tsx ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.RoundTripItemMyFlights = exports.WrapperContentColDescription = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var RoundTripAttribute_1 = __webpack_require__(/*! ./RoundTripAttribute */ "./resources/js/components/result/RoundTripAttribute.tsx");
+
+var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/images.ts");
+
+var RoundTripAttributeCityName_1 = __webpack_require__(/*! ./RoundTripAttributeCityName */ "./resources/js/components/result/RoundTripAttributeCityName.tsx");
+
+exports.WrapperContentColDescription = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"])));
+var WrapperDetails = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"])));
+
+var RoundTripItemMyFlights = function RoundTripItemMyFlights(_a) {
+  var departure = _a.departure,
+      arrival = _a.arrival,
+      leaves = _a.leaves,
+      arrives = _a.arrives;
+  return react_1["default"].createElement(exports.WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(RoundTripAttributeCityName_1.RoundTripAttributeCityName, {
+    icon: images_1.FROM,
+    label: departure.name
+  }), react_1["default"].createElement(RoundTripAttributeCityName_1.RoundTripAttributeCityName, {
+    icon: images_1.DESTINATION,
+    label: arrival.name
+  }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
+    icon: images_1.LEAVES,
+    label: leaves
+  }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
+    icon: images_1.ARRIVES,
+    label: arrives
+  })));
+};
+
+exports.RoundTripItemMyFlights = RoundTripItemMyFlights;
+var templateObject_1, templateObject_2;
+
+/***/ }),
+
 /***/ "./resources/js/components/scroll/ScrollTopElementButton.tsx":
 /*!*******************************************************************!*\
   !*** ./resources/js/components/scroll/ScrollTopElementButton.tsx ***!
@@ -9573,7 +9637,7 @@ var Heading1_1 = __webpack_require__(/*! ../heading/Heading1 */ "./resources/js/
 
 var Heading2_1 = __webpack_require__(/*! ../heading/Heading2 */ "./resources/js/components/heading/Heading2.tsx");
 
-var ResultItemFlightTripMyFlights_1 = __webpack_require__(/*! ../result/ResultItemFlightTripMyFlights */ "./resources/js/components/result/ResultItemFlightTripMyFlights.tsx");
+var ResultItemRoundTripMyFlights_1 = __webpack_require__(/*! ../result/ResultItemRoundTripMyFlights */ "./resources/js/components/result/ResultItemRoundTripMyFlights.tsx");
 
 var Paragraph = styled_1["default"].p(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    color: white;\n"], ["\n    color: white;\n"])));
 var Wrapper = styled_1["default"].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 100%;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n    min-height: 100vh;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n"], ["\n    width: 100%;\n    background-image: linear-gradient(0deg, #000000 0%, #404040 100%);\n    min-height: 100vh;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n"])));
@@ -9597,6 +9661,7 @@ var MyFlightsImpl = function MyFlightsImpl(_a) {
     setUser(JSON.parse(dataset.user));
     setFlights(JSON.parse(dataset.flights));
     setRoundTrips(Object.values(JSON.parse(dataset.roundtrips)));
+    console.log(Object.values(JSON.parse(dataset.roundtrips)));
   }, [dataset]);
   return react_1["default"].createElement(BasicImpl_1["default"], {
     user: user,
@@ -9608,12 +9673,12 @@ var MyFlightsImpl = function MyFlightsImpl(_a) {
       element: flightTicket && flightTicket.flight
     });
   }) : null, roundTrips && Object.keys(roundTrips).length > 0 ? roundTrips.map(function (roundTripTicket, index) {
-    return react_1["default"].createElement(ResultItemFlightTripMyFlights_1.ResultItemFlightTripMyFlights, {
+    return react_1["default"].createElement(ResultItemRoundTripMyFlights_1.ResultItemRoundTripMyFlights, {
       key: "result-item-round-trip-ticket-" + index,
-      flights: roundTripTicket.flights,
+      tickets: roundTripTicket.tickets,
       no: roundTripTicket.no,
-      totalPrice: roundTripTicket.totalPrice,
-      totalDistance: roundTripTicket.totalDistance
+      totalPrice: roundTripTicket.price,
+      totalDistance: roundTripTicket.distance
     });
   }) : null));
 };
@@ -42222,7 +42287,7 @@ function combine (array, callback) {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Rebeka\\\\skola\\\\WEB\\\\airo"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\Rebeka\\\\skola\\\\WEB\\\\airo","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 
