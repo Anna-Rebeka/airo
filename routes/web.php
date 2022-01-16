@@ -48,6 +48,7 @@ Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store']);
 Route::post('/roundticket', [App\Http\Controllers\TicketController::class, 'storeRoundtrip']);
 
 Route::delete('/ticket/{id}', [App\Http\Controllers\TicketController::class, 'destroy']);
+Route::delete('/roundtrip/{code}', [App\Http\Controllers\TicketController::class, 'destroyRoundtrip']);
 
 Route::get('/mytickets/{id}', [App\Http\Controllers\TicketController::class, 'showTicketRegistered']);
 Route::get('/tickets/{token}', [App\Http\Controllers\TicketController::class, 'showTicketsUnregistered']);

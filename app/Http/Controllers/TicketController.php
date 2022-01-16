@@ -229,6 +229,18 @@ class TicketController extends Controller
         });
     }
 
+    public function destroyRoundtrip($code)
+    {
+        $tickets = Ticket::where('roundtrip_code', $code)->get();
+        if(!$tickest){
+            return null;
+        }
+
+        foreach ($tickets as $ticket) {
+            $ticket->delete();
+        }
+    }
+
     public function getTicketsByUserId($id){
         return Ticket::where('user_id','like', $id . '%')->get();
     }
