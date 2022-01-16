@@ -8265,7 +8265,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-var Attribute = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"])));
+var Attribute = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"])));
 var AttributeIcon = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    margin: 0.3em;\n    width: 28px;\n    height: 28px;\n    background-color: transparent;\n"], ["\n    margin: 0.3em;\n    width: 28px;\n    height: 28px;\n    background-color: transparent;\n"])));
 var AttributeValue = styled_1["default"].span(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    color: white;\n    font-size: 1.2em;\n    font-weight: bold;\n    text-decoration: underline;\n"], ["\n    color: white;\n    font-size: 1.2em;\n    font-weight: bold;\n    text-decoration: underline;\n"])));
 
@@ -8318,18 +8318,14 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-var Heading3_1 = __webpack_require__(/*! ../heading/Heading3 */ "./resources/js/components/heading/Heading3.tsx");
-
 var FlightTripAttribute_1 = __webpack_require__(/*! ./FlightTripAttribute */ "./resources/js/components/result/FlightTripAttribute.tsx");
 
 var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/images.ts");
 
 var FlightTripAttributeCityName_1 = __webpack_require__(/*! ./FlightTripAttributeCityName */ "./resources/js/components/result/FlightTripAttributeCityName.tsx");
 
-var ElementTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"], ["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"])));
-var Element = styled_1["default"].li(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: white;\n    margin: 0;\n    list-style: none;\n"], ["\n    color: white;\n    margin: 0;\n    list-style: none;\n"])));
-var WrapperContentColDescription = styled_1["default"].li(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n"])));
-var WrapperDetails = styled_1["default"].ul(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"])));
+var WrapperContentColDescription = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n"])));
+var WrapperDetails = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"])));
 
 var FlightTripItem = function FlightTripItem(_a) {
   var departure = _a.departure,
@@ -8339,32 +8335,32 @@ var FlightTripItem = function FlightTripItem(_a) {
       company = _a.company,
       time = _a.time,
       distance = _a.distance;
-  return react_1["default"].createElement(WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttributeCityName_1.FlightTripAttributeCityName, {
+  return react_1["default"].createElement(WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(FlightTripAttributeCityName_1.FlightTripAttributeCityName, {
     icon: images_1.FROM,
     label: departure.name
-  })), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttributeCityName_1.FlightTripAttributeCityName, {
+  }), react_1["default"].createElement(FlightTripAttributeCityName_1.FlightTripAttributeCityName, {
     icon: images_1.DESTINATION,
     label: arrival.name
-  })), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
+  }), react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
     icon: images_1.LEAVES,
     label: leaves
-  })), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
+  }), react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
     icon: images_1.ARRIVES,
     label: arrives
-  })), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
+  }), react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
     icon: images_1.TIME,
     label: time + " mins"
-  })), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
+  }), react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
     icon: images_1.DISTANCE,
     label: distance + " km"
-  })), react_1["default"].createElement(Element, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
+  }), react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
     icon: images_1.COMPANY,
     label: company.name + " " + "*".repeat(company["class"])
-  }))));
+  })));
 };
 
 exports.FlightTripItem = FlightTripItem;
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+var templateObject_1, templateObject_2;
 
 /***/ }),
 
@@ -9654,6 +9650,9 @@ var Root = function Root(_a) {
     });
   })) : showSecondWay && flightsTo ? react_1["default"].createElement(Paragraph, null, "No flights were found. Please change your inputs.") : null, roundTrips && roundTrips.length !== 0 ? roundTrips.map(function (roundTrip, index) {
     return react_1["default"].createElement(ResultItemFlightTrip_1.ResultItemFlightTrip, {
+      no: no,
+      user: user,
+      setUser: setUser,
       key: "result-item-flight-trip" + index,
       price: roundTrip.price,
       distance: roundTrip.distance,
@@ -9726,7 +9725,7 @@ __webpack_require__(/*! ./index.tsx */ "./resources/js/index.tsx");
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/arrow_up.svg?5809b531052121c848c62edd0041f1dc");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/arrow_up.svg?9c8f8f29eb8916981395774e70d5b8a9");
 
 /***/ }),
 
@@ -9942,7 +9941,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/facebook.svg?75f0a9aed39e4ff4d7e14ac23f23cba1");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/facebook.svg?d3466f327c8507bfe461ebd8804901c2");
 
 /***/ }),
 
@@ -10050,7 +10049,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/instagram.svg?8551b878c4879d64ecd07eeb61f74a01");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/instagram.svg?b8e1bdb7eab687d08cf6c3fd5056c84b");
 
 /***/ }),
 
@@ -10314,7 +10313,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/airplane.svg?b76b1de097d26319de941e1f395eb7b1");
+/* harmony default export */ __webpack_exports__["default"] = ("/images/airplane.svg?971c9f02adb0b4d373b16cf91df26fc4");
 
 /***/ }),
 

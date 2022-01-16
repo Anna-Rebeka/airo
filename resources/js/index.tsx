@@ -192,7 +192,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                     }
                     {roundTrips && roundTrips.length !== 0 ?
                         roundTrips.map((roundTrip: any, index: number) => (
-                            <ResultItemFlightTrip key={"result-item-flight-trip" + index} price={roundTrip.price}
+                            <ResultItemFlightTrip no={no} user={user} setUser={setUser} key={"result-item-flight-trip" + index} price={roundTrip.price}
                                                   distance={roundTrip.distance}
                                                   flights={roundTrip.flights}/>))
                         :

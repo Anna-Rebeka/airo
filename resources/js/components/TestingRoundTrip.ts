@@ -1,5 +1,5 @@
 export const TestingRoundTrip = {
-    places: [
+    flights: [
         {
             "id": 1980,
             "name": "u620cg10",

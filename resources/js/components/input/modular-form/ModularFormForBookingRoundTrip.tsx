@@ -62,7 +62,6 @@ export const ModularFormForBookingRoundTrip: FunctionComponent<Props> = ({
                                            setDisplay(true);
                                        }}/>
                     </>
-
                     : null
             }
         </>
