@@ -8673,9 +8673,17 @@ var ModularFormForBookingRoundTrip_1 = __importDefault(__webpack_require__(/*! .
 
 var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
 
+var RoundTripAttribute_1 = __webpack_require__(/*! ./RoundTripAttribute */ "./resources/js/components/result/RoundTripAttribute.tsx");
+
+var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/images.ts");
+
+var Heading3_1 = __webpack_require__(/*! ../heading/Heading3 */ "./resources/js/components/heading/Heading3.tsx");
+
 var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"])));
 var RowWrapper = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"], ["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"])));
-var WrapperButton = (0, styled_1["default"])(RoundTripItem_1.WrapperContentColDescription)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    align-self: flex-start;\n"], ["\n    align-self: flex-start;\n"])));
+var ColWrapper = (0, styled_1["default"])(RowWrapper)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    flex-direction: column;\n"], ["\n    flex-direction: column;\n"])));
+var WrapperButton = (0, styled_1["default"])(RoundTripItem_1.WrapperContentColDescription)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    align-self: flex-start;\n"], ["\n    align-self: flex-start;\n"])));
+var HeadTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    margin: 0;\n\n"], ["\n    margin: 0;\n\n"])));
 
 var ResultItemRoundTrip = function ResultItemRoundTrip(_a) {
   var flights = _a.flights,
@@ -8683,8 +8691,11 @@ var ResultItemRoundTrip = function ResultItemRoundTrip(_a) {
       totalDistance = _a.totalDistance,
       no = _a.no,
       user = _a.user,
-      setUser = _a.setUser;
-  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, flights && flights.map(function (place, index) {
+      setUser = _a.setUser,
+      className = _a.className;
+  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, {
+    className: className
+  }, flights && flights.map(function (place, index) {
     return react_1["default"].createElement(RoundTripItem_1.RoundTripItem, {
       key: "flight-trip-item-" + index,
       time: (0, BasicUtils_1.useRoundNumber)(place.duration),
@@ -8696,7 +8707,13 @@ var ResultItemRoundTrip = function ResultItemRoundTrip(_a) {
       departure: place.departure,
       company: place.company
     });
-  }), react_1["default"].createElement(WrapperButton, null, react_1["default"].createElement(ModularFormForBookingRoundTrip_1["default"], {
+  }), react_1["default"].createElement(ColWrapper, null, react_1["default"].createElement(HeadTitle, null, "Total"), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
+    icon: images_1.DISTANCE,
+    label: (0, BasicUtils_1.useRoundNumber)(totalDistance) + " km"
+  }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
+    icon: images_1.MONEY,
+    label: (0, BasicUtils_1.useRoundNumber)(totalPrice * no) + " €"
+  })), react_1["default"].createElement(WrapperButton, null, react_1["default"].createElement(ModularFormForBookingRoundTrip_1["default"], {
     flights: flights,
     totalPrice: totalPrice,
     totalDistance: totalDistance,
@@ -8708,7 +8725,7 @@ var ResultItemRoundTrip = function ResultItemRoundTrip(_a) {
 };
 
 exports.ResultItemRoundTrip = ResultItemRoundTrip;
-var templateObject_1, templateObject_2, templateObject_3;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
 /***/ }),
 
@@ -10130,8 +10147,8 @@ var Root = function Root(_a) {
       user: user,
       setUser: setUser,
       key: "result-item-flight-trip" + index,
-      totalPrice: roundTrip.totalPrice,
-      totalDistance: roundTrip.totalDistance,
+      totalPrice: roundTrip.price,
+      totalDistance: roundTrip.distance,
       flights: roundTrip.flights
     });
   }) : roundTrips ? react_1["default"].createElement(Paragraph, null, "No round trips were found. Please change your inputs.") : null)), width < 1060 ? react_1["default"].createElement(NavigationDownImpl_1.NavigationDownImpl, {

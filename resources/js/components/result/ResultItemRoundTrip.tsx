@@ -3,6 +3,10 @@ import styled from "@emotion/styled";
 import {RoundTripItem, WrapperContentColDescription} from "./RoundTripItem";
 import ModularFormForBookingRoundTrip from "../input/modular-form/ModularFormForBookingRoundTrip";
 import {useRoundNumber} from "../../BasicUtils";
+import {RoundTripAttribute} from "./RoundTripAttribute";
+import {DISTANCE, MONEY} from "../images";
+import {Heading2} from "../heading/Heading2";
+import {Heading3} from "../heading/Heading3";
 
 interface Props {
     totalPrice: number;
@@ -11,6 +15,7 @@ interface Props {
     no: number;
     user: any;
     setUser: any;
+    className?: any;
 }
 
 let ResultWrapper = styled.article`
@@ -40,21 +45,31 @@ let RowWrapper = styled.ul`
     }
 `
 
+let ColWrapper = styled(RowWrapper)`
+    flex-direction: column;
+`
+
 let WrapperButton = styled(WrapperContentColDescription)`
     align-self: flex-start;
 `
 
+let HeadTitle = styled(Heading3)`
+    margin: 0;
+
+`
+
 export const ResultItemRoundTrip: FunctionComponent<Props> = ({
-                                                                   flights,
-                                                                   totalPrice,
-                                                                   totalDistance,
-                                                                   no,
-                                                                   user,
-                                                                   setUser
-                                                               }) => {
+                                                                  flights,
+                                                                  totalPrice,
+                                                                  totalDistance,
+                                                                  no,
+                                                                  user,
+                                                                  setUser,
+                                                                  className
+                                                              }) => {
     return (
         <ResultWrapper>
-            <RowWrapper>
+            <RowWrapper className={className}>
                 {flights && flights.map((place: any, index: number) => (
                     <RoundTripItem key={"flight-trip-item-" + index} time={useRoundNumber(place.duration)}
                                    arrives={place.arrives}
@@ -65,6 +80,11 @@ export const ResultItemRoundTrip: FunctionComponent<Props> = ({
                                    company={place.company}>
                     </RoundTripItem>
                 ))}
+                <ColWrapper>
+                    <HeadTitle>Total</HeadTitle>
+                    <RoundTripAttribute icon={DISTANCE} label={useRoundNumber(totalDistance) + " km"}/>
+                    <RoundTripAttribute icon={MONEY} label={useRoundNumber(totalPrice * no) + " €"}/>
+                </ColWrapper>
                 <WrapperButton>
                     <ModularFormForBookingRoundTrip flights={flights}
                                                     totalPrice={totalPrice}
