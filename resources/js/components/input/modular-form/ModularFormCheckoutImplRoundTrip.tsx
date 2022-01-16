@@ -70,10 +70,10 @@ export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
     let [isWrongEmail, setIsWrongEmail] = useState(false);
 
     return (
-        <ModularFormRoot setDisplay={setDisplay} title={successfulBooking ? "Ticket bought" : "Check your purchase"}>
+        <ModularFormRoot setDisplay={setDisplay} title={successfulBooking ? "Round trip bought" : "Check your purchase"}>
             {!successfulBooking ?
                 <>
-                    <Text>You are about to buy your selected ticket. Please check details below about the ticket.</Text>
+                    <Text>You are about to buy your selected round trip ticket. Please check details below about the ticket.</Text>
                     <WrapperInput>
                         <FlexboxInputsCheckout>
                             <TextTitle>{"Round trip ticket"}</TextTitle>
