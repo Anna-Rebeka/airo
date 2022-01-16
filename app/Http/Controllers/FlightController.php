@@ -216,7 +216,7 @@ class FlightController extends Controller
         $interval = $interval*60;
 
         $midTime = new DateTime($fromDate);
-        $maxPrice = $price / $noDst;
+        $maxPrice = $price / ($noDst + 1);
         $totalPrice = 0;
         $totalDistance = 0;
         $roundtrips = array();
