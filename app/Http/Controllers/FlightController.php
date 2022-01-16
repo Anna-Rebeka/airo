@@ -148,7 +148,18 @@ class FlightController extends Controller
         return $this->store($from, $to, $fromDate);
     }
 
-    public function getRoundtrips($from, $fromDate, $toDate, $noDst, $price, $prefferences)
+
+    public function getRoundtrips($from, $fromDate, $toDate, $noDst, $price, $prefferences){
+        $result = [];
+
+        for ($i = 0; $i <= rand(4, 6); $i++) {
+            array_push($result, $this->getRoundtrip($from, $fromDate, $toDate, $noDst, $price, $prefferences));
+        }
+
+        return json_encode($result);
+    }
+
+    public function getRoundtrip($from, $fromDate, $toDate, $noDst, $price, $prefferences)
     {
         $city = City::where('name', $from)->with('preferences')->get()->first();
 
@@ -196,7 +207,7 @@ class FlightController extends Controller
 
             $result = array("flights"=>$roundtrips, "price"=>$totalPrice, "distance"=>$totalDistance);
             
-            return json_encode($result);
+            return $result;
 
         return $roundtrips;
     }
