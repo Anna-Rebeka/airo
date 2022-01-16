@@ -8573,7 +8573,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.ResultItemRoundTrip = void 0;
+exports.ResultItemRoundTrip = exports.HeadTitle = exports.ColWrapper = void 0;
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -8593,9 +8593,9 @@ var Heading3_1 = __webpack_require__(/*! ../heading/Heading3 */ "./resources/js/
 
 var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"])));
 var RowWrapper = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"], ["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"])));
-var ColWrapper = (0, styled_1["default"])(RowWrapper)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    flex-direction: column;\n"], ["\n    flex-direction: column;\n"])));
+exports.ColWrapper = (0, styled_1["default"])(RowWrapper)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    flex-direction: column;\n"], ["\n    flex-direction: column;\n"])));
 var WrapperButton = (0, styled_1["default"])(RoundTripItem_1.WrapperContentColDescription)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    align-self: flex-start;\n"], ["\n    align-self: flex-start;\n"])));
-var HeadTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    margin: 0;\n\n"], ["\n    margin: 0;\n\n"])));
+exports.HeadTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    margin: 0;\n\n"], ["\n    margin: 0;\n\n"])));
 
 var ResultItemRoundTrip = function ResultItemRoundTrip(_a) {
   var flights = _a.flights,
@@ -8614,12 +8614,11 @@ var ResultItemRoundTrip = function ResultItemRoundTrip(_a) {
       arrives: place.arrives,
       leaves: place.leaves,
       distance: (0, BasicUtils_1.useRoundNumber)(place.distance),
-      price: (0, BasicUtils_1.useRoundNumber)(place.price),
       arrival: place.arrival,
       departure: place.departure,
       company: place.company
     });
-  }), react_1["default"].createElement(ColWrapper, null, react_1["default"].createElement(HeadTitle, null, "Total"), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
+  }), react_1["default"].createElement(exports.ColWrapper, null, react_1["default"].createElement(exports.HeadTitle, null, "Total"), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
     icon: images_1.DISTANCE,
     label: (0, BasicUtils_1.useRoundNumber)(totalDistance) + " km"
   }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
@@ -8686,6 +8685,14 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 
 var RoundTripItemMyFlights_1 = __webpack_require__(/*! ./RoundTripItemMyFlights */ "./resources/js/components/result/RoundTripItemMyFlights.tsx");
 
+var RoundTripAttribute_1 = __webpack_require__(/*! ./RoundTripAttribute */ "./resources/js/components/result/RoundTripAttribute.tsx");
+
+var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/images.ts");
+
+var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
+
+var ResultItemRoundTrip_1 = __webpack_require__(/*! ./ResultItemRoundTrip */ "./resources/js/components/result/ResultItemRoundTrip.tsx");
+
 var ResultWrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"])));
 var RowWrapper = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"], ["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"])));
 
@@ -8694,7 +8701,6 @@ var ResultItemRoundTripMyFlights = function ResultItemRoundTripMyFlights(_a) {
       totalPrice = _a.totalPrice,
       totalDistance = _a.totalDistance,
       no = _a.no;
-  console.log("tickets", tickets);
   return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, tickets && tickets.map(function (ticket, index) {
     return react_1["default"].createElement(RoundTripItemMyFlights_1.RoundTripItemMyFlights, {
       key: "flight-trip-item-" + index,
@@ -8703,7 +8709,16 @@ var ResultItemRoundTripMyFlights = function ResultItemRoundTripMyFlights(_a) {
       arrival: ticket.flight.arrival,
       departure: ticket.flight.departure
     });
-  })), react_1["default"].createElement(ModularButton_1.ModularButton, {
+  }), react_1["default"].createElement(ResultItemRoundTrip_1.ColWrapper, null, react_1["default"].createElement(ResultItemRoundTrip_1.HeadTitle, null, "Total"), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
+    icon: images_1.DISTANCE,
+    label: (0, BasicUtils_1.useRoundNumber)(totalDistance) + " km"
+  }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
+    icon: images_1.PERSONS,
+    label: no
+  }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
+    icon: images_1.MONEY,
+    label: (0, BasicUtils_1.useRoundNumber)(totalPrice * no) + " € (" + (0, BasicUtils_1.useRoundNumber)(totalPrice) + "€/person)"
+  }))), react_1["default"].createElement(ModularButton_1.ModularButton, {
     type: "submit",
     name: "cancel",
     value: "cancel",
