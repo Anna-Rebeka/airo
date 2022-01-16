@@ -8364,7 +8364,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
 
-var Attribute = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"])));
+var Attribute = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n"])));
 var AttributeIcon = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    margin: 0.3em;\n    width: 24px;\n    height: 24px;\n    background-color: transparent;\n"], ["\n    margin: 0.3em;\n    width: 24px;\n    height: 24px;\n    background-color: transparent;\n"])));
 var AttributeValue = styled_1["default"].span(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    color: white;\n    font-size: 0.7em;\n"], ["\n    color: white;\n    font-size: 0.7em;\n"])));
 
@@ -8464,7 +8464,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.FlightTripItem = void 0;
+exports.FlightTripItem = exports.WrapperContentColDescription = void 0;
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -8476,7 +8476,7 @@ var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/i
 
 var FlightTripAttributeCityName_1 = __webpack_require__(/*! ./FlightTripAttributeCityName */ "./resources/js/components/result/FlightTripAttributeCityName.tsx");
 
-var WrapperContentColDescription = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n"])));
+exports.WrapperContentColDescription = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"])));
 var WrapperDetails = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"])));
 
 var FlightTripItem = function FlightTripItem(_a) {
@@ -8487,7 +8487,7 @@ var FlightTripItem = function FlightTripItem(_a) {
       company = _a.company,
       time = _a.time,
       distance = _a.distance;
-  return react_1["default"].createElement(WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(FlightTripAttributeCityName_1.FlightTripAttributeCityName, {
+  return react_1["default"].createElement(exports.WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(FlightTripAttributeCityName_1.FlightTripAttributeCityName, {
     icon: images_1.FROM,
     label: departure.name
   }), react_1["default"].createElement(FlightTripAttributeCityName_1.FlightTripAttributeCityName, {
@@ -8660,7 +8660,7 @@ var ElementTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_
 var Element = styled_1["default"].li(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    color: white;\n    margin: 0;\n    list-style: none;\n"], ["\n    color: white;\n    margin: 0;\n    list-style: none;\n"])));
 var WrapperContentCol = styled_1["default"].li(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    list-style: none;\n"], ["\n    display: flex;\n    flex-direction: row;\n    list-style: none;\n"])));
 var WrapperContentColDescription = styled_1["default"].li(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n\n    @media (min-width: 476px) {\n        width: 70%;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n    width: 100%;\n\n    @media (min-width: 476px) {\n        width: 70%;\n    };\n"])));
-var RowWrapper = styled_1["default"].ul(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    align-items: center;\n    padding: 0;N\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    align-items: center;\n    padding: 0;N\n"])));
+var RowWrapper = styled_1["default"].ul(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    align-items: center;\n    padding: 0;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    align-items: center;\n    padding: 0;\n"])));
 var WrapperDetails = styled_1["default"].ul(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 0.5em;\n    padding: 0;\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 0.5em;\n    padding: 0;\n"])));
 
 var ResultItemDetails = function ResultItemDetails(_a) {
@@ -8733,8 +8733,9 @@ var FlightTripItem_1 = __webpack_require__(/*! ./FlightTripItem */ "./resources/
 
 var ModularFormForBookingRoundTrip_1 = __importDefault(__webpack_require__(/*! ../input/modular-form/ModularFormForBookingRoundTrip */ "./resources/js/components/input/modular-form/ModularFormForBookingRoundTrip.tsx"));
 
-var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"])));
-var RowWrapper = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"])));
+var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"])));
+var RowWrapper = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"], ["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"])));
+var WrapperButton = (0, styled_1["default"])(FlightTripItem_1.WrapperContentColDescription)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    align-self: flex-start;\n"], ["\n    align-self: flex-start;\n"])));
 
 var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
   var flights = _a.flights,
@@ -8743,8 +8744,9 @@ var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
       no = _a.no,
       user = _a.user,
       setUser = _a.setUser;
-  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, flights && flights.map(function (place) {
+  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, flights && flights.map(function (place, index) {
     return react_1["default"].createElement(FlightTripItem_1.FlightTripItem, {
+      key: "flight-trip-item-" + index,
       time: place.duration,
       arrives: place.arrives,
       leaves: place.leaves,
@@ -8754,7 +8756,7 @@ var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
       departure: place.departure,
       company: place.company
     });
-  }), react_1["default"].createElement(ModularFormForBookingRoundTrip_1["default"], {
+  }), react_1["default"].createElement(WrapperButton, null, react_1["default"].createElement(ModularFormForBookingRoundTrip_1["default"], {
     flights: flights,
     price: price,
     distance: distance,
@@ -8762,11 +8764,11 @@ var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
     withActivationButton: true,
     user: user,
     setUser: setUser
-  })));
+  }))));
 };
 
 exports.ResultItemFlightTrip = ResultItemFlightTrip;
-var templateObject_1, templateObject_2;
+var templateObject_1, templateObject_2, templateObject_3;
 
 /***/ }),
 

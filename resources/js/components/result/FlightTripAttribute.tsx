@@ -6,7 +6,7 @@ interface Props {
     label: any;
 }
 
-let Attribute = styled.div`
+let Attribute = styled.li`
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -85,7 +85,7 @@ let RowWrapper = styled.ul`
     flex-direction: column;
     margin: 1em;
     align-items: center;
-    padding: 0;N
+    padding: 0;
 `
 
 let WrapperDetails = styled.ul`

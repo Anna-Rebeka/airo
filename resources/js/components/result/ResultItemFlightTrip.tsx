@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import {FlightTripItem} from "./FlightTripItem";
+import {FlightTripItem, WrapperContentColDescription} from "./FlightTripItem";
 import ModularFormForBookingRoundTrip from "../input/modular-form/ModularFormForBookingRoundTrip";
 
 interface Props {
@@ -25,28 +25,22 @@ let ResultWrapper = styled.article`
     :nth-of-type(odd) {
         background-color: rgb(100, 100, 100);
     }
-
-    @media (min-width: 772px) {
-        width: 50%;
-    };
-
-    @media (min-width: 1060px) {
-        width: 75%;
-    };
-
-    @media (min-width: 1280px) {
-    };
 `;
 
 let RowWrapper = styled.ul`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin: 1em;
     padding: 0;
 
-    @media (min-width: 772px) {
-        flex-direction: row;
-    };
+    :last-child {
+        margin-right: auto;
+    }
+`
+
+let WrapperButton = styled(WrapperContentColDescription)`
+    align-self: flex-start;
 `
 
 export const ResultItemFlightTrip: FunctionComponent<Props> = ({
@@ -60,13 +54,15 @@ export const ResultItemFlightTrip: FunctionComponent<Props> = ({
     return (
         <ResultWrapper>
             <RowWrapper>
-                    {flights && flights.map((place: any) => (
-                        <FlightTripItem time={place.duration} arrives={place.arrives} leaves={place.leaves}
-                                        distance={place.distance}
-                                        price={place.price} arrival={place.arrival} departure={place.departure}
-                                        company={place.company}>
-                        </FlightTripItem>
-                    ))}
+                {flights && flights.map((place: any, index: number) => (
+                    <FlightTripItem key={"flight-trip-item-" + index} time={place.duration} arrives={place.arrives}
+                                    leaves={place.leaves}
+                                    distance={place.distance}
+                                    price={place.price} arrival={place.arrival} departure={place.departure}
+                                    company={place.company}>
+                    </FlightTripItem>
+                ))}
+                <WrapperButton>
                     <ModularFormForBookingRoundTrip flights={flights}
                                                     price={price}
                                                     distance={distance}
@@ -75,6 +71,7 @@ export const ResultItemFlightTrip: FunctionComponent<Props> = ({
                                                     user={user}
                                                     setUser={setUser}
                     />
+                </WrapperButton>
             </RowWrapper>
         </ResultWrapper>
     );

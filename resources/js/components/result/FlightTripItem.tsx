@@ -15,11 +15,10 @@ interface Props {
     time: any;
 }
 
-let WrapperContentColDescription = styled.li`
+export let WrapperContentColDescription = styled.li`
     display: flex;
     flex-direction: column;
     list-style: none;
-    width: 100%;
 `
 
 let WrapperDetails = styled.ul`
