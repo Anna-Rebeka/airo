@@ -3720,6 +3720,153 @@ __webpack_require__(/*! ./components/not-found/PageNotFound.tsx */ "./resources/
 
 /***/ }),
 
+/***/ "./resources/js/components/TestingRoundTrip.ts":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/TestingRoundTrip.ts ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.TestingRoundTrip = void 0;
+exports.TestingRoundTrip = [{
+  flights: [{
+    "id": 1980,
+    "name": "u620cg10",
+    "departure_id": 763,
+    "arrival_id": 804,
+    "company_id": 29,
+    "duration": "37.00",
+    "distance": "508.70",
+    "price": "30.01",
+    "leaves": "2022-01-16 00:44:37",
+    "arrives": "2022-01-16 01:21:00",
+    "created_at": "2022-01-13T19:14:10.000000Z",
+    "updated_at": "2022-01-13T19:14:10.000000Z",
+    "departure": {
+      "id": 763,
+      "name": "Bratislava",
+      "lat": 48.14,
+      "lng": 17.11,
+      "country": "Slovakia",
+      "capital": "primary",
+      "population": "429564",
+      "info": "Bratislava is the capital and largest city of Slovakia.\r\n\t\t\tOfficially, the population of the city is about 440,000; however, it is estimated to be more than 660,000\r\n\t\t\t- approximately 150% of the official figures. Bratislava is in southwestern Slovakia at the foot of the Little Carpathians,\r\n\t\t\toccupying both banks of the River Danube and the left bank of the River Morava. Bordering Austria and Hungary,\r\n\t\t\tit is the only national capital that borders two sovereign states.",
+      "image": "bratislava"
+    },
+    "arrival": {
+      "id": 804,
+      "name": "Luxembourg",
+      "lat": 49.61,
+      "lng": 6.13,
+      "country": "Luxembourg",
+      "capital": "primary",
+      "population": "124509",
+      "info": null,
+      "image": null
+    },
+    "company": {
+      "id": 29,
+      "name": "Malaysia Airlines",
+      "class": 2,
+      "created_at": null,
+      "updated_at": null
+    }
+  }, {
+    "id": 501,
+    "name": "v319wz26",
+    "departure_id": 804,
+    "arrival_id": 542,
+    "company_id": 18,
+    "duration": "27.00",
+    "distance": "370.60",
+    "price": "20.38",
+    "leaves": "2022-01-17 12:24:27",
+    "arrives": "2022-01-17 12:51:00",
+    "created_at": "2022-01-13T19:14:08.000000Z",
+    "updated_at": "2022-01-13T19:14:08.000000Z",
+    "departure": {
+      "id": 804,
+      "name": "Luxembourg",
+      "lat": 49.61,
+      "lng": 6.13,
+      "country": "Luxembourg",
+      "capital": "primary",
+      "population": "124509",
+      "info": null,
+      "image": null
+    },
+    "arrival": {
+      "id": 542,
+      "name": "Prague",
+      "lat": 50.08,
+      "lng": 14.42,
+      "country": "Czechia",
+      "capital": "primary",
+      "population": "1335084",
+      "info": "Prague is the capital and largest city in the Czech Republic, the 13th largest city in the European Union and the historical\r\n\t\t\tcapital of Bohemia. ... Situated on the Vltava river, Prague is home to about 1.3 million people, while its metropolitan area\r\n\t\t\tis estimated to have a population of 2.7 million.",
+      "image": "prague"
+    },
+    "company": {
+      "id": 18,
+      "name": "Delta Air Lines",
+      "class": 2,
+      "created_at": null,
+      "updated_at": null
+    }
+  }, {
+    "name": "aWXKhRug",
+    "departure_id": 542,
+    "arrival_id": 763,
+    "company_id": 20,
+    "leaves": "2022-01-18 22:00:00",
+    "arrives": "2022-01-18 22:13",
+    "duration": 13,
+    "price": 11.041010804138509,
+    "distance": 181.00017711702472,
+    "updated_at": "2022-01-15T15:35:10.000000Z",
+    "created_at": "2022-01-15T15:35:10.000000Z",
+    "id": 5002,
+    "departure": {
+      "id": 542,
+      "name": "Prague",
+      "lat": 50.08,
+      "lng": 14.42,
+      "country": "Czechia",
+      "capital": "primary",
+      "population": "1335084",
+      "info": "Prague is the capital and largest city in the Czech Republic, the 13th largest city in the European Union and the historical\r\n\t\t\tcapital of Bohemia. ... Situated on the Vltava river, Prague is home to about 1.3 million people, while its metropolitan area\r\n\t\t\tis estimated to have a population of 2.7 million.",
+      "image": "prague"
+    },
+    "arrival": {
+      "id": 763,
+      "name": "Bratislava",
+      "lat": 48.14,
+      "lng": 17.11,
+      "country": "Slovakia",
+      "capital": "primary",
+      "population": "429564",
+      "info": "Bratislava is the capital and largest city of Slovakia.\r\n\t\t\tOfficially, the population of the city is about 440,000; however, it is estimated to be more than 660,000\r\n\t\t\t- approximately 150% of the official figures. Bratislava is in southwestern Slovakia at the foot of the Little Carpathians,\r\n\t\t\toccupying both banks of the River Danube and the left bank of the River Morava. Bordering Austria and Hungary,\r\n\t\t\tit is the only national capital that borders two sovereign states.",
+      "image": "bratislava"
+    },
+    "company": {
+      "id": 18,
+      "name": "Delta Air Lines",
+      "class": 2,
+      "created_at": null,
+      "updated_at": null
+    }
+  }],
+  totalPrice: 61.43101080413851,
+  totalDistance: 1060.3001771170248
+}];
+
+/***/ }),
+
 /***/ "./resources/js/components/button/CarouselButton.tsx":
 /*!***********************************************************!*\
   !*** ./resources/js/components/button/CarouselButton.tsx ***!
@@ -4190,6 +4337,8 @@ var IconCheckBox_1 = __importDefault(__webpack_require__(/*! ../checkbox/IconChe
 
 var UniqueIconCheckBox_1 = __importDefault(__webpack_require__(/*! ../checkbox/UniqueIconCheckBox */ "./resources/js/components/checkbox/UniqueIconCheckBox.tsx"));
 
+var TestingRoundTrip_1 = __webpack_require__(/*! ../TestingRoundTrip */ "./resources/js/components/TestingRoundTrip.ts");
+
 var Form = styled_1["default"].form(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 100%;\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n\n"], ["\n    background-color: rgba(0, 0, 0, 0.6);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 100%;\n\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n\n"])));
 var RowFlexBox = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: 600px;\n    margin: 0;\n    padding: 0;\n\n    @media (min-width: 476px) {\n        margin-top: 1em;\n        margin-bottom: 1em;\n    };\n\n    @media (min-width: 800px) {\n        flex-direction: row;\n    };\n"])));
 var RowFlexBoxWithoutChange = (0, styled_1["default"])(RowFlexBox)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n"], ["\n    @media (min-width: 800px) {\n        flex-direction: column;\n    };\n"])));
@@ -4319,6 +4468,9 @@ var CarouselInputRoundTrips = function CarouselInputRoundTrips(_a) {
     axios_1["default"].get('roundtrips/' + from + '/' + dateFrom + '/' + dateTo + '/' + numberOfDestination + '/' + price + '/' + culture + '/' + relaxation + '/' + luxuryFlights + '/' + beachResort + '/' + history + '/' + social + '/' + adventure + '/' + premiumServices).then(function (res) {
       console.log([res.data]);
       setRoundTrips([res.data]);
+    })["catch"](function () {
+      setRoundTrips(TestingRoundTrip_1.TestingRoundTrip);
+      console.log(TestingRoundTrip_1.TestingRoundTrip);
     });
     var element = document.getElementById('tickets');
 
@@ -8582,8 +8734,7 @@ var FlightTripItem_1 = __webpack_require__(/*! ./FlightTripItem */ "./resources/
 var ModularFormForBookingRoundTrip_1 = __importDefault(__webpack_require__(/*! ../input/modular-form/ModularFormForBookingRoundTrip */ "./resources/js/components/input/modular-form/ModularFormForBookingRoundTrip.tsx"));
 
 var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"])));
-var RowItem = styled_1["default"].li(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    list-style: none;\n    display: flex;\n    flex-direction: row;\n"], ["\n    list-style: none;\n    display: flex;\n    flex-direction: row;\n"])));
-var RowWrapper = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"])));
+var RowWrapper = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"], ["\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n    padding: 0;\n\n    @media (min-width: 772px) {\n        flex-direction: row;\n    };\n"])));
 
 var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
   var flights = _a.flights,
@@ -8592,7 +8743,7 @@ var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
       no = _a.no,
       user = _a.user,
       setUser = _a.setUser;
-  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, react_1["default"].createElement(RowItem, null, flights && flights.map(function (place) {
+  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, flights && flights.map(function (place) {
     return react_1["default"].createElement(FlightTripItem_1.FlightTripItem, {
       time: place.duration,
       arrives: place.arrives,
@@ -8611,11 +8762,11 @@ var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
     withActivationButton: true,
     user: user,
     setUser: setUser
-  }))));
+  })));
 };
 
 exports.ResultItemFlightTrip = ResultItemFlightTrip;
-var templateObject_1, templateObject_2, templateObject_3;
+var templateObject_1, templateObject_2;
 
 /***/ }),
 

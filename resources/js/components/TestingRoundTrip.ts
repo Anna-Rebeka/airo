@@ -1,4 +1,4 @@
-export const TestingRoundTrip = {
+export const TestingRoundTrip = [{
     flights: [
         {
             "id": 1980,
@@ -120,9 +120,16 @@ export const TestingRoundTrip = {
                 "population": "429564",
                 "info": "Bratislava is the capital and largest city of Slovakia.\r\n\t\t\tOfficially, the population of the city is about 440,000; however, it is estimated to be more than 660,000\r\n\t\t\t- approximately 150% of the official figures. Bratislava is in southwestern Slovakia at the foot of the Little Carpathians,\r\n\t\t\toccupying both banks of the River Danube and the left bank of the River Morava. Bordering Austria and Hungary,\r\n\t\t\tit is the only national capital that borders two sovereign states.",
                 "image": "bratislava"
+            },
+            "company": {
+                "id": 18,
+                "name": "Delta Air Lines",
+                "class": 2,
+                "created_at": null,
+                "updated_at": null
             }
         }
     ],
     totalPrice: 61.43101080413851,
     totalDistance: 1060.3001771170248
-}
+}]

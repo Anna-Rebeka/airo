@@ -9,6 +9,7 @@ import {Error} from "../input/auto-complete/Error";
 import PreferencesCheckBox from "../checkbox/PreferencesCheckBox";
 import IconCheckBox from "../checkbox/IconCheckBox";
 import UniqueIconCheckBox from "../checkbox/UniqueIconCheckBox";
+import {TestingRoundTrip} from "../TestingRoundTrip";
 
 
 interface Props {
@@ -244,6 +245,11 @@ export const CarouselInputRoundTrips: FunctionComponent<Props> = ({setRoundTrips
             .then(res => {
                 console.log([res.data]);
                 setRoundTrips([res.data]);
+            })
+
+            .catch(() => {
+                setRoundTrips(TestingRoundTrip);
+                console.log(TestingRoundTrip);
             })
 
         let element = document.getElementById('tickets');

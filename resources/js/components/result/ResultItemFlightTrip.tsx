@@ -38,12 +38,6 @@ let ResultWrapper = styled.article`
     };
 `;
 
-let RowItem = styled.li`
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-`
-
 let RowWrapper = styled.ul`
     display: flex;
     flex-direction: column;
@@ -66,7 +60,6 @@ export const ResultItemFlightTrip: FunctionComponent<Props> = ({
     return (
         <ResultWrapper>
             <RowWrapper>
-                <RowItem>
                     {flights && flights.map((place: any) => (
                         <FlightTripItem time={place.duration} arrives={place.arrives} leaves={place.leaves}
                                         distance={place.distance}
@@ -82,7 +75,6 @@ export const ResultItemFlightTrip: FunctionComponent<Props> = ({
                                                     user={user}
                                                     setUser={setUser}
                     />
-                </RowItem>
             </RowWrapper>
         </ResultWrapper>
     );
