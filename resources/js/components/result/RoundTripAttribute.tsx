@@ -14,23 +14,21 @@ let Attribute = styled.li`
 
 let AttributeIcon = styled.img`
     margin: 0.3em;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     background-color: transparent;
 `
 
 let AttributeValue = styled.span`
     color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-decoration: underline;
+    font-size: 0.7em;
 `
 
 
-export const FlightTripAttributeCityName: FunctionComponent<Props> = ({
-                                                                          icon,
-                                                                          label
-                                                                      }) => {
+export const RoundTripAttribute: FunctionComponent<Props> = ({
+                                                                  icon,
+                                                                  label
+                                                              }) => {
     return (
         <Attribute>
             <AttributeIcon src={icon.default}/>

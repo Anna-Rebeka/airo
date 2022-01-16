@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import {FlightTripItem, WrapperContentColDescription} from "./FlightTripItem";
+import {RoundTripItem, WrapperContentColDescription} from "./RoundTripItem";
 import ModularFormForBookingRoundTrip from "../input/modular-form/ModularFormForBookingRoundTrip";
 import {useRoundNumber} from "../../BasicUtils";
 
@@ -44,7 +44,7 @@ let WrapperButton = styled(WrapperContentColDescription)`
     align-self: flex-start;
 `
 
-export const ResultItemFlightTrip: FunctionComponent<Props> = ({
+export const ResultItemRoundTrip: FunctionComponent<Props> = ({
                                                                    flights,
                                                                    totalPrice,
                                                                    totalDistance,
@@ -56,14 +56,14 @@ export const ResultItemFlightTrip: FunctionComponent<Props> = ({
         <ResultWrapper>
             <RowWrapper>
                 {flights && flights.map((place: any, index: number) => (
-                    <FlightTripItem key={"flight-trip-item-" + index} time={useRoundNumber(place.duration)}
-                                    arrives={place.arrives}
-                                    leaves={place.leaves}
-                                    distance={useRoundNumber(place.distance)}
-                                    price={useRoundNumber(place.price)} arrival={place.arrival}
-                                    departure={place.departure}
-                                    company={place.company}>
-                    </FlightTripItem>
+                    <RoundTripItem key={"flight-trip-item-" + index} time={useRoundNumber(place.duration)}
+                                   arrives={place.arrives}
+                                   leaves={place.leaves}
+                                   distance={useRoundNumber(place.distance)}
+                                   price={useRoundNumber(place.price)} arrival={place.arrival}
+                                   departure={place.departure}
+                                   company={place.company}>
+                    </RoundTripItem>
                 ))}
                 <WrapperButton>
                     <ModularFormForBookingRoundTrip flights={flights}

@@ -1,8 +1,8 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import {FlightTripAttribute} from "./FlightTripAttribute";
+import {RoundTripAttribute} from "./RoundTripAttribute";
 import {ARRIVES, COMPANY, DESTINATION, DISTANCE, FROM, LEAVES, TIME} from "../images";
-import {FlightTripAttributeCityName} from "./FlightTripAttributeCityName";
+import {RoundTripAttributeCityName} from "./RoundTripAttributeCityName";
 import {useRoundNumber} from "../../BasicUtils";
 
 interface Props {
@@ -29,7 +29,7 @@ let WrapperDetails = styled.ul`
     margin: 0.5em;
 `
 
-export const FlightTripItem: FunctionComponent<Props> = ({
+export const RoundTripItem: FunctionComponent<Props> = ({
                                                              departure,
                                                              arrival,
                                                              leaves,
@@ -41,13 +41,13 @@ export const FlightTripItem: FunctionComponent<Props> = ({
     return (
         <WrapperContentColDescription>
             <WrapperDetails>
-                <FlightTripAttributeCityName icon={FROM} label={departure.name}/>
-                <FlightTripAttributeCityName icon={DESTINATION} label={arrival.name}/>
-                <FlightTripAttribute icon={LEAVES} label={leaves}/>
-                <FlightTripAttribute icon={ARRIVES} label={arrives}/>
-                <FlightTripAttribute icon={TIME} label={useRoundNumber(time) + " mins"}/>
-                <FlightTripAttribute icon={DISTANCE} label={useRoundNumber(distance) + " km"}/>
-                <FlightTripAttribute icon={COMPANY} label={company.name + " " + "*".repeat(company.class)}/>
+                <RoundTripAttributeCityName icon={FROM} label={departure.name}/>
+                <RoundTripAttributeCityName icon={DESTINATION} label={arrival.name}/>
+                <RoundTripAttribute icon={LEAVES} label={leaves}/>
+                <RoundTripAttribute icon={ARRIVES} label={arrives}/>
+                <RoundTripAttribute icon={TIME} label={useRoundNumber(time) + " mins"}/>
+                <RoundTripAttribute icon={DISTANCE} label={useRoundNumber(distance) + " km"}/>
+                <RoundTripAttribute icon={COMPANY} label={company.name + " " + "*".repeat(company.class)}/>
             </WrapperDetails>
         </WrapperContentColDescription>
 

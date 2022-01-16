@@ -5,8 +5,8 @@ import styled from "@emotion/styled";
 import {ModularButton} from "./ModularButton";
 import {ModularFormInputElement} from "./ModularFormInputElement";
 import {ValidateEmail} from "../../../hooks/useValidators";
-import {FlightTripItemCheckoutSimplified, RowCenter} from "../../result/FlightTripItemCheckoutSimplified";
-import {FlightTripAttribute} from "../../result/FlightTripAttribute";
+import {RoundTripItemCheckoutSimplified, RowCenter} from "../../result/RoundTripItemCheckoutSimplified";
+import {RoundTripAttribute} from "../../result/RoundTripAttribute";
 import {DISTANCE, MONEY} from "../../images";
 import {useRoundNumber} from "../../../BasicUtils";
 
@@ -78,7 +78,7 @@ export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
                         <FlexboxInputsCheckout>
                             <TextTitle>{"Round trip ticket"}</TextTitle>
                             {roundTrip.flights && roundTrip.flights.map((place: any, index: number) => (
-                                <FlightTripItemCheckoutSimplified
+                                <RoundTripItemCheckoutSimplified
                                     key={"flight-trip-item-" + index}
                                     arrives={place.arrives}
                                     leaves={place.leaves}
@@ -87,9 +87,9 @@ export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
                                 />
                             ))}
                             <RowCenter>
-                                <FlightTripAttribute icon={MONEY} label={useRoundNumber(roundTrip.totalPrice) + " €"}/>
-                                <FlightTripAttribute icon={DISTANCE}
-                                                     label={useRoundNumber(roundTrip.totalDistance) + " km"}/>
+                                <RoundTripAttribute icon={MONEY} label={useRoundNumber(roundTrip.totalPrice) + " €"}/>
+                                <RoundTripAttribute icon={DISTANCE}
+                                                    label={useRoundNumber(roundTrip.totalDistance) + " km"}/>
                             </RowCenter>
                         </FlexboxInputsCheckout>
                     </WrapperInput>

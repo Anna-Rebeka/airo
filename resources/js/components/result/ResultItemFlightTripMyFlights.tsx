@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import {FlightTripItem, WrapperContentColDescription} from "./FlightTripItem";
+import {RoundTripItem, WrapperContentColDescription} from "./RoundTripItem";
 import {useRoundNumber} from "../../BasicUtils";
 import {ModularButton} from "../input/modular-form/ModularButton";
 import axios from "axios";
@@ -53,14 +53,14 @@ export const ResultItemFlightTripMyFlights: FunctionComponent<Props> = ({
         <ResultWrapper>
             <RowWrapper>
                 {flights && flights.map((place: any, index: number) => (
-                    <FlightTripItem key={"flight-trip-item-" + index} time={useRoundNumber(place.duration)}
-                                    arrives={place.arrives}
-                                    leaves={place.leaves}
-                                    distance={useRoundNumber(place.distance)}
-                                    price={useRoundNumber(place.price)} arrival={place.arrival}
-                                    departure={place.departure}
-                                    company={place.company}>
-                    </FlightTripItem>
+                    <RoundTripItem key={"flight-trip-item-" + index} time={useRoundNumber(place.duration)}
+                                   arrives={place.arrives}
+                                   leaves={place.leaves}
+                                   distance={useRoundNumber(place.distance)}
+                                   price={useRoundNumber(place.price)} arrival={place.arrival}
+                                   departure={place.departure}
+                                   company={place.company}>
+                    </RoundTripItem>
                 ))}
             </RowWrapper>
             <ModularButton type={"submit"} name={"cancel"} value={"cancel"}

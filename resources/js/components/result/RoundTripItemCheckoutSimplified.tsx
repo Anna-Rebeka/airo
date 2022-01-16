@@ -1,8 +1,8 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {ARRIVES, DESTINATION, FROM, LEAVES} from "../images";
-import {FlightTripAttributeCityNameSimplified} from "./FlightTripAttributeCityNameSimplified";
-import {FlightTripAttributeSimplified} from "./FlightTripAttributeSimplified";
+import {RoundTripAttributeCityNameSimplified} from "./RoundTripAttributeCityNameSimplified";
+import {RoundTripAttributeSimplified} from "./RoundTripAttributeSimplified";
 
 interface Props {
     departure: any;
@@ -34,7 +34,7 @@ export const RowCenter = styled(Row)`
     justify-content: center;
 `
 
-export const FlightTripItemCheckoutSimplified: FunctionComponent<Props> = ({
+export const RoundTripItemCheckoutSimplified: FunctionComponent<Props> = ({
                                                                                departure,
                                                                                arrival,
                                                                                leaves,
@@ -44,12 +44,12 @@ export const FlightTripItemCheckoutSimplified: FunctionComponent<Props> = ({
         <WrapperContentColDescription>
             <WrapperDetails>
                 <Row>
-                    <FlightTripAttributeCityNameSimplified icon={FROM} label={departure.name}/>
-                    <FlightTripAttributeCityNameSimplified icon={DESTINATION} label={arrival.name}/>
+                    <RoundTripAttributeCityNameSimplified icon={FROM} label={departure.name}/>
+                    <RoundTripAttributeCityNameSimplified icon={DESTINATION} label={arrival.name}/>
                 </Row>
                 <Row>
-                    <FlightTripAttributeSimplified icon={LEAVES} label={leaves}/>
-                    <FlightTripAttributeSimplified icon={ARRIVES} label={arrives}/>
+                    <RoundTripAttributeSimplified icon={LEAVES} label={leaves}/>
+                    <RoundTripAttributeSimplified icon={ARRIVES} label={arrives}/>
                 </Row>
             </WrapperDetails>
         </WrapperContentColDescription>

@@ -14,7 +14,7 @@ import {Heading2} from "./components/heading/Heading2";
 import {ResultItem} from "./components/result/ResultItem";
 import {NavigationDownImpl} from "./components/navigation/NavigationDownImpl";
 import useWindowSize from "./BasicUtils";
-import {ResultItemFlightTrip} from "./components/result/ResultItemFlightTrip";
+import {ResultItemRoundTrip} from "./components/result/ResultItemRoundTrip";
 
 
 interface RootProps {
@@ -192,9 +192,9 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                     }
                     {roundTrips && roundTrips.length !== 0 ?
                         roundTrips.map((roundTrip: any, index: number) => (
-                            <ResultItemFlightTrip no={no} user={user} setUser={setUser} key={"result-item-flight-trip" + index} totalPrice={roundTrip.totalPrice}
-                                                  totalDistance={roundTrip.totalDistance}
-                                                  flights={roundTrip.flights}/>))
+                            <ResultItemRoundTrip no={no} user={user} setUser={setUser} key={"result-item-flight-trip" + index} totalPrice={roundTrip.totalPrice}
+                                                 totalDistance={roundTrip.totalDistance}
+                                                 flights={roundTrip.flights}/>))
                         :
                         roundTrips ?
                             <Paragraph>

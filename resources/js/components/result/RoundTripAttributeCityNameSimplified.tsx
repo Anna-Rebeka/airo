@@ -27,7 +27,7 @@ let AttributeValue = styled.span`
 `
 
 
-export const FlightTripAttributeCityNameSimplified: FunctionComponent<Props> = ({
+export const RoundTripAttributeCityNameSimplified: FunctionComponent<Props> = ({
                                                                                     icon,
                                                                                     label
                                                                                 }) => {
