@@ -233,7 +233,7 @@ class TicketController extends Controller
     public function destroyRoundtrip($code)
     {
         $tickets = Ticket::where('roundtrip_code', $code)->get();
-        if(!$tickest){
+        if(!$tickets){
             return null;
         }
 
