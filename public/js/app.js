@@ -3637,7 +3637,7 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.useWindowSizeScrollResize = exports.useWindowSize = exports.increaseIndex = void 0;
+exports.useRoundNumber = exports.useWindowSizeScrollResize = exports.useWindowSize = exports.increaseIndex = void 0;
 
 var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
@@ -3694,6 +3694,12 @@ function useWindowSizeScrollResize() {
 }
 
 exports.useWindowSizeScrollResize = useWindowSizeScrollResize;
+
+function useRoundNumber(number) {
+  return Math.round(number * 100) / 100;
+}
+
+exports.useRoundNumber = useRoundNumber;
 exports["default"] = useWindowSize;
 
 /***/ }),
@@ -6560,6 +6566,8 @@ var FlightTripAttribute_1 = __webpack_require__(/*! ../../result/FlightTripAttri
 
 var images_1 = __webpack_require__(/*! ../../images */ "./resources/js/components/images.ts");
 
+var BasicUtils_1 = __webpack_require__(/*! ../../../BasicUtils */ "./resources/js/BasicUtils.tsx");
+
 var Text = styled_1["default"].p(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    color: white;\n    text-align: center;\n    margin: 0.2em;\n"], ["\n    color: white;\n    text-align: center;\n    margin: 0.2em;\n"])));
 var TextTitle = styled_1["default"].p(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: white;\n    text-align: center;\n    text-decoration: underline;\n    margin: 0;\n"], ["\n    color: white;\n    text-align: center;\n    text-decoration: underline;\n    margin: 0;\n"])));
 var FlexboxInputsCheckout = styled_1["default"].ul(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0;\n    max-width: 95%;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0;\n    max-width: 95%;\n"])));
@@ -6584,26 +6592,23 @@ var ModularFormCheckoutImplRoundTrip = function ModularFormCheckoutImplRoundTrip
       isWrongEmail = _d[0],
       setIsWrongEmail = _d[1];
 
-  console.log(roundTrip);
   return react_1["default"].createElement(ModularFormRoot_1.ModularFormRoot, {
     setDisplay: setDisplay,
     title: successfulBooking ? "Round trip bought" : "Check your purchase"
   }, !successfulBooking ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Text, null, "You are about to buy your selected ticket. Please check details below about the ticket."), react_1["default"].createElement(WrapperInput, null, react_1["default"].createElement(FlexboxInputsCheckout, null, react_1["default"].createElement(TextTitle, null, "Round trip ticket"), roundTrip.flights && roundTrip.flights.map(function (place, index) {
     return react_1["default"].createElement(FlightTripItemCheckoutSimplified_1.FlightTripItemCheckoutSimplified, {
-      distance: place.distance,
       key: "flight-trip-item-" + index,
       arrives: place.arrives,
       leaves: place.leaves,
-      price: place.price,
       arrival: place.arrival,
       departure: place.departure
     });
   }), react_1["default"].createElement(FlightTripItemCheckoutSimplified_1.RowCenter, null, react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
     icon: images_1.MONEY,
-    label: Math.round(roundTrip.totalPrice * 100) / 100 + " €"
+    label: (0, BasicUtils_1.useRoundNumber)(roundTrip.totalPrice) + " €"
   }), react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
     icon: images_1.DISTANCE,
-    label: Math.round(roundTrip.totalDistance * 100) / 100 + " km"
+    label: (0, BasicUtils_1.useRoundNumber)(roundTrip.totalDistance) + " km"
   })))), react_1["default"].createElement(Text, null, "Do you want to book?"), state === "CHECKOUT_NOT_REGISTERED" ? react_1["default"].createElement(ModularFormInputElement_1.ModularFormInputElement, {
     isWrongFromParent: isWrongEmail,
     setIsWrongParentMethod: setIsWrongEmail,
@@ -8605,6 +8610,8 @@ var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/i
 
 var FlightTripAttributeCityName_1 = __webpack_require__(/*! ./FlightTripAttributeCityName */ "./resources/js/components/result/FlightTripAttributeCityName.tsx");
 
+var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
+
 exports.WrapperContentColDescription = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"])));
 var WrapperDetails = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"])));
 
@@ -8630,10 +8637,10 @@ var FlightTripItem = function FlightTripItem(_a) {
     label: arrives
   }), react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
     icon: images_1.TIME,
-    label: time + " mins"
+    label: (0, BasicUtils_1.useRoundNumber)(time) + " mins"
   }), react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
     icon: images_1.DISTANCE,
-    label: distance + " km"
+    label: (0, BasicUtils_1.useRoundNumber)(distance) + " km"
   }), react_1["default"].createElement(FlightTripAttribute_1.FlightTripAttribute, {
     icon: images_1.COMPANY,
     label: company.name + " " + "*".repeat(company["class"])
@@ -8696,9 +8703,7 @@ var FlightTripItemCheckoutSimplified = function FlightTripItemCheckoutSimplified
   var departure = _a.departure,
       arrival = _a.arrival,
       leaves = _a.leaves,
-      arrives = _a.arrives,
-      price = _a.price,
-      distance = _a.distance;
+      arrives = _a.arrives;
   return react_1["default"].createElement(exports.WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(Row, null, react_1["default"].createElement(FlightTripAttributeCityNameSimplified_1.FlightTripAttributeCityNameSimplified, {
     icon: images_1.FROM,
     label: departure.name
@@ -8759,6 +8764,8 @@ var ModularFormForBooking_1 = __importDefault(__webpack_require__(/*! ../input/m
 
 var Heading3_1 = __webpack_require__(/*! ../heading/Heading3 */ "./resources/js/components/heading/Heading3.tsx");
 
+var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
+
 var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"])));
 var ResultImg = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 180px;\n    height: auto;\n    float: left;\n    margin-right: 15px;\n\n    @media (min-width: 772px) {\n        width: 200px;\n    };\n\n    @media (min-width: 1060px) {\n        width: 220px;\n    };\n\n    @media (min-width: 1280px) {\n        width: 240px;\n    };\n"], ["\n    width: 180px;\n    height: auto;\n    float: left;\n    margin-right: 15px;\n\n    @media (min-width: 772px) {\n        width: 200px;\n    };\n\n    @media (min-width: 1060px) {\n        width: 220px;\n    };\n\n    @media (min-width: 1280px) {\n        width: 240px;\n    };\n"])));
 var ElementTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"], ["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"])));
@@ -8799,7 +8806,7 @@ var ResultItem = function ResultItem(_a) {
   return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, react_1["default"].createElement(WrapperContentCol, null, react_1["default"].createElement(ResultImg, {
     src: imgUrl && imgUrl.url["default"],
     alt: altText
-  })), react_1["default"].createElement(WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(Element, null, react_1["default"].createElement(ElementTitle, null, (departure && departure.name) + " -> " + (arrival && arrival.name), " - " + price + " €")), react_1["default"].createElement(Element, null, "Departure time: " + leaves), react_1["default"].createElement(Element, null, "Estimated arrival time: " + arrives), react_1["default"].createElement(Element, null, "Flight company: " + companyName + "*".repeat(companyClass)))), react_1["default"].createElement(WrapperContentCol, null, react_1["default"].createElement(ModularFormForBooking_1["default"], {
+  })), react_1["default"].createElement(WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(Element, null, react_1["default"].createElement(ElementTitle, null, (departure && departure.name) + " -> " + (arrival && arrival.name), " - " + (0, BasicUtils_1.useRoundNumber)(price) + " €")), react_1["default"].createElement(Element, null, "Departure time: " + leaves), react_1["default"].createElement(Element, null, "Estimated arrival time: " + arrives), react_1["default"].createElement(Element, null, "Flight company: " + companyName + "*".repeat(companyClass)))), react_1["default"].createElement(WrapperContentCol, null, react_1["default"].createElement(ModularFormForBooking_1["default"], {
     selectedFirstWay: selectedFirstWay,
     showSecondWay: showSecondWay,
     setShowSecondWay: setShowSecondWay,
@@ -8857,6 +8864,8 @@ var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./nod
 
 var Heading3_1 = __webpack_require__(/*! ../heading/Heading3 */ "./resources/js/components/heading/Heading3.tsx");
 
+var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
+
 var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 100%;\n    text-align: left;\n    display: block;\n    color: white;\n    border: 1px gray solid;\n    background-color: rgb(100, 100, 100);\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 100%;\n    text-align: left;\n    display: block;\n    color: white;\n    border: 1px gray solid;\n    background-color: rgb(100, 100, 100);\n"])));
 var ResultImg = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 280px;\n    height: auto;\n    float: left;\n    margin-right: 15px;\n\n    @media (min-width: 772px) {\n        width: 300px;\n    };\n\n    @media (min-width: 1060px) {\n        width: 320px;\n    };\n\n    @media (min-width: 1280px) {\n        width: 340px;\n    };\n"], ["\n    width: 280px;\n    height: auto;\n    float: left;\n    margin-right: 15px;\n\n    @media (min-width: 772px) {\n        width: 300px;\n    };\n\n    @media (min-width: 1060px) {\n        width: 320px;\n    };\n\n    @media (min-width: 1280px) {\n        width: 340px;\n    };\n"])));
 var ElementTitle = (0, styled_1["default"])(Heading3_1.Heading3)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"], ["\n    text-decoration: underline;\n    margin: 0.2em 0;\n"])));
@@ -8888,7 +8897,7 @@ var ResultItemDetails = function ResultItemDetails(_a) {
   return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, react_1["default"].createElement(WrapperContentCol, null, react_1["default"].createElement(ResultImg, {
     src: imgUrl && imgUrl.url["default"],
     alt: altText
-  })), react_1["default"].createElement(WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(Element, null, react_1["default"].createElement(ElementTitle, null, (departure && departure.name) + " -> " + (arrival && arrival.name), " - " + price + " €")), react_1["default"].createElement(Element, null, "Departure time: " + leaves), react_1["default"].createElement(Element, null, "Estimated arrival time: " + arrives), react_1["default"].createElement(Element, null, "Flight company: " + companyName + "*".repeat(companyClass)), react_1["default"].createElement(Element, null, "Distance between cities is " + distance + "km."), react_1["default"].createElement(Element, null, "Duration of flight is " + duration + " minutes."), react_1["default"].createElement(Element, null, "Description: " + description)))));
+  })), react_1["default"].createElement(WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(Element, null, react_1["default"].createElement(ElementTitle, null, (departure && departure.name) + " -> " + (arrival && arrival.name), " - " + (0, BasicUtils_1.useRoundNumber)(price) + " €")), react_1["default"].createElement(Element, null, "Departure time: " + leaves), react_1["default"].createElement(Element, null, "Estimated arrival time: " + arrives), react_1["default"].createElement(Element, null, "Flight company: " + companyName + "*".repeat(companyClass)), react_1["default"].createElement(Element, null, "Distance between cities is " + (0, BasicUtils_1.useRoundNumber)(distance) + "km."), react_1["default"].createElement(Element, null, "Duration of flight is " + (0, BasicUtils_1.useRoundNumber)(duration) + " mins."), react_1["default"].createElement(Element, null, "Description: " + description)))));
 };
 
 exports.ResultItemDetails = ResultItemDetails;
@@ -8936,6 +8945,8 @@ var FlightTripItem_1 = __webpack_require__(/*! ./FlightTripItem */ "./resources/
 
 var ModularFormForBookingRoundTrip_1 = __importDefault(__webpack_require__(/*! ../input/modular-form/ModularFormForBookingRoundTrip */ "./resources/js/components/input/modular-form/ModularFormForBookingRoundTrip.tsx"));
 
+var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
+
 var ResultWrapper = styled_1["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n    }\n"])));
 var RowWrapper = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"], ["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    margin: 1em;\n    padding: 0;\n\n    :last-child {\n        margin-right: auto;\n    }\n"])));
 var WrapperButton = (0, styled_1["default"])(FlightTripItem_1.WrapperContentColDescription)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    align-self: flex-start;\n"], ["\n    align-self: flex-start;\n"])));
@@ -8950,11 +8961,11 @@ var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
   return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, flights && flights.map(function (place, index) {
     return react_1["default"].createElement(FlightTripItem_1.FlightTripItem, {
       key: "flight-trip-item-" + index,
-      time: place.duration,
+      time: (0, BasicUtils_1.useRoundNumber)(place.duration),
       arrives: place.arrives,
       leaves: place.leaves,
-      distance: place.distance,
-      price: place.price,
+      distance: (0, BasicUtils_1.useRoundNumber)(place.distance),
+      price: (0, BasicUtils_1.useRoundNumber)(place.price),
       arrival: place.arrival,
       departure: place.departure,
       company: place.company
@@ -9015,6 +9026,8 @@ var ModularButton_1 = __webpack_require__(/*! ../input/modular-form/ModularButto
 
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
+var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
+
 var ResultWrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n    background-color: black;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n        padding: 5px;\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"], ["\n    position: relative;\n    overflow: hidden;\n    width: 80%;\n    text-align: left;\n    display: block;\n    color: white;\n    padding: 5px;\n    border: 1px gray solid;\n    background-color: black;\n\n    :nth-of-type(odd) {\n        background-color: rgb(100, 100, 100);\n        padding: 5px;\n    }\n\n    @media (min-width: 772px) {\n        width: 50%;\n    };\n\n    @media (min-width: 1060px) {\n        width: 75%;\n    };\n\n    @media (min-width: 1280px) {\n    };\n"])));
 var ResultH3 = styled_1["default"].h3(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    color: white;\n    position: relative;\n    margin: 0;\n    float: left;\n    text-decoration: underline;\n"], ["\n    color: white;\n    position: relative;\n    margin: 0;\n    float: left;\n    text-decoration: underline;\n"])));
 var ResultDescription = styled_1["default"].p(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    color: white;\n    position: relative;\n    float: left;\n    margin: 0.2em 0;\n    width: 100%;\n    overflow: hidden;\n    text-decoration: none;\n    text-align: left;\n"], ["\n    color: white;\n    position: relative;\n    float: left;\n    margin: 0.2em 0;\n    width: 100%;\n    overflow: hidden;\n    text-decoration: none;\n    text-align: left;\n"])));
@@ -9022,9 +9035,8 @@ var MainWrapperContent = styled_1["default"].ul(templateObject_4 || (templateObj
 var WrapperContentCol = styled_1["default"].li(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    width: 75%;\n"], ["\n    display: flex;\n    flex-direction: column;\n    width: 75%;\n"])));
 
 var ResultItemTickets = function ResultItemTickets(_a) {
-  var element = _a.element,
-      user = _a.user;
-  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(MainWrapperContent, null, react_1["default"].createElement(WrapperContentCol, null, react_1["default"].createElement(ResultH3, null, (element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name), " - " + (element && element.price) + " €"), react_1["default"].createElement(ResultDescription, null, "Departure time: " + element && element.leaves + ". Estimated arrival time: " + element && element.arrives)), react_1["default"].createElement(ModularButton_1.ModularButton, {
+  var element = _a.element;
+  return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(MainWrapperContent, null, react_1["default"].createElement(WrapperContentCol, null, react_1["default"].createElement(ResultH3, null, (element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name), " - " + (element && (0, BasicUtils_1.useRoundNumber)(element.price)) + " €"), react_1["default"].createElement(ResultDescription, null, "Departure time: " + element && element.leaves + ". Estimated arrival time: " + element && element.arrives)), react_1["default"].createElement(ModularButton_1.ModularButton, {
     type: "submit",
     name: "detail",
     value: "detail",
@@ -9468,11 +9480,10 @@ var MyFlightsImpl = function MyFlightsImpl(_a) {
     id: "myflights"
   }, react_1["default"].createElement(Wrapper, null, react_1["default"].createElement(Heading1_1.Heading1, null, "Your tickets"), react_1["default"].createElement(Heading2_1.Heading2, null, "Welcome ", user && user.first_name, " ", user && user.last_name), flights && Object.keys(flights).length > 0 ? flights.map(function (element, index) {
     return react_1["default"].createElement(ResultItemTickets_1["default"], {
-      user: dataset && JSON.parse(dataset.user),
-      key: "src" + index,
+      key: "result-item-tickets-" + index,
       element: element && element.flight
     });
-  }) : react_1["default"].createElement(Paragraph, null, "You don't have any flights.")));
+  }) : react_1["default"].createElement(Paragraph, null, "You don't have any flights or round trip tickets.")));
 };
 
 exports.MyFlightsImpl = MyFlightsImpl;
@@ -42068,7 +42079,7 @@ function combine (array, callback) {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Rebeka\\\\skola\\\\WEB\\\\airo"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\Rebeka\\\\skola\\\\WEB\\\\airo","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 

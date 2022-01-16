@@ -8,6 +8,7 @@ import {ValidateEmail} from "../../../hooks/useValidators";
 import {FlightTripItemCheckoutSimplified, RowCenter} from "../../result/FlightTripItemCheckoutSimplified";
 import {FlightTripAttribute} from "../../result/FlightTripAttribute";
 import {DISTANCE, MONEY} from "../../images";
+import {useRoundNumber} from "../../../BasicUtils";
 
 interface Props {
     user: any;
@@ -66,8 +67,6 @@ export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
     let [emailAddress, setEmailAddress] = useState("");
     let [isWrongEmail, setIsWrongEmail] = useState(false);
 
-    console.log(roundTrip);
-
     return (
         <ModularFormRoot setDisplay={setDisplay}
                          title={successfulBooking ? "Round trip bought" : "Check your purchase"}>
@@ -79,17 +78,18 @@ export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
                         <FlexboxInputsCheckout>
                             <TextTitle>{"Round trip ticket"}</TextTitle>
                             {roundTrip.flights && roundTrip.flights.map((place: any, index: number) => (
-                                <FlightTripItemCheckoutSimplified distance={place.distance}
-                                                                  key={"flight-trip-item-" + index}
-                                                                  arrives={place.arrives}
-                                                                  leaves={place.leaves}
-                                                                  price={place.price} arrival={place.arrival}
-                                                                  departure={place.departure}
+                                <FlightTripItemCheckoutSimplified
+                                    key={"flight-trip-item-" + index}
+                                    arrives={place.arrives}
+                                    leaves={place.leaves}
+                                    arrival={place.arrival}
+                                    departure={place.departure}
                                 />
                             ))}
                             <RowCenter>
-                                <FlightTripAttribute icon={MONEY} label={(Math.round(roundTrip.totalPrice * 100) / 100) + " €"}/>
-                                <FlightTripAttribute icon={DISTANCE} label={(Math.round(roundTrip.totalDistance * 100) / 100) + " km"}/>
+                                <FlightTripAttribute icon={MONEY} label={useRoundNumber(roundTrip.totalPrice) + " €"}/>
+                                <FlightTripAttribute icon={DISTANCE}
+                                                     label={useRoundNumber(roundTrip.totalDistance) + " km"}/>
                             </RowCenter>
                         </FlexboxInputsCheckout>
                     </WrapperInput>

@@ -1,17 +1,14 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
-import {ARRIVES, DESTINATION, DISTANCE, FROM, LEAVES, MONEY} from "../images";
+import {ARRIVES, DESTINATION, FROM, LEAVES} from "../images";
 import {FlightTripAttributeCityNameSimplified} from "./FlightTripAttributeCityNameSimplified";
 import {FlightTripAttributeSimplified} from "./FlightTripAttributeSimplified";
-import {FlightTripAttribute} from "./FlightTripAttribute";
 
 interface Props {
     departure: any;
     arrival: any;
     leaves: any;
     arrives: any;
-    price: any;
-    distance: any;
 }
 
 export let WrapperContentColDescription = styled.li`
@@ -41,9 +38,7 @@ export const FlightTripItemCheckoutSimplified: FunctionComponent<Props> = ({
                                                                                departure,
                                                                                arrival,
                                                                                leaves,
-                                                                               arrives,
-                                                                               price,
-                                                                               distance
+                                                                               arrives
                                                                            }) => {
     return (
         <WrapperContentColDescription>

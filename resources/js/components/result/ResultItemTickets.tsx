@@ -2,11 +2,11 @@ import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {ModularButton} from "../input/modular-form/ModularButton";
 import axios from "axios";
+import {useRoundNumber} from "../../BasicUtils";
 
 
 interface Props {
     element: any;
-    user: any;
 }
 
 let ResultWrapper = styled.div`
@@ -74,14 +74,13 @@ let WrapperContentCol = styled.li`
 
 
 export const ResultItemTickets: FunctionComponent<Props> = ({
-                                                                element,
-                                                                user
+                                                                element
                                                             }) => {
     return (
         <ResultWrapper>
             <MainWrapperContent>
                 <WrapperContentCol>
-                    <ResultH3>{(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)}{" - " + (element && element.price) + " €"}</ResultH3>
+                    <ResultH3>{(element && element.departure && element.departure.name) + " -> " + (element && element.arrival && element.arrival.name)}{" - " + (element && useRoundNumber(element.price)) + " €"}</ResultH3>
                     <ResultDescription>{"Departure time: " + element && element.leaves + ". Estimated arrival time: " + element && element.arrives}</ResultDescription>
                 </WrapperContentCol>
                 <ModularButton type={"submit"} name={"detail"} value={"detail"}

@@ -39,7 +39,11 @@ export const ModularFormForBookingRoundTrip: FunctionComponent<Props> = ({
                                                           no={no} user={user}
                                                           displayForm={display}
                                                           setDisplay={setDisplay}
-                                                          roundTrip={{flights: flights, totalDistance: totalDistance, totalPrice: totalPrice}}
+                                                          roundTrip={{
+                                                              flights: flights,
+                                                              totalDistance: totalDistance,
+                                                              totalPrice: totalPrice
+                                                          }}
                                                           setState={setState}/> :
                         state === "LOGIN" ?
                             <ModularFormLoginImpl bookingWithoutRegistration={true} setUser={setUser}

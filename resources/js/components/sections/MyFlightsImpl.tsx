@@ -41,11 +41,11 @@ export const MyFlightsImpl: FunctionComponent<Props> = ({
 
                 {flights && Object.keys(flights).length > 0 ?
                     flights.map((element: any, index: number) => (
-                        <ResultItemTickets user={dataset && JSON.parse(dataset.user)} key={"src" + index}
+                        <ResultItemTickets key={"result-item-tickets-" + index}
                                            element={element && element.flight}
                         />)) :
                     <Paragraph>
-                        You don't have any flights.
+                        You don't have any flights or round trip tickets.
                     </Paragraph>
 
                 }

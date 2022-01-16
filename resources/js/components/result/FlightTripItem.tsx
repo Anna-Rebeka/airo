@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import {FlightTripAttribute} from "./FlightTripAttribute";
 import {ARRIVES, COMPANY, DESTINATION, DISTANCE, FROM, LEAVES, TIME} from "../images";
 import {FlightTripAttributeCityName} from "./FlightTripAttributeCityName";
+import {useRoundNumber} from "../../BasicUtils";
 
 interface Props {
     departure: any;
@@ -44,8 +45,8 @@ export const FlightTripItem: FunctionComponent<Props> = ({
                 <FlightTripAttributeCityName icon={DESTINATION} label={arrival.name}/>
                 <FlightTripAttribute icon={LEAVES} label={leaves}/>
                 <FlightTripAttribute icon={ARRIVES} label={arrives}/>
-                <FlightTripAttribute icon={TIME} label={time + " mins"}/>
-                <FlightTripAttribute icon={DISTANCE} label={distance + " km"}/>
+                <FlightTripAttribute icon={TIME} label={useRoundNumber(time) + " mins"}/>
+                <FlightTripAttribute icon={DISTANCE} label={useRoundNumber(distance) + " km"}/>
                 <FlightTripAttribute icon={COMPANY} label={company.name + " " + "*".repeat(company.class)}/>
             </WrapperDetails>
         </WrapperContentColDescription>

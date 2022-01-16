@@ -1,6 +1,7 @@
 import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 import {Heading3} from "../heading/Heading3";
+import {useRoundNumber} from "../../BasicUtils";
 
 interface Props {
     element: any;
@@ -127,13 +128,13 @@ export const ResultItemDetails: FunctionComponent<Props> = ({
                 <WrapperContentColDescription>
                     <WrapperDetails>
                         <Element>
-                            <ElementTitle>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (price) + " €"}</ElementTitle>
+                            <ElementTitle>{(departure && departure.name) + " -> " + (arrival && arrival.name)}{" - " + (useRoundNumber(price)) + " €"}</ElementTitle>
                         </Element>
                         <Element>{"Departure time: " + leaves}</Element>
                         <Element>{"Estimated arrival time: " + arrives}</Element>
                         <Element>{"Flight company: " + companyName + "*".repeat(companyClass)}</Element>
-                        <Element>{"Distance between cities is " + distance + "km."}</Element>
-                        <Element>{"Duration of flight is " + duration + " minutes."}</Element>
+                        <Element>{"Distance between cities is " + useRoundNumber(distance) + "km."}</Element>
+                        <Element>{"Duration of flight is " + useRoundNumber(duration) + " mins."}</Element>
                         <Element>{"Description: " + description}</Element>
                     </WrapperDetails>
                 </WrapperContentColDescription>

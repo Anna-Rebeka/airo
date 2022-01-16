@@ -39,4 +39,8 @@ export function useWindowSizeScrollResize() {
     return size;
 }
 
+export function useRoundNumber(number: number) {
+    return Math.round(number * 100) / 100;
+}
+
 export default useWindowSize;
