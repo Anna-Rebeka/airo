@@ -17,7 +17,7 @@ class TicketController extends Controller
         if(!auth()->user()){
             return redirect('/');
         }
-        $tickets = auth()->user()->tickets()->get();
+        $tickets = auth()->user()->tickets()->where('roundtrip_code', NULL)->get();
 
         foreach ($tickets as $ticket){
             $flight = $ticket->flight;
@@ -72,6 +72,72 @@ class TicketController extends Controller
             'user' => auth()->user(),
             'ticket' => $ticket
         ]);
+    }
+
+
+
+    public function getRoundtripsRegistered(){
+        if(!auth()->user()){
+            return redirect('/');
+        }
+        $tickets = auth()->user()->tickets()->where('roundtrip_code', '!=' , NULL)->orderBy('roundtrip_code')->get();
+
+        $code = NULL;
+        $result = [];
+        $tmp = [];
+
+        foreach ($tickets as $ticket){
+            if ($code != null && $code != $ticket->roundtrip_code){
+                $result[$code] = $tmp;
+                $tmp = [];
+            }
+            $flight = $ticket->flight;
+            $flight->arrival;
+            $flight->departure;
+            $flight->ticket_id = $ticket->id;
+
+            $code = $ticket->roundtrip_code;
+            array_push($tmp, $ticket);
+        }
+
+        return json_encode($result);
+    }
+
+
+    public function storeRoundtrip(Request $fields)
+    {
+        $result = [];
+        $roundtrip_code = null;
+            do{
+                $roundtrip_code = Str::random(16);
+            } while (Ticket::where('roundtrip_code', $roundtrip_code)->first());
+
+        $user = auth()->user();
+        $user_id = null;
+        $token = null;    
+
+        if($user){
+            $user_id = $user->id;
+        }
+        else{
+            do{
+                $token = Str::random(16);
+            } while (Ticket::where('token', $token)->first());
+        }
+        
+        foreach ($fields as $flight_id){
+            $ticket = Ticket::create([
+                'user_id' => $user_id,
+                'flight_id' => $flight_id,
+                'roundtrip_code' => $roundtrip_code,
+                'no' => 1,
+                'token' => $token,
+            ]);
+
+            array_push($result, $ticket);
+        }
+
+        return json_encode($result);
     }
 
     /**

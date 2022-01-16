@@ -17,7 +17,7 @@ class CreateFlightTicketTable extends Migration
             $table->id();
             $table->unsignedBigInteger('flight_id');
             $table->unsignedBigInteger('ticket_id');
-            $table->boolean('roundtrip')->default(false);
+            $table->string('roundtrip_code')->unique()->nullable();
             $table->timestamps();
 
             $table->foreign('flight_id')
