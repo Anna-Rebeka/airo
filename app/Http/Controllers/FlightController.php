@@ -72,8 +72,8 @@ class FlightController extends Controller
             'distance' => $distance
         ]);
         
-        //$flight->departure;
-        //$flight->arrival;
+        $flight->departure;
+        $flight->arrival;
 
         return $flight;
     }
@@ -186,7 +186,9 @@ class FlightController extends Controller
         $midCity = City::where('name', $from)->with('preferences')->get()->first();
         for ($i = 1; $i <= $noDst; $i++) {
             $flight = $this->getFlight($midCity, $midTime->format('Y-m-d H:i:s'), $midPrice);
+            $flight->arrival;
             $flight->arrival->preferences;
+            $flight->departure;
             $flight->departure->preferences;
             $roundtrips[] = $flight;
             $totalPrice += $flight->price;
