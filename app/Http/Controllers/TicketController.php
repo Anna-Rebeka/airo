@@ -107,6 +107,7 @@ class TicketController extends Controller
             $flight = $ticket->flight;
             $flight->arrival;
             $flight->departure;
+            $flight->company;
             $flight->ticket_id = $ticket->id;
             $price += $flight->price;
             $distance += $flight->distance;
