@@ -117,11 +117,15 @@ export const ModularFormCheckoutImplRoundTrip: FunctionComponent<Props> = ({
                                 return;
                             }
                             if (!isWrongEmail || state === "LOGGED") {
-                                axios.post('/ticket', {
-                                    flight_id: roundTrip.id,
-                                    no: no,
-                                    email: emailAddress
-                                }).then((res) => {
+                                let array: any = [];
+
+                                roundTrip.flights && roundTrip.flights.map((place: any) => {
+                                        array.push(place.id);
+                                    }
+                                );
+
+                                console.log(array);
+                                axios.post('/roundticket', array).then((res) => {
                                     setSuccessfulBooking(true);
                                 })
                             }

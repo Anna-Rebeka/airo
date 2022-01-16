@@ -6642,11 +6642,12 @@ var ModularFormCheckoutImplRoundTrip = function ModularFormCheckoutImplRoundTrip
       }
 
       if (!isWrongEmail || state === "LOGGED") {
-        axios_1["default"].post('/ticket', {
-          flight_id: roundTrip.id,
-          no: no,
-          email: emailAddress
-        }).then(function (res) {
+        var array_1 = [];
+        roundTrip.flights && roundTrip.flights.map(function (place) {
+          array_1.push(place.id);
+        });
+        console.log(array_1);
+        axios_1["default"].post('/roundticket', array_1).then(function (res) {
           setSuccessfulBooking(true);
         });
       }
@@ -8958,6 +8959,7 @@ var ResultItemFlightTrip = function ResultItemFlightTrip(_a) {
       no = _a.no,
       user = _a.user,
       setUser = _a.setUser;
+  console.log(flights);
   return react_1["default"].createElement(ResultWrapper, null, react_1["default"].createElement(RowWrapper, null, flights && flights.map(function (place, index) {
     return react_1["default"].createElement(FlightTripItem_1.FlightTripItem, {
       key: "flight-trip-item-" + index,

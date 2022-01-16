@@ -52,6 +52,7 @@ export const ResultItemFlightTrip: FunctionComponent<Props> = ({
                                                                    user,
                                                                    setUser
                                                                }) => {
+    console.log(flights);
     return (
         <ResultWrapper>
             <RowWrapper>
