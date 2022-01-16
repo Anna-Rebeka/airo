@@ -97,6 +97,7 @@ class TicketController extends Controller
                 $roundtrip['price'] = $price;
                 $roundtrip['distance'] = $distance;
                 $roundtrip['no'] = $no;
+                $roundtrip['roundtrip_code'] = $code;
 
                 $result[$code] = $roundtrip;
                 
