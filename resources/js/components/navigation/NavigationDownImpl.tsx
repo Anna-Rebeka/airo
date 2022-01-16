@@ -2,7 +2,6 @@ import React, {FunctionComponent} from "react";
 import styled from "@emotion/styled";
 
 interface Props {
-    displayCarousel: any;
     setDisplayCarousel: any;
 }
 
@@ -47,7 +46,7 @@ let NavDownParagraph = styled.div`
     margin: 0.4em 0;
 `;
 
-export const NavigationDownImpl: FunctionComponent<Props> = ({displayCarousel, setDisplayCarousel}) => {
+export const NavigationDownImpl: FunctionComponent<Props> = ({setDisplayCarousel}) => {
 
     let chooseDisplay = (side: string) => {
         setDisplayCarousel(side);

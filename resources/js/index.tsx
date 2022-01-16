@@ -205,7 +205,7 @@ const Root: FunctionComponent<RootProps> = ({dataset}) => {
                 </ListOfTickets>
             </BasicImpl>
             {width < 1060 ?
-                <NavigationDownImpl displayCarousel={displayCarousel} setDisplayCarousel={setDisplayCarousel}/> :
+                <NavigationDownImpl setDisplayCarousel={setDisplayCarousel}/> :
                 null
             }
         </>
