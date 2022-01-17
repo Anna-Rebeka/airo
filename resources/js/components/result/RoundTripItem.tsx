@@ -4,6 +4,7 @@ import {RoundTripAttribute} from "./RoundTripAttribute";
 import {ARRIVES, COMPANY, DESTINATION, DISTANCE, FROM, LEAVES, TIME} from "../images";
 import {RoundTripAttributeCityName} from "./RoundTripAttributeCityName";
 import {useRoundNumber} from "../../BasicUtils";
+import {RoundTripAttributePreferences} from "./RoundTripAttributePreferences";
 
 interface Props {
     departure: any;
@@ -28,20 +29,31 @@ let WrapperDetails = styled.ul`
     margin: 0.5em;
 `
 
+export const WrapperNamePreferences = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
 export const RoundTripItem: FunctionComponent<Props> = ({
-                                                             departure,
-                                                             arrival,
-                                                             leaves,
-                                                             arrives,
-                                                             company,
-                                                             time,
-                                                             distance
-                                                         }) => {
+                                                            departure,
+                                                            arrival,
+                                                            leaves,
+                                                            arrives,
+                                                            company,
+                                                            time,
+                                                            distance
+                                                        }) => {
     return (
         <WrapperContentColDescription>
             <WrapperDetails>
-                <RoundTripAttributeCityName icon={FROM} label={departure.name}/>
-                <RoundTripAttributeCityName icon={DESTINATION} label={arrival.name}/>
+                <WrapperNamePreferences>
+                    <RoundTripAttributeCityName icon={FROM} label={departure.name}/>
+                    <RoundTripAttributePreferences preferences={departure.preferences}/>
+                </WrapperNamePreferences>
+                <WrapperNamePreferences>
+                    <RoundTripAttributeCityName icon={DESTINATION} label={arrival.name}/>
+                    <RoundTripAttributePreferences preferences={arrival.preferences}/>
+                </WrapperNamePreferences>
                 <RoundTripAttribute icon={LEAVES} label={leaves}/>
                 <RoundTripAttribute icon={ARRIVES} label={arrives}/>
                 <RoundTripAttribute icon={TIME} label={useRoundNumber(time) + " mins"}/>

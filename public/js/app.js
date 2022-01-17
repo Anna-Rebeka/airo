@@ -5809,7 +5809,7 @@ var templateObject_1;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.HISTORY = exports.CULTURE = exports.SOCIAL = exports.RELAX = exports.LUXURY = exports.CROWN = exports.BEACH = exports.ADVENTURE = exports.PERSONS = exports.TIME = exports.COMPANY = exports.FROM = exports.DISTANCE = exports.MONEY = exports.DESTINATION = exports.LEAVES = exports.ARRIVES = void 0;
+exports.MAP_PREFERENCES = exports.HISTORY = exports.CULTURE = exports.SOCIAL = exports.RELAX = exports.LUXURY = exports.CROWN = exports.BEACH = exports.ADVENTURE = exports.PERSONS = exports.TIME = exports.COMPANY = exports.FROM = exports.DISTANCE = exports.MONEY = exports.DESTINATION = exports.LEAVES = exports.ARRIVES = void 0;
 exports.ARRIVES = __webpack_require__(/*! ../../../public/images/flightTripItems/arrives.svg */ "./public/images/flightTripItems/arrives.svg");
 exports.LEAVES = __webpack_require__(/*! ../../../public/images/flightTripItems/leaves.svg */ "./public/images/flightTripItems/leaves.svg");
 exports.DESTINATION = __webpack_require__(/*! ../../../public/images/flightTripItems/destination.svg */ "./public/images/flightTripItems/destination.svg");
@@ -5827,6 +5827,16 @@ exports.RELAX = __webpack_require__(/*! ../../../public/images/preferences/relax
 exports.SOCIAL = __webpack_require__(/*! ../../../public/images/preferences/social.png */ "./public/images/preferences/social.png");
 exports.CULTURE = __webpack_require__(/*! ../../../public/images/preferences/culture.png */ "./public/images/preferences/culture.png");
 exports.HISTORY = __webpack_require__(/*! ../../../public/images/preferences/history.png */ "./public/images/preferences/history.png");
+exports.MAP_PREFERENCES = {
+  "History": exports.HISTORY,
+  "Social": exports.SOCIAL,
+  "Adventure": exports.ADVENTURE,
+  "Premium services": exports.CROWN,
+  "Culture": exports.CULTURE,
+  "Relaxation": exports.RELAX,
+  "Luxury flights": exports.CROWN,
+  "Beach resort": exports.BEACH
+};
 
 /***/ }),
 
@@ -8976,6 +8986,63 @@ var templateObject_1, templateObject_2, templateObject_3;
 
 /***/ }),
 
+/***/ "./resources/js/components/result/RoundTripAttributePreferences.tsx":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/result/RoundTripAttributePreferences.tsx ***!
+  \**************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __makeTemplateObject = this && this.__makeTemplateObject || function (cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.RoundTripAttributePreferences = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"));
+
+var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/images.ts");
+
+var Wrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n"])));
+var Preference = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 10px;\n    height: 10px;\n    background-color: white;\n    margin: 0.1em;\n\n    @media (min-width: 476px) {\n        width: 12px;\n        height: 12px;\n    };\n\n    @media (min-width: 800px) {\n        width: 14px;\n        height: 14px;\n    };\n"], ["\n    width: 10px;\n    height: 10px;\n    background-color: white;\n    margin: 0.1em;\n\n    @media (min-width: 476px) {\n        width: 12px;\n        height: 12px;\n    };\n\n    @media (min-width: 800px) {\n        width: 14px;\n        height: 14px;\n    };\n"])));
+
+var RoundTripAttributePreferences = function RoundTripAttributePreferences(_a) {
+  var preferences = _a.preferences;
+  return react_1["default"].createElement(Wrapper, null, preferences && preferences.map(function (preference, index) {
+    return preference.name === "Direct flight" ? null : react_1["default"].createElement(Preference, {
+      key: "pref-" + index + preference.name,
+      src: images_1.MAP_PREFERENCES[preference.name]["default"],
+      title: preference.name
+    });
+  }));
+};
+
+exports.RoundTripAttributePreferences = RoundTripAttributePreferences;
+var templateObject_1, templateObject_2;
+
+/***/ }),
+
 /***/ "./resources/js/components/result/RoundTripAttributeSimplified.tsx":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/result/RoundTripAttributeSimplified.tsx ***!
@@ -9059,7 +9126,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.RoundTripItem = exports.WrapperContentColDescription = void 0;
+exports.RoundTripItem = exports.WrapperNamePreferences = exports.WrapperContentColDescription = void 0;
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -9073,8 +9140,11 @@ var RoundTripAttributeCityName_1 = __webpack_require__(/*! ./RoundTripAttributeC
 
 var BasicUtils_1 = __webpack_require__(/*! ../../BasicUtils */ "./resources/js/BasicUtils.tsx");
 
+var RoundTripAttributePreferences_1 = __webpack_require__(/*! ./RoundTripAttributePreferences */ "./resources/js/components/result/RoundTripAttributePreferences.tsx");
+
 exports.WrapperContentColDescription = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"])));
 var WrapperDetails = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"])));
+exports.WrapperNamePreferences = styled_1["default"].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n"], ["\n    display: flex;\n    flex-direction: column;\n"])));
 
 var RoundTripItem = function RoundTripItem(_a) {
   var departure = _a.departure,
@@ -9084,13 +9154,17 @@ var RoundTripItem = function RoundTripItem(_a) {
       company = _a.company,
       time = _a.time,
       distance = _a.distance;
-  return react_1["default"].createElement(exports.WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(RoundTripAttributeCityName_1.RoundTripAttributeCityName, {
+  return react_1["default"].createElement(exports.WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(exports.WrapperNamePreferences, null, react_1["default"].createElement(RoundTripAttributeCityName_1.RoundTripAttributeCityName, {
     icon: images_1.FROM,
     label: departure.name
-  }), react_1["default"].createElement(RoundTripAttributeCityName_1.RoundTripAttributeCityName, {
+  }), react_1["default"].createElement(RoundTripAttributePreferences_1.RoundTripAttributePreferences, {
+    preferences: departure.preferences
+  })), react_1["default"].createElement(exports.WrapperNamePreferences, null, react_1["default"].createElement(RoundTripAttributeCityName_1.RoundTripAttributeCityName, {
     icon: images_1.DESTINATION,
     label: arrival.name
-  }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
+  }), react_1["default"].createElement(RoundTripAttributePreferences_1.RoundTripAttributePreferences, {
+    preferences: arrival.preferences
+  })), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
     icon: images_1.LEAVES,
     label: leaves
   }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
@@ -9109,7 +9183,7 @@ var RoundTripItem = function RoundTripItem(_a) {
 };
 
 exports.RoundTripItem = RoundTripItem;
-var templateObject_1, templateObject_2;
+var templateObject_1, templateObject_2, templateObject_3;
 
 /***/ }),
 
@@ -9227,6 +9301,10 @@ var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/i
 
 var RoundTripAttributeCityName_1 = __webpack_require__(/*! ./RoundTripAttributeCityName */ "./resources/js/components/result/RoundTripAttributeCityName.tsx");
 
+var RoundTripAttributePreferences_1 = __webpack_require__(/*! ./RoundTripAttributePreferences */ "./resources/js/components/result/RoundTripAttributePreferences.tsx");
+
+var RoundTripItem_1 = __webpack_require__(/*! ./RoundTripItem */ "./resources/js/components/result/RoundTripItem.tsx");
+
 exports.WrapperContentColDescription = styled_1["default"].li(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"], ["\n    display: flex;\n    flex-direction: column;\n    list-style: none;\n"])));
 var WrapperDetails = styled_1["default"].ul(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"], ["\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    margin: 0.5em;\n"])));
 
@@ -9235,13 +9313,17 @@ var RoundTripItemMyFlights = function RoundTripItemMyFlights(_a) {
       arrival = _a.arrival,
       leaves = _a.leaves,
       arrives = _a.arrives;
-  return react_1["default"].createElement(exports.WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(RoundTripAttributeCityName_1.RoundTripAttributeCityName, {
+  return react_1["default"].createElement(exports.WrapperContentColDescription, null, react_1["default"].createElement(WrapperDetails, null, react_1["default"].createElement(RoundTripItem_1.WrapperNamePreferences, null, react_1["default"].createElement(RoundTripAttributeCityName_1.RoundTripAttributeCityName, {
     icon: images_1.FROM,
     label: departure.name
-  }), react_1["default"].createElement(RoundTripAttributeCityName_1.RoundTripAttributeCityName, {
+  }), react_1["default"].createElement(RoundTripAttributePreferences_1.RoundTripAttributePreferences, {
+    preferences: departure.preferences
+  })), react_1["default"].createElement(RoundTripItem_1.WrapperNamePreferences, null, react_1["default"].createElement(RoundTripAttributeCityName_1.RoundTripAttributeCityName, {
     icon: images_1.DESTINATION,
     label: arrival.name
-  }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
+  }), react_1["default"].createElement(RoundTripAttributePreferences_1.RoundTripAttributePreferences, {
+    preferences: arrival.preferences
+  })), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
     icon: images_1.LEAVES,
     label: leaves
   }), react_1["default"].createElement(RoundTripAttribute_1.RoundTripAttribute, {
@@ -42297,7 +42379,7 @@ function combine (array, callback) {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Rebeka\\\\skola\\\\WEB\\\\airo"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\Rebeka\\\\skola\\\\WEB\\\\airo","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 

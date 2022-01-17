@@ -4,6 +4,8 @@ import {RoundTripAttribute} from "./RoundTripAttribute";
 import {ARRIVES, COMPANY, DESTINATION, DISTANCE, FROM, LEAVES, TIME} from "../images";
 import {RoundTripAttributeCityName} from "./RoundTripAttributeCityName";
 import {useRoundNumber} from "../../BasicUtils";
+import {RoundTripAttributePreferences} from "./RoundTripAttributePreferences";
+import {WrapperNamePreferences} from "./RoundTripItem";
 
 interface Props {
     departure: any;
@@ -34,8 +36,14 @@ export const RoundTripItemMyFlights: FunctionComponent<Props> = ({
     return (
         <WrapperContentColDescription>
             <WrapperDetails>
-                <RoundTripAttributeCityName icon={FROM} label={departure.name}/>
-                <RoundTripAttributeCityName icon={DESTINATION} label={arrival.name}/>
+                <WrapperNamePreferences>
+                    <RoundTripAttributeCityName icon={FROM} label={departure.name}/>
+                    <RoundTripAttributePreferences preferences={departure.preferences}/>
+                </WrapperNamePreferences>
+                <WrapperNamePreferences>
+                    <RoundTripAttributeCityName icon={DESTINATION} label={arrival.name}/>
+                    <RoundTripAttributePreferences preferences={arrival.preferences}/>
+                </WrapperNamePreferences>
                 <RoundTripAttribute icon={LEAVES} label={leaves}/>
                 <RoundTripAttribute icon={ARRIVES} label={arrives}/>
             </WrapperDetails>

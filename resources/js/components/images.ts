@@ -17,4 +17,16 @@ export const SOCIAL = require("../../../public/images/preferences/social.png");
 export const CULTURE = require("../../../public/images/preferences/culture.png");
 export const HISTORY = require("../../../public/images/preferences/history.png");
 
+export const MAP_PREFERENCES: any = {
+    "History": HISTORY,
+    "Social": SOCIAL,
+    "Adventure": ADVENTURE,
+    "Premium services": CROWN,
+    "Culture": CULTURE,
+    "Relaxation": RELAX,
+    "Luxury flights": CROWN,
+    "Beach resort": BEACH,
+
+}
+
 
