@@ -82,7 +82,11 @@ class TicketController extends Controller
     public function getRoundtripsRegistered(){
         $tickets = auth()->user()->tickets()->where('roundtrip_code', '!=' , NULL)->orderBy('roundtrip_code')->get();
 
-        $code = NULL;
+        if(count($tickets) == 0){
+            return [];
+        }
+
+        $code = $tickets[0]->roundtrip_code;
         $result = [];
         $tmp = [];
 
@@ -90,8 +94,8 @@ class TicketController extends Controller
         $distance = 0;
         $no = 0;
 
-        foreach ($tickets as $ticket){
-            if ($code != null && $code != $ticket->roundtrip_code){
+        for ($i=0; $i < count($tickets); $i++) { 
+            if ($code != $tickets[$i]->roundtrip_code || $i + 1 == count($tickets)){
                 $roundtrip = [];
                 $roundtrip['tickets'] = $tmp;
                 $roundtrip['price'] = $price;
@@ -105,18 +109,20 @@ class TicketController extends Controller
                 $price = 0;
                 $distance = 0;
             }
-            $flight = $ticket->flight;
+            $flight = $tickets[$i]->flight;
             $flight->arrival;
             $flight->departure;
             $flight->company;
-            $flight->ticket_id = $ticket->id;
+            $flight->ticket_id = $tickets[$i]->id;
             $price += $flight->price;
             $distance += $flight->distance;
-            $no = $ticket->no;
+            $no = $tickets[$i]->no;
 
-            $code = $ticket->roundtrip_code;
-            array_push($tmp, $ticket);
+            $code = $tickets[$i]->roundtrip_code;
+
+            array_push($tmp, $tickets[$i]);
         }
+        
         return $result;
     }
 
