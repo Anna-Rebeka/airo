@@ -21,8 +21,8 @@ class TicketController extends Controller
 
         foreach ($tickets as $ticket){
             $flight = $ticket->flight;
-            $flight->arrival;
-            $flight->departure;
+            $flight->arrival->preferences;
+            $flight->departure->preferences;
             $flight->ticket_id = $ticket->id;
         }
 
@@ -49,8 +49,8 @@ class TicketController extends Controller
         }
         $ticket->flight;
         $ticket->flight->company;
-        $ticket->flight->arrival;
-        $ticket->flight->departure;
+        $ticket->flight->arrival->preferences;
+        $ticket->flight->departure->preferences;
 
         return view('tickets.show', [
             'user' => auth()->user(),
@@ -68,8 +68,8 @@ class TicketController extends Controller
 
         $ticket->flight;
         $ticket->flight->company;
-        $ticket->flight->arrival;
-        $ticket->flight->departure;   
+        $ticket->flight->arrival->preferences;
+        $ticket->flight->departure->preferences;   
         
         return view('tickets.show', [
             'user' => auth()->user(),
@@ -111,8 +111,8 @@ class TicketController extends Controller
             }
             
             $flight = $tickets[$i]->flight;
-            $flight->arrival;
-            $flight->departure;
+            $flight->arrival->preferences;
+            $flight->departure->preferences;
             $flight->company;
             $flight->ticket_id = $tickets[$i]->id;
             $price += $flight->price;
