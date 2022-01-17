@@ -95,7 +95,7 @@ class TicketController extends Controller
         $no = 0;
 
         for ($i=0; $i < count($tickets); $i++) { 
-            if ($code != $tickets[$i]->roundtrip_code || $i + 1 == count($tickets)){
+            if ($code != $tickets[$i]->roundtrip_code){
                 $roundtrip = [];
                 $roundtrip['tickets'] = $tmp;
                 $roundtrip['price'] = $price;
@@ -109,6 +109,7 @@ class TicketController extends Controller
                 $price = 0;
                 $distance = 0;
             }
+            
             $flight = $tickets[$i]->flight;
             $flight->arrival;
             $flight->departure;
@@ -118,9 +119,19 @@ class TicketController extends Controller
             $distance += $flight->distance;
             $no = $tickets[$i]->no;
 
-            $code = $tickets[$i]->roundtrip_code;
-
             array_push($tmp, $tickets[$i]);
+
+            if ($i + 1 == count($tickets)){
+                $roundtrip = [];
+                $roundtrip['tickets'] = $tmp;
+                $roundtrip['price'] = $price;
+                $roundtrip['distance'] = $distance;
+                $roundtrip['no'] = $no;
+                $roundtrip['roundtrip_code'] = $code;
+                $result[$code] = $roundtrip;
+            }
+
+            $code = $tickets[$i]->roundtrip_code;
         }
         
         return $result;
