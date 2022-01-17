@@ -14,20 +14,10 @@ let Wrapper = styled.div`
 `
 
 let Preference = styled.img`
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     background-color: white;
     margin: 0.1em;
-
-    @media (min-width: 476px) {
-        width: 12px;
-        height: 12px;
-    };
-
-    @media (min-width: 800px) {
-        width: 14px;
-        height: 14px;
-    };
 `
 
 export const RoundTripAttributePreferences: FunctionComponent<Props> = ({preferences}) => {

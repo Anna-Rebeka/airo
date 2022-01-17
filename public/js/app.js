@@ -9025,7 +9025,7 @@ var styled_1 = __importDefault(__webpack_require__(/*! @emotion/styled */ "./nod
 var images_1 = __webpack_require__(/*! ../images */ "./resources/js/components/images.ts");
 
 var Wrapper = styled_1["default"].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n"], ["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n"])));
-var Preference = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 10px;\n    height: 10px;\n    background-color: white;\n    margin: 0.1em;\n\n    @media (min-width: 476px) {\n        width: 12px;\n        height: 12px;\n    };\n\n    @media (min-width: 800px) {\n        width: 14px;\n        height: 14px;\n    };\n"], ["\n    width: 10px;\n    height: 10px;\n    background-color: white;\n    margin: 0.1em;\n\n    @media (min-width: 476px) {\n        width: 12px;\n        height: 12px;\n    };\n\n    @media (min-width: 800px) {\n        width: 14px;\n        height: 14px;\n    };\n"])));
+var Preference = styled_1["default"].img(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    width: 14px;\n    height: 14px;\n    background-color: white;\n    margin: 0.1em;\n"], ["\n    width: 14px;\n    height: 14px;\n    background-color: white;\n    margin: 0.1em;\n"])));
 
 var RoundTripAttributePreferences = function RoundTripAttributePreferences(_a) {
   var preferences = _a.preferences;
